@@ -1,0 +1,12 @@
+<script>
+import { defineComponent } from 'vue';
+
+export default defineComponent({
+  name: 'ServeDev'
+});
+</script>
+
+<template>
+  <div id="app">
+  </div>
+</template>
