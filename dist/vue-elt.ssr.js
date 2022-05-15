@@ -112,7 +112,7 @@ function _nonIterableRest() {
       return this.$slots[name] !== undefined;
     },
     onInput: function onInput(event) {
-      this.$emit('update:value', event.target.value);
+      this.$emit("update:value", event.target.value);
     },
     getFieldType: function getFieldType() {
       var fieldType = "";
@@ -259,8 +259,9 @@ function render$3(_ctx, _cache, $props, $setup, $data, $options) {
   } else {
     style.appendChild(document.createTextNode(css));
   }
-}var css_248z$3 = "\nfieldset {\n  display: flex;\n  flex-wrap: wrap;\n  place-items: center;\n  margin: auto;\n  border: none;\n  padding: 0;\n  width: 100%;\n  transition: width 2s;\n  text-align: center;\n}\nfieldset > * {\n  box-sizing: border-box;\n  margin: 0 10px;\n  padding: 5px;\n}\nlegend {\n  width: 93%;\n  font-size: 1.2rem;\n  color: var(--gray);\n}\nlabel {\n  width: 90%;\n  visibility: hidden;\n  font-size: 0.8rem;\n  font-style: italic;\n  color: var(--cyan);\n}\ninput,\nselect,\ntextarea {\n  border: medium outset var(--blue);\n  border-radius: 10px;\n  outline: none;\n  width: 100%;\n  line-height: 1.8;\n  background-color: var(--white);\n}\nfieldset:hover legend {\n  color: var(--black);\n}\nfieldset:hover > input,\nfieldset:hover > select,\nfieldset:hover > textarea,\ninput:focus,\nselect:focus,\ntextarea:focus {\n  border: medium inset var(--green);\n  border-radius: 0;\n  background-color: var(--grey);\n  transition: all 1s;\n}\nfieldset:hover > label,\ninput:focus + label,\nselect:focus + label,\ntextarea:focus + label {\n  visibility: visible;\n  transform: scale(1.1);\n  transition: all 1s;\n}\n";
-styleInject(css_248z$3);script$3.render = render$3;var script$2 = {
+}var css_248z$3 = "\nfieldset[data-v-111fff1c] {\n  display: flex;\n  flex-wrap: wrap;\n  place-items: center;\n  margin: auto;\n  border: none;\n  padding: 0;\n  width: 100%;\n  transition: width 2s;\n  text-align: center;\n}\nfieldset > *[data-v-111fff1c] {\n  box-sizing: border-box;\n  margin: 0 10px;\n  padding: 5px;\n}\nlegend[data-v-111fff1c] {\n  width: 93%;\n  font-size: 1.2rem;\n  color: var(--gray);\n}\nlabel[data-v-111fff1c] {\n  width: 90%;\n  visibility: hidden;\n  font-size: 0.8rem;\n  font-style: italic;\n  color: var(--cyan);\n}\ninput[data-v-111fff1c],\nselect[data-v-111fff1c],\ntextarea[data-v-111fff1c] {\n  border: medium outset var(--blue);\n  border-radius: 10px;\n  outline: none;\n  width: 100%;\n  line-height: 1.8;\n  background-color: var(--white);\n}\nfieldset:hover legend[data-v-111fff1c] {\n  color: var(--black);\n}\nfieldset:hover > input[data-v-111fff1c],\nfieldset:hover > select[data-v-111fff1c],\nfieldset:hover > textarea[data-v-111fff1c],\ninput[data-v-111fff1c]:focus,\nselect[data-v-111fff1c]:focus,\ntextarea[data-v-111fff1c]:focus {\n  border: medium inset var(--green);\n  border-radius: 0;\n  background-color: var(--grey);\n  transition: all 1s;\n}\nfieldset:hover > label[data-v-111fff1c],\ninput:focus + label[data-v-111fff1c],\nselect:focus + label[data-v-111fff1c],\ntextarea:focus + label[data-v-111fff1c] {\n  visibility: visible;\n  transform: scale(1.1);\n  transition: all 1s;\n}\n";
+styleInject(css_248z$3);script$3.render = render$3;
+script$3.__scopeId = "data-v-111fff1c";var script$2 = {
   name: "FootElt",
   props: {
     title1: {
@@ -292,8 +293,9 @@ var _hoisted_3$1 = {
 };
 function render$2(_ctx, _cache, $props, $setup, $data, $options) {
   return vue.openBlock(), vue.createElementBlock("footer", null, [vue.createElementVNode("ol", null, [$options.hasSlot('one') ? (vue.openBlock(), vue.createElementBlock("li", _hoisted_1$2, [vue.createElementVNode("h3", null, vue.toDisplayString($props.title1), 1), vue.renderSlot(_ctx.$slots, "one")])) : vue.createCommentVNode("", true), $options.hasSlot('two') ? (vue.openBlock(), vue.createElementBlock("li", _hoisted_2$1, [vue.createElementVNode("h3", null, vue.toDisplayString($props.title2), 1), vue.renderSlot(_ctx.$slots, "two")])) : vue.createCommentVNode("", true), $options.hasSlot('three') ? (vue.openBlock(), vue.createElementBlock("li", _hoisted_3$1, [vue.createElementVNode("h3", null, vue.toDisplayString($props.title3), 1), vue.renderSlot(_ctx.$slots, "three")])) : vue.createCommentVNode("", true)]), vue.renderSlot(_ctx.$slots, "main")]);
-}var css_248z$2 = "\nfooter {\n  text-align: center;\n}\nol {\n  display: flex;\n  flex-direction: column;\n  place-content: space-evenly;\n  padding: 10px 0;\n  background-color: var(--primary);\n}\nol li {\n  list-style-type: none;\n}\nol :slotted(a) {\n  font-size: 1.5rem;\n  color: var(--white);\n}\nol :slotted(a):hover,\nol :slotted(a):focus {\n  color: var(--secondary);\n}\nh3 {\n  margin: 0;\n  font-size: 2rem;\n  color: var(--grey);\n}\nfooter > :deep(ul) {\n  display: flex;\n  flex-direction: row;\n  place-content: center;\n}\n@media screen and (min-width: 768px) {\nol {\n    flex-direction: row;\n}\n}\n";
-styleInject(css_248z$2);script$2.render = render$2;var script$1 = {
+}var css_248z$2 = "\nfooter[data-v-4416ea0f] {\n  text-align: center;\n}\nol[data-v-4416ea0f] {\n  display: flex;\n  flex-direction: column;\n  place-content: space-evenly;\n  padding: 10px 0;\n  background-color: var(--primary);\n}\nol li[data-v-4416ea0f] {\n  list-style-type: none;\n}\nol a[data-v-4416ea0f-s] {\n  font-size: 1.5rem;\n  color: var(--white);\n}\nol a[data-v-4416ea0f-s]:hover,\nol a[data-v-4416ea0f-s]:focus {\n  color: var(--secondary);\n}\nh3[data-v-4416ea0f] {\n  margin: 0;\n  font-size: 2rem;\n  color: var(--grey);\n}\nfooter[data-v-4416ea0f] >  ul {\n  display: flex;\n  flex-direction: row;\n  place-content: center;\n}\n@media screen and (min-width: 768px) {\nol[data-v-4416ea0f] {\n    flex-direction: row;\n}\n}\n";
+styleInject(css_248z$2);script$2.render = render$2;
+script$2.__scopeId = "data-v-4416ea0f";var script$1 = {
   name: "ListElt",
   props: {
     items: {
@@ -331,8 +333,9 @@ function render$1(_ctx, _cache, $props, $setup, $data, $options) {
       })]);
     }), 128))])) : vue.createCommentVNode("", true)]);
   }), 128))]);
-}var css_248z$1 = "\nul {\n  margin: 5vh 5vw 10vh;\n  padding: 0;\n  list-style: none;\n}\nli > ul {\n  display: flex;\n  flex-wrap: wrap;\n  place-content: center;\n}\n";
-styleInject(css_248z$1);script$1.render = render$1;var script = {
+}var css_248z$1 = "\nul[data-v-7ff257c1] {\n  margin: 5vh 5vw 10vh;\n  padding: 0;\n  list-style: none;\n}\nli > ul[data-v-7ff257c1] {\n  display: flex;\n  flex-wrap: wrap;\n  place-content: center;\n}\n";
+styleInject(css_248z$1);script$1.render = render$1;
+script$1.__scopeId = "data-v-7ff257c1";var script = {
   name: "TableElt",
   props: {
     title: {
@@ -382,8 +385,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       item: item
     })])) : vue.createCommentVNode("", true)]);
   }), 128))]), $options.hasSlot('foot') ? (vue.openBlock(), vue.createElementBlock("tfoot", _hoisted_4, [vue.renderSlot(_ctx.$slots, "foot")])) : vue.createCommentVNode("", true)]);
-}var css_248z = "\ntable {\n  display: table;\n  border-collapse: collapse;\n  border-spacing: 10px;\n  margin: 50px auto;\n  width: auto;\n  max-width: 100%;\n  font-size: calc(var(--body-font-size) * 110 / 100);\n  box-shadow: 5px 5px 10px 5px var(--grey);\n}\ncaption {\n  caption-side: top;\n  margin: 10px;\n  font-size: 3rem;\n  font-weight: bold;\n  color: var(--black);\n  text-shadow: 1px 1px 2px;\n}\nth {\n  display: table-column;\n  font-size: calc(var(--body-font-size) * 120 / 100);\n  font-style: italic;\n  background-color: var(--primary);\n  color: var(--white);\n}\nth,\ntd {\n  padding: 2px;\n  text-align: center;\n  vertical-align: middle;\n}\ntd {\n  display: table-row;\n  word-break: normal;\n  cursor: cell;\n}\ntbody tr:nth-child(even) {\n  background-color: var(--grey);\n  color: var(--black);\n}\ntbody tr:nth-child(odd) {\n  background-color: var(--white);\n  color: var(--gray);\n}\ntbody tr:hover,\ntbody tr:focus {\n  background-color: var(--primary);\n  color: var(--secondary);\n}\n@media (min-width: 576px) {\ntable {\n    max-width: 95%;\n}\n}\n@media (min-width: 768px) {\ntable {\n    max-width: 90%;\n}\n}\n@media (min-width: 992px) {\ntable {\n    max-width: 85%;\n}\nth,\n  td {\n    display: table-cell;\n}\n}\n@media (min-width: 1200px) {\ntable {\n    max-width: 80%;\n}\n}\n@media (min-width: 1600px) {\ntable {\n    max-width: 75%;\n}\n}\n";
-styleInject(css_248z);script.render = render;/* eslint-disable import/prefer-default-export */var components$1=/*#__PURE__*/Object.freeze({__proto__:null,FieldElt:script$3,FootElt:script$2,ListElt:script$1,TableElt:script});var install = function installVueElt(app) {
+}var css_248z = "\ntable[data-v-1848f47c] {\n  display: table;\n  border-collapse: collapse;\n  border-spacing: 10px;\n  margin: 50px auto;\n  width: auto;\n  max-width: 100%;\n  font-size: calc(var(--body-font-size) * 110 / 100);\n  box-shadow: 5px 5px 10px 5px var(--grey);\n}\ncaption[data-v-1848f47c] {\n  caption-side: top;\n  margin: 10px;\n  font-size: 3rem;\n  font-weight: bold;\n  color: var(--black);\n  text-shadow: 1px 1px 2px;\n}\nth[data-v-1848f47c] {\n  display: table-column;\n  font-size: calc(var(--body-font-size) * 120 / 100);\n  font-style: italic;\n  background-color: var(--primary);\n  color: var(--white);\n}\nth[data-v-1848f47c],\ntd[data-v-1848f47c] {\n  padding: 2px;\n  text-align: center;\n  vertical-align: middle;\n}\ntd[data-v-1848f47c] {\n  display: table-row;\n  word-break: normal;\n  cursor: cell;\n}\ntbody tr[data-v-1848f47c]:nth-child(even) {\n  background-color: var(--grey);\n  color: var(--black);\n}\ntbody tr[data-v-1848f47c]:nth-child(odd) {\n  background-color: var(--white);\n  color: var(--gray);\n}\ntbody tr[data-v-1848f47c]:hover,\ntbody tr[data-v-1848f47c]:focus {\n  background-color: var(--primary);\n  color: var(--secondary);\n}\n@media (min-width: 576px) {\ntable[data-v-1848f47c] {\n    max-width: 95%;\n}\n}\n@media (min-width: 768px) {\ntable[data-v-1848f47c] {\n    max-width: 90%;\n}\n}\n@media (min-width: 992px) {\ntable[data-v-1848f47c] {\n    max-width: 85%;\n}\nth[data-v-1848f47c],\n  td[data-v-1848f47c] {\n    display: table-cell;\n}\n}\n@media (min-width: 1200px) {\ntable[data-v-1848f47c] {\n    max-width: 80%;\n}\n}\n@media (min-width: 1600px) {\ntable[data-v-1848f47c] {\n    max-width: 75%;\n}\n}\n";
+styleInject(css_248z);script.render = render;
+script.__scopeId = "data-v-1848f47c";/* eslint-disable import/prefer-default-export */var components$1=/*#__PURE__*/Object.freeze({__proto__:null,FieldElt:script$3,FootElt:script$2,ListElt:script$1,TableElt:script});var install = function installVueElt(app) {
   Object.entries(components$1).forEach(function (_ref) {
     var _ref2 = _slicedToArray(_ref, 2),
         componentName = _ref2[0],

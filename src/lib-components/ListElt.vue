@@ -1,19 +1,19 @@
 <template>
   <ul>
-    <li 
+    <li
       v-for="(item, index) in items"
       :key="index">
-      <slot 
+      <slot
         name="items"
         :index="index"
         :item="item">
       </slot>
       
       <ul v-if="isNested()">
-        <li 
+        <li
           v-for="(value, key) in item"
           :key="key">
-          <slot 
+          <slot
             name="nested"
             :index="index"
             :item="item"
@@ -39,7 +39,6 @@ export default {
       default: "col"
     }
   },
-
   methods: {
     isNested() {
       return this.$slots["nested"] !== undefined;
@@ -48,7 +47,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 ul {
   margin: 5vh 5vw 10vh;
   padding: 0;
