@@ -2,18 +2,26 @@
   "name": "vue-elt",
   "version": "0.1.1",
   "description": "Vue Single File Components Library",
-
+  "keywords":[
+    "javascript",
+    "vue",
+    "component",
+    "single-file-component",
+    "library"
+  ],
+  "license": "Apache-2.0 License",
   "main": "dist/vue-elt.ssr.js",
   "browser": "dist/vue-elt.esm.js",
   "module": "dist/vue-elt.esm.js",
   "unpkg": "dist/vue-elt.min.js",
-
   "files": [
     "dist/*",
     "src/**/*.vue"
   ],
   "sideEffects": false,
-
+  "repository": "github:philippebeck/vue-elt",
+  "homepage": "https://github.com/philippebeck/vue-elt",
+  "bugs": "https://github.com/philippebeck/vue-elt/issues",
   "scripts": {
     "serve": "vue-cli-service serve dev/serve.js",
     "prebuild": "rimraf ./dist",
@@ -49,5 +57,10 @@
   },
   "engines": {
     "node": ">=12"
+  },
+  "author": {
+    "name": "Philippe Beck",
+    "email": "philippe@philippebeck.net",
+    "url": "https://philippebeck.net"
   }
 }
