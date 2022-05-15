@@ -18,14 +18,14 @@
     </thead>
 
     <tbody>
-      <tr 
+      <tr
         v-for="(item, index) in items"
         :key="index">
         <td
           v-for="(value, key) in item"
           :key="key">
-          <slot 
-            :name="`cell-${key}`" 
+          <slot
+            :name="`cell-${key}`"
             :index="index"
             :item="item"
             :key="key"
@@ -33,8 +33,8 @@
           </slot>
         </td>
         <td v-if="hasSlot('body')">
-          <slot 
-            name="body" 
+          <slot
+            name="body"
             :index="index"
             :item="item">
           </slot>
@@ -49,7 +49,6 @@
 </template>
 
 <script>
-
 export default {
   name: "TableElt",
   props: {
@@ -61,7 +60,6 @@ export default {
       required: true
     }
   },
-  
   methods: {
     hasSlot(name) {
       return this.$slots[name] !== undefined;

@@ -4,7 +4,7 @@
       <slot name="legend"></slot>
     </legend>
 
-    <input 
+    <input
       v-if="getFieldType() === 'number'"
       :id="id"
       :max="max"
@@ -79,7 +79,6 @@
 <script>
 export default {
   name: "FieldElt",
-
   props: {
     model: {
       prop: "value",
@@ -130,19 +129,15 @@ export default {
       default: 1
     }
   },
-
   methods: {
     hasSlot(name) {
       return this.$slots[name] !== undefined;
     },
-    
     onInput(event) {
-      this.$emit('update:value', event.target.value)
+      this.$emit("update:value", event.target.value)
     },
-
     getFieldType() {
       let fieldType = "";
-
       switch (this.type) {
         case "date":
         case "number":
@@ -168,7 +163,6 @@ export default {
         default:
           fieldType = "text";
       }
-
       return fieldType;
     }
   }
