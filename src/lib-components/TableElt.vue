@@ -70,7 +70,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 table {
   display: table;
   border-collapse: collapse;

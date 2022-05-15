@@ -48,7 +48,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 ul {
   margin: 5vh 5vw 10vh;
   padding: 0;

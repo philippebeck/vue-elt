@@ -175,7 +175,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 fieldset {
   display: flex;
   flex-wrap: wrap;
