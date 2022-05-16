@@ -1,23 +1,28 @@
 <template>
   <footer>
-    <ol>
-      <li v-if="hasSlot('one')">
-        <h3>{{ title1 }}</h3>
-        <slot name="one"></slot>
+    <ul>
+      <li>
+        <section>
+          <h3>{{ title1 }}</h3>
+          <slot name="foot1"></slot>
+        </section>
       </li>
-
-      <li v-if="hasSlot('two')">
-        <h3>{{ title2 }}</h3>
-        <slot name="two"></slot>
+      <li v-if="hasSlot('foot2')">
+        <section>
+          <h3>{{ title2 }}</h3>
+          <slot name="foot2"></slot>
+        </section>
       </li>
-
-      <li v-if="hasSlot('three')">
-        <h3>{{ title3 }}</h3>
-        <slot name="three"></slot>
+      <li v-if="hasSlot('foot3')">
+        <section>
+          <h3>{{ title3 }}</h3>
+          <slot name="foot3"></slot>
+        </section>
       </li>
-    </ol>
-
-    <slot name="main"></slot>
+    </ul>
+    <aside v-if="hasSlot('foot')">
+      <slot name="foot"></slot>
+    </aside>
   </footer>
 </template>
 
@@ -27,15 +32,15 @@ export default {
   props: {
     title1: {
       type: String,
-      default: "Tools"
+      default: "Sites"
     },
     title2: {
       type: String,
-      default: "Sites"
+      default: "Links"
     },
     title3: {
       type: String,
-      default: "Apps"
+      default: "Tools"
     }
   },
   methods: {
@@ -46,48 +51,78 @@ export default {
 }
 </script>
 
-<style scoped>
-footer {
-  text-align: center;
+<style>
+ul,
+h3 {
+  margin: 0;
+  padding: 0;
 }
 
-ol {
-  display: flex;
-  flex-direction: column;
-  place-content: space-evenly;
-  padding: 10px 0;
-  background-color: var(--primary);
-}
-
-ol li {
+li {
   list-style-type: none;
 }
 
-ol :slotted(a) {
-  font-size: 1.5rem;
-  color: var(--white);
+a {
+  text-decoration: none;
 }
 
-ol :slotted(a):hover,
-ol :slotted(a):focus {
-  color: var(--secondary);
+/* MAIN PART */
+
+footer > ul {
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  text-align: center;
+  background-color: hsl(240,67%,94%); /* Lavender */
 }
 
 h3 {
-  margin: 0;
-  font-size: 2rem;
-  color: var(--grey);
+  margin-bottom: 0.4rem;
+  font-size: 1.3rem;
+  font-family: monospace;
+  color: hsl(0,0%,41%); /* DimGray */
 }
 
-footer > :deep(ul) {
+section a {
+  color: hsl(249,80%,67%); /* MediumSlateBlue */
+}
+
+/* SECOND PART */
+
+aside > ul {
   display: flex;
   flex-direction: row;
   place-content: center;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: hsl(208,100%,97%); /* AliceBlue */
 }
 
-@media screen and (min-width: 768px) {
-  ol {
+aside a {
+  color: hsl(210,100%,56%); /* DodgerBlue */
+}
+
+/* RESPONSIVE */
+
+@media (min-width: 576px) {
+  footer > ul {
     flex-direction: row;
+    place-content: space-around;
+  }
+}
+
+@media (min-width: 768px) {
+  footer > ul {
+    place-content: space-evenly;
+  }
+}
+
+@media (min-width: 992px) {
+  footer > ul {
+    place-content: center;
+    gap: 10vw;
   }
 }
 </style>
