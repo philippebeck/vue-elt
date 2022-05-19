@@ -7,6 +7,7 @@
         name="items"
         :index="index"
         :item="item">
+        {{ item }}
       </slot>
       
       <ul v-if="isNested()">
@@ -19,6 +20,7 @@
             :item="item"
             :key="key"
             :value="value">
+            {{ value }}
           </slot>
         </li>
       </ul>
