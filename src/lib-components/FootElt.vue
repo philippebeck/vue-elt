@@ -51,7 +51,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 /* INIT */
 
 footer {
@@ -61,20 +61,21 @@ footer {
   --foot-second-link-color: hsl(210,100%,56%); /* DodgerBlue */
   --foot-title-color: hsl(0,0%,41%); /* DimGray */
 
+  margin-top: 50px;
   text-align: center;
 }
 
-ul,
-h3 {
+h3,
+:deep(ul) {
   margin: 0;
   padding: 0;
 }
 
-li {
+:deep(li) {
   list-style-type: none;
 }
 
-a {
+:deep(a) {
   text-decoration: none;
 }
 
@@ -84,34 +85,34 @@ footer > ul {
   display: flex;
   flex-direction: column;
   place-items: center;
-  gap: 1rem;
-  padding: 1rem;
+  gap: 20px;
+  padding: 20px;
   background-color: var(--foot-main-bg-color);
 }
 
 h3 {
-  margin-bottom: 0.4rem;
-  font-size: 1.3rem;
+  margin-bottom: 5px;
+  font-size: 1.5rem;
   font-family: monospace;
   color: var(--foot-title-color);
 }
 
-section a {
+section :deep(a) {
   color: var(--foot-main-link-color);
 }
 
 /* SECOND PART */
 
-aside > ul {
+aside > :deep(ul) {
   display: flex;
   flex-direction: row;
   place-content: center;
-  gap: 1rem;
-  padding: 1rem;
+  gap: 10px;
+  padding: 10px;
   background-color: var(--foot-second-bg-color);
 }
 
-aside a {
+aside :deep(a) {
   color: var(--foot-second-link-color);
 }
 
@@ -133,7 +134,7 @@ aside a {
 @media (min-width: 992px) {
   footer > ul {
     place-content: center;
-    gap: 10vw;
+    gap: 10%;
   }
 }
 </style>
