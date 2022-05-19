@@ -51,57 +51,69 @@ export default {
 }
 </script>
 
-<style>
-ul,
-h3 {
+<style scoped>
+/* INIT */
+
+footer {
+  --foot-main-bg-color: hsla(240,67%,94%, 0.9); /* Lavender */
+  --foot-main-link-color: hsl(249,80%,67%); /* MediumSlateBlue */
+  --foot-second-bg-color: hsla(208,100%,97%, 0.9); /* AliceBlue */
+  --foot-second-link-color: hsl(210,100%,56%); /* DodgerBlue */
+  --foot-title-color: hsl(0,0%,41%); /* DimGray */
+
+  margin-top: 50px;
+  text-align: center;
+}
+
+h3,
+:deep(ul) {
   margin: 0;
   padding: 0;
 }
 
-li {
+:deep(li) {
   list-style-type: none;
 }
 
-a {
+:deep(a) {
   text-decoration: none;
 }
 
 /* MAIN PART */
 
-footer > ul {
+footer > ul { 
   display: flex;
   flex-direction: column;
   place-items: center;
-  gap: 1rem;
-  padding: 1rem;
-  text-align: center;
-  background-color: hsl(240,67%,94%); /* Lavender */
+  gap: 20px;
+  padding: 20px;
+  background-color: var(--foot-main-bg-color);
 }
 
 h3 {
-  margin-bottom: 0.4rem;
-  font-size: 1.3rem;
+  margin-bottom: 5px;
+  font-size: 1.5rem;
   font-family: monospace;
-  color: hsl(0,0%,41%); /* DimGray */
+  color: var(--foot-title-color);
 }
 
-section a {
-  color: hsl(249,80%,67%); /* MediumSlateBlue */
+section :deep(a) {
+  color: var(--foot-main-link-color);
 }
 
 /* SECOND PART */
 
-aside > ul {
+aside > :deep(ul) {
   display: flex;
   flex-direction: row;
   place-content: center;
-  gap: 1rem;
-  padding: 1rem;
-  background-color: hsl(208,100%,97%); /* AliceBlue */
+  gap: 10px;
+  padding: 10px;
+  background-color: var(--foot-second-bg-color);
 }
 
-aside a {
-  color: hsl(210,100%,56%); /* DodgerBlue */
+aside :deep(a) {
+  color: var(--foot-second-link-color);
 }
 
 /* RESPONSIVE */
@@ -122,7 +134,7 @@ aside a {
 @media (min-width: 992px) {
   footer > ul {
     place-content: center;
-    gap: 10vw;
+    gap: 10%;
   }
 }
 </style>

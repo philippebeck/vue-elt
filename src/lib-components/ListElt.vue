@@ -7,6 +7,7 @@
         name="items"
         :index="index"
         :item="item">
+        {{ item }}
       </slot>
       
       <ul v-if="isNested()">
@@ -19,6 +20,7 @@
             :item="item"
             :key="key"
             :value="value">
+            {{ value }}
           </slot>
         </li>
       </ul>
@@ -49,9 +51,10 @@ export default {
 
 <style scoped>
 ul {
-  margin: 5vh 5vw 10vh;
+  margin: 0;
   padding: 0;
   list-style: none;
+  text-align: center;
 }
 
 li > ul {

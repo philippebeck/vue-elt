@@ -1,4 +1,4 @@
-import { openBlock, createElementBlock, renderSlot, createCommentVNode, toDisplayString, Fragment, renderList, createElementVNode } from 'vue';
+import { openBlock, createElementBlock, renderSlot, createCommentVNode, toDisplayString, Fragment, renderList, createElementVNode, createTextVNode } from 'vue';
 
 var script$3 = {
   name: "FieldElt",
@@ -224,15 +224,15 @@ var script$2 = {
   props: {
     title1: {
       type: String,
-      default: "Tools"
+      default: "Sites"
     },
     title2: {
       type: String,
-      default: "Sites"
+      default: "Links"
     },
     title3: {
       type: String,
-      default: "Apps"
+      default: "Tools"
     }
   },
   methods: {
@@ -250,17 +250,17 @@ const _hoisted_2$1 = {
   key: 1
 };
 const _hoisted_3$1 = {
-  key: 2
+  key: 0
 };
 function render$2(_ctx, _cache, $props, $setup, $data, $options) {
-  return openBlock(), createElementBlock("footer", null, [createElementVNode("ol", null, [$options.hasSlot('one') ? (openBlock(), createElementBlock("li", _hoisted_1$2, [createElementVNode("h3", null, toDisplayString($props.title1), 1), renderSlot(_ctx.$slots, "one")])) : createCommentVNode("", true), $options.hasSlot('two') ? (openBlock(), createElementBlock("li", _hoisted_2$1, [createElementVNode("h3", null, toDisplayString($props.title2), 1), renderSlot(_ctx.$slots, "two")])) : createCommentVNode("", true), $options.hasSlot('three') ? (openBlock(), createElementBlock("li", _hoisted_3$1, [createElementVNode("h3", null, toDisplayString($props.title3), 1), renderSlot(_ctx.$slots, "three")])) : createCommentVNode("", true)]), renderSlot(_ctx.$slots, "main")]);
+  return openBlock(), createElementBlock("footer", null, [createElementVNode("ul", null, [createElementVNode("li", null, [createElementVNode("section", null, [createElementVNode("h3", null, toDisplayString($props.title1), 1), renderSlot(_ctx.$slots, "foot1")])]), $options.hasSlot('foot2') ? (openBlock(), createElementBlock("li", _hoisted_1$2, [createElementVNode("section", null, [createElementVNode("h3", null, toDisplayString($props.title2), 1), renderSlot(_ctx.$slots, "foot2")])])) : createCommentVNode("", true), $options.hasSlot('foot3') ? (openBlock(), createElementBlock("li", _hoisted_2$1, [createElementVNode("section", null, [createElementVNode("h3", null, toDisplayString($props.title3), 1), renderSlot(_ctx.$slots, "foot3")])])) : createCommentVNode("", true)]), $options.hasSlot('foot') ? (openBlock(), createElementBlock("aside", _hoisted_3$1, [renderSlot(_ctx.$slots, "foot")])) : createCommentVNode("", true)]);
 }
 
-var css_248z$2 = "\nfooter[data-v-4416ea0f] {\n  text-align: center;\n}\nol[data-v-4416ea0f] {\n  display: flex;\n  flex-direction: column;\n  place-content: space-evenly;\n  padding: 10px 0;\n  background-color: var(--primary);\n}\nol li[data-v-4416ea0f] {\n  list-style-type: none;\n}\nol a[data-v-4416ea0f-s] {\n  font-size: 1.5rem;\n  color: var(--white);\n}\nol a[data-v-4416ea0f-s]:hover,\nol a[data-v-4416ea0f-s]:focus {\n  color: var(--secondary);\n}\nh3[data-v-4416ea0f] {\n  margin: 0;\n  font-size: 2rem;\n  color: var(--grey);\n}\nfooter[data-v-4416ea0f] >  ul {\n  display: flex;\n  flex-direction: row;\n  place-content: center;\n}\n@media screen and (min-width: 768px) {\nol[data-v-4416ea0f] {\n    flex-direction: row;\n}\n}\n";
+var css_248z$2 = "\n/* INIT */\nfooter[data-v-89a667de] {\n  --foot-main-bg-color: hsla(240,67%,94%, 0.9); /* Lavender */\n  --foot-main-link-color: hsl(249,80%,67%); /* MediumSlateBlue */\n  --foot-second-bg-color: hsla(208,100%,97%, 0.9); /* AliceBlue */\n  --foot-second-link-color: hsl(210,100%,56%); /* DodgerBlue */\n  --foot-title-color: hsl(0,0%,41%); /* DimGray */\n\n  margin-top: 50px;\n  text-align: center;\n}\nh3[data-v-89a667de],[data-v-89a667de] ul {\n  margin: 0;\n  padding: 0;\n}\n[data-v-89a667de] li {\n  list-style-type: none;\n}\n[data-v-89a667de] a {\n  text-decoration: none;\n}\n\n/* MAIN PART */\nfooter > ul[data-v-89a667de] { \n  display: flex;\n  flex-direction: column;\n  place-items: center;\n  gap: 20px;\n  padding: 20px;\n  background-color: var(--foot-main-bg-color);\n}\nh3[data-v-89a667de] {\n  margin-bottom: 5px;\n  font-size: 1.5rem;\n  font-family: monospace;\n  color: var(--foot-title-color);\n}\nsection[data-v-89a667de] a {\n  color: var(--foot-main-link-color);\n}\n\n/* SECOND PART */\naside[data-v-89a667de] >  ul {\n  display: flex;\n  flex-direction: row;\n  place-content: center;\n  gap: 10px;\n  padding: 10px;\n  background-color: var(--foot-second-bg-color);\n}\naside[data-v-89a667de] a {\n  color: var(--foot-second-link-color);\n}\n\n/* RESPONSIVE */\n@media (min-width: 576px) {\nfooter > ul[data-v-89a667de] {\n    flex-direction: row;\n    place-content: space-around;\n}\n}\n@media (min-width: 768px) {\nfooter > ul[data-v-89a667de] {\n    place-content: space-evenly;\n}\n}\n@media (min-width: 992px) {\nfooter > ul[data-v-89a667de] {\n    place-content: center;\n    gap: 10%;\n}\n}\n";
 styleInject(css_248z$2);
 
 script$2.render = render$2;
-script$2.__scopeId = "data-v-4416ea0f";
+script$2.__scopeId = "data-v-89a667de";
 
 var script$1 = {
   name: "ListElt",
@@ -292,7 +292,7 @@ function render$1(_ctx, _cache, $props, $setup, $data, $options) {
     }, [renderSlot(_ctx.$slots, "items", {
       index: index,
       item: item
-    }), $options.isNested() ? (openBlock(), createElementBlock("ul", _hoisted_1$1, [(openBlock(true), createElementBlock(Fragment, null, renderList(item, (value, key) => {
+    }, () => [createTextVNode(toDisplayString(item), 1)]), $options.isNested() ? (openBlock(), createElementBlock("ul", _hoisted_1$1, [(openBlock(true), createElementBlock(Fragment, null, renderList(item, (value, key) => {
       return openBlock(), createElementBlock("li", {
         key: key
       }, [renderSlot(_ctx.$slots, "nested", {
@@ -300,16 +300,16 @@ function render$1(_ctx, _cache, $props, $setup, $data, $options) {
         item: item,
         key: key,
         value: value
-      })]);
+      }, () => [createTextVNode(toDisplayString(value), 1)])]);
     }), 128))])) : createCommentVNode("", true)]);
   }), 128))]);
 }
 
-var css_248z$1 = "\nul[data-v-7ff257c1] {\n  margin: 5vh 5vw 10vh;\n  padding: 0;\n  list-style: none;\n}\nli > ul[data-v-7ff257c1] {\n  display: flex;\n  flex-wrap: wrap;\n  place-content: center;\n}\n";
+var css_248z$1 = "\nul[data-v-4f869584] {\n  margin: 0;\n  padding: 0;\n  list-style: none;\n  text-align: center;\n}\nli > ul[data-v-4f869584] {\n  display: flex;\n  flex-wrap: wrap;\n  place-content: center;\n}\n";
 styleInject(css_248z$1);
 
 script$1.render = render$1;
-script$1.__scopeId = "data-v-7ff257c1";
+script$1.__scopeId = "data-v-4f869584";
 
 var script = {
   name: "TableElt",
