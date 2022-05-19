@@ -1,5 +1,13 @@
 <template>
   <main id="app">
+    <ListElt 
+      :items="[
+        'FieldElt',
+        'FootElt',
+        'ListElt',
+        'TableElt'
+      ]"/>
+
     <FootElt>
       <template #foot1>
         <ul>
