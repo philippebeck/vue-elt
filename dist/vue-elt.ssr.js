@@ -266,15 +266,15 @@ script$3.__scopeId = "data-v-111fff1c";var script$2 = {
   props: {
     title1: {
       type: String,
-      default: "Tools"
+      default: "Sites"
     },
     title2: {
       type: String,
-      default: "Sites"
+      default: "Links"
     },
     title3: {
       type: String,
-      default: "Apps"
+      default: "Tools"
     }
   },
   methods: {
@@ -289,13 +289,13 @@ var _hoisted_2$1 = {
   key: 1
 };
 var _hoisted_3$1 = {
-  key: 2
+  key: 0
 };
 function render$2(_ctx, _cache, $props, $setup, $data, $options) {
-  return vue.openBlock(), vue.createElementBlock("footer", null, [vue.createElementVNode("ol", null, [$options.hasSlot('one') ? (vue.openBlock(), vue.createElementBlock("li", _hoisted_1$2, [vue.createElementVNode("h3", null, vue.toDisplayString($props.title1), 1), vue.renderSlot(_ctx.$slots, "one")])) : vue.createCommentVNode("", true), $options.hasSlot('two') ? (vue.openBlock(), vue.createElementBlock("li", _hoisted_2$1, [vue.createElementVNode("h3", null, vue.toDisplayString($props.title2), 1), vue.renderSlot(_ctx.$slots, "two")])) : vue.createCommentVNode("", true), $options.hasSlot('three') ? (vue.openBlock(), vue.createElementBlock("li", _hoisted_3$1, [vue.createElementVNode("h3", null, vue.toDisplayString($props.title3), 1), vue.renderSlot(_ctx.$slots, "three")])) : vue.createCommentVNode("", true)]), vue.renderSlot(_ctx.$slots, "main")]);
-}var css_248z$2 = "\nfooter[data-v-4416ea0f] {\n  text-align: center;\n}\nol[data-v-4416ea0f] {\n  display: flex;\n  flex-direction: column;\n  place-content: space-evenly;\n  padding: 10px 0;\n  background-color: var(--primary);\n}\nol li[data-v-4416ea0f] {\n  list-style-type: none;\n}\nol a[data-v-4416ea0f-s] {\n  font-size: 1.5rem;\n  color: var(--white);\n}\nol a[data-v-4416ea0f-s]:hover,\nol a[data-v-4416ea0f-s]:focus {\n  color: var(--secondary);\n}\nh3[data-v-4416ea0f] {\n  margin: 0;\n  font-size: 2rem;\n  color: var(--grey);\n}\nfooter[data-v-4416ea0f] >  ul {\n  display: flex;\n  flex-direction: row;\n  place-content: center;\n}\n@media screen and (min-width: 768px) {\nol[data-v-4416ea0f] {\n    flex-direction: row;\n}\n}\n";
+  return vue.openBlock(), vue.createElementBlock("footer", null, [vue.createElementVNode("ul", null, [vue.createElementVNode("li", null, [vue.createElementVNode("section", null, [vue.createElementVNode("h3", null, vue.toDisplayString($props.title1), 1), vue.renderSlot(_ctx.$slots, "foot1")])]), $options.hasSlot('foot2') ? (vue.openBlock(), vue.createElementBlock("li", _hoisted_1$2, [vue.createElementVNode("section", null, [vue.createElementVNode("h3", null, vue.toDisplayString($props.title2), 1), vue.renderSlot(_ctx.$slots, "foot2")])])) : vue.createCommentVNode("", true), $options.hasSlot('foot3') ? (vue.openBlock(), vue.createElementBlock("li", _hoisted_2$1, [vue.createElementVNode("section", null, [vue.createElementVNode("h3", null, vue.toDisplayString($props.title3), 1), vue.renderSlot(_ctx.$slots, "foot3")])])) : vue.createCommentVNode("", true)]), $options.hasSlot('foot') ? (vue.openBlock(), vue.createElementBlock("aside", _hoisted_3$1, [vue.renderSlot(_ctx.$slots, "foot")])) : vue.createCommentVNode("", true)]);
+}var css_248z$2 = "\n/* INIT */\nfooter[data-v-89a667de] {\n  --foot-main-bg-color: hsla(240,67%,94%, 0.9); /* Lavender */\n  --foot-main-link-color: hsl(249,80%,67%); /* MediumSlateBlue */\n  --foot-second-bg-color: hsla(208,100%,97%, 0.9); /* AliceBlue */\n  --foot-second-link-color: hsl(210,100%,56%); /* DodgerBlue */\n  --foot-title-color: hsl(0,0%,41%); /* DimGray */\n\n  margin-top: 50px;\n  text-align: center;\n}\nh3[data-v-89a667de],[data-v-89a667de] ul {\n  margin: 0;\n  padding: 0;\n}\n[data-v-89a667de] li {\n  list-style-type: none;\n}\n[data-v-89a667de] a {\n  text-decoration: none;\n}\n\n/* MAIN PART */\nfooter > ul[data-v-89a667de] { \n  display: flex;\n  flex-direction: column;\n  place-items: center;\n  gap: 20px;\n  padding: 20px;\n  background-color: var(--foot-main-bg-color);\n}\nh3[data-v-89a667de] {\n  margin-bottom: 5px;\n  font-size: 1.5rem;\n  font-family: monospace;\n  color: var(--foot-title-color);\n}\nsection[data-v-89a667de] a {\n  color: var(--foot-main-link-color);\n}\n\n/* SECOND PART */\naside[data-v-89a667de] >  ul {\n  display: flex;\n  flex-direction: row;\n  place-content: center;\n  gap: 10px;\n  padding: 10px;\n  background-color: var(--foot-second-bg-color);\n}\naside[data-v-89a667de] a {\n  color: var(--foot-second-link-color);\n}\n\n/* RESPONSIVE */\n@media (min-width: 576px) {\nfooter > ul[data-v-89a667de] {\n    flex-direction: row;\n    place-content: space-around;\n}\n}\n@media (min-width: 768px) {\nfooter > ul[data-v-89a667de] {\n    place-content: space-evenly;\n}\n}\n@media (min-width: 992px) {\nfooter > ul[data-v-89a667de] {\n    place-content: center;\n    gap: 10%;\n}\n}\n";
 styleInject(css_248z$2);script$2.render = render$2;
-script$2.__scopeId = "data-v-4416ea0f";var script$1 = {
+script$2.__scopeId = "data-v-89a667de";var script$1 = {
   name: "ListElt",
   props: {
     items: {
@@ -322,6 +322,8 @@ function render$1(_ctx, _cache, $props, $setup, $data, $options) {
     }, [vue.renderSlot(_ctx.$slots, "items", {
       index: index,
       item: item
+    }, function () {
+      return [vue.createTextVNode(vue.toDisplayString(item), 1)];
     }), $options.isNested() ? (vue.openBlock(), vue.createElementBlock("ul", _hoisted_1$1, [(vue.openBlock(true), vue.createElementBlock(vue.Fragment, null, vue.renderList(item, function (value, key) {
       return vue.openBlock(), vue.createElementBlock("li", {
         key: key
@@ -330,12 +332,14 @@ function render$1(_ctx, _cache, $props, $setup, $data, $options) {
         item: item,
         key: key,
         value: value
+      }, function () {
+        return [vue.createTextVNode(vue.toDisplayString(value), 1)];
       })]);
     }), 128))])) : vue.createCommentVNode("", true)]);
   }), 128))]);
-}var css_248z$1 = "\nul[data-v-7ff257c1] {\n  margin: 5vh 5vw 10vh;\n  padding: 0;\n  list-style: none;\n}\nli > ul[data-v-7ff257c1] {\n  display: flex;\n  flex-wrap: wrap;\n  place-content: center;\n}\n";
+}var css_248z$1 = "\nul[data-v-4f869584] {\n  margin: 0;\n  padding: 0;\n  list-style: none;\n  text-align: center;\n}\nli > ul[data-v-4f869584] {\n  display: flex;\n  flex-wrap: wrap;\n  place-content: center;\n}\n";
 styleInject(css_248z$1);script$1.render = render$1;
-script$1.__scopeId = "data-v-7ff257c1";var script = {
+script$1.__scopeId = "data-v-4f869584";var script = {
   name: "TableElt",
   props: {
     title: {
