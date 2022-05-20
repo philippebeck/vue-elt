@@ -1,5 +1,14 @@
 <template>
   <main id="app">
+    <FieldElt
+      id="name"
+      v-model:value="name"
+      info="Type your Name">
+        <template #legend>
+          Welcome {{ name }}!
+        </template>
+      </FieldElt>
+
     <ListElt 
       :items="[
         'FieldElt',
