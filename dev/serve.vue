@@ -161,7 +161,12 @@
 import { defineComponent } from "vue";
 
 export default defineComponent({
-  name: "ServeDev"
+  name: "Serve",
+  data() {
+    return {
+      name: ""
+    }
+  }
 });
 </script>
 
