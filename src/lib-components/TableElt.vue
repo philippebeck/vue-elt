@@ -91,24 +91,24 @@ table {
   width: auto;
   max-width: 100%;
   font-size: calc(var(--body-font-size) * 110 / 100);
-  box-shadow: 5px 5px 10px 5px var(--grey);
+  box-shadow: var(--table-box-shadow);
 }
 
 caption {
   caption-side: top;
   margin: 10px;
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: bold;
-  color: var(--black);
+  color: var(--caption-color);
   text-shadow: 1px 1px 2px;
 }
 
 th {
   display: table-column;
-  font-size: calc(var(--body-font-size) * 120 / 100);
+  font-size: 1.5rem;
   font-style: italic;
-  background-color: var(--primary);
-  color: var(--white);
+  background-color: var(--th-bg-color);
+  color: var(--th-color);
 }
 
 th,
@@ -125,19 +125,19 @@ td {
 }
 
 tbody tr:nth-child(even) {
-  background-color: var(--grey);
-  color: var(--black);
+  background-color: var(--even-cell-bg-color);
+  color: var(--even-cell-color);
 }
 
 tbody tr:nth-child(odd) {
-  background-color: var(--white);
-  color: var(--gray);
+  background-color: var(--odd-cell-bg-color);
+  color: var(--odd-cell-color);
 }
 
 tbody tr:hover,
 tbody tr:focus {
-  background-color: var(--primary);
-  color: var(--secondary);
+  background-color: var(--tr-hover-bg-color);
+  color: var(--tr-hover-color);
 }
 
 @media (min-width: 576px) {
