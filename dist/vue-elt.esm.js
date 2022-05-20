@@ -343,7 +343,7 @@ const _hoisted_4 = {
   key: 1
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return openBlock(), createElementBlock("table", null, [$options.hasSlot('title') ? (openBlock(), createElementBlock("caption", _hoisted_1, [renderSlot(_ctx.$slots, "title")])) : createCommentVNode("", true), createElementVNode("thead", null, [createElementVNode("tr", null, [(openBlock(true), createElementBlock(Fragment, null, renderList($props.items[0], (value, key) => {
+  return openBlock(), createElementBlock("table", null, [$options.hasSlot('title') ? (openBlock(), createElementBlock("caption", _hoisted_1, [renderSlot(_ctx.$slots, "title", {}, () => [createTextVNode(toDisplayString($props.title), 1)])])) : createCommentVNode("", true), createElementVNode("thead", null, [createElementVNode("tr", null, [(openBlock(true), createElementBlock(Fragment, null, renderList($props.items[0], (value, key) => {
     return openBlock(), createElementBlock("th", {
       key: key
     }, toDisplayString(key === "_id" ? key = "id" : key), 1);
@@ -358,7 +358,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         item: item,
         key: key,
         value: value
-      })]);
+      }, () => [createTextVNode(toDisplayString(value), 1)])]);
     }), 128)), $options.hasSlot('body') ? (openBlock(), createElementBlock("td", _hoisted_3, [renderSlot(_ctx.$slots, "body", {
       index: index,
       item: item
@@ -366,11 +366,11 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }), 128))]), $options.hasSlot('foot') ? (openBlock(), createElementBlock("tfoot", _hoisted_4, [renderSlot(_ctx.$slots, "foot")])) : createCommentVNode("", true)]);
 }
 
-var css_248z = "\ntable[data-v-1848f47c] {\n  display: table;\n  border-collapse: collapse;\n  border-spacing: 10px;\n  margin: 50px auto;\n  width: auto;\n  max-width: 100%;\n  font-size: calc(var(--body-font-size) * 110 / 100);\n  box-shadow: 5px 5px 10px 5px var(--grey);\n}\ncaption[data-v-1848f47c] {\n  caption-side: top;\n  margin: 10px;\n  font-size: 3rem;\n  font-weight: bold;\n  color: var(--black);\n  text-shadow: 1px 1px 2px;\n}\nth[data-v-1848f47c] {\n  display: table-column;\n  font-size: calc(var(--body-font-size) * 120 / 100);\n  font-style: italic;\n  background-color: var(--primary);\n  color: var(--white);\n}\nth[data-v-1848f47c],\ntd[data-v-1848f47c] {\n  padding: 2px;\n  text-align: center;\n  vertical-align: middle;\n}\ntd[data-v-1848f47c] {\n  display: table-row;\n  word-break: normal;\n  cursor: cell;\n}\ntbody tr[data-v-1848f47c]:nth-child(even) {\n  background-color: var(--grey);\n  color: var(--black);\n}\ntbody tr[data-v-1848f47c]:nth-child(odd) {\n  background-color: var(--white);\n  color: var(--gray);\n}\ntbody tr[data-v-1848f47c]:hover,\ntbody tr[data-v-1848f47c]:focus {\n  background-color: var(--primary);\n  color: var(--secondary);\n}\n@media (min-width: 576px) {\ntable[data-v-1848f47c] {\n    max-width: 95%;\n}\n}\n@media (min-width: 768px) {\ntable[data-v-1848f47c] {\n    max-width: 90%;\n}\n}\n@media (min-width: 992px) {\ntable[data-v-1848f47c] {\n    max-width: 85%;\n}\nth[data-v-1848f47c],\n  td[data-v-1848f47c] {\n    display: table-cell;\n}\n}\n@media (min-width: 1200px) {\ntable[data-v-1848f47c] {\n    max-width: 80%;\n}\n}\n@media (min-width: 1600px) {\ntable[data-v-1848f47c] {\n    max-width: 75%;\n}\n}\n";
+var css_248z = "\ntable[data-v-5769e831] {\n  --caption-color: hsl(0, 0%, 0%); /* Black */\n  --even-cell-bg-color: hsla(0,0%,86%, 0.9); /* Gainsboro */\n  --even-cell-color: hsl(0, 0%, 0%); /* Black */\n  --odd-cell-bg-color: hsla(0,100%,99%, 0.9); /* Snow */\n  --odd-cell-color: hsl(0,0%,41%); /* DimGray */\n  --table-box-shadow: 5px 5px 10px 5px hsla(0,0%,86%, 0.8); /* Gainsboro */\n  --th-bg-color: hsla(210,100%,56%, 0.9); /* DodgerBlue */\n  --th-color: hsl(0,100%,99%); /* Snow */\n  --tr-hover-bg-color: hsla(210,100%,56%, 0.9); /* DodgerBlue */\n  --tr-hover-color: hsl(0,100%,99%); /* Snow */\n\n  display: table;\n  border-collapse: collapse;\n  border-spacing: 10px;\n  margin: 50px auto;\n  width: auto;\n  max-width: 100%;\n  font-size: calc(var(--body-font-size) * 110 / 100);\n  box-shadow: var(--table-box-shadow);\n}\ncaption[data-v-5769e831] {\n  caption-side: top;\n  margin: 10px;\n  font-size: 2rem;\n  font-weight: bold;\n  color: var(--caption-color);\n  text-shadow: 1px 1px 2px;\n}\nth[data-v-5769e831] {\n  display: table-column;\n  font-size: 1.5rem;\n  font-style: italic;\n  background-color: var(--th-bg-color);\n  color: var(--th-color);\n}\nth[data-v-5769e831],\ntd[data-v-5769e831] {\n  padding: 2px;\n  text-align: center;\n  vertical-align: middle;\n}\ntd[data-v-5769e831] {\n  display: table-row;\n  word-break: normal;\n  cursor: cell;\n}\ntbody tr[data-v-5769e831]:nth-child(even) {\n  background-color: var(--even-cell-bg-color);\n  color: var(--even-cell-color);\n}\ntbody tr[data-v-5769e831]:nth-child(odd) {\n  background-color: var(--odd-cell-bg-color);\n  color: var(--odd-cell-color);\n}\ntbody tr[data-v-5769e831]:hover,\ntbody tr[data-v-5769e831]:focus {\n  background-color: var(--tr-hover-bg-color);\n  color: var(--tr-hover-color);\n}\n@media (min-width: 576px) {\ntable[data-v-5769e831] {\n    max-width: 95%;\n}\n}\n@media (min-width: 768px) {\ntable[data-v-5769e831] {\n    max-width: 90%;\n}\n}\n@media (min-width: 992px) {\ntable[data-v-5769e831] {\n    max-width: 85%;\n}\nth[data-v-5769e831],\n  td[data-v-5769e831] {\n    display: table-cell;\n}\n}\n@media (min-width: 1200px) {\ntable[data-v-5769e831] {\n    max-width: 80%;\n}\n}\n@media (min-width: 1600px) {\ntable[data-v-5769e831] {\n    max-width: 75%;\n}\n}\n";
 styleInject(css_248z);
 
 script.render = render;
-script.__scopeId = "data-v-1848f47c";
+script.__scopeId = "data-v-5769e831";
 
 /* eslint-disable import/prefer-default-export */
 
