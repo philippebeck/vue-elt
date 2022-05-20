@@ -171,27 +171,36 @@ export default {
 
 <style scoped>
 fieldset {
+  --field-bg-color: hsla(60,100%,97%, 0.9); /* Ivory */
+  --field-border-color: hsl(210,100%,56%); /* DodgerBlue */
+  --field-hover-bg-color: hsla(0,0%,86%, 0.9); /* Gainsboro */
+  --field-hover-border-color: hsl(120,61%,50%); /* LimeGreen */
+  --field-hover-legend-color: hsl(0,0%,0%); /* Black */
+  --field-label-color: hsl(180,100%,25%); /* Teal */
+  --field-legend-color: hsl(0,0%,41%); /* DimGray */
+  --field-max-width: 400px;
+
   display: flex;
   flex-wrap: wrap;
   place-items: center;
   margin: auto;
   border: none;
   padding: 0;
-  width: 100%;
-  transition: width 2s;
+  max-width: var(--field-max-width);
+  transition: max-width 2s;
   text-align: center;
 }
 
 fieldset > * {
   box-sizing: border-box;
-  margin: 0 10px;
+  margin: 5px;
   padding: 5px;
 }
 
 legend {
   width: 93%;
   font-size: 1.2rem;
-  color: var(--gray);
+  color: var(--field-legend-color);
 }
 
 label {
@@ -199,22 +208,22 @@ label {
   visibility: hidden;
   font-size: 0.8rem;
   font-style: italic;
-  color: var(--cyan);
+  color: var(--field-label-color);
 }
 
 input,
 select,
 textarea {
-  border: medium outset var(--blue);
+  border: medium solid var(--field-border-color);
   border-radius: 10px;
   outline: none;
   width: 100%;
   line-height: 1.8;
-  background-color: var(--white);
+  background-color: var(--field-bg-color);
 }
 
 fieldset:hover legend {
-  color: var(--black);
+  color: var(--field-hover-legend-color);
 }
 
 fieldset:hover > input,
@@ -223,9 +232,9 @@ fieldset:hover > textarea,
 input:focus,
 select:focus,
 textarea:focus {
-  border: medium inset var(--green);
+  border: medium solid var(--field-hover-border-color);
   border-radius: 0;
-  background-color: var(--grey);
+  background-color: var(--field-hover-bg-color);
   transition: all 1s;
 }
 
