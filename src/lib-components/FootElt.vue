@@ -52,8 +52,6 @@ export default {
 </script>
 
 <style scoped>
-/* INIT */
-
 footer {
   --foot-main-bg-color: hsla(240,67%,94%, 0.9); /* Lavender */
   --foot-main-link-color: hsl(249,80%,67%); /* MediumSlateBlue */
@@ -61,7 +59,7 @@ footer {
   --foot-second-link-color: hsl(210,100%,56%); /* DodgerBlue */
   --foot-title-color: hsl(0,0%,41%); /* DimGray */
 
-  margin-top: 50px;
+  margin-top: 20px;
   text-align: center;
 }
 
@@ -79,7 +77,7 @@ h3,
   text-decoration: none;
 }
 
-/* MAIN PART */
+/********************* MAIN PART *********************/
 
 footer > ul { 
   display: flex;
@@ -101,7 +99,7 @@ section :deep(a) {
   color: var(--foot-main-link-color);
 }
 
-/* SECOND PART */
+/********************* SECOND PART *********************/
 
 aside > :deep(ul) {
   display: flex;
@@ -116,7 +114,7 @@ aside :deep(a) {
   color: var(--foot-second-link-color);
 }
 
-/* RESPONSIVE */
+/********************* RESPONSIVE *********************/
 
 @media (min-width: 576px) {
   footer > ul {
