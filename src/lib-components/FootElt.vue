@@ -61,7 +61,7 @@ footer {
   --foot-second-link-color: hsl(210,100%,56%); /* DodgerBlue */
   --foot-title-color: hsl(0,0%,41%); /* DimGray */
 
-  margin-top: 50px;
+  margin-top: 20px;
   text-align: center;
 }
 
