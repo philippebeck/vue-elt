@@ -1,7 +1,9 @@
 <template>
   <table>
     <caption v-if="hasSlot('title')">
-      <slot name="title"></slot>
+      <slot name="title">
+        {{ title }}
+      </slot>
     </caption>
 
     <thead>
@@ -30,6 +32,7 @@
             :item="item"
             :key="key"
             :value="value">
+            {{ value }}
           </slot>
         </td>
         <td v-if="hasSlot('body')">
