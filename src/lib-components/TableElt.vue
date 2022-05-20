@@ -73,6 +73,17 @@ export default {
 
 <style scoped>
 table {
+  --caption-color: hsl(0, 0%, 0%); /* Black */
+  --even-cell-bg-color: hsla(0,0%,86%, 0.9); /* Gainsboro */
+  --even-cell-color: hsl(0, 0%, 0%); /* Black */
+  --odd-cell-bg-color: hsla(0,100%,99%, 0.9); /* Snow */
+  --odd-cell-color: hsl(0,0%,41%); /* DimGray */
+  --table-box-shadow: 5px 5px 10px 5px hsla(0,0%,86%, 0.8); /* Gainsboro */
+  --th-bg-color: hsla(210,100%,56%, 0.9); /* DodgerBlue */
+  --th-color: hsl(0,100%,99%); /* Snow */
+  --tr-hover-bg-color: hsla(210,100%,56%, 0.9); /* DodgerBlue */
+  --tr-hover-color: hsl(0,100%,99%); /* Snow */
+
   display: table;
   border-collapse: collapse;
   border-spacing: 10px;
