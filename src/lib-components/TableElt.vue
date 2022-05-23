@@ -78,33 +78,32 @@ table {
   display: table;
   border-collapse: collapse;
   border-spacing: 10px;
-  margin: 50px auto;
+  margin: 20px auto;
   width: auto;
   max-width: 100%;
-  font-size: calc(var(--body-font-size) * 110 / 100);
+  font-size: 1rem;
   box-shadow: var(--table-box-shadow);
 }
 
 caption {
   caption-side: top;
-  margin: 10px;
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: bold;
-  color: var(--caption-color);
+  color: var(--gray);
   text-shadow: 1px 1px 2px;
 }
 
 th {
   display: table-column;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-style: italic;
-  background-color: var(--th-bg-color);
-  color: var(--th-color);
+  background-color: var(--blue);
+  color: var(--white);
 }
 
 th,
 td {
-  padding: 2px;
+  padding: 5px;
   text-align: center;
   vertical-align: middle;
 }
@@ -141,15 +140,15 @@ tbody tr:focus {
   table {
     max-width: 90%;
   }
+  th,
+  td {
+    display: table-cell;
+  }
 }
 
 @media (min-width: 992px) {
   table {
     max-width: 85%;
-  }
-  th,
-  td {
-    display: table-cell;
   }
 }
 
