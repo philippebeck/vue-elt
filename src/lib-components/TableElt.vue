@@ -73,16 +73,7 @@ export default {
 
 <style scoped>
 table {
-  --caption-color: hsl(0, 0%, 0%); /* Black */
-  --even-cell-bg-color: hsla(0,0%,86%, 0.9); /* Gainsboro */
-  --even-cell-color: hsl(0, 0%, 0%); /* Black */
-  --odd-cell-bg-color: hsla(0,100%,99%, 0.9); /* Snow */
-  --odd-cell-color: hsl(0,0%,41%); /* DimGray */
-  --table-box-shadow: 5px 5px 10px 5px hsla(0,0%,86%, 0.8); /* Gainsboro */
-  --th-bg-color: hsla(210,100%,56%, 0.9); /* DodgerBlue */
-  --th-color: hsl(0,100%,99%); /* Snow */
-  --tr-hover-bg-color: hsla(210,100%,56%, 0.9); /* DodgerBlue */
-  --tr-hover-color: hsl(0,100%,99%); /* Snow */
+  --table-box-shadow: 5px 5px 5px 5px var(--silver);
 
   display: table;
   border-collapse: collapse;
@@ -125,19 +116,19 @@ td {
 }
 
 tbody tr:nth-child(even) {
-  background-color: var(--even-cell-bg-color);
-  color: var(--even-cell-color);
+  background-color: var(--silver);
+  color: var(--black);
 }
 
 tbody tr:nth-child(odd) {
-  background-color: var(--odd-cell-bg-color);
-  color: var(--odd-cell-color);
+  background-color: var(--white);
+  color: var(--gray);
 }
 
 tbody tr:hover,
 tbody tr:focus {
-  background-color: var(--tr-hover-bg-color);
-  color: var(--tr-hover-color);
+  background-color: var(--cyan);
+  color: var(--navy);
 }
 
 @media (min-width: 576px) {
