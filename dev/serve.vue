@@ -11,19 +11,33 @@
 
     <ListElt 
       :items="[
-        'Template',
-        'Script',
-        'Style'
-      ]"/>
-
-    <BtnElt
-      content="Link">
-    </BtnElt>
-
-    <BtnElt
-      content="Button"
-      type="button">
-    </BtnElt>
+        'black',
+        'blue',
+        'cyan',
+        'gray',
+        'green',
+        'lime',
+        'maroon',
+        'navy',
+        'orange',
+        'purple',
+        'red',
+        'silver',
+        'teal',
+        'violet',
+        'yellow'
+      ]">
+      <template #items="slotProps">
+        <BtnElt
+          :class="slotProps.item"
+          :content="slotProps.item"
+          href="https://github.com/philippebeck/vue-elt/tree/master/src/style/vars.css"/>
+        <BtnElt
+          :class="slotProps.item"
+          :content="slotProps.item"
+          type="button"/>
+      </template>
+    </ListElt>
 
     <TableElt
       title="Releases"
