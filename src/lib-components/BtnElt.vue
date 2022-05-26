@@ -71,8 +71,38 @@
   }
 </script>
 
-<style scoped>
-@import "../style/vars.css";
+<style>
+:root {
+  /* Colors */
+  --black: 0,0%,0%;       /* Black */
+  --blue: 210,100%,56%;   /* DodgerBlue */
+  --cyan: 203,92%,75%;    /* LightSkyBlue */
+  --gray: 0,0%,41%;       /* DimGray */
+  --green: 120,61%,34%;   /* ForestGreen */
+  --lime: 120,61%,50%;    /* LimeGreen */
+  --maroon: 25,76%,31%;   /* SaddleBrown */
+  --navy: 240,64%,27%;    /* MidnightBlue */
+  --orange: 33,100%,50%;  /* DarkOrange */
+  --purple: 271,76%,53%;  /* BlueViolet */
+  --red: 348,83%,47%;     /* Crimson */
+  --silver: 0,0%,86%;     /* GainsBoro */
+  --teal: 177,70%,41%;    /* LightSeaGreen */
+  --violet: 249,80%,67%;  /* MediumSlateBlue */
+  --white: 240,100%,99%;  /* GhostWhite */
+  --yellow: 51,100%,50%;  /* Gold */
+  /* Fonts */
+  --sans-serif: sans-serif;
+  --serif: serif;
+  --monospace: monospace;
+  --cursive: cursive;
+  --fantasy: fantasy;
+  /* Transparency */
+  --lighter: 0.1;
+  --light: 0.3;
+  --dark: 0.7;
+  --darker: 0.9;
+}
+</style>
 
 a,
 button {
