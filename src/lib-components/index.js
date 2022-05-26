@@ -1,4 +1,5 @@
 /* eslint-disable import/prefer-default-export */
+export { default as BtnElt } from './BtnElt';
 export { default as FieldElt } from './FieldElt';
 export { default as FootElt } from './FootElt';
 export { default as ListElt } from './ListElt';

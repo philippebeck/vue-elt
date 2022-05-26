@@ -53,12 +53,6 @@ export default {
 
 <style scoped>
 footer {
-  --foot-main-bg-color: hsla(240,67%,94%, 0.9); /* Lavender */
-  --foot-main-link-color: hsl(249,80%,67%); /* MediumSlateBlue */
-  --foot-second-bg-color: hsla(208,100%,97%, 0.9); /* AliceBlue */
-  --foot-second-link-color: hsl(210,100%,56%); /* DodgerBlue */
-  --foot-title-color: hsl(0,0%,41%); /* DimGray */
-
   margin-top: 20px;
   text-align: center;
 }
@@ -85,18 +79,18 @@ footer > ul {
   place-items: center;
   gap: 20px;
   padding: 20px;
-  background-color: var(--foot-main-bg-color);
+  background-color: hsl(var(--violet));
 }
 
 h3 {
   margin-bottom: 5px;
   font-size: 1.5rem;
   font-family: monospace;
-  color: var(--foot-title-color);
+  color: hsl(var(--white));
 }
 
 section :deep(a) {
-  color: var(--foot-main-link-color);
+  color: hsl(var(--lime));
 }
 
 /********************* SECOND PART *********************/
@@ -107,11 +101,11 @@ aside > :deep(ul) {
   place-content: center;
   gap: 10px;
   padding: 10px;
-  background-color: var(--foot-second-bg-color);
+  background-color: hsl(var(--white));
 }
 
 aside :deep(a) {
-  color: var(--foot-second-link-color);
+  color: hsl(var(--blue));
 }
 
 /********************* RESPONSIVE *********************/

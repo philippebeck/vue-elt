@@ -11,26 +11,49 @@
 
     <ListElt 
       :items="[
-        'Template',
-        'Script',
-        'Style'
-      ]"/>
+        'black',
+        'blue',
+        'cyan',
+        'gray',
+        'green',
+        'lime',
+        'maroon',
+        'navy',
+        'orange',
+        'purple',
+        'red',
+        'silver',
+        'teal',
+        'violet',
+        'yellow'
+      ]">
+      <template #items="slotProps">
+        <BtnElt
+          :class="slotProps.item"
+          :content="slotProps.item"
+          href="https://github.com/philippebeck/vue-elt/tree/master/src/style/vars.css"/>
+        <BtnElt
+          :class="slotProps.item"
+          :content="slotProps.item"
+          type="button"/>
+      </template>
+    </ListElt>
 
-      <TableElt
-        title="Releases"
-        :items="[
-          {'SFC': 'FieldElt', 'Cat': 'Base', 'V': '0.1', 'State': 'Working'},
-          {'SFC': 'FootElt', 'Cat': 'Main', 'V': '0.1', 'State': 'Working'},
-          {'SFC': 'ListElt', 'Cat': 'Data', 'V': '0.1', 'State': 'Working'},
-          {'SFC': 'TableElt', 'Cat': 'Data', 'V': '0.2', 'State': 'Working'},
-          {'SFC': 'BtnElt', 'Cat': 'Base', 'V': '0.3', 'State': 'Building'},
-          {'SFC': 'NavElt', 'Cat': 'Main', 'V': '0.4', 'State': 'Building'},
-          {'SFC': 'CardElt', 'Cat': 'Main', 'V': '0.5', 'State': 'Building'},
-          {'SFC': 'ImgElt', 'Cat': 'Base', 'V': '0.6', 'State': 'Coming'},
-          {'SFC': 'SlideElt', 'Cat': 'Data', 'V': '0.7', 'State': 'Coming'}
-        ]">
-        <template #title></template>
-      </TableElt>
+    <TableElt
+      title="Releases"
+      :items="[
+        {'SFC': 'FieldElt', 'Cat': 'Base', 'V': '0.1', 'State': 'Working'},
+        {'SFC': 'FootElt', 'Cat': 'Main', 'V': '0.1', 'State': 'Working'},
+        {'SFC': 'ListElt', 'Cat': 'Data', 'V': '0.1', 'State': 'Working'},
+        {'SFC': 'TableElt', 'Cat': 'Data', 'V': '0.2', 'State': 'Working'},
+        {'SFC': 'BtnElt', 'Cat': 'Base', 'V': '0.3', 'State': 'Building'},
+        {'SFC': 'NavElt', 'Cat': 'Main', 'V': '0.4', 'State': 'Building'},
+        {'SFC': 'CardElt', 'Cat': 'Main', 'V': '0.5', 'State': 'Building'},
+        {'SFC': 'ImgElt', 'Cat': 'Base', 'V': '0.6', 'State': 'Coming'},
+        {'SFC': 'SlideElt', 'Cat': 'Data', 'V': '0.7', 'State': 'Coming'}
+      ]">
+      <template #title></template>
+    </TableElt>
 
     <FootElt>
       <template #foot1>
@@ -174,14 +197,16 @@
 
 <script>
 import { defineComponent } from "vue";
+import BtnElt from "../src/lib-components/BtnElt.vue";
 
 export default defineComponent({
-  name: "Serve",
-  data() {
-      return {
-          name: ""
-      };
-  }
+    name: "Serve",
+    data() {
+        return {
+            name: ""
+        };
+    },
+    components: { BtnElt }
 });
 </script>
 

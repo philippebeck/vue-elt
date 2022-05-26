@@ -171,13 +171,6 @@ export default {
 
 <style scoped>
 fieldset {
-  --field-bg-color: hsla(60,100%,97%, 0.9); /* Ivory */
-  --field-border-color: hsl(210,100%,56%); /* DodgerBlue */
-  --field-hover-bg-color: hsla(0,0%,86%, 0.9); /* Gainsboro */
-  --field-hover-border-color: hsl(120,61%,50%); /* LimeGreen */
-  --field-hover-legend-color: hsl(0,0%,0%); /* Black */
-  --field-label-color: hsl(180,100%,25%); /* Teal */
-  --field-legend-color: hsl(0,0%,41%); /* DimGray */
   --field-max-width: 400px;
 
   display: flex;
@@ -200,7 +193,7 @@ fieldset > * {
 legend {
   width: 93%;
   font-size: 1.2rem;
-  color: var(--field-legend-color);
+  color: hsl(var(--gray));
 }
 
 label {
@@ -208,22 +201,22 @@ label {
   visibility: hidden;
   font-size: 0.8rem;
   font-style: italic;
-  color: var(--field-label-color);
+  color: hsl(var(--teal));
 }
 
 input,
 select,
 textarea {
-  border: medium solid var(--field-border-color);
+  border: medium solid hsl(var(--blue));
   border-radius: 10px;
   outline: none;
   width: 100%;
   line-height: 1.8;
-  background-color: var(--field-bg-color);
+  background-color: hsl(var(--white));
 }
 
 fieldset:hover legend {
-  color: var(--field-hover-legend-color);
+  color: hsl(var(--black));
 }
 
 fieldset:hover > input,
@@ -232,9 +225,9 @@ fieldset:hover > textarea,
 input:focus,
 select:focus,
 textarea:focus {
-  border: medium solid var(--field-hover-border-color);
+  border: medium solid hsl(var(--lime));
   border-radius: 0;
-  background-color: var(--field-hover-bg-color);
+  background-color: hsl(var(--silver));
   transition: all 1s;
 }
 

@@ -73,47 +73,37 @@ export default {
 
 <style scoped>
 table {
-  --caption-color: hsl(0, 0%, 0%); /* Black */
-  --even-cell-bg-color: hsla(0,0%,86%, 0.9); /* Gainsboro */
-  --even-cell-color: hsl(0, 0%, 0%); /* Black */
-  --odd-cell-bg-color: hsla(0,100%,99%, 0.9); /* Snow */
-  --odd-cell-color: hsl(0,0%,41%); /* DimGray */
-  --table-box-shadow: 5px 5px 10px 5px hsla(0,0%,86%, 0.8); /* Gainsboro */
-  --th-bg-color: hsla(210,100%,56%, 0.9); /* DodgerBlue */
-  --th-color: hsl(0,100%,99%); /* Snow */
-  --tr-hover-bg-color: hsla(210,100%,56%, 0.9); /* DodgerBlue */
-  --tr-hover-color: hsl(0,100%,99%); /* Snow */
+  --table-box-shadow: 5px 5px 5px 5px hsl(var(--silver));
 
   display: table;
   border-collapse: collapse;
   border-spacing: 10px;
-  margin: 50px auto;
+  margin: 20px auto;
   width: auto;
   max-width: 100%;
-  font-size: calc(var(--body-font-size) * 110 / 100);
+  font-size: 1rem;
   box-shadow: var(--table-box-shadow);
 }
 
 caption {
   caption-side: top;
-  margin: 10px;
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: bold;
-  color: var(--caption-color);
+  color: hsl(var(--gray));
   text-shadow: 1px 1px 2px;
 }
 
 th {
   display: table-column;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-style: italic;
-  background-color: var(--th-bg-color);
-  color: var(--th-color);
+  background-color: hsl(var(--blue));
+  color: hsl(var(--white));
 }
 
 th,
 td {
-  padding: 2px;
+  padding: 5px;
   text-align: center;
   vertical-align: middle;
 }
@@ -125,19 +115,19 @@ td {
 }
 
 tbody tr:nth-child(even) {
-  background-color: var(--even-cell-bg-color);
-  color: var(--even-cell-color);
+  background-color: hsl(var(--silver));
+  color: hsl(var(--black));
 }
 
 tbody tr:nth-child(odd) {
-  background-color: var(--odd-cell-bg-color);
-  color: var(--odd-cell-color);
+  background-color: hsl(var(--white));
+  color: hsl(var(--gray));
 }
 
 tbody tr:hover,
 tbody tr:focus {
-  background-color: var(--tr-hover-bg-color);
-  color: var(--tr-hover-color);
+  background-color: hsl(var(--cyan));
+  color: hsl(var(--navy));
 }
 
 @media (min-width: 576px) {
@@ -150,15 +140,15 @@ tbody tr:focus {
   table {
     max-width: 90%;
   }
+  th,
+  td {
+    display: table-cell;
+  }
 }
 
 @media (min-width: 992px) {
   table {
     max-width: 85%;
-  }
-  th,
-  td {
-    display: table-cell;
   }
 }
 
