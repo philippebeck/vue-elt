@@ -73,7 +73,7 @@ export default {
 
 <style scoped>
 table {
-  --table-box-shadow: 5px 5px 5px 5px var(--silver);
+  --table-box-shadow: 5px 5px 5px 5px hsl(var(--silver));
 
   display: table;
   border-collapse: collapse;
@@ -89,7 +89,7 @@ caption {
   caption-side: top;
   font-size: 1.5rem;
   font-weight: bold;
-  color: var(--gray);
+  color: hsl(var(--gray));
   text-shadow: 1px 1px 2px;
 }
 
@@ -97,8 +97,8 @@ th {
   display: table-column;
   font-size: 1.2rem;
   font-style: italic;
-  background-color: var(--blue);
-  color: var(--white);
+  background-color: hsl(var(--blue));
+  color: hsl(var(--white));
 }
 
 th,
@@ -115,19 +115,19 @@ td {
 }
 
 tbody tr:nth-child(even) {
-  background-color: var(--silver);
-  color: var(--black);
+  background-color: hsl(var(--silver));
+  color: hsl(var(--black));
 }
 
 tbody tr:nth-child(odd) {
-  background-color: var(--white);
-  color: var(--gray);
+  background-color: hsl(var(--white));
+  color: hsl(var(--gray));
 }
 
 tbody tr:hover,
 tbody tr:focus {
-  background-color: var(--cyan);
-  color: var(--navy);
+  background-color: hsl(var(--cyan));
+  color: hsl(var(--navy));
 }
 
 @media (min-width: 576px) {
