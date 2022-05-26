@@ -1,5 +1,5 @@
 <template>
-  <main id="app" style="text-align:center">
+  <main id="app">
     <FieldElt
       id="name"
       v-model:value="name"
