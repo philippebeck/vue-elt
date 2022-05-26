@@ -79,18 +79,18 @@ footer > ul {
   place-items: center;
   gap: 20px;
   padding: 20px;
-  background-color: var(--violet);
+  background-color: hsl(var(--violet));
 }
 
 h3 {
   margin-bottom: 5px;
   font-size: 1.5rem;
   font-family: monospace;
-  color: var(--gray);
+  color: hsl(var(--white));
 }
 
 section :deep(a) {
-  color: var(--purple);
+  color: hsl(var(--lime));
 }
 
 /********************* SECOND PART *********************/
@@ -101,11 +101,11 @@ aside > :deep(ul) {
   place-content: center;
   gap: 10px;
   padding: 10px;
-  background-color: var(--white);
+  background-color: hsl(var(--white));
 }
 
 aside :deep(a) {
-  color: var(--blue);
+  color: hsl(var(--blue));
 }
 
 /********************* RESPONSIVE *********************/
