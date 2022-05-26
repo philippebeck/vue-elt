@@ -193,7 +193,7 @@ fieldset > * {
 legend {
   width: 93%;
   font-size: 1.2rem;
-  color: var(--gray);
+  color: hsl(var(--gray));
 }
 
 label {
@@ -201,22 +201,22 @@ label {
   visibility: hidden;
   font-size: 0.8rem;
   font-style: italic;
-  color: var(--teal);
+  color: hsl(var(--teal));
 }
 
 input,
 select,
 textarea {
-  border: medium solid var(--blue);
+  border: medium solid hsl(var(--blue));
   border-radius: 10px;
   outline: none;
   width: 100%;
   line-height: 1.8;
-  background-color: var(--white);
+  background-color: hsl(var(--white));
 }
 
 fieldset:hover legend {
-  color: var(--black);
+  color: hsl(var(--black));
 }
 
 fieldset:hover > input,
@@ -225,9 +225,9 @@ fieldset:hover > textarea,
 input:focus,
 select:focus,
 textarea:focus {
-  border: medium solid var(--lime);
+  border: medium solid hsl(var(--lime));
   border-radius: 0;
-  background-color: var(--silver);
+  background-color: hsl(var(--silver));
   transition: all 1s;
 }
 
