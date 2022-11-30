@@ -51,61 +51,78 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 footer {
   margin-top: 20px;
   text-align: center;
-}
 
-h3,
-:deep(ul) {
-  margin: 0;
-  padding: 0;
-}
+  & h3,
+  & :deep(ul) {
+    margin: 0;
+    padding: 0;
+  }
 
-:deep(li) {
-  list-style-type: none;
-}
+  & :deep(li) {
+    list-style-type: none;
+  }
 
-:deep(a) {
-  text-decoration: none;
+  & :deep(a) {
+    text-decoration: none;
+  }
 }
 
 /********************* MAIN PART *********************/
 
-footer > ul { 
-  display: flex;
-  flex-direction: column;
-  place-items: center;
-  gap: 20px;
-  padding: 20px;
-  background-color: hsl(var(--violet));
-}
+footer {
+  & > ul { 
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    gap: 20px;
+    padding: 20px;
+    background-color: var(--sky);
+  }
 
-h3 {
-  margin-bottom: 5px;
-  font-size: 1.5rem;
-  font-family: monospace;
-  color: hsl(var(--white));
-}
+  & h3 {
+    margin-bottom: 5px;
+    font-size: 1.5rem;
+    font-family: monospace;
+    color: var(--white);
+    cursor: default;
+  }
 
-section :deep(a) {
-  color: hsl(var(--lime));
+  & section {
+    & :deep(a) {
+      color: var(--yellow);
+    }
+
+    & :deep(a:hover),
+    & :deep(a:focus) {
+      color: var(--white);
+    }
+  }
 }
 
 /********************* SECOND PART *********************/
 
-aside > :deep(ul) {
-  display: flex;
-  flex-direction: row;
-  place-content: center;
-  gap: 10px;
-  padding: 10px;
-  background-color: hsl(var(--white));
-}
+aside {
+  & > :deep(ul) {
+    display: flex;
+    flex-direction: row;
+    place-content: center;
+    gap: 10px;
+    padding: 10px;
+    background-color: var(--white);
+  }
 
-aside :deep(a) {
-  color: hsl(var(--blue));
+  & :deep(a) {
+    color: var(--blue);
+  }
+
+  & :deep(a:hover),
+  & :deep(a:focus) {
+    color: var(--sky);
+  }
 }
 
 /********************* RESPONSIVE *********************/
