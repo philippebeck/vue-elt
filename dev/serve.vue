@@ -7,31 +7,31 @@
         <template #legend>
           Welcome {{ name }}!
         </template>
+        <template #label>
+          Welcome {{ name }}!
+        </template>
       </FieldElt>
 
     <ListElt 
       :items="[
-        'black',
-        'blue',
-        'cyan',
-        'gray',
-        'green',
-        'lime',
-        'maroon',
-        'navy',
-        'orange',
-        'purple',
         'red',
-        'silver',
-        'teal',
-        'violet',
-        'yellow'
+        'orange',
+        'yellow',
+        'lime',
+        'green',
+        'aqua',
+        'cyan',
+        'sky',
+        'blue',
+        'indigo',
+        'magenta',
+        'pink'
       ]">
       <template #items="slotProps">
         <BtnElt
           :class="slotProps.item"
           :content="slotProps.item"
-          href="https://github.com/philippebeck/vue-elt/tree/master/src/style/vars.css"/>
+          href="https://github.com/philippebeck/vue-elt"/>
         <BtnElt
           :class="slotProps.item"
           :content="slotProps.item"
@@ -55,7 +55,7 @@
       <template #title></template>
     </TableElt>
 
-    <FootElt>
+    <FootElt class="bg-blue">
       <template #foot1>
         <ul>
           <li>
