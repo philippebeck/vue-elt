@@ -197,7 +197,7 @@
 
 <script>
 import { defineComponent } from "vue";
-import BtnElt from "../src/lib-components/BtnElt.vue";
+import BtnElt from "../src/lib-components/base/BtnElt.vue";
 
 export default defineComponent({
     name: "Serve",
