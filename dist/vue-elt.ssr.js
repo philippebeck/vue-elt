@@ -1,41 +1,36 @@
-'use strict';var vue=require('vue');function _slicedToArray(arr, i) {
+'use strict';var vue=require('vue');function _iterableToArrayLimit(arr, i) {
+  var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"];
+  if (null != _i) {
+    var _s,
+      _e,
+      _x,
+      _r,
+      _arr = [],
+      _n = !0,
+      _d = !1;
+    try {
+      if (_x = (_i = _i.call(arr)).next, 0 === i) {
+        if (Object(_i) !== _i) return;
+        _n = !1;
+      } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0);
+    } catch (err) {
+      _d = !0, _e = err;
+    } finally {
+      try {
+        if (!_n && null != _i.return && (_r = _i.return(), Object(_r) !== _r)) return;
+      } finally {
+        if (_d) throw _e;
+      }
+    }
+    return _arr;
+  }
+}
+function _slicedToArray(arr, i) {
   return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
 }
-
 function _arrayWithHoles(arr) {
   if (Array.isArray(arr)) return arr;
 }
-
-function _iterableToArrayLimit(arr, i) {
-  var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"];
-
-  if (_i == null) return;
-  var _arr = [];
-  var _n = true;
-  var _d = false;
-
-  var _s, _e;
-
-  try {
-    for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) {
-      _arr.push(_s.value);
-
-      if (i && _arr.length === i) break;
-    }
-  } catch (err) {
-    _d = true;
-    _e = err;
-  } finally {
-    try {
-      if (!_n && _i["return"] != null) _i["return"]();
-    } finally {
-      if (_d) throw _e;
-    }
-  }
-
-  return _arr;
-}
-
 function _unsupportedIterableToArray(o, minLen) {
   if (!o) return;
   if (typeof o === "string") return _arrayLikeToArray(o, minLen);
@@ -44,18 +39,14 @@ function _unsupportedIterableToArray(o, minLen) {
   if (n === "Map" || n === "Set") return Array.from(o);
   if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
 }
-
 function _arrayLikeToArray(arr, len) {
   if (len == null || len > arr.length) len = arr.length;
-
   for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i];
-
   return arr2;
 }
-
 function _nonIterableRest() {
   throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
-}var script$4 = {
+}var script$8 = {
   name: "BtnElt",
   props: {
     content: {
@@ -91,14 +82,13 @@ function _nonIterableRest() {
     getBtnType: function getBtnType() {
       if (this.type === "button" || this.type === "submit" || this.type === "reset") {
         return "button";
-      } else {
-        return "link";
       }
+      return "link";
     }
   }
-};var _hoisted_1$4 = ["id", "name", "title", "type", "value"];
-var _hoisted_2$3 = ["href", "id", "title"];
-function render$4(_ctx, _cache, $props, $setup, $data, $options) {
+};var _hoisted_1$8 = ["id", "name", "title", "type", "value"];
+var _hoisted_2$7 = ["href", "id", "title"];
+function render$8(_ctx, _cache, $props, $setup, $data, $options) {
   return $options.getBtnType() === 'button' ? (vue.openBlock(), vue.createElementBlock("button", {
     key: 0,
     id: $props.id,
@@ -106,12 +96,12 @@ function render$4(_ctx, _cache, $props, $setup, $data, $options) {
     title: $props.title,
     type: $props.type,
     value: $props.value
-  }, [vue.renderSlot(_ctx.$slots, "button"), vue.createTextVNode(" " + vue.toDisplayString($props.content), 1)], 8, _hoisted_1$4)) : (vue.openBlock(), vue.createElementBlock("a", {
+  }, [vue.renderSlot(_ctx.$slots, "btn"), vue.createTextVNode(" " + vue.toDisplayString($props.content), 1)], 8, _hoisted_1$8)) : (vue.openBlock(), vue.createElementBlock("a", {
     key: 1,
     href: $props.href,
     id: $props.id,
     title: $props.title
-  }, [vue.renderSlot(_ctx.$slots, "link"), vue.createTextVNode(" " + vue.toDisplayString($props.content), 1)], 8, _hoisted_2$3));
+  }, [vue.renderSlot(_ctx.$slots, "btn"), vue.createTextVNode(" " + vue.toDisplayString($props.content), 1)], 8, _hoisted_2$7));
 }function styleInject(css, ref) {
   if ( ref === void 0 ) ref = {};
   var insertAt = ref.insertAt;
@@ -137,10 +127,9 @@ function render$4(_ctx, _cache, $props, $setup, $data, $options) {
   } else {
     style.appendChild(document.createTextNode(css));
   }
-}var css_248z$5 = "\n:root {\n  /* Colors */\n  --black: 0,0%,0%;       /* Black */\n  --blue: 210,100%,56%;   /* DodgerBlue */\n  --cyan: 203,92%,75%;    /* LightSkyBlue */\n  --gray: 0,0%,41%;       /* DimGray */\n  --green: 120,61%,34%;   /* ForestGreen */\n  --lime: 120,61%,50%;    /* LimeGreen */\n  --maroon: 25,76%,31%;   /* SaddleBrown */\n  --navy: 240,64%,27%;    /* MidnightBlue */\n  --orange: 33,100%,50%;  /* DarkOrange */\n  --purple: 271,76%,53%;  /* BlueViolet */\n  --red: 348,83%,47%;     /* Crimson */\n  --silver: 0,0%,86%;     /* GainsBoro */\n  --teal: 177,70%,41%;    /* LightSeaGreen */\n  --violet: 249,80%,67%;  /* MediumSlateBlue */\n  --white: 240,100%,99%;  /* GhostWhite */\n  --yellow: 51,100%,50%;  /* Gold */\n  /* Fonts */\n  --sans-serif: sans-serif;\n  --serif: serif;\n  --monospace: monospace;\n  --cursive: cursive;\n  --fantasy: fantasy;\n  /* Transparency */\n  --lighter: 0.1;\n  --light: 0.3;\n  --dark: 0.7;\n  --darker: 0.9;\n}\n";
-styleInject(css_248z$5);var css_248z$4 = "\na[data-v-4e80139e],\nbutton[data-v-4e80139e] {\n  display: inline-block;\n  margin: 10px;\n  border: solid medium hsl(var(--black));\n  border-radius: 10px;\n  padding: 5px 10px;\n  font-family: var(--monospace);\n  font-size: 1.2rem;\n  font-weight: bold;\n  text-align: center;\n  text-decoration: none;\n  background-color: hsl(var(--black));\n  color: hsl(var(--white));\n  cursor: pointer;\n}\na[data-v-4e80139e]:hover,\na[data-v-4e80139e]:focus,\nbutton[data-v-4e80139e]:hover,\nbutton[data-v-4e80139e]:focus {\n  border-radius: 5px;\n  background-color: hsl(var(--white));\n  color: hsl(var(--black));\n  box-shadow: inset 0 0 5px 2px;\n  transition: all 500ms linear;\n}\na > *[data-v-4e80139e],\nbutton > *[data-v-4e80139e] {\n  display: block;\n  margin: auto;\n}\n.blue[data-v-4e80139e] {\n  border-color: hsl(var(--blue));\n  background-color: hsl(var(--blue));\n  color: hsl(var(--white));\n}\n.blue[data-v-4e80139e]:hover,\n.blue[data-v-4e80139e]:focus {\n  background-color: hsl(var(--white));\n  color: hsl(var(--blue));\n}\n.cyan[data-v-4e80139e] {\n  border-color: hsl(var(--cyan));\n  background-color: hsl(var(--cyan));\n  color: hsl(var(--white));\n}\n.cyan[data-v-4e80139e]:hover,\n.cyan[data-v-4e80139e]:focus {\n  background-color: hsl(var(--white));\n  color: hsl(var(--cyan));\n}\n.gray[data-v-4e80139e] {\n  border-color: hsl(var(--gray));\n  background-color: hsl(var(--gray));\n  color: hsl(var(--white));\n}\n.gray[data-v-4e80139e]:hover,\n.gray[data-v-4e80139e]:focus {\n  background-color: hsl(var(--white));\n  color: hsl(var(--gray));\n}\n.green[data-v-4e80139e] {\n  border-color: hsl(var(--green));\n  background-color: hsl(var(--green));\n  color: hsl(var(--white));\n}\n.green[data-v-4e80139e]:hover,\n.green[data-v-4e80139e]:focus {\n  background-color: hsl(var(--white));\n  color: hsl(var(--green));\n}\n.lime[data-v-4e80139e] {\n  border-color: hsl(var(--lime));\n  background-color: hsl(var(--lime));\n  color: hsl(var(--white));\n}\n.lime[data-v-4e80139e]:hover,\n.lime[data-v-4e80139e]:focus {\n  background-color: hsl(var(--white));\n  color: hsl(var(--lime));\n}\n.maroon[data-v-4e80139e] {\n  border-color: hsl(var(--maroon));\n  background-color: hsl(var(--maroon));\n  color: hsl(var(--white));\n}\n.maroon[data-v-4e80139e]:hover,\n.maroon[data-v-4e80139e]:focus {\n  background-color: hsl(var(--white));\n  color: hsl(var(--maroon));\n}\n.navy[data-v-4e80139e] {\n  border-color: hsl(var(--navy));\n  background-color: hsl(var(--navy));\n  color: hsl(var(--white));\n}\n.navy[data-v-4e80139e]:hover,\n.navy[data-v-4e80139e]:focus {\n  background-color: hsl(var(--white));\n  color: hsl(var(--navy));\n}\n.orange[data-v-4e80139e] {\n  border-color: hsl(var(--orange));\n  background-color: hsl(var(--orange));\n  color: hsl(var(--white));\n}\n.orange[data-v-4e80139e]:hover,\n.orange[data-v-4e80139e]:focus {\n  background-color: hsl(var(--white));\n  color: hsl(var(--orange));\n}\n.purple[data-v-4e80139e] {\n  border-color: hsl(var(--purple));\n  background-color: hsl(var(--purple));\n  color: hsl(var(--white));\n}\n.purple[data-v-4e80139e]:hover,\n.purple[data-v-4e80139e]:focus {\n  background-color: hsl(var(--white));\n  color: hsl(var(--purple));\n}\n.red[data-v-4e80139e] {\n  border-color: hsl(var(--red));\n  background-color: hsl(var(--red));\n  color: hsl(var(--white));\n}\n.red[data-v-4e80139e]:hover,\n.red[data-v-4e80139e]:focus {\n  background-color: hsl(var(--white));\n  color: hsl(var(--red));\n}\n.silver[data-v-4e80139e] {\n  border-color: hsl(var(--silver));\n  background-color: hsl(var(--silver));\n  color: hsl(var(--gray));\n}\n.silver[data-v-4e80139e]:hover,\n.silver[data-v-4e80139e]:focus {\n  background-color: hsl(var(--gray));\n  color: hsl(var(--silver));\n}\n.teal[data-v-4e80139e] {\n  border-color: hsl(var(--teal));\n  background-color: hsl(var(--teal));\n  color: hsl(var(--white));\n}\n.teal[data-v-4e80139e]:hover,\n.teal[data-v-4e80139e]:focus {\n  background-color: hsl(var(--white));\n  color: hsl(var(--teal));\n}\n.violet[data-v-4e80139e] {\n  border-color: hsl(var(--violet));\n  background-color: hsl(var(--violet));\n  color: hsl(var(--white));\n}\n.violet[data-v-4e80139e]:hover,\n.violet[data-v-4e80139e]:focus {\n  background-color: hsl(var(--white));\n  color: hsl(var(--violet));\n}\n.yellow[data-v-4e80139e] {\n  border-color: hsl(var(--yellow));\n  background-color: hsl(var(--yellow));\n  color: hsl(var(--gray));\n}\n.yellow[data-v-4e80139e]:hover,\n.yellow[data-v-4e80139e]:focus {\n  background-color: hsl(var(--gray));\n  color: hsl(var(--yellow));\n}\n";
-styleInject(css_248z$4);script$4.render = render$4;
-script$4.__scopeId = "data-v-4e80139e";var script$3 = {
+}var css_248z$9 = "\na[data-v-1f924cbe],\nbutton[data-v-1f924cbe] {\n  --btn-display: inline-block;\n  --btn-margin: 10px;\n  --btn-border: solid 2px var(--white);\n  --btn-border-radius: 10px;\n  --btn-padding: 5px 10px;\n  --btn-font-family: var(--monospace);\n  --btn-font-size: 1.2rem;\n  --btn-font-weight: bold;\n  --btn-text-align: center;\n  --btn-text-decoration: none;\n  --btn-background-color: var(--black);\n  --btn-color: var(--white);\n  --btn-cursor: pointer;\n\n  display: var(--btn-display);\n  margin: var(--btn-margin);\n  border: var(--btn-border);\n  border-radius: var(--btn-border-radius);\n  padding: var(--btn-padding);\n  font-family: var(--btn-font-family);\n  font-size: var(--btn-font-size);\n  font-weight: var(--btn-font-weight);\n  text-align: var(--btn-text-align);\n  text-decoration: var(--btn-text-decoration);\n  background-color: var(--btn-background-color);\n  color: var(--btn-color);\n  cursor: var(--btn-cursor);\n}\na[data-v-1f924cbe]:hover,\na[data-v-1f924cbe]:focus,\nbutton[data-v-1f924cbe]:hover,\nbutton[data-v-1f924cbe]:focus {\n  --btn-hover-border-color: var(--black);\n  --btn-hover-border-radius: 5px;\n  --btn-hover-background-color: var(--white);\n  --btn-hover-color: var(--black);\n  --btn-hover-box-shadow: inset 0 0 5px 2px;\n  --btn-hover-transition: all 200ms;\n\n  border-color: var(--btn-hover-border);\n  border-radius: var(--btn-hover-border-radius);\n  background-color: var(--btn-hover-background-color);\n  color: var(--btn-hover-color);\n  box-shadow: var(--btn-hover-box-shadow);\n  transition: var(--btn-hover-transition);\n}\na > *[data-v-1f924cbe],\nbutton > *[data-v-1f924cbe] {\n  --btn-child-display: block;\n  --btn-child-margin: auto;\n\n  display: var(--btn-child-display);\n  margin: var(--btn-child-margin);\n}\n\n/* RED */\n.btn-red[data-v-1f924cbe] {\n  background-color: var(--red);\n}\n.btn-red[data-v-1f924cbe]:hover,\n.btn-red[data-v-1f924cbe]:focus {\n  border-color: var(--red);\n  color: var(--red);\n}\n\n/* ORANGE */\n.btn-orange[data-v-1f924cbe] {\n  background-color: var(--orange);\n}\n.btn-orange[data-v-1f924cbe]:hover,\n.btn-orange[data-v-1f924cbe]:focus {\n  border-color: var(--orange);\n  color: var(--orange);\n}\n\n/* YELLOW */\n.btn-yellow[data-v-1f924cbe] {\n  background-color: var(--yellow);\n}\n.btn-yellow[data-v-1f924cbe]:hover,\n.btn-yellow[data-v-1f924cbe]:focus {\n  border-color: var(--yellow);\n  color: var(--yellow);\n}\n\n/* GREEN */\n.btn-green[data-v-1f924cbe] {\n  background-color: var(--green);\n}\n.btn-green[data-v-1f924cbe]:hover,\n.btn-green[data-v-1f924cbe]:focus {\n  border-color: var(--green);\n  color: var(--green);\n}\n\n/* SKY */\n.btn-sky[data-v-1f924cbe] {\n  background-color: var(--sky);\n}\n.btn-sky[data-v-1f924cbe]:hover,\n.btn-sky[data-v-1f924cbe]:focus {\n  border-color: var(--sky);\n  color: var(--sky);\n}\n\n/* BLUE */\n.btn-blue[data-v-1f924cbe] {\n  background-color: var(--blue);\n}\n.btn-blue[data-v-1f924cbe]:hover,\n.btn-blue[data-v-1f924cbe]:focus {\n  border-color: var(--blue);\n  color: var(--blue);\n}\n\n/* VIOLET */\n.btn-violet[data-v-1f924cbe] {\n  background-color: var(--violet);\n}\n.btn-violet[data-v-1f924cbe]:hover,\n.btn-violet[data-v-1f924cbe]:focus {\n  border-color: var(--violet);\n  color: var(--violet);\n}\n\n/* PINK */\n.btn-pink[data-v-1f924cbe] {\n  background-color: var(--pink);\n}\n.btn-pink[data-v-1f924cbe]:hover,\n.btn-pink[data-v-1f924cbe]:focus {\n  border-color: var(--pink);\n  color: var(--pink);\n}\n";
+styleInject(css_248z$9);script$8.render = render$8;
+script$8.__scopeId = "data-v-1f924cbe";var script$7 = {
   name: "FieldElt",
   props: {
     model: {
@@ -181,7 +170,7 @@ script$4.__scopeId = "data-v-4e80139e";var script$3 = {
     },
     min: {
       type: Number,
-      default: 2
+      default: 8
     },
     rows: {
       type: Number,
@@ -190,6 +179,10 @@ script$4.__scopeId = "data-v-4e80139e";var script$3 = {
     step: {
       type: Number,
       default: 1
+    },
+    required: {
+      type: String,
+      default: "required"
     }
   },
   methods: {
@@ -201,7 +194,6 @@ script$4.__scopeId = "data-v-4e80139e";var script$3 = {
     },
     getFieldType: function getFieldType() {
       var fieldType = "";
-
       switch (this.type) {
         case "date":
         case "number":
@@ -209,51 +201,46 @@ script$4.__scopeId = "data-v-4e80139e";var script$3 = {
         case "time":
           fieldType = "number";
           break;
-
         case "check":
         case "checkbox":
         case "color":
         case "radio":
           fieldType = "special";
           break;
-
         case "list":
         case "option":
         case "select":
           fieldType = "list";
           break;
-
         case "area":
         case "textarea":
           fieldType = "area";
           break;
-
         default:
           fieldType = "text";
       }
-
       return fieldType;
     }
   }
-};var _hoisted_1$3 = ["title"];
-var _hoisted_2$2 = {
+};var _hoisted_1$7 = ["title"];
+var _hoisted_2$6 = {
   key: 0
 };
-var _hoisted_3$2 = ["id", "max", "min", "name", "step", "type", "value"];
-var _hoisted_4$1 = ["id", "name", "type", "value"];
-var _hoisted_5 = ["id", "name", "placeholder"];
-var _hoisted_6 = ["value"];
-var _hoisted_7 = {
+var _hoisted_3$6 = ["id", "max", "min", "name", "step", "type", "value", "required"];
+var _hoisted_4$5 = ["id", "name", "type", "value", "required"];
+var _hoisted_5$4 = ["id", "name", "placeholder", "required"];
+var _hoisted_6$4 = ["value"];
+var _hoisted_7$3 = {
   key: 1
 };
-var _hoisted_8 = ["value"];
-var _hoisted_9 = ["id", "name", "cols", "maxlength", "minlength", "placeholder", "rows", "value"];
-var _hoisted_10 = ["id", "maxlength", "minlength", "name", "placeholder", "type", "value"];
-var _hoisted_11 = ["for"];
-function render$3(_ctx, _cache, $props, $setup, $data, $options) {
+var _hoisted_8$3 = ["value"];
+var _hoisted_9$3 = ["id", "name", "cols", "maxlength", "minlength", "placeholder", "rows", "value", "required"];
+var _hoisted_10$2 = ["id", "maxlength", "minlength", "name", "placeholder", "type", "value", "required"];
+var _hoisted_11$1 = ["for"];
+function render$7(_ctx, _cache, $props, $setup, $data, $options) {
   return vue.openBlock(), vue.createElementBlock("fieldset", {
     title: $props.info
-  }, [$options.hasSlot('legend') ? (vue.openBlock(), vue.createElementBlock("legend", _hoisted_2$2, [vue.renderSlot(_ctx.$slots, "legend")])) : vue.createCommentVNode("", true), $options.getFieldType() === 'number' ? (vue.openBlock(), vue.createElementBlock("input", {
+  }, [$options.hasSlot('legend') ? (vue.openBlock(), vue.createElementBlock("legend", _hoisted_2$6, [vue.renderSlot(_ctx.$slots, "legend")])) : vue.createCommentVNode("", true), $options.getFieldType() === 'number' ? (vue.openBlock(), vue.createElementBlock("input", {
     key: 1,
     id: $props.id,
     max: $props.max,
@@ -264,8 +251,9 @@ function render$3(_ctx, _cache, $props, $setup, $data, $options) {
     value: $props.value,
     onInput: _cache[0] || (_cache[0] = function () {
       return $options.onInput && $options.onInput.apply($options, arguments);
-    })
-  }, null, 40, _hoisted_3$2)) : $options.getFieldType() === 'special' ? (vue.openBlock(), vue.createElementBlock("input", {
+    }),
+    required: $props.required
+  }, null, 40, _hoisted_3$6)) : $options.getFieldType() === 'special' ? (vue.openBlock(), vue.createElementBlock("input", {
     key: 2,
     id: $props.id,
     name: $props.name,
@@ -273,24 +261,26 @@ function render$3(_ctx, _cache, $props, $setup, $data, $options) {
     value: $props.value,
     onInput: _cache[1] || (_cache[1] = function () {
       return $options.onInput && $options.onInput.apply($options, arguments);
-    })
-  }, null, 40, _hoisted_4$1)) : $options.getFieldType() === 'list' ? (vue.openBlock(), vue.createElementBlock("select", {
+    }),
+    required: $props.required
+  }, null, 40, _hoisted_4$5)) : $options.getFieldType() === 'list' ? (vue.openBlock(), vue.createElementBlock("select", {
     key: 3,
     id: $props.id,
     name: $props.id,
     placeholder: $props.info,
     onInput: _cache[2] || (_cache[2] = function () {
       return $options.onInput && $options.onInput.apply($options, arguments);
-    })
+    }),
+    required: $props.required
   }, [$props.value ? (vue.openBlock(), vue.createElementBlock("option", {
     key: 0,
     value: $props.value
-  }, vue.toDisplayString($props.value), 9, _hoisted_6)) : (vue.openBlock(), vue.createElementBlock("option", _hoisted_7, vue.toDisplayString($props.info), 1)), (vue.openBlock(true), vue.createElementBlock(vue.Fragment, null, vue.renderList($props.list, function (value, index) {
+  }, vue.toDisplayString($props.value), 9, _hoisted_6$4)) : (vue.openBlock(), vue.createElementBlock("option", _hoisted_7$3, vue.toDisplayString($props.info), 1)), (vue.openBlock(true), vue.createElementBlock(vue.Fragment, null, vue.renderList($props.list, function (value, index) {
     return vue.openBlock(), vue.createElementBlock("option", {
       key: index,
       value: value
-    }, vue.toDisplayString(value), 9, _hoisted_8);
-  }), 128))], 40, _hoisted_5)) : $options.getFieldType() === 'area' ? (vue.openBlock(), vue.createElementBlock("textarea", {
+    }, vue.toDisplayString(value), 9, _hoisted_8$3);
+  }), 128))], 40, _hoisted_5$4)) : $options.getFieldType() === 'area' ? (vue.openBlock(), vue.createElementBlock("textarea", {
     key: 4,
     id: $props.id,
     name: $props.id,
@@ -302,8 +292,9 @@ function render$3(_ctx, _cache, $props, $setup, $data, $options) {
     value: $props.value,
     onInput: _cache[3] || (_cache[3] = function () {
       return $options.onInput && $options.onInput.apply($options, arguments);
-    })
-  }, null, 40, _hoisted_9)) : (vue.openBlock(), vue.createElementBlock("input", {
+    }),
+    required: $props.required
+  }, null, 40, _hoisted_9$3)) : (vue.openBlock(), vue.createElementBlock("input", {
     key: 5,
     id: $props.id,
     maxlength: $props.max,
@@ -314,27 +305,44 @@ function render$3(_ctx, _cache, $props, $setup, $data, $options) {
     value: $props.value,
     onInput: _cache[4] || (_cache[4] = function () {
       return $options.onInput && $options.onInput.apply($options, arguments);
-    })
-  }, null, 40, _hoisted_10)), $options.hasSlot('label') ? (vue.openBlock(), vue.createElementBlock("label", {
+    }),
+    required: $props.required
+  }, null, 40, _hoisted_10$2)), $options.hasSlot('label') ? (vue.openBlock(), vue.createElementBlock("label", {
     key: 6,
     for: $props.id
-  }, [vue.renderSlot(_ctx.$slots, "label")], 8, _hoisted_11)) : vue.createCommentVNode("", true)], 8, _hoisted_1$3);
-}var css_248z$3 = "\nfieldset[data-v-c2495f26] {\n  --field-max-width: 400px;\n\n  display: flex;\n  flex-wrap: wrap;\n  place-items: center;\n  margin: auto;\n  border: none;\n  padding: 0;\n  max-width: var(--field-max-width);\n  transition: max-width 2s;\n  text-align: center;\n}\nfieldset > *[data-v-c2495f26] {\n  box-sizing: border-box;\n  margin: 5px;\n  padding: 5px;\n}\nlegend[data-v-c2495f26] {\n  width: 93%;\n  font-size: 1.2rem;\n  color: hsl(var(--gray));\n}\nlabel[data-v-c2495f26] {\n  width: 90%;\n  visibility: hidden;\n  font-size: 0.8rem;\n  font-style: italic;\n  color: hsl(var(--teal));\n}\ninput[data-v-c2495f26],\nselect[data-v-c2495f26],\ntextarea[data-v-c2495f26] {\n  border: medium solid hsl(var(--blue));\n  border-radius: 10px;\n  outline: none;\n  width: 100%;\n  line-height: 1.8;\n  background-color: hsl(var(--white));\n}\nfieldset:hover legend[data-v-c2495f26] {\n  color: hsl(var(--black));\n}\nfieldset:hover > input[data-v-c2495f26],\nfieldset:hover > select[data-v-c2495f26],\nfieldset:hover > textarea[data-v-c2495f26],\ninput[data-v-c2495f26]:focus,\nselect[data-v-c2495f26]:focus,\ntextarea[data-v-c2495f26]:focus {\n  border: medium solid hsl(var(--lime));\n  border-radius: 0;\n  background-color: hsl(var(--silver));\n  transition: all 1s;\n}\nfieldset:hover > label[data-v-c2495f26],\ninput:focus + label[data-v-c2495f26],\nselect:focus + label[data-v-c2495f26],\ntextarea:focus + label[data-v-c2495f26] {\n  visibility: visible;\n  transform: scale(1.1);\n  transition: all 1s;\n}\n";
-styleInject(css_248z$3);script$3.render = render$3;
-script$3.__scopeId = "data-v-c2495f26";var script$2 = {
-  name: "FootElt",
+  }, [vue.renderSlot(_ctx.$slots, "label")], 8, _hoisted_11$1)) : vue.createCommentVNode("", true)], 8, _hoisted_1$7);
+}var css_248z$8 = "\nfieldset[data-v-469a08ea] {\n  --fieldset-display: flex;\n  --fieldset-flex-flow: row wrap;\n  --fieldset-place-items: center;\n  --fieldset-margin: auto;\n  --fieldset-border: none;\n  --fieldset-padding: 0;\n  --fieldset-max-width: 300px;\n  --fieldset-text-align: center;\n  --fieldset-transition: max-width 1s;\n\n  display: var(--fieldset-display);\n  flex-flow: var(--fieldset-flex-flow);\n  place-items: var(--fieldset-place-items);;\n  margin: var(--fieldset-margin);\n  border: var(--fieldset-border);\n  padding: var(--fieldset-padding);\n  max-width: var(--fieldset-max-width);\n  text-align: var(--fieldset-text-align);\n  transition: var(--fieldset-transition);\n}\nfieldset > *[data-v-469a08ea] {\n  --field-box-sizing: border-box;\n  --field-margin: 5px;\n  --field-padding: 5px;\n\n  box-sizing: var(--field-box-sizing);\n  margin: var(--field-margin);\n  padding: var(--field-padding);\n}\nlegend[data-v-469a08ea] {\n  --legend-width: 93%;\n  --legend-font-size: 1.2rem;\n  --legend-color: var(--gray);\n\n  width: var(--legend-width);\n  font-size: var(--legend-font-size);\n  color: var(--legend-color);\n}\nlabel[data-v-469a08ea] {\n  --label-width: 90%;\n  --label-visibility: hidden;\n  --label-font-size: 0.8rem;\n  --label-font-style: italic;\n  --label-color: var(--blue);\n\n  width: var(--label-width);\n  visibility: var(--label-visibility);\n  font-size: var(--label-font-size);\n  font-style: var(--label-font-style);\n  color: var(--label-color);\n}\ninput[data-v-469a08ea],\nselect[data-v-469a08ea],\ntextarea[data-v-469a08ea] {\n  --input-border: 1px solid var(--blue);\n  --input-border-radius: 10px;\n  --input-outline: none;\n  --input-width: 100%;\n  --input-line-height: 1.8;\n  --input-background-color: var(--white);\n\n  border: var(--input-border);\n  border-radius: var(--input-border-radius);\n  outline: var(--input-outline);\n  width: var(--input-width);\n  line-height: var(--input-line-height);\n  background-color: var(--input-background-color);\n}\nfieldset:hover legend[data-v-469a08ea] {\n  --hover-legend-color: var(--black);\n\n  color: var(--hover-legend-color);\n}\nfieldset:hover > input[data-v-469a08ea],\nfieldset:hover > select[data-v-469a08ea],\nfieldset:hover > textarea[data-v-469a08ea],\ninput[data-v-469a08ea]:focus,\nselect[data-v-469a08ea]:focus,\ntextarea[data-v-469a08ea]:focus {\n  --hover-input-border: 1px solid var(--sky);\n  --hover-input-border-radius: 0;\n  --hover-input-background-color: var(--white);\n  --hover-input-transition: all 500ms;\n\n  border: var(--hover-input-border);\n  border-radius: var(--hover-input-border-radius);\n  background-color: var(--hover-input-background-color);\n  transition: var(--hover-input-transition);\n}\nfieldset:hover > label[data-v-469a08ea],\ninput:focus + label[data-v-469a08ea],\nselect:focus + label[data-v-469a08ea],\ntextarea:focus + label[data-v-469a08ea] {\n  --hover-label-visibility: visible;\n  --hover-label-transform: scale(1.1);\n  --hover-label-transition: all 1s;\n\n  visibility: var(--hover-label-visibility);\n  transform: var(--hover-label-transform);\n  transition: var(--hover-label-transition);\n}\n";
+styleInject(css_248z$8);script$7.render = render$7;
+script$7.__scopeId = "data-v-469a08ea";var script$6 = {
+  name: "MediaElt",
   props: {
-    title1: {
+    src: {
       type: String,
-      default: "Sites"
+      required: true
     },
-    title2: {
-      type: String,
-      default: "Links"
+    alt: {
+      type: String
     },
-    title3: {
+    title: {
+      type: String
+    },
+    type: {
       type: String,
-      default: "Tools"
+      default: ""
+    },
+    medias: {
+      type: Array
+    },
+    loop: {
+      type: Boolean,
+      default: false
+    },
+    height: {
+      type: Number
+    },
+    width: {
+      type: Number,
+      default: 300
     }
   },
   methods: {
@@ -342,24 +350,62 @@ script$3.__scopeId = "data-v-c2495f26";var script$2 = {
       return this.$slots[name] !== undefined;
     }
   }
-};var _hoisted_1$2 = {
-  key: 0
+};var _hoisted_1$6 = ["title"];
+var _hoisted_2$5 = ["src", "loop"];
+var _hoisted_3$5 = ["src", "loop", "height", "width"];
+var _hoisted_4$4 = ["src", "type"];
+var _hoisted_5$3 = {
+  key: 2
 };
-var _hoisted_2$1 = {
-  key: 1
+var _hoisted_6$3 = ["srcset", "media", "type"];
+var _hoisted_7$2 = ["src", "alt"];
+var _hoisted_8$2 = ["src", "alt"];
+var _hoisted_9$2 = {
+  key: 4
 };
-var _hoisted_3$1 = {
-  key: 0
-};
-function render$2(_ctx, _cache, $props, $setup, $data, $options) {
-  return vue.openBlock(), vue.createElementBlock("footer", null, [vue.createElementVNode("ul", null, [vue.createElementVNode("li", null, [vue.createElementVNode("section", null, [vue.createElementVNode("h3", null, vue.toDisplayString($props.title1), 1), vue.renderSlot(_ctx.$slots, "foot1")])]), $options.hasSlot('foot2') ? (vue.openBlock(), vue.createElementBlock("li", _hoisted_1$2, [vue.createElementVNode("section", null, [vue.createElementVNode("h3", null, vue.toDisplayString($props.title2), 1), vue.renderSlot(_ctx.$slots, "foot2")])])) : vue.createCommentVNode("", true), $options.hasSlot('foot3') ? (vue.openBlock(), vue.createElementBlock("li", _hoisted_2$1, [vue.createElementVNode("section", null, [vue.createElementVNode("h3", null, vue.toDisplayString($props.title3), 1), vue.renderSlot(_ctx.$slots, "foot3")])])) : vue.createCommentVNode("", true)]), $options.hasSlot('foot') ? (vue.openBlock(), vue.createElementBlock("aside", _hoisted_3$1, [vue.renderSlot(_ctx.$slots, "foot")])) : vue.createCommentVNode("", true)]);
-}var css_248z$2 = "\nfooter[data-v-70f38f5f] {\n  margin-top: 20px;\n  text-align: center;\n}\nh3[data-v-70f38f5f],[data-v-70f38f5f] ul {\n  margin: 0;\n  padding: 0;\n}\n[data-v-70f38f5f] li {\n  list-style-type: none;\n}\n[data-v-70f38f5f] a {\n  text-decoration: none;\n}\n\n/********************* MAIN PART *********************/\nfooter > ul[data-v-70f38f5f] { \n  display: flex;\n  flex-direction: column;\n  place-items: center;\n  gap: 20px;\n  padding: 20px;\n  background-color: hsl(var(--violet));\n}\nh3[data-v-70f38f5f] {\n  margin-bottom: 5px;\n  font-size: 1.5rem;\n  font-family: monospace;\n  color: hsl(var(--white));\n}\nsection[data-v-70f38f5f] a {\n  color: hsl(var(--lime));\n}\n\n/********************* SECOND PART *********************/\naside[data-v-70f38f5f] >  ul {\n  display: flex;\n  flex-direction: row;\n  place-content: center;\n  gap: 10px;\n  padding: 10px;\n  background-color: hsl(var(--white));\n}\naside[data-v-70f38f5f] a {\n  color: hsl(var(--blue));\n}\n\n/********************* RESPONSIVE *********************/\n@media (min-width: 576px) {\nfooter > ul[data-v-70f38f5f] {\n    flex-direction: row;\n    place-content: space-around;\n}\n}\n@media (min-width: 768px) {\nfooter > ul[data-v-70f38f5f] {\n    place-content: space-evenly;\n}\n}\n@media (min-width: 992px) {\nfooter > ul[data-v-70f38f5f] {\n    place-content: center;\n    gap: 10%;\n}\n}\n";
-styleInject(css_248z$2);script$2.render = render$2;
-script$2.__scopeId = "data-v-70f38f5f";var script$1 = {
+function render$6(_ctx, _cache, $props, $setup, $data, $options) {
+  return vue.openBlock(), vue.createElementBlock("figure", {
+    title: $props.title
+  }, [$props.type === 'audio' ? (vue.openBlock(), vue.createElementBlock("audio", {
+    key: 0,
+    controls: "",
+    src: $props.src,
+    loop: $props.loop
+  }, [vue.renderSlot(_ctx.$slots, "audio")], 8, _hoisted_2$5)) : $props.type === 'video' ? (vue.openBlock(), vue.createElementBlock("video", {
+    key: 1,
+    controls: "",
+    src: $props.src,
+    loop: $props.loop,
+    height: $props.height,
+    width: $props.width
+  }, [(vue.openBlock(true), vue.createElementBlock(vue.Fragment, null, vue.renderList($props.medias, function (video, index) {
+    return vue.openBlock(), vue.createElementBlock("source", {
+      key: index,
+      src: video.src,
+      type: video.type
+    }, null, 8, _hoisted_4$4);
+  }), 128)), vue.renderSlot(_ctx.$slots, "video")], 8, _hoisted_3$5)) : $props.type === 'picture' ? (vue.openBlock(), vue.createElementBlock("picture", _hoisted_5$3, [(vue.openBlock(true), vue.createElementBlock(vue.Fragment, null, vue.renderList($props.medias, function (picture, index) {
+    return vue.openBlock(), vue.createElementBlock("source", {
+      key: index,
+      srcset: picture.src,
+      media: picture.media,
+      type: picture.type
+    }, null, 8, _hoisted_6$3);
+  }), 128)), vue.createElementVNode("img", {
+    src: $props.src,
+    alt: $props.alt
+  }, null, 8, _hoisted_7$2)])) : (vue.openBlock(), vue.createElementBlock("img", {
+    key: 3,
+    src: $props.src,
+    alt: $props.alt
+  }, null, 8, _hoisted_8$2)), $options.hasSlot('figcaption') ? (vue.openBlock(), vue.createElementBlock("figcaption", _hoisted_9$2, [vue.renderSlot(_ctx.$slots, "figcaption")])) : vue.createCommentVNode("", true)], 8, _hoisted_1$6);
+}var css_248z$7 = "\nfigure[data-v-dfd5506c] {\n  --figure-border: 1px solid transparent;\n  --figure-border-radius: 10%;\n  --figure-background-color: transparent;\n\n  border: var(--figure-border);\n  border-radius: var(--figure-border-radius);\n  background-color: var(--figure-background-color);\n}\nimg[data-v-dfd5506c] {\n  --img-border: 1px solid var(--blue);\n  --img-border-radius: 50%;\n  --img-max-width: 100%;\n  --img-height: auto;\n  --img-object-fit: contain;\n  --img-object-position: 50% 50%;\n\n  border: var(--img-border);\n  border-radius: var(--img-border-radius);\n  max-width: var(--img-max-width);\n  height: var(--img-height);\n  object-fit: var(--img-object-fit);\n  object-position: var(--img-object-position);\n}\naudio[data-v-dfd5506c] {\n  --audio-border: 2px solid var(--black);\n  --audio-border-radius: 10px;\n\n  border: var(--audio-border);\n  border-radius: var(--audio-border-radius);\n}\nvideo[data-v-dfd5506c] {\n  --video-border: 2px solid var(--black);\n  --video-border-radius: 20px;\n\n  border: var(--video-border);\n  border-radius: var(--video-border-radius);\n}\nfigcaption[data-v-dfd5506c] {\n  --figcaption-display: flex;\n  --figcaption-flex-flow: column nowrap;\n  --figcaption-place-content: center center;\n  --figcaption-color: var(--blue);\n\n  display: var(--figcaption-display);\n  flex-flow: var(--figcaption-flex-flow);\n  place-content: var(--figcaption-place-content);\n  color: var(--figcaption-color);\n}\n";
+styleInject(css_248z$7);script$6.render = render$6;
+script$6.__scopeId = "data-v-dfd5506c";var script$5 = {
   name: "ListElt",
   props: {
     items: {
-      type: Array,
+      type: Object,
       required: true
     },
     display: {
@@ -368,14 +414,14 @@ script$2.__scopeId = "data-v-70f38f5f";var script$1 = {
     }
   },
   methods: {
-    isNested: function isNested() {
-      return this.$slots["nested"] !== undefined;
+    hasSlot: function hasSlot(name) {
+      return this.$slots[name] !== undefined;
     }
   }
-};var _hoisted_1$1 = {
+};var _hoisted_1$5 = {
   key: 0
 };
-function render$1(_ctx, _cache, $props, $setup, $data, $options) {
+function render$5(_ctx, _cache, $props, $setup, $data, $options) {
   return vue.openBlock(), vue.createElementBlock("ul", null, [(vue.openBlock(true), vue.createElementBlock(vue.Fragment, null, vue.renderList($props.items, function (item, index) {
     return vue.openBlock(), vue.createElementBlock("li", {
       key: index
@@ -384,7 +430,7 @@ function render$1(_ctx, _cache, $props, $setup, $data, $options) {
       item: item
     }, function () {
       return [vue.createTextVNode(vue.toDisplayString(item), 1)];
-    }), $options.isNested() ? (vue.openBlock(), vue.createElementBlock("ul", _hoisted_1$1, [(vue.openBlock(true), vue.createElementBlock(vue.Fragment, null, vue.renderList(item, function (value, key) {
+    }), $options.hasSlot('nested') ? (vue.openBlock(), vue.createElementBlock("ul", _hoisted_1$5, [(vue.openBlock(true), vue.createElementBlock(vue.Fragment, null, vue.renderList(item, function (value, key) {
       return vue.openBlock(), vue.createElementBlock("li", {
         key: key
       }, [vue.renderSlot(_ctx.$slots, "nested", {
@@ -397,9 +443,334 @@ function render$1(_ctx, _cache, $props, $setup, $data, $options) {
       })]);
     }), 128))])) : vue.createCommentVNode("", true)]);
   }), 128))]);
-}var css_248z$1 = "\nul[data-v-62f0d706] {\n  margin: 20px 0;\n  padding: 0;\n  list-style: none;\n  text-align: center;\n}\nli > ul[data-v-62f0d706] {\n  display: flex;\n  flex-wrap: wrap;\n  place-content: center;\n}\n";
-styleInject(css_248z$1);script$1.render = render$1;
-script$1.__scopeId = "data-v-62f0d706";var script = {
+}var css_248z$6 = "\nul[data-v-341919e0] {\n  --ul-margin: 20px 0;\n  --ul-padding: 0;\n  --ul-list-style: none;\n  --ul-text-align: center;\n\n  margin: var(--ul-margin);\n  padding: var(--ul-padding);\n  list-style: var(--ul-list-style);\n  text-align: var(--ul-text-align);\n}\nli > ul[data-v-341919e0] {\n  --li-ul-display: flex;\n  --li-ul-flex-flow: wrap;\n  --li-ul-place-content: center;\n\n  display: var(--li-ul-display);\n  flex-flow: var(--li-ul-flex-flow);\n  place-content: var(--li-ul-place-content);\n}\n";
+styleInject(css_248z$6);script$5.render = render$5;
+script$5.__scopeId = "data-v-341919e0";var script$4 = {
+  name: "SliderElt",
+  props: {
+    slides: {
+      type: Array
+    },
+    delay: {
+      type: Number,
+      default: 2000
+    },
+    auto: {
+      type: Boolean,
+      default: true
+    },
+    random: {
+      type: Boolean,
+      default: false
+    }
+  },
+  data: function data() {
+    return {
+      index: -1,
+      intervalId: 0,
+      autoElt: null,
+      randomElt: null,
+      autoState: this.auto,
+      randomState: this.random
+    };
+  },
+  beforeCreate: function beforeCreate() {
+    for (var i = 0; i < 1000; i++) {
+      clearTimeout(i);
+    }
+  },
+  mounted: function mounted() {
+    this.autoElt = document.getElementById("slider-auto");
+    this.randomElt = document.getElementById("slider-random");
+    document.addEventListener("keydown", this.setKeyboard);
+  },
+  updated: function updated() {
+    document.getElementById("slide-1").classList.add("show");
+    this.runSlider();
+  },
+  methods: {
+    /******************** SETTERS ********************/
+    /**
+     * SET ICON
+     * @param {object} icon
+     * @param {string} add
+     * @param {string} remove
+     */
+    setIcon: function setIcon(icon, add, remove) {
+      icon.classList.add(add);
+      icon.classList.remove(remove);
+    },
+    /**
+     * SET AUTO
+     * @param {boolean} state
+     * @param {string} title
+     * @param {string} add
+     * @param {string} remove
+     */
+    setAuto: function setAuto(state, title, add, remove) {
+      this.autoState = state;
+      this.autoElt.title = title;
+      this.setIcon(this.autoElt.querySelector("i"), add, remove);
+    },
+    /**
+     * SET RANDOM
+     * @param {boolean} state
+     * @param {string} title
+     * @param {string} add
+     * @param {string} remove
+     */
+    setRandom: function setRandom(state, title, add, remove) {
+      this.randomState = state;
+      this.randomElt.title = title;
+      this.setIcon(this.randomElt.querySelector("i"), add, remove);
+    },
+    /**
+     * SET SLIDE
+     * @param {Number} index 
+     */
+    setSlide: function setSlide(index) {
+      this.index = index;
+      this.refreshSlide();
+    },
+    /**
+     * SET KEYBOARD
+     * @param {Object} event
+     */
+    setKeyboard: function setKeyboard(event) {
+      switch (event.code) {
+        case "ArrowLeft":
+          this.goPrevious();
+          break;
+        case "ArrowUp":
+          this.checkRandom();
+          break;
+        case "ArrowDown":
+          this.checkAuto();
+          break;
+        case "ArrowRight":
+          this.goNext();
+          break;
+      }
+    },
+    /******************** GETTERS ********************/
+    /**
+     * GET RANDOM INTEGER
+     * @param {number} min
+     * @param {number} max
+     * @return
+     */
+    getRandomInteger: function getRandomInteger(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    },
+    /******************** CHECKERS ********************/
+    /**
+     * HAS SLOT
+     * @param {string} name 
+     */
+    hasSlot: function hasSlot(name) {
+      return this.$slots[name] !== undefined;
+    },
+    /**
+     * CHECK AUTO
+     */
+    checkAuto: function checkAuto() {
+      if (this.autoState) {
+        this.setAuto(false, "Play", "fa-play", "fa-pause");
+        window.clearInterval(this.intervalId);
+      } else {
+        this.setAuto(true, "Pause", "fa-pause", "fa-play");
+        this.intervalId = window.setInterval(this.goNext, this.delay);
+      }
+      this.refreshSlide();
+    },
+    /**
+     * CHECK RANDOM
+     */
+    checkRandom: function checkRandom() {
+      if (this.randomState) {
+        this.setRandom(false, "Random", "fa-random", "fa-long-arrow-alt-right");
+      } else {
+        this.setRandom(true, "Normal", "fa-long-arrow-alt-right", "fa-random");
+      }
+      this.refreshSlide();
+    },
+    /******************** MAIN ********************/
+    /**
+     * RUN SLIDER
+     */
+    runSlider: function runSlider() {
+      if (this.autoState) {
+        this.intervalId = window.setInterval(this.goNext, this.delay);
+      } else {
+        this.goNext();
+      }
+    },
+    /**
+     * REFRESH SLIDE
+     */
+    refreshSlide: function refreshSlide() {
+      for (var i = 1; i <= this.slides.length; i++) {
+        document.getElementById("slide-".concat(i)).classList.remove("show");
+      }
+      document.getElementById("slide-".concat(this.index + 1)).classList.add("show");
+    },
+    /**
+     * GO NEXT SLIDE
+     */
+    goNext: function goNext() {
+      if (this.randomState) {
+        this.index = this.getRandomInteger(0, this.slides.length - 1);
+      } else {
+        this.index++;
+        if (this.index >= this.slides.length) {
+          this.index = 0;
+        }
+      }
+      this.refreshSlide();
+    },
+    /**
+     * GO PREVIOUS SLIDE
+     */
+    goPrevious: function goPrevious() {
+      if (this.randomState) {
+        this.index = this.getRandomInteger(0, this.slides.length - 1);
+      } else {
+        this.index--;
+        if (this.index < 0) {
+          this.index = this.slides.length - 1;
+        }
+      }
+      this.refreshSlide();
+    }
+  }
+};var _withScopeId$1 = function _withScopeId(n) {
+  return vue.pushScopeId("data-v-b545ecb8"), n = n(), vue.popScopeId(), n;
+};
+var _hoisted_1$4 = {
+  class: "slider"
+};
+var _hoisted_2$4 = {
+  class: "controls"
+};
+var _hoisted_3$4 = /*#__PURE__*/_withScopeId$1(function () {
+  return /*#__PURE__*/vue.createElementVNode("i", {
+    class: "fas fa-step-backward fa-2x"
+  }, null, -1);
+});
+var _hoisted_4$3 = [_hoisted_3$4];
+var _hoisted_5$2 = {
+  key: 0
+};
+var _hoisted_6$2 = /*#__PURE__*/_withScopeId$1(function () {
+  return /*#__PURE__*/vue.createElementVNode("i", {
+    class: "fas fa-long-arrow-alt-right fa-2x"
+  }, null, -1);
+});
+var _hoisted_7$1 = [_hoisted_6$2];
+var _hoisted_8$1 = {
+  key: 1
+};
+var _hoisted_9$1 = /*#__PURE__*/_withScopeId$1(function () {
+  return /*#__PURE__*/vue.createElementVNode("i", {
+    class: "fas fa-random fa-2x"
+  }, null, -1);
+});
+var _hoisted_10$1 = [_hoisted_9$1];
+var _hoisted_11 = {
+  key: 2
+};
+var _hoisted_12 = /*#__PURE__*/_withScopeId$1(function () {
+  return /*#__PURE__*/vue.createElementVNode("i", {
+    class: "fas fa-pause fa-2x"
+  }, null, -1);
+});
+var _hoisted_13 = [_hoisted_12];
+var _hoisted_14 = {
+  key: 3
+};
+var _hoisted_15 = /*#__PURE__*/_withScopeId$1(function () {
+  return /*#__PURE__*/vue.createElementVNode("i", {
+    class: "fas fa-play fa-2x"
+  }, null, -1);
+});
+var _hoisted_16 = [_hoisted_15];
+var _hoisted_17 = /*#__PURE__*/_withScopeId$1(function () {
+  return /*#__PURE__*/vue.createElementVNode("i", {
+    class: "fas fa-step-forward fa-2x"
+  }, null, -1);
+});
+var _hoisted_18 = [_hoisted_17];
+var _hoisted_19 = {
+  class: "slides"
+};
+var _hoisted_20 = ["id"];
+var _hoisted_21 = {
+  key: 0
+};
+var _hoisted_22 = {
+  class: "gallery"
+};
+var _hoisted_23 = ["onClick"];
+function render$4(_ctx, _cache, $props, $setup, $data, $options) {
+  return vue.openBlock(), vue.createElementBlock("figure", _hoisted_1$4, [vue.createElementVNode("ul", _hoisted_2$4, [vue.createElementVNode("li", null, [vue.createElementVNode("button", {
+    onClick: _cache[0] || (_cache[0] = function ($event) {
+      return $options.goPrevious();
+    }),
+    title: "Previous (←)"
+  }, _hoisted_4$3)]), $props.random === true ? (vue.openBlock(), vue.createElementBlock("li", _hoisted_5$2, [vue.createElementVNode("button", {
+    onClick: _cache[1] || (_cache[1] = function ($event) {
+      return $options.checkRandom();
+    }),
+    id: "slider-random",
+    title: "Normal"
+  }, _hoisted_7$1)])) : (vue.openBlock(), vue.createElementBlock("li", _hoisted_8$1, [vue.createElementVNode("button", {
+    onClick: _cache[2] || (_cache[2] = function ($event) {
+      return $options.checkRandom();
+    }),
+    id: "slider-random",
+    title: "Random"
+  }, _hoisted_10$1)])), $props.auto === true ? (vue.openBlock(), vue.createElementBlock("li", _hoisted_11, [vue.createElementVNode("button", {
+    onClick: _cache[3] || (_cache[3] = function ($event) {
+      return $options.checkAuto();
+    }),
+    id: "slider-auto",
+    title: "Pause"
+  }, _hoisted_13)])) : (vue.openBlock(), vue.createElementBlock("li", _hoisted_14, [vue.createElementVNode("button", {
+    onClick: _cache[4] || (_cache[4] = function ($event) {
+      return $options.checkAuto();
+    }),
+    id: "slider-auto",
+    title: "Play"
+  }, _hoisted_16)])), vue.createElementVNode("li", null, [vue.createElementVNode("button", {
+    onClick: _cache[5] || (_cache[5] = function ($event) {
+      return $options.goNext();
+    }),
+    title: "Next"
+  }, _hoisted_18)])]), vue.createElementVNode("ul", _hoisted_19, [(vue.openBlock(true), vue.createElementBlock(vue.Fragment, null, vue.renderList($props.slides, function (slide, index) {
+    return vue.openBlock(), vue.createElementBlock("li", {
+      key: index,
+      id: 'slide-' + (index + 1)
+    }, [vue.createElementVNode("figure", null, [vue.renderSlot(_ctx.$slots, "slide", {
+      slide: slide,
+      index: index
+    }), $options.hasSlot('info') ? (vue.openBlock(), vue.createElementBlock("figcaption", _hoisted_21, [vue.renderSlot(_ctx.$slots, "info", {
+      slide: slide,
+      index: index
+    })])) : vue.createCommentVNode("", true)])], 8, _hoisted_20);
+  }), 128))]), vue.createElementVNode("ul", _hoisted_22, [(vue.openBlock(true), vue.createElementBlock(vue.Fragment, null, vue.renderList($props.slides, function (slide, index) {
+    return vue.openBlock(), vue.createElementBlock("li", {
+      key: index,
+      onClick: function onClick($event) {
+        return $options.setSlide(index);
+      }
+    }, [vue.renderSlot(_ctx.$slots, "gallery", {
+      slide: slide,
+      index: index
+    })], 8, _hoisted_23);
+  }), 128))])]);
+}var css_248z$5 = "\n.slider[data-v-b545ecb8] {\n  --slider-margin: var(--slider-figcaption-height) auto -20px;\n  --slider-border: none;\n  --slider-padding: 0;\n  --slider-width: 100%;\n\n  margin: var(--slider-margin);\n  border: var(--slider-border);\n  padding: var(--slider-padding);\n  width: var(--slider-width);\n}\n[id*=\"slide-\"][data-v-b545ecb8] {\n  --slide-display: none;\n  display: var(--slide-display);\n}\nfigcaption[data-v-b545ecb8] {\n  --slider-figcaption-padding: 5px 20px;\n  --slider-figcaption-width: 100%;\n  --slider-figcaption-height: 20%;\n  --slider-figcaption-font-weight: bold;\n  --slider-figcaption-color: var(--sky);\n\n  padding: var(--slider-figcaption-padding);\n  width: var(--slider-figcaption-width);\n  height: var(--slider-figcaption-height);\n  font-weight: var(--slider-figcaption-font-weight);\n  color: var(--slider-figcaption-color);\n}\n.controls[data-v-b545ecb8] {\n  --controls-display: flex;\n  --controls-gap: 10px;\n  --controls-place-content: center;\n  --controls-opacity: 1;\n\n  display: var(--controls-display);\n  gap: var(--controls-gap);\n  place-content: var(--controls-place-content);\n  opacity: var(--controls-opacity);\n}\n.slider:hover .controls[data-v-b545ecb8],\n.slider:focus .controls[data-v-b545ecb8] {\n  --slider-controls-hover-opacity: 1;\n  opacity: var(--slider-controls-hover-opacity);\n}\n.controls > *[data-v-b545ecb8]:hover,\n.controls > *[data-v-b545ecb8]:focus {\n  --controls-hover-color: var(--sky);\n  color: var(--controls-hover-color);\n}\nbutton[data-v-b545ecb8] {\n  --slider-button-border: none;\n  --slider-button-font-size: 60%;\n  --slider-button-background: none;\n  --slider-button-color: var(--grey-dark);\n\n  border: var(--slider-button-border);\n  font-size: var(--slider-button-font-size);\n  background: var(--slider-button-background);\n  color: var(--slider-button-color);\n}\n.gallery[data-v-b545ecb8] {\n  --gallery-display: flex;\n  --gallery-gap: 10px;\n  --gallery-place-content: center;\n  --gallery-opacity: 1;\n  --gallery-color: var(--gray);\n\n  display: var(--gallery-display);\n  gap: var(--gallery-gap);\n  place-content: var(--gallery-place-content);\n  opacity: var(--gallery-opacity);\n  color: var(--gallery-color);\n}\n.slider:hover .gallery[data-v-b545ecb8],\n.slider:focus .gallery[data-v-b545ecb8] {\n  --gallery-hover-opacity: 1;\n  opacity: var(--gallery-hover-opacity);\n}\n.gallery > *[data-v-b545ecb8]:hover,\n.gallery > *[data-v-b545ecb8]:focus {\n  --gallery-child-hover-color: var(--sky);\n  --gallery-child-hover-cursor: pointer;\n\n  color: var(--gallery-child-hover-color);\n  cursor: var(--gallery-child-hover-cursor);\n}\n.show[data-v-b545ecb8] {\n  --slider-show-display: list-item;\n  display: var(--slider-show-display);\n}\n@media (min-width: 1200px) {\n.controls[data-v-b545ecb8] {\n  --controls-opacity: 0;\n}\n.gallery[data-v-b545ecb8] {\n    --gallery-opacity: 0;\n}\n}\n";
+styleInject(css_248z$5);script$4.render = render$4;
+script$4.__scopeId = "data-v-b545ecb8";var script$3 = {
   name: "TableElt",
   props: {
     title: {
@@ -415,26 +786,26 @@ script$1.__scopeId = "data-v-62f0d706";var script = {
       return this.$slots[name] !== undefined;
     }
   }
-};var _hoisted_1 = {
+};var _hoisted_1$3 = {
   key: 0
 };
-var _hoisted_2 = {
+var _hoisted_2$3 = {
   key: 0
 };
-var _hoisted_3 = {
+var _hoisted_3$3 = {
   key: 0
 };
-var _hoisted_4 = {
+var _hoisted_4$2 = {
   key: 1
 };
-function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return vue.openBlock(), vue.createElementBlock("table", null, [$options.hasSlot('title') ? (vue.openBlock(), vue.createElementBlock("caption", _hoisted_1, [vue.renderSlot(_ctx.$slots, "title", {}, function () {
+function render$3(_ctx, _cache, $props, $setup, $data, $options) {
+  return vue.openBlock(), vue.createElementBlock("table", null, [$options.hasSlot('title') ? (vue.openBlock(), vue.createElementBlock("caption", _hoisted_1$3, [vue.renderSlot(_ctx.$slots, "title", {}, function () {
     return [vue.createTextVNode(vue.toDisplayString($props.title), 1)];
   })])) : vue.createCommentVNode("", true), vue.createElementVNode("thead", null, [vue.createElementVNode("tr", null, [(vue.openBlock(true), vue.createElementBlock(vue.Fragment, null, vue.renderList($props.items[0], function (value, key) {
     return vue.openBlock(), vue.createElementBlock("th", {
       key: key
     }, vue.toDisplayString(key === "_id" ? key = "id" : key), 1);
-  }), 128)), $options.hasSlot('head') ? (vue.openBlock(), vue.createElementBlock("th", _hoisted_2, [vue.renderSlot(_ctx.$slots, "head")])) : vue.createCommentVNode("", true)])]), vue.createElementVNode("tbody", null, [(vue.openBlock(true), vue.createElementBlock(vue.Fragment, null, vue.renderList($props.items, function (item, index) {
+  }), 128)), $options.hasSlot('head') ? (vue.openBlock(), vue.createElementBlock("th", _hoisted_2$3, [vue.renderSlot(_ctx.$slots, "head")])) : vue.createCommentVNode("", true)])]), vue.createElementVNode("tbody", null, [(vue.openBlock(true), vue.createElementBlock(vue.Fragment, null, vue.renderList($props.items, function (item, index) {
     return vue.openBlock(), vue.createElementBlock("tr", {
       key: index
     }, [(vue.openBlock(true), vue.createElementBlock(vue.Fragment, null, vue.renderList(item, function (value, key) {
@@ -448,26 +819,191 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       }, function () {
         return [vue.createTextVNode(vue.toDisplayString(value), 1)];
       })]);
-    }), 128)), $options.hasSlot('body') ? (vue.openBlock(), vue.createElementBlock("td", _hoisted_3, [vue.renderSlot(_ctx.$slots, "body", {
+    }), 128)), $options.hasSlot('body') ? (vue.openBlock(), vue.createElementBlock("td", _hoisted_3$3, [vue.renderSlot(_ctx.$slots, "body", {
       index: index,
       item: item
     })])) : vue.createCommentVNode("", true)]);
-  }), 128))]), $options.hasSlot('foot') ? (vue.openBlock(), vue.createElementBlock("tfoot", _hoisted_4, [vue.renderSlot(_ctx.$slots, "foot")])) : vue.createCommentVNode("", true)]);
-}var css_248z = "\ntable[data-v-fc325d1a] {\n  --table-box-shadow: 5px 5px 5px 5px hsl(var(--silver));\n\n  display: table;\n  border-collapse: collapse;\n  border-spacing: 10px;\n  margin: 20px auto;\n  width: auto;\n  max-width: 100%;\n  font-size: 1rem;\n  box-shadow: var(--table-box-shadow);\n}\ncaption[data-v-fc325d1a] {\n  caption-side: top;\n  font-size: 1.5rem;\n  font-weight: bold;\n  color: hsl(var(--gray));\n  text-shadow: 1px 1px 2px;\n}\nth[data-v-fc325d1a] {\n  display: table-column;\n  font-size: 1.2rem;\n  font-style: italic;\n  background-color: hsl(var(--blue));\n  color: hsl(var(--white));\n}\nth[data-v-fc325d1a],\ntd[data-v-fc325d1a] {\n  padding: 5px;\n  text-align: center;\n  vertical-align: middle;\n}\ntd[data-v-fc325d1a] {\n  display: table-row;\n  word-break: normal;\n  cursor: cell;\n}\ntbody tr[data-v-fc325d1a]:nth-child(even) {\n  background-color: hsl(var(--silver));\n  color: hsl(var(--black));\n}\ntbody tr[data-v-fc325d1a]:nth-child(odd) {\n  background-color: hsl(var(--white));\n  color: hsl(var(--gray));\n}\ntbody tr[data-v-fc325d1a]:hover,\ntbody tr[data-v-fc325d1a]:focus {\n  background-color: hsl(var(--cyan));\n  color: hsl(var(--navy));\n}\n@media (min-width: 576px) {\ntable[data-v-fc325d1a] {\n    max-width: 95%;\n}\n}\n@media (min-width: 768px) {\ntable[data-v-fc325d1a] {\n    max-width: 90%;\n}\nth[data-v-fc325d1a],\n  td[data-v-fc325d1a] {\n    display: table-cell;\n}\n}\n@media (min-width: 992px) {\ntable[data-v-fc325d1a] {\n    max-width: 85%;\n}\n}\n@media (min-width: 1200px) {\ntable[data-v-fc325d1a] {\n    max-width: 80%;\n}\n}\n@media (min-width: 1600px) {\ntable[data-v-fc325d1a] {\n    max-width: 75%;\n}\n}\n";
+  }), 128))]), $options.hasSlot('foot') ? (vue.openBlock(), vue.createElementBlock("tfoot", _hoisted_4$2, [vue.renderSlot(_ctx.$slots, "foot")])) : vue.createCommentVNode("", true)]);
+}var css_248z$4 = "\ntable[data-v-03287f73] {\n  --table-display: table;\n  --table-overflow: hidden;\n  --table-margin: 50px auto;\n  --table-border-collapse: collapse;\n  --table-border-radius: 10px;\n  --table-width: auto;\n  --table-max-width: 100%;\n  --table-font-size: 1.2rem;\n\n  display: var(--table-display);\n  overflow: var(--table-overflow);\n  margin: var(--table-margin);\n  border-collapse: var(--table-border-collapse);\n  border-radius: var(--table-border-radius);\n  width: var(--table-width);\n  max-width: var(--table-max-width);\n  font-size: var(--table-font-size);\n}\ncaption[data-v-03287f73] {\n  --caption-caption-side: top;\n  --caption-margin-bottom: 20px;\n  --caption-font-size: 1.5rem;\n  --caption-font-weight: bold;\n  --caption-color: var(--gray);\n  --caption-text-shadow: 1px 1px 2px;\n\n  caption-side: var(--caption-caption-side);\n  margin-bottom: var(--caption-margin-bottom);\n  font-size: var(--caption-font-size);\n  font-weight: var(--caption-font-weight);\n  color: var(--caption-color);\n  text-shadow: var(--caption-text-shadow);\n}\nth[data-v-03287f73] {\n  --th-display: table-column;\n  --th-font-size: 1.5rem;\n  --th-font-style: italic;\n  --th-text-transform: uppercase;\n  --th-background-color: var(--blue);\n  --th-color: var(--white);\n\n  display: var(--th-display);\n  font-size: var(--th-font-size);\n  font-style: var(--th-font-style);\n  text-transform: var(--th-text-transform);\n  background-color: var(--th-background-color);\n  color: var(--th-color);\n}\nth[data-v-03287f73],\ntd[data-v-03287f73] {\n  --th-td-padding: 5px;\n  --th-td-text-align: center;\n  --th-td-vertical-align: middle;\n\n  padding: var(--th-td-padding);\n  text-align: var(--th-td-text-align);\n  vertical-align: var(--th-td-vertical-align);\n}\ntd[data-v-03287f73] {\n  --td-display: table-row;\n  --td-word-break: normal;\n  --td-cursor: cell;\n\n  display: var(--td-display);\n  word-break: var(--td-word-break);;\n  cursor: var(--td-cursor);\n}\ntbody tr[data-v-03287f73]:nth-child(even) {\n  --tbody-even-background-color: var(--gray-light);\n  --tbody-even-color: var(--black);\n\n  background-color: var(--btbody-even-background-color);\n  color: var(--btbody-even-background-color);\n}\ntbody tr[data-v-03287f73]:nth-child(odd) {\n  --tbody-odd-background-color: var(--white);\n  --tbody-odd-color: var(--gray);\n\n  background-color: var(--tbody-odd-background-color);\n  color: var(--tbody-odd-color);\n}\ntbody tr[data-v-03287f73]:hover,\ntbody tr[data-v-03287f73]:focus {\n  --tbody-hover-background-color: var(--silver);\n  --tbody-hover-color: var(--black);\n\n  background-color: var(--tbody-hover-background-color);\n  color: var(--tbody-hover-color);\n}\n@media (min-width: 576px) {\ntable[data-v-03287f73] {\n    --table-max-width:: 95%;\n}\n}\n@media (min-width: 768px) {\ntable[data-v-03287f73] {\n    --table-max-width: 90%;\n}\n}\n@media (min-width: 992px) {\ntable[data-v-03287f73] {\n    --table-max-width: 85%;\n}\nth[data-v-03287f73],\n  td[data-v-03287f73] {\n    --th-td-display: table-cell;\n    display: var(--th-td-display);\n}\n}\n@media (min-width: 1200px) {\ntable[data-v-03287f73] {\n    --table-max-width: 80%;\n}\n}\n@media (min-width: 1600px) {\ntable[data-v-03287f73] {\n    --table-max-width: 75%;\n}\n}\n";
+styleInject(css_248z$4);script$3.render = render$3;
+script$3.__scopeId = "data-v-03287f73";var script$2 = {
+  name: "CardElt",
+  props: {
+    isArticle: {
+      type: Boolean,
+      default: false
+    }
+  },
+  methods: {
+    hasSlot: function hasSlot(name) {
+      return this.$slots[name] !== undefined;
+    }
+  }
+};var _hoisted_1$2 = {
+  key: 0
+};
+var _hoisted_2$2 = {
+  key: 0
+};
+var _hoisted_3$2 = {
+  key: 1
+};
+var _hoisted_4$1 = {
+  key: 1
+};
+var _hoisted_5$1 = {
+  key: 0
+};
+var _hoisted_6$1 = {
+  key: 1
+};
+function render$2(_ctx, _cache, $props, $setup, $data, $options) {
+  return $props.isArticle === true ? (vue.openBlock(), vue.createElementBlock("article", _hoisted_1$2, [vue.createElementVNode("header", null, [vue.renderSlot(_ctx.$slots, "header")]), vue.renderSlot(_ctx.$slots, "body"), $options.hasSlot('aside') ? (vue.openBlock(), vue.createElementBlock("aside", _hoisted_2$2, [vue.renderSlot(_ctx.$slots, "aside")])) : vue.createCommentVNode("", true), $options.hasSlot('footer') ? (vue.openBlock(), vue.createElementBlock("footer", _hoisted_3$2, [vue.renderSlot(_ctx.$slots, "footer")])) : vue.createCommentVNode("", true)])) : (vue.openBlock(), vue.createElementBlock("section", _hoisted_4$1, [vue.createElementVNode("header", null, [vue.renderSlot(_ctx.$slots, "header")]), vue.renderSlot(_ctx.$slots, "body"), $options.hasSlot('aside') ? (vue.openBlock(), vue.createElementBlock("aside", _hoisted_5$1, [vue.renderSlot(_ctx.$slots, "aside")])) : vue.createCommentVNode("", true), $options.hasSlot('footer') ? (vue.openBlock(), vue.createElementBlock("footer", _hoisted_6$1, [vue.renderSlot(_ctx.$slots, "footer")])) : vue.createCommentVNode("", true)]));
+}var css_248z$3 = "\narticle[data-v-c098292c],\nsection[data-v-c098292c] {\n  --card-box-sizing: border-box;\n  --card-margin: auto;\n  --card-border: 1px solid transparent;\n  --card-border-radius: 10px;\n  --card-padding: 20px;\n  --card-width: 90%;\n  --card-background-color: transparent;\n  --card-color: var(--gray);\n\n  box-sizing: var(--card-box-sizing);\n  margin: var(--card-margin);\n  border: var(--card-border);\n  border-radius: var(--card-border-radius);\n  padding: var(--card-padding);\n  width: var(--card-width);\n  background-color: var(--card-background-color);\n  color: var(--card-color);\n}\n";
+styleInject(css_248z$3);script$2.render = render$2;
+script$2.__scopeId = "data-v-c098292c";var script$1 = {
+  name: "FootElt",
+  props: {
+    title1: {
+      type: String,
+      default: "Sites"
+    },
+    title2: {
+      type: String,
+      default: "Tools"
+    },
+    title3: {
+      type: String,
+      default: "Links"
+    }
+  },
+  methods: {
+    hasSlot: function hasSlot(name) {
+      return this.$slots[name] !== undefined;
+    }
+  }
+};var _hoisted_1$1 = {
+  key: 0
+};
+var _hoisted_2$1 = {
+  key: 1
+};
+var _hoisted_3$1 = {
+  key: 0
+};
+function render$1(_ctx, _cache, $props, $setup, $data, $options) {
+  return vue.openBlock(), vue.createElementBlock("footer", null, [vue.createElementVNode("ul", null, [vue.createElementVNode("li", null, [vue.createElementVNode("section", null, [vue.createElementVNode("h3", null, vue.toDisplayString($props.title1), 1), vue.renderSlot(_ctx.$slots, "foot1")])]), $options.hasSlot('foot2') ? (vue.openBlock(), vue.createElementBlock("li", _hoisted_1$1, [vue.createElementVNode("section", null, [vue.createElementVNode("h3", null, vue.toDisplayString($props.title2), 1), vue.renderSlot(_ctx.$slots, "foot2")])])) : vue.createCommentVNode("", true), $options.hasSlot('foot3') ? (vue.openBlock(), vue.createElementBlock("li", _hoisted_2$1, [vue.createElementVNode("section", null, [vue.createElementVNode("h3", null, vue.toDisplayString($props.title3), 1), vue.renderSlot(_ctx.$slots, "foot3")])])) : vue.createCommentVNode("", true)]), $options.hasSlot('foot') ? (vue.openBlock(), vue.createElementBlock("aside", _hoisted_3$1, [vue.renderSlot(_ctx.$slots, "foot")])) : vue.createCommentVNode("", true)]);
+}var css_248z$2 = "\nfooter[data-v-040b655a] {\n  --footer-margin-top: 20px;\n  --footer-text-align: center;\n\n  margin-top: var(--footer-margin-top);\n  text-align: var(--footer-text-align);\n}\nh3[data-v-040b655a],[data-v-040b655a] ul {\n  --footer-child-margin: 0;\n  --footer-child-padding: 0;\n\n  margin: var(--footer-child-margin);\n  padding: var(--footer-child-padding);\n}\n[data-v-040b655a] li {\n  --footer-li-list-style: none;\n  list-style: var(--footer-li-list-style);\n}\n[data-v-040b655a] a {\n  --footer-a-text-decoration: none;\n  text-decoration: var(--footer-a-text-decoration);\n}\n\n/********************* MAIN PART *********************/\nfooter > ul[data-v-040b655a] { \n  --footer-ul-display: flex;\n  --footer-ul-flex-direction: column;\n  --footer-ul-place-items: center;\n  --footer-ul-gap: 20px;\n  --footer-ul-padding: 20px;\n  --footer-ul-background-color: var(--sky);\n\n  display: var(--footer-ul-display);\n  flex-direction: var(--footer-ul-flex-direction);\n  place-items: var(--footer-ul-place-items);\n  gap: var(--footer-ul-gap);\n  padding: var(--footer-ul-padding);\n  background-color: var(--footer-ul-background-color);\n}\nh3[data-v-040b655a] {\n  --footer-h3-margin-bottom: 5px;\n  --footer-h3-font-size: 2rem;\n  --footer-h3-font-family: monospace;\n  --footer-h3-color: var(--yellow);\n\n  margin-bottom: var(--footer-h3-margin-bottom);\n  font-size: var(--footer-h3-font-size);\n  font-family: var(--footer-h3-font-family);\n  color: var(--footer-h3-color);\n}\nsection[data-v-040b655a] a {\n  --footer-section-a-color: var(--white);\n  color: var(--footer-section-a-color);\n}\nsection[data-v-040b655a] a:hover,\nsection[data-v-040b655a] a:focus {\n  --footer-section-a-hover-color: var(--gray);\n  color: var(--footer-section-a-hover-color);\n}\n\n/********************* SECOND PART *********************/\naside[data-v-040b655a] ul {\n  --aside-ul-display: flex;\n  --aside-ul-flex-direction: row;\n  --aside-ul-place-content: center;\n  --aside-ul-gap: 10px;\n  --aside-ul-padding: 10px;\n  --aside-ul-background-color: var(--white);\n\n  display: var(--aside-ul-display);\n  flex-direction: var(--aside-ul-flex-direction);\n  place-content: var(--aside-ul-place-content);\n  gap: var(--aside-ul-gap);\n  padding: var(--aside-ul-padding);\n  background-color: var(--aside-ul-background-color);\n}\naside[data-v-040b655a] a {\n  --aside-a-color: var(--blue);\n  color: var(--aside-a-color);\n}\naside[data-v-040b655a] i:hover,\naside[data-v-040b655a] i:focus {\n  --aside-a-hover-transform: scale(1.2);\n  --aside-a-hover-transition: transform 200ms;\n\n  transform: var(--aside-a-hover-transform);\n  transition: var(--aside-a-hover-transition);\n}\n\n/********************* RESPONSIVE *********************/\n@media (min-width: 576px) {\nfooter > ul[data-v-040b655a] {\n    --footer-ul-flex-direction: row;\n    --footer-ul-place-content: space-around;\n\n    place-content: var(--footer-ul-place-content);\n}\n}\n@media (min-width: 768px) {\nfooter > ul[data-v-040b655a] {\n    --footer-ul-place-content: space-evenly;\n}\n}\n@media (min-width: 992px) {\nfooter > ul[data-v-040b655a] {\n    --footer-ul-place-content: center;\n    --footer-ul-gap: 10%;\n}\n}\n";
+styleInject(css_248z$2);script$1.render = render$1;
+script$1.__scopeId = "data-v-040b655a";var script = {
+  name: "NavElt",
+  props: {
+    class: {
+      type: String,
+      default: "navbar"
+    },
+    items: {
+      type: Array
+    }
+  },
+  methods: {
+    getNavClass: function getNavClass() {
+      if (this.class === "sidebar") {
+        return "sidebar";
+      }
+      return "navbar";
+    },
+    hasSlot: function hasSlot(name) {
+      return this.$slots[name] !== undefined;
+    },
+    toggleMenu: function toggleMenu() {
+      var nav = document.getElementById("nav");
+      var admin = document.getElementById("admin");
+      nav.classList.toggle("show");
+      nav.classList.toggle("hide");
+      admin.classList.toggle("show");
+      admin.classList.toggle("hide");
+    }
+  }
+};var _withScopeId = function _withScopeId(n) {
+  return vue.pushScopeId("data-v-38286c99"), n = n(), vue.popScopeId(), n;
+};
+var _hoisted_1 = {
+  key: 0,
+  class: "sidebar"
+};
+var _hoisted_2 = ["href", "title"];
+var _hoisted_3 = {
+  key: 0,
+  href: "#top",
+  title: "Top of the Page"
+};
+var _hoisted_4 = {
+  key: 1,
+  class: "navbar"
+};
+var _hoisted_5 = {
+  key: 0,
+  href: "/",
+  title: "Home"
+};
+var _hoisted_6 = {
+  id: "nav",
+  class: "show"
+};
+var _hoisted_7 = ["href", "title"];
+var _hoisted_8 = {
+  key: 1,
+  id: "admin",
+  class: "hide"
+};
+var _hoisted_9 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/vue.createElementVNode("i", {
+    class: "fa-solid fa-bars"
+  }, null, -1);
+});
+var _hoisted_10 = [_hoisted_9];
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+  return $options.getNavClass() === 'sidebar' ? (vue.openBlock(), vue.createElementBlock("nav", _hoisted_1, [vue.renderSlot(_ctx.$slots, "first"), (vue.openBlock(true), vue.createElementBlock(vue.Fragment, null, vue.renderList($props.items, function (item, index) {
+    return vue.openBlock(), vue.createElementBlock("a", {
+      key: index,
+      href: "#".concat(item),
+      title: item
+    }, [vue.renderSlot(_ctx.$slots, "items", {
+      item: item,
+      index: index
+    })], 8, _hoisted_2);
+  }), 128)), vue.renderSlot(_ctx.$slots, "last"), $options.hasSlot('top') ? (vue.openBlock(), vue.createElementBlock("a", _hoisted_3, [vue.renderSlot(_ctx.$slots, "top")])) : vue.createCommentVNode("", true)])) : (vue.openBlock(), vue.createElementBlock("nav", _hoisted_4, [$options.hasSlot('brand') ? (vue.openBlock(), vue.createElementBlock("a", _hoisted_5, [vue.renderSlot(_ctx.$slots, "brand")])) : vue.createCommentVNode("", true), vue.createElementVNode("ul", _hoisted_6, [(vue.openBlock(true), vue.createElementBlock(vue.Fragment, null, vue.renderList($props.items, function (item, index) {
+    return vue.openBlock(), vue.createElementBlock("li", {
+      key: index
+    }, [vue.createElementVNode("a", {
+      href: '/' + item,
+      title: item.charAt(0).toUpperCase() + item.slice(1)
+    }, [vue.renderSlot(_ctx.$slots, item, {
+      item: item,
+      index: index
+    }), vue.createElementVNode("b", null, vue.toDisplayString(item.charAt(0).toUpperCase() + item.slice(1)), 1)], 8, _hoisted_7)]);
+  }), 128))]), $options.hasSlot('admin') ? (vue.openBlock(), vue.createElementBlock("aside", _hoisted_8, [vue.renderSlot(_ctx.$slots, "admin")])) : vue.createCommentVNode("", true), vue.createElementVNode("button", {
+    type: "button",
+    onClick: _cache[0] || (_cache[0] = function ($event) {
+      return $options.toggleMenu();
+    }),
+    title: "Menu"
+  }, _hoisted_10)]));
+}var css_248z$1 = "\n:root {\n  --navbar-height: 50px;\n}\n[id=\"app\"] {\n  margin-top: calc(var(--navbar-height) + 20px);\n}\n@media (min-width: 768px) {\n:root {\n    --navbar-height: 80px;\n}\n}\n";
+styleInject(css_248z$1);var css_248z = "\n.sidebar[data-v-38286c99] {\n  --sidebar-display: flex;\n  --sidebar-flex-flow: column;\n  --sidebar-position: fixed;\n  --sidebar-top: calc(var(--navbar-height) + 10px);\n  --sidebar-left: 2px;\n  --sidebar-z-index: 10;\n  --sidebar-width: auto;\n\n  display: var(--sidebar-display);\n  flex-flow: var(--sidebar-flex-flow);\n  position: var(--sidebar-position);\n  top: var(--sidebar-top);\n  left: var(--sidebar-left);\n  z-index: var(--sidebar-z-index);\n  width: var(--sidebar-width);\n}\n.sidebar[data-v-38286c99] a {\n  --sidebar-a-display: flex;\n  --sidebar-a-place-content: center;\n  --sidebar-a-place-items: center;\n  --sidebar-a-margin: 5px;\n  --sidebar-a-border-radius: 20px;\n  --sidebar-a-padding: 5px;\n  --sidebar-a-width: 100%;\n  --sidebar-a-background-color: var(--white-dark);\n  --sidebar-a-color: var(--blue-dark);\n  --sidebar-a-cursor: crosshair;\n\n  display: var(--sidebar-a-display);\n  place-content: var(--sidebar-a-place-content);\n  place-items: var(--sidebar-a-place-items);\n  margin: var(--sidebar-a-margin);\n  border-radius: var(--sidebar-a-border-radius);\n  padding: var(--sidebar-a-padding);\n  width: var(--sidebar-a-width);\n  background-color: var(--sidebar-a-background-color);\n  color: var(--sidebar-a-color);\n  cursor: var(--sidebar-a-cursor);\n}\n.sidebar[data-v-38286c99] a:hover,\n.sidebar[data-v-38286c99] a:focus {\n  --sidebar-a-hover-border-radius: 10px;\n  --sidebar-a-hover-background-color: var(--blue-dark);\n  --sidebar-a-hover-color: var(--white-dark);\n  --sidebar-a-hover-transform: scale(1.1);\n  --sidebar-a-hover-transition: all 500ms;\n\n  border-radius: var(--sidebar-a-hover-border-radius);\n  color: var(--sidebar-a-hover-color);\n  background-color: var(--sidebar-a-hover-background-color);\n  transform: var(--sidebar-a-hover-transform);\n  transition: var(--sidebar-a-hover-transition);\n}\n.navbar[data-v-38286c99] {\n  --navbar-display: flex;\n  --navbar-place-content: space-between;\n  --navbar-place-items: center;\n  --navbar-position: fixed;\n  --navbar-top: 0;\n  --navbar-right: 0;\n  --navbar-bottom: unset;\n  --navbar-left: 0;\n  --navbar-z-index: 1000;\n  --navbar-background-color: var(--blue-dark);\n  --navbar-color: var(--white);\n\n  display: var(--navbar-display);\n  place-content: var(--navbar-place-content);\n  place-items: var(--navbar-place-items);\n  position: var(--navbar-position);\n  top: var(--navbar-top);\n  right: var(--navbar-right);\n  bottom: var(--navbar-bottom);\n  left: var(--navbar-left);\n  z-index: var(--navbar-z-index);\n  height: var(--navbar-height);\n  background-color: var(--navbar-background-color);\n  color: var(--navbar-color);\n}\n.navbar[data-v-38286c99] a,\n.navbar[data-v-38286c99] button {\n  --navbar-a-padding: 10px;\n  --navbar-a-color: var(--white);\n  --navbar-a-cursor: pointer;\n\n  padding: var(--navbar-a-padding);\n  color: var(--navbar-a-color);\n  cursor: var(--navbar-a-cursor);\n}\n.navbar[data-v-38286c99] ul {\n  --navbar-ul-display: flex;\n  --navbar-ul-place-items: center;\n  --navbar-ul-margin: 0;\n  --navbar-ul-padding: 0;\n  --navbar-ul-list-style: none;\n\n  display: var(--navbar-ul-display);\n  place-items: var(--navbar-ul-place-items);\n  margin: var(--navbar-ul-margin);\n  padding: var(--navbar-ul-padding);\n  list-style: var(--navbar-ul-list-style);\n}\n.navbar ul a[data-v-38286c99] {\n  --navbar-ul-a-display: flex;\n  display: var(--navbar-ul-a-display);\n}\n.navbar ul a[data-v-38286c99] :not(i) {\n  --navbar-ul-a-not-i-display: none;\n  display: var(--navbar-ul-a-not-i-display);\n}\n.navbar[data-v-38286c99] ul a,\n.navbar[data-v-38286c99] ul button {\n  --navbar-ul-a-flex-direction: column;\n  flex-direction: var(--navbar-ul-a-flex-direction);\n}\n.navbar ul a[data-v-38286c99]:hover,\n.navbar ul a[data-v-38286c99]:focus,\n.navbar ul button[data-v-38286c99]:hover,\n.navbar ul button[data-v-38286c99]:focus {\n  --navbar-first-ul-a-hover-color: var(--yellow);\n  --navbar-first-ul-a-hover-transform: scale(0.9);\n\n  color: var(--navbar-first-ul-a-hover-color) !important;\n  transform: var(--navbar-first-ul-a-hover-transform) !important;\n}\n.navbar[data-v-38286c99] ul:last-of-type a:hover,\n.navbar[data-v-38286c99] ul:last-of-type a:focus,\n.navbar[data-v-38286c99] ul:last-of-type button:hover,\n.navbar[data-v-38286c99] ul:last-of-type button:focus {\n  --navbar-last-ul-a-hover-color: var(--orange);\n  color: var(--navbar-last-ul-a-hover-color);\n}\n.navbar[data-v-38286c99] button {\n  --navbar-button-background-color: transparent;\n  --navbar-button-border: none;\n  --navbar-button-cursor: pointer;\n\n  background-color: var(--navbar-button-background-color);\n  border: var(--navbar-button-border);\n  cursor: var(--navbar-button-cursor);\n}\n.navbar[data-v-38286c99] i {\n  --navbar-i-place-self: center;\n  place-self: var(--navbar-i-place-self);\n}\n.hide[data-v-38286c99] {\n  --hide-display: none;\n  display: var(--hide-display) !important;\n}\n.show[data-v-38286c99] {\n  --show-display: flex;\n  display: var(--show-display);\n}\n@media (min-width: 576px) {\n.navbar[data-v-38286c99] {\n    --navbar-place-content: space-around;\n}\n}\n@media (min-width: 768px) {\n.navbar > button[data-v-38286c99] {\n    --navbar-button-display: none;\n    display: var(--navbar-button-display);\n}\n.navbar ul a[data-v-38286c99] :not(i) {\n    --navbar-ul-a-not-i-display: flex;\n}\n.hide[data-v-38286c99] {\n    --hide-display: flex;\n}\n}\n";
 styleInject(css_248z);script.render = render;
-script.__scopeId = "data-v-fc325d1a";/* eslint-disable import/prefer-default-export */var components$1=/*#__PURE__*/Object.freeze({__proto__:null,BtnElt:script$4,FieldElt:script$3,FootElt:script$2,ListElt:script$1,TableElt:script});var install = function installVueElt(app) {
+script.__scopeId = "data-v-38286c99";/* eslint-disable import/prefer-default-export */var components$1=/*#__PURE__*/Object.freeze({__proto__:null,BtnElt:script$8,FieldElt:script$7,MediaElt:script$6,ListElt:script$5,SliderElt:script$4,TableElt:script$3,CardElt:script$2,FootElt:script$1,NavElt:script});var install = function installVueElt(app) {
   Object.entries(components$1).forEach(function (_ref) {
     var _ref2 = _slicedToArray(_ref, 2),
-        componentName = _ref2[0],
-        component = _ref2[1];
-
-    app.component(componentName, component);
-  });
-};var components=/*#__PURE__*/Object.freeze({__proto__:null,'default':install,BtnElt:script$4,FieldElt:script$3,FootElt:script$2,ListElt:script$1,TableElt:script});Object.entries(components).forEach(function (_ref) {
-  var _ref2 = _slicedToArray(_ref, 2),
       componentName = _ref2[0],
       component = _ref2[1];
-
+    app.component(componentName, component);
+  });
+};var components=/*#__PURE__*/Object.freeze({__proto__:null,'default':install,BtnElt:script$8,FieldElt:script$7,MediaElt:script$6,ListElt:script$5,SliderElt:script$4,TableElt:script$3,CardElt:script$2,FootElt:script$1,NavElt:script});Object.entries(components).forEach(function (_ref) {
+  var _ref2 = _slicedToArray(_ref, 2),
+    componentName = _ref2[0],
+    component = _ref2[1];
   if (componentName !== 'default') {
     install[componentName] = component;
   }
