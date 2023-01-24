@@ -21,11 +21,14 @@ Vue Elt is a Vue Single File Component Library, where you can find 3 families of
 
 ## Summary
 
--   [Package](#package)  
--   [CDN](#CDN)  
--   [Download](#download)  
--   [Content](#content)  
--   [Usage](#usage)  
+- [Vue Elt](#vue-elt)
+  - [Overview](#overview)
+  - [Summary](#summary)
+  - [Package](#package)
+  - [CDN](#cdn)
+  - [Download](#download)
+  - [Content](#content)
+  - [Usage](#usage)
 
 ---
 
@@ -38,8 +41,8 @@ Yarn : `yarn add vue-elt`
 
 ## CDN 
 
--   Development : [https://cdn.jsdelivr.net/npm/vue-elt@0.3.0/dist/vue-elt.esm.js](https://cdn.jsdelivr.net/npm/vue-elt@0.3.0/dist/vue-elt.esm.js)  
--   Production : [https://cdn.jsdelivr.net/npm/vue-elt@0.3.0/dist/vue-elt.min.js](https://cdn.jsdelivr.net/npm/vue-elt@0.3.0/dist/vue-elt.min.js)  
+-   Development : [https://cdn.jsdelivr.net/npm/vue-elt@0.4.0/dist/vue-elt.esm.js](https://cdn.jsdelivr.net/npm/vue-elt@0.4.0/dist/vue-elt.esm.js)  
+-   Production : [https://cdn.jsdelivr.net/npm/vue-elt@0.4.0/dist/vue-elt.min.js](https://cdn.jsdelivr.net/npm/vue-elt@0.4.0/dist/vue-elt.min.js)  
 
 ---
 
@@ -56,15 +59,13 @@ Yarn : `yarn add vue-elt`
 Available SFC :  
 -   **BtnElt** *(b)*  
 -   **FieldElt** *(b)*  
--   **FootElt** *(m)*  
--   **ListElt** *(d)*  
--   **TableElt** *(d)*  
-
-Upcoming SFC :  
--   **CardElt** *(m)*  
 -   **ImgElt** *(b)*  
--   **NavElt** *(m)*  
+-   **ListElt** *(d)*  
 -   **SliderElt** *(d)*  
+-   **TableElt** *(d)*  
+-   **CardElt** *(m)*  
+-   **FootElt** *(m)*  
+-   **NavElt** *(m)*  
 
 ---
 
