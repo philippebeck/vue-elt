@@ -75,16 +75,115 @@
           </template>
         </CardElt>
         
-        <h3>FieldElt</h3>
+        <CardElt>
+          <template #header>
+            <h3 id="field">FieldElt</h3>
+          </template>
 
-        <FieldElt>
+          <template #body>
+            <FieldElt>
+              <template #legend>
+                Text Input
+              </template>
 
-        </FieldElt>
+              <template #label>
+                Type Text
+              </template>
+            </FieldElt>
 
-        <h3>MediaElt</h3>
+            <FieldElt type="number">
+              <template #legend>
+                Number Input
+              </template>
 
-        <MediaElt>
+              <template #label>
+                Type Numbers
+              </template>
+            </FieldElt>
 
+            <FieldElt type="date">
+              <template #legend>
+                Date Input
+              </template>
+
+              <template #label>
+                Type or Choose a Date
+              </template>
+            </FieldElt>
+
+            <FieldElt type="time">
+              <template #legend>
+                Time Input
+              </template>
+
+              <template #label>
+                Type a Time
+              </template>
+            </FieldElt>
+
+            <FieldElt type="range">
+              <template #legend>
+                Range Input
+              </template>
+
+              <template #label>
+                Choose a Range
+              </template>
+            </FieldElt>
+
+            <FieldElt type="color">
+              <template #legend>
+                Color Input
+              </template>
+
+              <template #label>
+                Choose a Color
+              </template>
+            </FieldElt>
+
+            <FieldElt type="checkbox">
+              <template #legend>
+                Checkbox Input
+              </template>
+
+              <template #label>
+                Check the Box
+              </template>
+            </FieldElt>
+
+            <FieldElt type="radio">
+              <template #legend>
+                Radio Input
+              </template>
+
+              <template #label>
+                Check a Radio
+              </template>
+            </FieldElt>
+
+            <FieldElt type="select"
+              :list="['Choice 1', 'Choice 2', 'Choice 3']"
+              info="Choose an Option">
+              <template #legend>
+                Select
+              </template>
+
+              <template #label>
+                Choose an Option
+              </template>
+            </FieldElt>
+
+            <FieldElt type="textarea">
+              <template #legend>
+                Textarea
+              </template>
+
+              <template #label>
+                Type Text
+              </template>
+            </FieldElt>
+          </template>
+        </CardElt>
         </MediaElt>
 
       </template>
