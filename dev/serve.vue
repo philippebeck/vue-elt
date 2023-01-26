@@ -232,17 +232,26 @@
           </template>
         </CardElt>
 
-        <h3>SliderElt</h3>
-
-        <SliderElt :slides="['html5', 'css3', 'js', 'vuejs']">
-          <template #slide="slotProps">
-            <i :class="`fa-brands fa-${slotProps.slide.toLowerCase()} fa-10x blue`"></i>
+        <CardElt>
+          <template #header>
+            <h3 id="slider" class="pad-none">SliderElt</h3>
           </template>
 
-          <template #gallery="slotProps">
-            <i :class="`fa-brands fa-${slotProps.slide.toLowerCase()}`"></i>
+          <template #body>
+            <SliderElt :slides="['html5', 'css3', 'js', 'vuejs']">
+              <template #slide="slotProps">
+                <i :class="`fa-brands fa-${slotProps.slide.toLowerCase()} fa-10x blue`"></i>
+              </template>
+
+              <template #gallery="slotProps">
+                <i :class="`fa-brands fa-${slotProps.slide.toLowerCase()}`"></i>
+              </template>
+            </SliderElt>
           </template>
-        </SliderElt>
+        </CardElt>
+
+
+        
 
         <h3>TableElt</h3>
 
