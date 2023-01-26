@@ -313,16 +313,24 @@ export default {
 </script>
 
 <style scoped>
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
 .slider {
   --slider-margin: var(--slider-figcaption-height) auto -20px;
   --slider-border: none;
   --slider-padding: 0;
   --slider-width: 100%;
+  --slider-text-align: center;
 
   margin: var(--slider-margin);
   border: var(--slider-border);
   padding: var(--slider-padding);
   width: var(--slider-width);
+  text-align: var(--slider-text-align);
 }
 
 [id*="slide-"] {
