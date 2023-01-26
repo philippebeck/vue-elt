@@ -41,8 +41,8 @@ Yarn : `yarn add vue-elt`
 
 ## CDN 
 
--   Development : [https://cdn.jsdelivr.net/npm/vue-elt@0.4.0/dist/vue-elt.esm.js](https://cdn.jsdelivr.net/npm/vue-elt@0.4.0/dist/vue-elt.esm.js)  
--   Production : [https://cdn.jsdelivr.net/npm/vue-elt@0.4.0/dist/vue-elt.min.js](https://cdn.jsdelivr.net/npm/vue-elt@0.4.0/dist/vue-elt.min.js)  
+-   Development : [https://cdn.jsdelivr.net/npm/vue-elt@0.5.0/dist/vue-elt.esm.js](https://cdn.jsdelivr.net/npm/vue-elt@0.5.0/dist/vue-elt.esm.js)  
+-   Production : [https://cdn.jsdelivr.net/npm/vue-elt@0.5.0/dist/vue-elt.min.js](https://cdn.jsdelivr.net/npm/vue-elt@0.5.0/dist/vue-elt.min.js)  
 
 ---
 
@@ -57,15 +57,15 @@ Yarn : `yarn add vue-elt`
 ## Content
 
 Available SFC :  
--   **BtnElt** *(b)*  
--   **FieldElt** *(b)*  
--   **ImgElt** *(b)*  
--   **ListElt** *(d)*  
--   **SliderElt** *(d)*  
--   **TableElt** *(d)*  
--   **CardElt** *(m)*  
--   **FootElt** *(m)*  
--   **NavElt** *(m)*  
+-   **BtnElt** *(base)*  
+-   **FieldElt** *(base)*  
+-   **ImgElt** *(base)*  
+-   **ListElt** *(data)*  
+-   **SliderElt** *(data)*  
+-   **TableElt** *(data)*  
+-   **CardElt** *(main)*  
+-   **FootElt** *(main)*  
+-   **NavElt** *(main)*  
 
 ---
 
