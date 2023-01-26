@@ -192,10 +192,22 @@
             </FieldElt>
           </template>
         </CardElt>
-        </MediaElt>
+
+        <CardElt>
+          <template #header>
+            <h3 id="media">MediaElt</h3>
+          </template>
+
+          <template #body>
+            <MediaElt src="https://philippebeck.net/img/logo.svg">
+            </MediaElt>
+          </template>
+        </CardElt>
 
       </template>
     </CardElt>
+
+    <hr>
 
     <CardElt>
       <template #header>
