@@ -179,7 +179,7 @@ tbody tr:focus {
 
 @media (min-width: 576px) {
   table {
-    --table-max-width:: 95%;
+    --table-max-width: 95%;
   }
 }
 
