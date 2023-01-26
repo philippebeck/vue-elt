@@ -105,7 +105,7 @@ figure {
 
 img {
   --img-border: 1px solid var(--blue);
-  --img-border-radius: 50%;
+  --img-border-radius: 20px;
   --img-max-width: 100%;
   --img-height: auto;
   --img-object-fit: contain;
