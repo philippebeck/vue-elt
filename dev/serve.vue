@@ -270,23 +270,26 @@
           </template>
         </CardElt>
 
+        <CardElt>
+          <template #header>
+            <h3 id="table">TableElt</h3>
+          </template>
 
-        
-
-        <h3>TableElt</h3>
-
-        <TableElt :items="[
-            {'SFC': 'FieldElt', 'Cat': 'Base', 'V': '0.1', 'State': 'Working'},
-            {'SFC': 'BtnElt', 'Cat': 'Base', 'V': '0.3', 'State': 'Working'},
-            {'SFC': 'MediaElt', 'Cat': 'Base', 'V': '0.4', 'State': 'Working'},
-            {'SFC': 'ListElt', 'Cat': 'Data', 'V': '0.1', 'State': 'Working'},
-            {'SFC': 'SlideElt', 'Cat': 'Data', 'V': '0.4', 'State': 'Working'},
-            {'SFC': 'TableElt', 'Cat': 'Data', 'V': '0.2', 'State': 'Working'},
-            {'SFC': 'CardElt', 'Cat': 'Main', 'V': '0.4', 'State': 'Working'},
-            {'SFC': 'FootElt', 'Cat': 'Main', 'V': '0.1', 'State': 'Working'},
-            {'SFC': 'NavElt', 'Cat': 'Main', 'V': '0.4', 'State': 'Working'}
-          ]">
-        </TableElt>
+          <template #body>
+            <TableElt :items="[
+                {'SFC': 'FieldElt', 'Cat': 'Base', 'V': '0.1', 'State': 'Working'},
+                {'SFC': 'BtnElt', 'Cat': 'Base', 'V': '0.3', 'State': 'Working'},
+                {'SFC': 'MediaElt', 'Cat': 'Base', 'V': '0.4', 'State': 'Working'},
+                {'SFC': 'ListElt', 'Cat': 'Data', 'V': '0.1', 'State': 'Working'},
+                {'SFC': 'SlideElt', 'Cat': 'Data', 'V': '0.4', 'State': 'Working'},
+                {'SFC': 'TableElt', 'Cat': 'Data', 'V': '0.2', 'State': 'Working'},
+                {'SFC': 'CardElt', 'Cat': 'Main', 'V': '0.4', 'State': 'Working'},
+                {'SFC': 'FootElt', 'Cat': 'Main', 'V': '0.1', 'State': 'Working'},
+                {'SFC': 'NavElt', 'Cat': 'Main', 'V': '0.4', 'State': 'Working'}
+              ]">
+            </TableElt>
+          </template>
+        </CardElt>
       </template>
     </CardElt>
 
