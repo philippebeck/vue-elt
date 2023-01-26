@@ -35,7 +35,7 @@
   </NavElt>
 
   <main id="top">
-    <h1>Vue-Elt</h1>
+    <h1>Vue-Elt Lab</h1>
 
     <CardElt>
       <template #header>
@@ -91,7 +91,7 @@
           <template #body>
             <FieldElt>
               <template #legend>
-                Text Input
+                Text
               </template>
 
               <template #label>
@@ -101,7 +101,7 @@
 
             <FieldElt type="number">
               <template #legend>
-                Number Input
+                Number
               </template>
 
               <template #label>
@@ -111,7 +111,7 @@
 
             <FieldElt type="date">
               <template #legend>
-                Date Input
+                Date
               </template>
 
               <template #label>
@@ -121,7 +121,7 @@
 
             <FieldElt type="time">
               <template #legend>
-                Time Input
+                Time
               </template>
 
               <template #label>
@@ -131,7 +131,7 @@
 
             <FieldElt type="range">
               <template #legend>
-                Range Input
+                Range
               </template>
 
               <template #label>
@@ -141,7 +141,7 @@
 
             <FieldElt type="color">
               <template #legend>
-                Color Input
+                Color
               </template>
 
               <template #label>
@@ -151,7 +151,7 @@
 
             <FieldElt type="checkbox">
               <template #legend>
-                Checkbox Input
+                Checkbox
               </template>
 
               <template #label>
@@ -161,7 +161,7 @@
 
             <FieldElt type="radio">
               <template #legend>
-                Radio Input
+                Radio
               </template>
 
               <template #label>
