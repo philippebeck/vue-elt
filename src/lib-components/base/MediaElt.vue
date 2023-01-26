@@ -1,47 +1,48 @@
 <template>
   <figure :title="title">
 
-    <audio
-      v-if="type === 'audio'"
+    <!-- AUDIO ELT -->
+    <audio v-if="type === 'audio'"
       controls
       :src="src"
       :loop="loop">
       <slot name="audio"></slot>
     </audio>
 
-    <video 
-      v-else-if="type === 'video'"
+    <!-- VIDEO ELT (multiple sources) -->
+    <video v-else-if="type === 'video'"
       controls
       :src="src"
       :loop="loop"
       :height="height"
       :width="width">
-      <source 
-        v-for="(video, index) in medias"
+
+      <source v-for="(video, index) in medias"
         :key="index"
         :src="video.src"
         :type="video.type">
       <slot name="video"></slot>
     </video>
 
-    <picture 
-      v-else-if="type === 'picture'">
-      <source 
-        v-for="(picture, index) in medias"
+    <!-- IMAGE ELT (multiple sources) -->
+    <picture v-else-if="type === 'picture'">
+
+      <source v-for="(picture, index) in medias"
         :key="index"
         :srcset="picture.src"
         :media="picture.media"
         :type="picture.type">
-      <img 
-        :src="src"
+
+      <img :src="src"
         :alt="alt">
     </picture>
 
-    <img
-      v-else
+    <!-- IMAGE ELT (single source) -->
+    <img v-else
       :src="src"
       :alt="alt">
 
+    <!-- Figcaption (option) -->
     <figcaption v-if="hasSlot('figcaption')">
       <slot name="figcaption"></slot>
     </figcaption>

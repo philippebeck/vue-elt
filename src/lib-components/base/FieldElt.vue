@@ -1,11 +1,12 @@
 <template>
   <fieldset :title="info">
+    <!-- Legend (option) -->
     <legend v-if="hasSlot('legend')">
       <slot name="legend"></slot>
     </legend>
 
-    <input
-      v-if="getFieldType() === 'number'"
+    <!-- NUMBER, DATE, TIME, RANGE ELT -->
+    <input v-if="getFieldType() === 'number'"
       :id="id"
       :max="max"
       :min="min"
@@ -16,8 +17,8 @@
       @input="onInput"
       :required="required">
 
-    <input 
-      v-else-if="getFieldType() === 'special'"
+    <!-- CHECKBOX, RADIO, COLOR ELT -->
+    <input v-else-if="getFieldType() === 'special'"
       :id="id"
       :name="name"
       :type="type"
@@ -25,31 +26,30 @@
       @input="onInput"
       :required="required">
 
-    <select
-      v-else-if="getFieldType() === 'list'"
+    <!-- SELECT, OPTION ELT -->
+    <select v-else-if="getFieldType() === 'list'"
       :id="id"
       :name="id"
       :placeholder="info"
       @input="onInput"
       :required="required">
-      <option 
-        v-if="value"
+
+      <option v-if="value"
         :value="value">
         {{ value }}
       </option>
       <option v-else>
         {{ info }}
       </option>
-      <option
-        v-for="(value, index) in list"
+      <option v-for="(value, index) in list"
         :key="index"
         :value="value">
         {{ value }}
       </option>
     </select>
 
-    <textarea
-      v-else-if="getFieldType() === 'area'"
+    <!-- TEXTAREA ELT -->
+    <textarea v-else-if="getFieldType() === 'area'"
       :id="id"
       :name="id"
       :cols="cols"
@@ -61,8 +61,8 @@
       @input="onInput"
       :required="required"></textarea>
 
-    <input 
-      v-else
+    <!-- TEXT, OTHERS ELT -->
+    <input v-else
       :id="id"
       :maxlength="max"
       :minlength="min"
@@ -73,8 +73,8 @@
       @input="onInput"
       :required="required">
 
-    <label 
-      v-if="hasSlot('label')"
+    <!-- Label (option) -->
+    <label v-if="hasSlot('label')"
       :for="id">
       <slot name="label"></slot>
     </label>

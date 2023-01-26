@@ -1,27 +1,37 @@
 <template>
+    <!-- ARTICLE ELT -->
   <article v-if="isArticle === true">
     <header>
       <slot name="header"></slot>
     </header>
+
     <slot name="body"></slot>
 
+    <!-- Aside (option) -->
     <aside v-if="hasSlot('aside')">
       <slot name="aside"></slot>
     </aside>
+
+    <!-- Footer (option) -->
     <footer v-if="hasSlot('footer')">
       <slot name="footer"></slot>
     </footer>
   </article>
 
+  <!-- SECTION ELT -->
   <section v-else>
     <header>
       <slot name="header"></slot>
     </header>
+
     <slot name="body"></slot>
 
+    <!-- Aside (option) -->
     <aside v-if="hasSlot('aside')">
       <slot name="aside"></slot>
     </aside>
+
+    <!-- Footer (option) -->
     <footer v-if="hasSlot('footer')">
       <slot name="footer"></slot>
     </footer>

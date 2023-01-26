@@ -1,5 +1,7 @@
 <template>
+  <!-- TABLE ELT -->
   <table>
+    <!-- Caption (option) -->
     <caption v-if="hasSlot('title')">
       <slot name="title">
         {{ title }}
@@ -13,6 +15,8 @@
           :key="key">
           {{ key === "_id" ? key = "id" : key }}
         </th>
+
+        <!-- Last Th (option) -->
         <th v-if="hasSlot('head')">
           <slot name="head"></slot>
         </th>
@@ -35,6 +39,8 @@
             {{ value }}
           </slot>
         </td>
+
+        <!-- Last Td (option) -->
         <td v-if="hasSlot('body')">
           <slot
             name="body"
@@ -45,6 +51,7 @@
       </tr>
     </tbody>
 
+    <!-- Tfoot (option) -->
     <tfoot v-if="hasSlot('foot')">
       <slot name="foot"></slot>
     </tfoot>

@@ -1,41 +1,37 @@
 <template>
-  <figure 
-    class="slider">
+  <!-- SLIDER ELT -->
+  <figure class="slider">
 
+    <!-- Controls Part -->
     <ul class="controls">
       <li>
-        <button 
-          @click="goPrevious()"
+        <button @click="goPrevious()"
           title="Previous (&larr;)">
           <i class="fas fa-step-backward fa-2x"></i>
         </button>
       </li>
-      <li v-if="random === true">
-        <button 
+      <li>
+        <button v-if="random === true"
           @click="checkRandom()"
           id="slider-random" 
           title="Normal">
           <i class="fas fa-long-arrow-alt-right fa-2x"></i>
         </button>
-      </li>
-      <li v-else>
-        <button 
+        <button v-else 
           @click="checkRandom()"
           id="slider-random" 
           title="Random">
           <i class="fas fa-random fa-2x"></i>
         </button>
       </li>
-      <li v-if="auto === true">
-        <button 
+      <li>
+        <button v-if="auto === true" 
           @click="checkAuto()"
           id="slider-auto" 
           title="Pause">
           <i class="fas fa-pause fa-2x"></i>
         </button>
-      </li>
-      <li v-else>
-        <button 
+        <button v-else 
           @click="checkAuto()"
           id="slider-auto" 
           title="Play">
@@ -43,49 +39,50 @@
         </button>
       </li>
       <li>
-        <button 
-          @click="goNext()"
+        <button @click="goNext()"
           title="Next">
           <i class="fas fa-step-forward fa-2x"></i>
         </button>
       </li>
     </ul>
 
+    <!-- Slider Part -->
     <ul class="slides">
-      <li
-        v-for="(slide, index) in slides"
+
+      <li v-for="(slide, index) in slides"
         :key="index"
         :id="'slide-' + (index + 1)">
-
         <figure>
-          <slot
-            name="slide"
+
+          <slot name="slide"
             :slide="slide"
             :index="index">
           </slot>
 
+          <!-- Figcaption (option) -->
           <figcaption v-if="hasSlot('info')">
-            <slot 
-              name="info"
+            <slot name="info"
               :slide="slide"
               :index="index">
             </slot>
           </figcaption>
+
         </figure>
       </li>
     </ul>
 
+    <!-- Gallery Part -->
     <ul class="gallery">
-      <li
-        v-for="(slide, index) in slides"
+
+      <li v-for="(slide, index) in slides"
         :key="index"
         @click="setSlide(index)">
 
-        <slot
-          name="gallery"
+        <slot name="gallery"
           :slide="slide"
           :index="index">
         </slot>
+
       </li>
     </ul>
   </figure>

@@ -1,18 +1,16 @@
 <template>
-  <nav
-    v-if="getNavClass() === 'sidebar'" 
+  <!-- SIDEBAR ELT (Anchor Only) -->
+  <nav v-if="getNavClass() === 'sidebar'" 
     class="sidebar">
 
     <slot name="first"></slot>
 
-    <a 
-      v-for="(item, index) in items"
+    <a v-for="(item, index) in items"
       :key="index"
       :href="`#${item}`"
       :title="item">
 
-      <slot 
-        name="items"
+      <slot name="items"
         :item="item"
         :index="index">
       </slot>
@@ -20,37 +18,34 @@
 
     <slot name="last"></slot>
 
-    <a
-      v-if="hasSlot('top')"
+    <!-- Bottom Link (option) -->
+    <a v-if="hasSlot('top')"
       href="#top"
       title="Top of the Page">
       <slot name="top"></slot>
     </a>
   </nav>
   
-  <nav 
-    v-else 
+  <!-- NAVBAR ELT -->
+  <nav v-else 
     class="navbar">
 
-    <a 
-      v-if="hasSlot('brand')"
+    <!-- Brand Logo (option) -->
+    <a v-if="hasSlot('brand')"
       href="/"
       title="Home">
       <slot name="brand"></slot>
     </a>
 
-    <ul 
-      id="nav"
+    <ul id="nav"
       class="show">
-      <li 
-        v-for="(item, index) in items"
+
+      <li v-for="(item, index) in items"
         :key="index">
-        <a
-          :href="'/' + item"
+        <a :href="'/' + item"
           :title="item.charAt(0).toUpperCase() + item.slice(1)">
 
-          <slot 
-            :name="item"
+          <slot :name="item"
             :item="item"
             :index="index">
           </slot>
@@ -60,15 +55,15 @@
       </li>
     </ul>
 
-    <aside 
-      v-if="hasSlot('admin')"
+    <!-- Admin Part (option) -->
+    <aside v-if="hasSlot('admin')"
       id="admin"
       class="hide">
       <slot name="admin"></slot>
     </aside>
     
-    <button
-      type="button"
+    <!-- Responsive Toggle -->
+    <button type="button"
       @click="toggleMenu()"
       title="Menu">
       <i class="fa-solid fa-bars"></i>
