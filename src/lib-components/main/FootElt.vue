@@ -2,7 +2,9 @@
   <!-- FOOT ELT -->
   <footer>
     <ul>
-      <li>
+
+      <!-- Column 1 (option) -->
+      <li v-if="hasSlot('foot1')">
         <section>
           <h3>{{ title1 }}</h3>
           <slot name="foot1"></slot>
