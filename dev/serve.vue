@@ -224,25 +224,25 @@
           <template #body>
             <ListElt :items="['html', 'css', 'js', 'vue']">
 
-            <template #items-html>
+            <template #items-1>
               HTML
               <i class="fa-brands fa-html5 orange"></i>
               Template
             </template>
 
-            <template #items-css>
+            <template #items-2>
               + CSS
               <i class="fa-brands fa-css3 blue"></i>
               Style
             </template>
 
-            <template #items-js>
+            <template #items-3>
               + JS
               <i class="fa-brands fa-square-js yellow"></i>
               Script
             </template>
 
-            <template #items-vue>
+            <template #items-4>
               <hr class="width-sm">
               Vue
               <i class="fa-brands fa-vuejs green"></i>

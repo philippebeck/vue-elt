@@ -3,8 +3,8 @@
   <ul>
     <li v-for="(item, index) in items"
       :key="index">
-      <slot
-        name="items"
+
+      <slot :name="`items-${index + 1}`"
         :index="index"
         :item="item">
         {{ item }}
@@ -15,8 +15,8 @@
 
         <li v-for="(value, key) in item"
           :key="key">
-          <slot
-            name="nested"
+
+          <slot :name="`nested-${key + 1}`"
             :index="index"
             :item="item"
             :key="key"
