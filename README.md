@@ -4,7 +4,6 @@ Vue Single File Component Library
 
 [![NPM Version](https://badgen.net/npm/v/vue-elt)](https://www.npmjs.com/package/vue-elt)
 [![NPM Downloads](https://badgen.net/npm/dt/vue-elt)](https://www.npmjs.com/package/vue-elt)
-[![jsDelivr Downloads](https://badgen.net/jsdelivr/hits/npm/vue-elt)](https://www.jsdelivr.com/package/npm/vue-elt)
 [![GitHub Last Commit](https://badgen.net/github/last-commit/philippebeck/vue-elt)](https://github.com/philippebeck/vue-elt/commits/master)
 
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/4734dc65c4a24319aef25e663ffd1a7e)](https://www.codacy.com/gh/philippebeck/vue-elt/dashboard)
