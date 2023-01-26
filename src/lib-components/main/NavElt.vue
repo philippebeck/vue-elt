@@ -13,6 +13,7 @@
       <slot name="items"
         :item="item"
         :index="index">
+        {{ item }}
       </slot>
     </a>
 
