@@ -1,6 +1,6 @@
 <template>
-  <button 
-    v-if="getBtnType() === 'button'"
+  <!-- BUTTON -->
+  <button v-if="getBtnType() === 'button'"
     :id="id"
     :name="name"
     :title="title"
@@ -10,8 +10,8 @@
     {{ content }}
   </button>
 
-  <a 
-    v-else
+  <!-- LINK -->
+  <a v-else
     :href="href"
     :id="id"
     :title="title">

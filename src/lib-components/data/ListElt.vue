@@ -1,27 +1,29 @@
 <template>
+  <!-- LIST ELT -->
   <ul>
-    <li
-      v-for="(item, index) in items"
+    <li v-for="(item, index) in items"
       :key="index">
-      <slot
-        name="items"
+
+      <slot :name="`items-${index + 1}`"
         :index="index"
         :item="item">
         {{ item }}
       </slot>
       
+      <!-- Nested List (option) -->
       <ul v-if="hasSlot('nested')">
-        <li
-          v-for="(value, key) in item"
+
+        <li v-for="(value, key) in item"
           :key="key">
-          <slot
-            name="nested"
+
+          <slot :name="`nested-${key + 1}`"
             :index="index"
             :item="item"
             :key="key"
             :value="value">
             {{ value }}
           </slot>
+
         </li>
       </ul>
     </li>
