@@ -195,12 +195,42 @@
       </template>
       
       <template #body>
-        <h3>ListElt</h3>
 
-        <ListElt :items="['HTML', 'CSS', 'JS']">
+        <CardElt>
+          <template #header>
+            <h3 id="list">ListElt</h3>
+          </template>
+          
+          <template #body>
+            <ListElt :items="['html', 'css', 'js', 'vue']">
 
-        </ListElt>
+            <template #items-html>
+              HTML
+              <i class="fa-brands fa-html5 orange"></i>
+              Template
+            </template>
 
+            <template #items-css>
+              + CSS
+              <i class="fa-brands fa-css3 blue"></i>
+              Style
+            </template>
+
+            <template #items-js>
+              + JS
+              <i class="fa-brands fa-square-js yellow"></i>
+              Script
+            </template>
+
+            <template #items-vue>
+              <hr class="width-sm">
+              Vue
+              <i class="fa-brands fa-vuejs green"></i>
+              Elt
+            </template>
+            </ListElt>
+          </template>
+        </CardElt>
 
         <h3>SliderElt</h3>
 
