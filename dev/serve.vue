@@ -254,7 +254,7 @@
 
         <CardElt>
           <template #header>
-            <h3 id="slider" class="pad-none">SliderElt</h3>
+            <h3 id="slider">SliderElt</h3>
           </template>
 
           <template #body>
