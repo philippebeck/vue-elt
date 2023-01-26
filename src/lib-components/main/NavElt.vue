@@ -268,7 +268,7 @@ export default {
 .navbar :deep(ul):last-of-type a:focus,
 .navbar :deep(ul):last-of-type button:hover,
 .navbar :deep(ul):last-of-type button:focus {
-  --navbar-last-ul-a-hover-color: var(--orange);
+  --navbar-last-ul-a-hover-color: var(--red);
   color: var(--navbar-last-ul-a-hover-color);
 }
 
