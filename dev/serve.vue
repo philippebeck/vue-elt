@@ -35,12 +35,46 @@
       </template>
 
       <template #body>
-        <h3>BtnElt</h3>
+        <CardElt>
+          <template #header>
+            <h3 id="btn">BtnElt</h3>
+          </template>
 
-        <BtnElt>
+          <template #body>
+            <BtnElt type="button"
+              content="btn-red"
+              class="btn-red"/>
 
-        </BtnElt>
+            <BtnElt type="button"
+              content="btn-orange"
+              class="btn-orange"/>
 
+            <BtnElt type="button"
+              content="btn-yellow"
+              class="btn-yellow"/>
+
+            <BtnElt type="button"
+              content="btn-green"
+              class="btn-green"/>
+
+            <BtnElt type="button"
+              content="btn-sky"
+              class="btn-sky"/>
+
+            <BtnElt type="button"
+              content="btn-blue"
+              class="btn-blue"/>
+
+            <BtnElt type="button"
+              content="btn-violet"
+              class="btn-violet"/>
+
+            <BtnElt type="button"
+              content="btn-pink"
+              class="btn-pink"/>
+          </template>
+        </CardElt>
+        
         <h3>FieldElt</h3>
 
         <FieldElt>
