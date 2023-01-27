@@ -89,7 +89,7 @@
           </template>
 
           <template #body>
-            <FieldElt>
+            <FieldElt id="text">
               <template #legend>
                 Text
               </template>
@@ -99,7 +99,8 @@
               </template>
             </FieldElt>
 
-            <FieldElt type="number">
+            <FieldElt id="number" 
+              type="number">
               <template #legend>
                 Number
               </template>
@@ -109,7 +110,8 @@
               </template>
             </FieldElt>
 
-            <FieldElt type="date">
+            <FieldElt id="date" 
+              type="date">
               <template #legend>
                 Date
               </template>
@@ -119,7 +121,8 @@
               </template>
             </FieldElt>
 
-            <FieldElt type="time">
+            <FieldElt id="time" 
+              type="time">
               <template #legend>
                 Time
               </template>
@@ -129,7 +132,8 @@
               </template>
             </FieldElt>
 
-            <FieldElt type="range">
+            <FieldElt id="range" 
+              type="range">
               <template #legend>
                 Range
               </template>
@@ -139,7 +143,8 @@
               </template>
             </FieldElt>
 
-            <FieldElt type="color">
+            <FieldElt id="color"
+              type="color">
               <template #legend>
                 Color
               </template>
@@ -149,7 +154,8 @@
               </template>
             </FieldElt>
 
-            <FieldElt type="checkbox">
+            <FieldElt id="checkbox" 
+              type="checkbox">
               <template #legend>
                 Checkbox
               </template>
@@ -159,7 +165,8 @@
               </template>
             </FieldElt>
 
-            <FieldElt type="radio">
+            <FieldElt id="radio"
+            type="radio">
               <template #legend>
                 Radio
               </template>
@@ -169,7 +176,8 @@
               </template>
             </FieldElt>
 
-            <FieldElt type="select"
+            <FieldElt id="select"
+              type="select"
               :list="['Choice 1', 'Choice 2', 'Choice 3']"
               info="Choose an Option">
               <template #legend>
@@ -181,7 +189,8 @@
               </template>
             </FieldElt>
 
-            <FieldElt type="textarea">
+            <FieldElt id="textarea"
+              type="textarea">
               <template #legend>
                 Textarea
               </template>
