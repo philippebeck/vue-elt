@@ -60,13 +60,13 @@ Yarn : `yarn add vue-elt`
 Available SFC :  
 -   **BtnElt** *(base)*  
 -   **FieldElt** *(base)*  
--   **ImgElt** *(base)*  
+-   **MediaElt** *(base)*  
 -   **ListElt** *(data)*  
 -   **SliderElt** *(data)*  
 -   **TableElt** *(data)*  
+-   **NavElt** *(main)*  
 -   **CardElt** *(main)*  
 -   **FootElt** *(main)*  
--   **NavElt** *(main)*  
 
 ---
 
