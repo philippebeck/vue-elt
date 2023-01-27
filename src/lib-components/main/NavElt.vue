@@ -118,7 +118,7 @@ export default {
 }
 
 [id="app"] {
-  margin-top: calc(var(--navbar-height) + 20px);
+  margin-top: var(--navbar-height);
 }
 
 @media (min-width: 768px) {
