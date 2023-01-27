@@ -1,6 +1,36 @@
 <template>
-  <!-- LIST ELT -->
-  <ul>
+  <!-- LIST ELT (Dynamic Slot Name) -->
+  <ul v-if="dynamic === true">
+    <li v-for="(item, index) in items"
+      :key="index">
+
+      <slot name="items"
+        :index="index"
+        :item="item">
+        {{ item }}
+      </slot>
+      
+      <!-- Nested List (option) -->
+      <ul v-if="hasSlot('nested')">
+
+        <li v-for="(value, key) in item"
+          :key="key">
+
+          <slot name="nested"
+            :index="index"
+            :item="item"
+            :key="key"
+            :value="value">
+            {{ value }}
+          </slot>
+
+        </li>
+      </ul>
+    </li>
+  </ul>
+
+  <!-- LIST ELT (Static Slot Name) -->
+  <ul v-else>
     <li v-for="(item, index) in items"
       :key="index">
 
@@ -38,9 +68,9 @@ export default {
       type: Object,
       required: true
     },
-    display: {
-      type: String,
-      default: "col"
+    dynamic: {
+      type: Boolean,
+      default: false
     }
   },
   methods: {
