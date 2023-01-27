@@ -127,13 +127,13 @@ export default {
     }
   },
 
-  mounted() {
+  created() {
     this.autoElt    = document.getElementById("slider-auto");
     this.randomElt  = document.getElementById("slider-random");
     document.addEventListener("keydown", this.setKeyboard);
   },
 
-  updated() {
+  mounted() {
     document.getElementById("slide-1").classList.add("show");
     this.runSlider();
   },
