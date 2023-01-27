@@ -156,8 +156,8 @@ tbody tr:nth-child(even) {
   --tbody-even-background-color: var(--gray-light);
   --tbody-even-color: var(--black);
 
-  background-color: var(--btbody-even-background-color);
-  color: var(--btbody-even-background-color);
+  background-color: var(--tbody-even-background-color);
+  color: var(--tbody-even-color);
 }
 
 tbody tr:nth-child(odd) {
