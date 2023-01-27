@@ -208,6 +208,14 @@
           </template>
 
           <template #body>
+            <MediaElt type="audio"
+              src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3">
+            </MediaElt>
+
+            <MediaElt type="video"
+              src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4">
+            </MediaElt>
+
             <MediaElt src="https://philippebeck.net/img/logo.svg">
             </MediaElt>
           </template>

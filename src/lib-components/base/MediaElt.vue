@@ -96,16 +96,19 @@ export default {
 figure {
   --figure-border: 1px solid transparent;
   --figure-border-radius: 10%;
+  --figure-padding: 10px;
   --figure-background-color: transparent;
 
   border: var(--figure-border);
   border-radius: var(--figure-border-radius);
+  padding: var(--figure-padding);
   background-color: var(--figure-background-color);
 }
 
 img {
   --img-border: 1px solid var(--blue);
   --img-border-radius: 20px;
+  --img-padding: 10px;
   --img-max-width: 100%;
   --img-height: auto;
   --img-object-fit: contain;
@@ -113,6 +116,7 @@ img {
 
   border: var(--img-border);
   border-radius: var(--img-border-radius);
+  padding: var(--img-padding);
   max-width: var(--img-max-width);
   height: var(--img-height);
   object-fit: var(--img-object-fit);
@@ -120,7 +124,7 @@ img {
 }
 
 audio {
-  --audio-border: 2px solid var(--black);
+  --audio-border: 2px solid var(--gray);
   --audio-border-radius: 10px;
 
   border: var(--audio-border);
