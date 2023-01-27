@@ -62,10 +62,7 @@ export default {
 
 <style scoped>
 footer {
-  --footer-margin-top: 20px;
   --footer-text-align: center;
-
-  margin-top: var(--footer-margin-top);
   text-align: var(--footer-text-align);
 }
 

@@ -45,7 +45,7 @@ var script$8 = {
 };
 
 const _hoisted_1$8 = ["id", "name", "title", "type", "value"];
-const _hoisted_2$7 = ["href", "id", "title"];
+const _hoisted_2$8 = ["href", "id", "title"];
 function render$8(_ctx, _cache, $props, $setup, $data, $options) {
   return $options.getBtnType() === 'button' ? (openBlock(), createElementBlock("button", {
     key: 0,
@@ -59,7 +59,7 @@ function render$8(_ctx, _cache, $props, $setup, $data, $options) {
     href: $props.href,
     id: $props.id,
     title: $props.title
-  }, [renderSlot(_ctx.$slots, "btn"), createTextVNode(" " + toDisplayString($props.content), 1)], 8, _hoisted_2$7));
+  }, [renderSlot(_ctx.$slots, "btn"), createTextVNode(" " + toDisplayString($props.content), 1)], 8, _hoisted_2$8));
 }
 
 function styleInject(css, ref) {
@@ -200,11 +200,11 @@ var script$7 = {
 };
 
 const _hoisted_1$7 = ["title"];
-const _hoisted_2$6 = {
+const _hoisted_2$7 = {
   key: 0
 };
-const _hoisted_3$6 = ["id", "max", "min", "name", "step", "type", "value", "required"];
-const _hoisted_4$6 = ["id", "name", "type", "value", "required"];
+const _hoisted_3$7 = ["id", "max", "min", "name", "step", "type", "value", "required"];
+const _hoisted_4$7 = ["id", "name", "type", "value", "required"];
 const _hoisted_5$4 = ["id", "name", "placeholder", "required"];
 const _hoisted_6$4 = ["value"];
 const _hoisted_7$3 = {
@@ -217,7 +217,7 @@ const _hoisted_11$1 = ["for"];
 function render$7(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("fieldset", {
     title: $props.info
-  }, [$options.hasSlot('legend') ? (openBlock(), createElementBlock("legend", _hoisted_2$6, [renderSlot(_ctx.$slots, "legend")])) : createCommentVNode("", true), $options.getFieldType() === 'number' ? (openBlock(), createElementBlock("input", {
+  }, [$options.hasSlot('legend') ? (openBlock(), createElementBlock("legend", _hoisted_2$7, [renderSlot(_ctx.$slots, "legend")])) : createCommentVNode("", true), $options.getFieldType() === 'number' ? (openBlock(), createElementBlock("input", {
     key: 1,
     id: $props.id,
     max: $props.max,
@@ -230,7 +230,7 @@ function render$7(_ctx, _cache, $props, $setup, $data, $options) {
       return $options.onInput && $options.onInput(...arguments);
     }),
     required: $props.required
-  }, null, 40, _hoisted_3$6)) : $options.getFieldType() === 'special' ? (openBlock(), createElementBlock("input", {
+  }, null, 40, _hoisted_3$7)) : $options.getFieldType() === 'special' ? (openBlock(), createElementBlock("input", {
     key: 2,
     id: $props.id,
     name: $props.name,
@@ -240,7 +240,7 @@ function render$7(_ctx, _cache, $props, $setup, $data, $options) {
       return $options.onInput && $options.onInput(...arguments);
     }),
     required: $props.required
-  }, null, 40, _hoisted_4$6)) : $options.getFieldType() === 'list' ? (openBlock(), createElementBlock("select", {
+  }, null, 40, _hoisted_4$7)) : $options.getFieldType() === 'list' ? (openBlock(), createElementBlock("select", {
     key: 3,
     id: $props.id,
     name: $props.id,
@@ -337,9 +337,9 @@ var script$6 = {
 };
 
 const _hoisted_1$6 = ["title"];
-const _hoisted_2$5 = ["src", "loop"];
-const _hoisted_3$5 = ["src", "loop", "height", "width"];
-const _hoisted_4$5 = ["src", "type"];
+const _hoisted_2$6 = ["src", "loop"];
+const _hoisted_3$6 = ["src", "loop", "height", "width"];
+const _hoisted_4$6 = ["src", "type"];
 const _hoisted_5$3 = {
   key: 2
 };
@@ -357,7 +357,7 @@ function render$6(_ctx, _cache, $props, $setup, $data, $options) {
     controls: "",
     src: $props.src,
     loop: $props.loop
-  }, [renderSlot(_ctx.$slots, "audio")], 8, _hoisted_2$5)) : $props.type === 'video' ? (openBlock(), createElementBlock("video", {
+  }, [renderSlot(_ctx.$slots, "audio")], 8, _hoisted_2$6)) : $props.type === 'video' ? (openBlock(), createElementBlock("video", {
     key: 1,
     controls: "",
     src: $props.src,
@@ -369,8 +369,8 @@ function render$6(_ctx, _cache, $props, $setup, $data, $options) {
       key: index,
       src: video.src,
       type: video.type
-    }, null, 8, _hoisted_4$5);
-  }), 128)), renderSlot(_ctx.$slots, "video")], 8, _hoisted_3$5)) : $props.type === 'picture' ? (openBlock(), createElementBlock("picture", _hoisted_5$3, [(openBlock(true), createElementBlock(Fragment, null, renderList($props.medias, (picture, index) => {
+    }, null, 8, _hoisted_4$6);
+  }), 128)), renderSlot(_ctx.$slots, "video")], 8, _hoisted_3$6)) : $props.type === 'picture' ? (openBlock(), createElementBlock("picture", _hoisted_5$3, [(openBlock(true), createElementBlock(Fragment, null, renderList($props.medias, (picture, index) => {
     return openBlock(), createElementBlock("source", {
       key: index,
       srcset: picture.src,
@@ -400,9 +400,9 @@ var script$5 = {
       type: Object,
       required: true
     },
-    display: {
-      type: String,
-      default: "col"
+    dynamic: {
+      type: Boolean,
+      default: false
     }
   },
   methods: {
@@ -416,14 +416,39 @@ var script$5 = {
 const _hoisted_1$5 = {
   key: 0
 };
+const _hoisted_2$5 = {
+  key: 0
+};
+const _hoisted_3$5 = {
+  key: 1
+};
+const _hoisted_4$5 = {
+  key: 0
+};
 function render$5(_ctx, _cache, $props, $setup, $data, $options) {
-  return openBlock(), createElementBlock("ul", null, [(openBlock(true), createElementBlock(Fragment, null, renderList($props.items, (item, index) => {
+  return $props.dynamic === true ? (openBlock(), createElementBlock("ul", _hoisted_1$5, [(openBlock(true), createElementBlock(Fragment, null, renderList($props.items, (item, index) => {
     return openBlock(), createElementBlock("li", {
       key: index
-    }, [renderSlot(_ctx.$slots, `items-${index + 1}`, {
+    }, [renderSlot(_ctx.$slots, "items", {
       index: index,
       item: item
-    }, () => [createTextVNode(toDisplayString(item), 1)]), $options.hasSlot('nested') ? (openBlock(), createElementBlock("ul", _hoisted_1$5, [(openBlock(true), createElementBlock(Fragment, null, renderList(item, (value, key) => {
+    }, () => [createTextVNode(toDisplayString(item), 1)]), $options.hasSlot('nested') ? (openBlock(), createElementBlock("ul", _hoisted_2$5, [(openBlock(true), createElementBlock(Fragment, null, renderList(item, (value, key) => {
+      return openBlock(), createElementBlock("li", {
+        key: key
+      }, [renderSlot(_ctx.$slots, "nested", {
+        index: index,
+        item: item,
+        key: key,
+        value: value
+      }, () => [createTextVNode(toDisplayString(value), 1)])]);
+    }), 128))])) : createCommentVNode("", true)]);
+  }), 128))])) : (openBlock(), createElementBlock("ul", _hoisted_3$5, [(openBlock(true), createElementBlock(Fragment, null, renderList($props.items, (item, index) => {
+    return openBlock(), createElementBlock("li", {
+      key: index
+    }, [renderSlot(_ctx.$slots, `item-${index + 1}`, {
+      index: index,
+      item: item
+    }, () => [createTextVNode(toDisplayString(item), 1)]), $options.hasSlot('nested') ? (openBlock(), createElementBlock("ul", _hoisted_4$5, [(openBlock(true), createElementBlock(Fragment, null, renderList(item, (value, key) => {
       return openBlock(), createElementBlock("li", {
         key: key
       }, [renderSlot(_ctx.$slots, `nested-${key + 1}`, {
@@ -433,14 +458,14 @@ function render$5(_ctx, _cache, $props, $setup, $data, $options) {
         value: value
       }, () => [createTextVNode(toDisplayString(value), 1)])]);
     }), 128))])) : createCommentVNode("", true)]);
-  }), 128))]);
+  }), 128))]));
 }
 
-var css_248z$6 = "\nul[data-v-4e62464d] {\n  --ul-margin: 20px 0;\n  --ul-padding: 0;\n  --ul-list-style: none;\n  --ul-text-align: center;\n\n  margin: var(--ul-margin);\n  padding: var(--ul-padding);\n  list-style: var(--ul-list-style);\n  text-align: var(--ul-text-align);\n}\nli > ul[data-v-4e62464d] {\n  --li-ul-display: flex;\n  --li-ul-flex-flow: wrap;\n  --li-ul-place-content: center;\n\n  display: var(--li-ul-display);\n  flex-flow: var(--li-ul-flex-flow);\n  place-content: var(--li-ul-place-content);\n}\n";
+var css_248z$6 = "\nul[data-v-74995e6c] {\n  --ul-margin: 20px 0;\n  --ul-padding: 0;\n  --ul-list-style: none;\n  --ul-text-align: center;\n\n  margin: var(--ul-margin);\n  padding: var(--ul-padding);\n  list-style: var(--ul-list-style);\n  text-align: var(--ul-text-align);\n}\nli > ul[data-v-74995e6c] {\n  --li-ul-display: flex;\n  --li-ul-flex-flow: wrap;\n  --li-ul-place-content: center;\n\n  display: var(--li-ul-display);\n  flex-flow: var(--li-ul-flex-flow);\n  place-content: var(--li-ul-place-content);\n}\n";
 styleInject(css_248z$6);
 
 script$5.render = render$5;
-script$5.__scopeId = "data-v-4e62464d";
+script$5.__scopeId = "data-v-74995e6c";
 
 var script$4 = {
   name: "SliderElt",
@@ -929,11 +954,11 @@ function render$1(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("footer", null, [createElementVNode("ul", null, [$options.hasSlot('foot1') ? (openBlock(), createElementBlock("li", _hoisted_1$1, [createElementVNode("section", null, [createElementVNode("h3", null, toDisplayString($props.title1), 1), renderSlot(_ctx.$slots, "foot1")])])) : createCommentVNode("", true), $options.hasSlot('foot2') ? (openBlock(), createElementBlock("li", _hoisted_2$1, [createElementVNode("section", null, [createElementVNode("h3", null, toDisplayString($props.title2), 1), renderSlot(_ctx.$slots, "foot2")])])) : createCommentVNode("", true), $options.hasSlot('foot3') ? (openBlock(), createElementBlock("li", _hoisted_3$1, [createElementVNode("section", null, [createElementVNode("h3", null, toDisplayString($props.title3), 1), renderSlot(_ctx.$slots, "foot3")])])) : createCommentVNode("", true)]), $options.hasSlot('foot') ? (openBlock(), createElementBlock("aside", _hoisted_4$1, [renderSlot(_ctx.$slots, "foot")])) : createCommentVNode("", true)]);
 }
 
-var css_248z$2 = "\nfooter[data-v-548fc714] {\n  --footer-margin-top: 20px;\n  --footer-text-align: center;\n\n  margin-top: var(--footer-margin-top);\n  text-align: var(--footer-text-align);\n}\nh3[data-v-548fc714],[data-v-548fc714] ul {\n  --footer-child-margin: 0;\n  --footer-child-padding: 0;\n\n  margin: var(--footer-child-margin);\n  padding: var(--footer-child-padding);\n}\n[data-v-548fc714] li {\n  --footer-li-list-style: none;\n  list-style: var(--footer-li-list-style);\n}\n[data-v-548fc714] a {\n  --footer-a-text-decoration: none;\n  text-decoration: var(--footer-a-text-decoration);\n}\n\n/********************* MAIN PART *********************/\nfooter > ul[data-v-548fc714] { \n  --footer-ul-display: flex;\n  --footer-ul-flex-direction: column;\n  --footer-ul-place-items: center;\n  --footer-ul-gap: 20px;\n  --footer-ul-padding: 20px;\n  --footer-ul-background-color: var(--sky);\n\n  display: var(--footer-ul-display);\n  flex-direction: var(--footer-ul-flex-direction);\n  place-items: var(--footer-ul-place-items);\n  gap: var(--footer-ul-gap);\n  padding: var(--footer-ul-padding);\n  background-color: var(--footer-ul-background-color);\n}\nh3[data-v-548fc714] {\n  --footer-h3-margin-bottom: 5px;\n  --footer-h3-font-size: 2rem;\n  --footer-h3-font-family: monospace;\n  --footer-h3-color: var(--yellow);\n\n  margin-bottom: var(--footer-h3-margin-bottom);\n  font-size: var(--footer-h3-font-size);\n  font-family: var(--footer-h3-font-family);\n  color: var(--footer-h3-color);\n}\nsection[data-v-548fc714] a {\n  --footer-section-a-color: var(--white);\n  color: var(--footer-section-a-color);\n}\nsection[data-v-548fc714] a:hover,\nsection[data-v-548fc714] a:focus {\n  --footer-section-a-hover-color: var(--gray);\n  color: var(--footer-section-a-hover-color);\n}\n\n/********************* SECOND PART *********************/\naside[data-v-548fc714] ul {\n  --aside-ul-display: flex;\n  --aside-ul-flex-direction: row;\n  --aside-ul-place-content: center;\n  --aside-ul-gap: 10px;\n  --aside-ul-padding: 10px;\n  --aside-ul-background-color: var(--white);\n\n  display: var(--aside-ul-display);\n  flex-direction: var(--aside-ul-flex-direction);\n  place-content: var(--aside-ul-place-content);\n  gap: var(--aside-ul-gap);\n  padding: var(--aside-ul-padding);\n  background-color: var(--aside-ul-background-color);\n}\naside[data-v-548fc714] a {\n  --aside-a-color: var(--blue);\n  color: var(--aside-a-color);\n}\naside[data-v-548fc714] i:hover,\naside[data-v-548fc714] i:focus {\n  --aside-a-hover-transform: scale(1.2);\n  --aside-a-hover-transition: transform 200ms;\n\n  transform: var(--aside-a-hover-transform);\n  transition: var(--aside-a-hover-transition);\n}\n\n/********************* RESPONSIVE *********************/\n@media (min-width: 576px) {\nfooter > ul[data-v-548fc714] {\n    --footer-ul-flex-direction: row;\n    --footer-ul-place-content: space-around;\n\n    place-content: var(--footer-ul-place-content);\n}\n}\n@media (min-width: 768px) {\nfooter > ul[data-v-548fc714] {\n    --footer-ul-place-content: space-evenly;\n}\n}\n@media (min-width: 992px) {\nfooter > ul[data-v-548fc714] {\n    --footer-ul-place-content: center;\n    --footer-ul-gap: 10%;\n}\n}\n";
+var css_248z$2 = "\nfooter[data-v-77f02d1e] {\n  --footer-text-align: center;\n  text-align: var(--footer-text-align);\n}\nh3[data-v-77f02d1e],[data-v-77f02d1e] ul {\n  --footer-child-margin: 0;\n  --footer-child-padding: 0;\n\n  margin: var(--footer-child-margin);\n  padding: var(--footer-child-padding);\n}\n[data-v-77f02d1e] li {\n  --footer-li-list-style: none;\n  list-style: var(--footer-li-list-style);\n}\n[data-v-77f02d1e] a {\n  --footer-a-text-decoration: none;\n  text-decoration: var(--footer-a-text-decoration);\n}\n\n/********************* MAIN PART *********************/\nfooter > ul[data-v-77f02d1e] { \n  --footer-ul-display: flex;\n  --footer-ul-flex-direction: column;\n  --footer-ul-place-items: center;\n  --footer-ul-gap: 20px;\n  --footer-ul-padding: 20px;\n  --footer-ul-background-color: var(--sky);\n\n  display: var(--footer-ul-display);\n  flex-direction: var(--footer-ul-flex-direction);\n  place-items: var(--footer-ul-place-items);\n  gap: var(--footer-ul-gap);\n  padding: var(--footer-ul-padding);\n  background-color: var(--footer-ul-background-color);\n}\nh3[data-v-77f02d1e] {\n  --footer-h3-margin-bottom: 5px;\n  --footer-h3-font-size: 2rem;\n  --footer-h3-font-family: monospace;\n  --footer-h3-color: var(--yellow);\n\n  margin-bottom: var(--footer-h3-margin-bottom);\n  font-size: var(--footer-h3-font-size);\n  font-family: var(--footer-h3-font-family);\n  color: var(--footer-h3-color);\n}\nsection[data-v-77f02d1e] a {\n  --footer-section-a-color: var(--white);\n  color: var(--footer-section-a-color);\n}\nsection[data-v-77f02d1e] a:hover,\nsection[data-v-77f02d1e] a:focus {\n  --footer-section-a-hover-color: var(--gray);\n  color: var(--footer-section-a-hover-color);\n}\n\n/********************* SECOND PART *********************/\naside[data-v-77f02d1e] ul {\n  --aside-ul-display: flex;\n  --aside-ul-flex-direction: row;\n  --aside-ul-place-content: center;\n  --aside-ul-gap: 10px;\n  --aside-ul-padding: 10px;\n  --aside-ul-background-color: var(--white);\n\n  display: var(--aside-ul-display);\n  flex-direction: var(--aside-ul-flex-direction);\n  place-content: var(--aside-ul-place-content);\n  gap: var(--aside-ul-gap);\n  padding: var(--aside-ul-padding);\n  background-color: var(--aside-ul-background-color);\n}\naside[data-v-77f02d1e] a {\n  --aside-a-color: var(--blue);\n  color: var(--aside-a-color);\n}\naside[data-v-77f02d1e] i:hover,\naside[data-v-77f02d1e] i:focus {\n  --aside-a-hover-transform: scale(1.2);\n  --aside-a-hover-transition: transform 200ms;\n\n  transform: var(--aside-a-hover-transform);\n  transition: var(--aside-a-hover-transition);\n}\n\n/********************* RESPONSIVE *********************/\n@media (min-width: 576px) {\nfooter > ul[data-v-77f02d1e] {\n    --footer-ul-flex-direction: row;\n    --footer-ul-place-content: space-around;\n\n    place-content: var(--footer-ul-place-content);\n}\n}\n@media (min-width: 768px) {\nfooter > ul[data-v-77f02d1e] {\n    --footer-ul-place-content: space-evenly;\n}\n}\n@media (min-width: 992px) {\nfooter > ul[data-v-77f02d1e] {\n    --footer-ul-place-content: center;\n    --footer-ul-gap: 10%;\n}\n}\n";
 styleInject(css_248z$2);
 
 script$1.render = render$1;
-script$1.__scopeId = "data-v-548fc714";
+script$1.__scopeId = "data-v-77f02d1e";
 
 var script = {
   name: "NavElt",
@@ -971,7 +996,7 @@ var script = {
   }
 };
 
-const _withScopeId = n => (pushScopeId("data-v-06ab2e90"), n = n(), popScopeId(), n);
+const _withScopeId = n => (pushScopeId("data-v-49d6a973"), n = n(), popScopeId(), n);
 
 const _hoisted_1 = {
   key: 0,
@@ -1035,14 +1060,14 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }, _hoisted_10)]));
 }
 
-var css_248z$1 = "\n:root {\n  --navbar-height: 50px;\n}\n[id=\"app\"] {\n  margin-top: calc(var(--navbar-height) + 20px);\n}\n@media (min-width: 768px) {\n:root {\n    --navbar-height: 80px;\n}\n}\n";
+var css_248z$1 = "\n:root {\n  --navbar-height: 50px;\n}\n[id=\"app\"] {\n  margin-top: var(--navbar-height);\n}\n@media (min-width: 768px) {\n:root {\n    --navbar-height: 80px;\n}\n}\n";
 styleInject(css_248z$1);
 
-var css_248z = "\n.sidebar[data-v-06ab2e90] {\n  --sidebar-display: flex;\n  --sidebar-flex-flow: column;\n  --sidebar-position: fixed;\n  --sidebar-top: calc(var(--navbar-height) + 10px);\n  --sidebar-left: 2px;\n  --sidebar-z-index: 10;\n  --sidebar-width: auto;\n\n  display: var(--sidebar-display);\n  flex-flow: var(--sidebar-flex-flow);\n  position: var(--sidebar-position);\n  top: var(--sidebar-top);\n  left: var(--sidebar-left);\n  z-index: var(--sidebar-z-index);\n  width: var(--sidebar-width);\n}\n.sidebar[data-v-06ab2e90] a {\n  --sidebar-a-display: flex;\n  --sidebar-a-place-content: center;\n  --sidebar-a-place-items: center;\n  --sidebar-a-margin: 5px;\n  --sidebar-a-border-radius: 20px;\n  --sidebar-a-padding: 5px;\n  --sidebar-a-width: 100%;\n  --sidebar-a-background-color: var(--white-dark);\n  --sidebar-a-color: var(--blue-dark);\n  --sidebar-a-cursor: crosshair;\n\n  display: var(--sidebar-a-display);\n  place-content: var(--sidebar-a-place-content);\n  place-items: var(--sidebar-a-place-items);\n  margin: var(--sidebar-a-margin);\n  border-radius: var(--sidebar-a-border-radius);\n  padding: var(--sidebar-a-padding);\n  width: var(--sidebar-a-width);\n  background-color: var(--sidebar-a-background-color);\n  color: var(--sidebar-a-color);\n  cursor: var(--sidebar-a-cursor);\n}\n.sidebar[data-v-06ab2e90] a:hover,\n.sidebar[data-v-06ab2e90] a:focus {\n  --sidebar-a-hover-border-radius: 10px;\n  --sidebar-a-hover-background-color: var(--blue-dark);\n  --sidebar-a-hover-color: var(--white-dark);\n  --sidebar-a-hover-transform: scale(1.1);\n  --sidebar-a-hover-transition: all 500ms;\n\n  border-radius: var(--sidebar-a-hover-border-radius);\n  color: var(--sidebar-a-hover-color);\n  background-color: var(--sidebar-a-hover-background-color);\n  transform: var(--sidebar-a-hover-transform);\n  transition: var(--sidebar-a-hover-transition);\n}\n.navbar[data-v-06ab2e90] {\n  --navbar-display: flex;\n  --navbar-place-content: space-between;\n  --navbar-place-items: center;\n  --navbar-position: fixed;\n  --navbar-top: 0;\n  --navbar-right: 0;\n  --navbar-bottom: unset;\n  --navbar-left: 0;\n  --navbar-z-index: 1000;\n  --navbar-background-color: var(--blue-dark);\n  --navbar-color: var(--white);\n\n  display: var(--navbar-display);\n  place-content: var(--navbar-place-content);\n  place-items: var(--navbar-place-items);\n  position: var(--navbar-position);\n  top: var(--navbar-top);\n  right: var(--navbar-right);\n  bottom: var(--navbar-bottom);\n  left: var(--navbar-left);\n  z-index: var(--navbar-z-index);\n  height: var(--navbar-height);\n  background-color: var(--navbar-background-color);\n  color: var(--navbar-color);\n}\n.navbar[data-v-06ab2e90] a,\n.navbar[data-v-06ab2e90] button {\n  --navbar-a-padding: 10px;\n  --navbar-a-color: var(--white);\n  --navbar-a-cursor: pointer;\n\n  padding: var(--navbar-a-padding);\n  color: var(--navbar-a-color);\n  cursor: var(--navbar-a-cursor);\n}\n.navbar[data-v-06ab2e90] ul {\n  --navbar-ul-display: flex;\n  --navbar-ul-place-items: center;\n  --navbar-ul-margin: 0;\n  --navbar-ul-padding: 0;\n  --navbar-ul-list-style: none;\n\n  display: var(--navbar-ul-display);\n  place-items: var(--navbar-ul-place-items);\n  margin: var(--navbar-ul-margin);\n  padding: var(--navbar-ul-padding);\n  list-style: var(--navbar-ul-list-style);\n}\n.navbar ul a[data-v-06ab2e90] {\n  --navbar-ul-a-display: flex;\n  display: var(--navbar-ul-a-display);\n}\n.navbar ul a[data-v-06ab2e90] :not(i) {\n  --navbar-ul-a-not-i-display: none;\n  display: var(--navbar-ul-a-not-i-display);\n}\n.navbar[data-v-06ab2e90] ul a,\n.navbar[data-v-06ab2e90] ul button {\n  --navbar-ul-a-flex-direction: column;\n  flex-direction: var(--navbar-ul-a-flex-direction);\n}\n.navbar ul a[data-v-06ab2e90]:hover,\n.navbar ul a[data-v-06ab2e90]:focus,\n.navbar ul button[data-v-06ab2e90]:hover,\n.navbar ul button[data-v-06ab2e90]:focus {\n  --navbar-first-ul-a-hover-color: var(--yellow);\n  --navbar-first-ul-a-hover-transform: scale(0.9);\n\n  color: var(--navbar-first-ul-a-hover-color) !important;\n  transform: var(--navbar-first-ul-a-hover-transform) !important;\n}\n.navbar[data-v-06ab2e90] ul:last-of-type a:hover,\n.navbar[data-v-06ab2e90] ul:last-of-type a:focus,\n.navbar[data-v-06ab2e90] ul:last-of-type button:hover,\n.navbar[data-v-06ab2e90] ul:last-of-type button:focus {\n  --navbar-last-ul-a-hover-color: var(--red);\n  color: var(--navbar-last-ul-a-hover-color);\n}\n.navbar[data-v-06ab2e90] button {\n  --navbar-button-background-color: transparent;\n  --navbar-button-border: none;\n  --navbar-button-cursor: pointer;\n\n  background-color: var(--navbar-button-background-color);\n  border: var(--navbar-button-border);\n  cursor: var(--navbar-button-cursor);\n}\n.navbar[data-v-06ab2e90] i {\n  --navbar-i-place-self: center;\n  place-self: var(--navbar-i-place-self);\n}\n.hide[data-v-06ab2e90] {\n  --hide-display: none;\n  display: var(--hide-display) !important;\n}\n.show[data-v-06ab2e90] {\n  --show-display: flex;\n  display: var(--show-display);\n}\n@media (min-width: 576px) {\n.navbar[data-v-06ab2e90] {\n    --navbar-place-content: space-around;\n}\n}\n@media (min-width: 768px) {\n.navbar > button[data-v-06ab2e90] {\n    --navbar-button-display: none;\n    display: var(--navbar-button-display);\n}\n.navbar ul a[data-v-06ab2e90] :not(i) {\n    --navbar-ul-a-not-i-display: flex;\n}\n.hide[data-v-06ab2e90] {\n    --hide-display: flex;\n}\n}\n";
+var css_248z = "\n.sidebar[data-v-49d6a973] {\n  --sidebar-display: flex;\n  --sidebar-flex-flow: column;\n  --sidebar-position: fixed;\n  --sidebar-top: calc(var(--navbar-height) + 10px);\n  --sidebar-left: 2px;\n  --sidebar-z-index: 10;\n  --sidebar-width: auto;\n\n  display: var(--sidebar-display);\n  flex-flow: var(--sidebar-flex-flow);\n  position: var(--sidebar-position);\n  top: var(--sidebar-top);\n  left: var(--sidebar-left);\n  z-index: var(--sidebar-z-index);\n  width: var(--sidebar-width);\n}\n.sidebar[data-v-49d6a973] a {\n  --sidebar-a-display: flex;\n  --sidebar-a-place-content: center;\n  --sidebar-a-place-items: center;\n  --sidebar-a-margin: 5px;\n  --sidebar-a-border-radius: 20px;\n  --sidebar-a-padding: 5px;\n  --sidebar-a-width: 100%;\n  --sidebar-a-background-color: var(--white-dark);\n  --sidebar-a-color: var(--blue-dark);\n  --sidebar-a-cursor: crosshair;\n\n  display: var(--sidebar-a-display);\n  place-content: var(--sidebar-a-place-content);\n  place-items: var(--sidebar-a-place-items);\n  margin: var(--sidebar-a-margin);\n  border-radius: var(--sidebar-a-border-radius);\n  padding: var(--sidebar-a-padding);\n  width: var(--sidebar-a-width);\n  background-color: var(--sidebar-a-background-color);\n  color: var(--sidebar-a-color);\n  cursor: var(--sidebar-a-cursor);\n}\n.sidebar[data-v-49d6a973] a:hover,\n.sidebar[data-v-49d6a973] a:focus {\n  --sidebar-a-hover-border-radius: 10px;\n  --sidebar-a-hover-background-color: var(--blue-dark);\n  --sidebar-a-hover-color: var(--white-dark);\n  --sidebar-a-hover-transform: scale(1.1);\n  --sidebar-a-hover-transition: all 500ms;\n\n  border-radius: var(--sidebar-a-hover-border-radius);\n  color: var(--sidebar-a-hover-color);\n  background-color: var(--sidebar-a-hover-background-color);\n  transform: var(--sidebar-a-hover-transform);\n  transition: var(--sidebar-a-hover-transition);\n}\n.navbar[data-v-49d6a973] {\n  --navbar-display: flex;\n  --navbar-place-content: space-between;\n  --navbar-place-items: center;\n  --navbar-position: fixed;\n  --navbar-top: 0;\n  --navbar-right: 0;\n  --navbar-bottom: unset;\n  --navbar-left: 0;\n  --navbar-z-index: 1000;\n  --navbar-background-color: var(--blue-dark);\n  --navbar-color: var(--white);\n\n  display: var(--navbar-display);\n  place-content: var(--navbar-place-content);\n  place-items: var(--navbar-place-items);\n  position: var(--navbar-position);\n  top: var(--navbar-top);\n  right: var(--navbar-right);\n  bottom: var(--navbar-bottom);\n  left: var(--navbar-left);\n  z-index: var(--navbar-z-index);\n  height: var(--navbar-height);\n  background-color: var(--navbar-background-color);\n  color: var(--navbar-color);\n}\n.navbar[data-v-49d6a973] a,\n.navbar[data-v-49d6a973] button {\n  --navbar-a-padding: 10px;\n  --navbar-a-color: var(--white);\n  --navbar-a-cursor: pointer;\n\n  padding: var(--navbar-a-padding);\n  color: var(--navbar-a-color);\n  cursor: var(--navbar-a-cursor);\n}\n.navbar[data-v-49d6a973] ul {\n  --navbar-ul-display: flex;\n  --navbar-ul-place-items: center;\n  --navbar-ul-margin: 0;\n  --navbar-ul-padding: 0;\n  --navbar-ul-list-style: none;\n\n  display: var(--navbar-ul-display);\n  place-items: var(--navbar-ul-place-items);\n  margin: var(--navbar-ul-margin);\n  padding: var(--navbar-ul-padding);\n  list-style: var(--navbar-ul-list-style);\n}\n.navbar ul a[data-v-49d6a973] {\n  --navbar-ul-a-display: flex;\n  display: var(--navbar-ul-a-display);\n}\n.navbar ul a[data-v-49d6a973] :not(i) {\n  --navbar-ul-a-not-i-display: none;\n  display: var(--navbar-ul-a-not-i-display);\n}\n.navbar[data-v-49d6a973] ul a,\n.navbar[data-v-49d6a973] ul button {\n  --navbar-ul-a-flex-direction: column;\n  flex-direction: var(--navbar-ul-a-flex-direction);\n}\n.navbar ul a[data-v-49d6a973]:hover,\n.navbar ul a[data-v-49d6a973]:focus,\n.navbar ul button[data-v-49d6a973]:hover,\n.navbar ul button[data-v-49d6a973]:focus {\n  --navbar-first-ul-a-hover-color: var(--yellow);\n  --navbar-first-ul-a-hover-transform: scale(0.9);\n\n  color: var(--navbar-first-ul-a-hover-color) !important;\n  transform: var(--navbar-first-ul-a-hover-transform) !important;\n}\n.navbar[data-v-49d6a973] ul:last-of-type a:hover,\n.navbar[data-v-49d6a973] ul:last-of-type a:focus,\n.navbar[data-v-49d6a973] ul:last-of-type button:hover,\n.navbar[data-v-49d6a973] ul:last-of-type button:focus {\n  --navbar-last-ul-a-hover-color: var(--red);\n  color: var(--navbar-last-ul-a-hover-color);\n}\n.navbar[data-v-49d6a973] button {\n  --navbar-button-background-color: transparent;\n  --navbar-button-border: none;\n  --navbar-button-cursor: pointer;\n\n  background-color: var(--navbar-button-background-color);\n  border: var(--navbar-button-border);\n  cursor: var(--navbar-button-cursor);\n}\n.navbar[data-v-49d6a973] i {\n  --navbar-i-place-self: center;\n  place-self: var(--navbar-i-place-self);\n}\n.hide[data-v-49d6a973] {\n  --hide-display: none;\n  display: var(--hide-display) !important;\n}\n.show[data-v-49d6a973] {\n  --show-display: flex;\n  display: var(--show-display);\n}\n@media (min-width: 576px) {\n.navbar[data-v-49d6a973] {\n    --navbar-place-content: space-around;\n}\n}\n@media (min-width: 768px) {\n.navbar > button[data-v-49d6a973] {\n    --navbar-button-display: none;\n    display: var(--navbar-button-display);\n}\n.navbar ul a[data-v-49d6a973] :not(i) {\n    --navbar-ul-a-not-i-display: flex;\n}\n.hide[data-v-49d6a973] {\n    --hide-display: flex;\n}\n}\n";
 styleInject(css_248z);
 
 script.render = render;
-script.__scopeId = "data-v-06ab2e90";
+script.__scopeId = "data-v-49d6a973";
 
 /* eslint-disable import/prefer-default-export */
 
