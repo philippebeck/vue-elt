@@ -504,13 +504,13 @@ var script$4 = {
     }
   },
 
-  mounted() {
+  created() {
     this.autoElt = document.getElementById("slider-auto");
     this.randomElt = document.getElementById("slider-random");
     document.addEventListener("keydown", this.setKeyboard);
   },
 
-  updated() {
+  mounted() {
     document.getElementById("slide-1").classList.add("show");
     this.runSlider();
   },
@@ -699,7 +699,7 @@ var script$4 = {
   }
 };
 
-const _withScopeId$1 = n => (pushScopeId("data-v-00b84c44"), n = n(), popScopeId(), n);
+const _withScopeId$1 = n => (pushScopeId("data-v-3e9eb491"), n = n(), popScopeId(), n);
 
 const _hoisted_1$4 = {
   class: "slider"
@@ -803,11 +803,11 @@ function render$4(_ctx, _cache, $props, $setup, $data, $options) {
   }), 128))])]);
 }
 
-var css_248z$5 = "\nul[data-v-00b84c44] {\n  margin: 0;\n  padding: 0;\n  list-style: none;\n}\n.slider[data-v-00b84c44] {\n  --slider-margin: var(--slider-figcaption-height) auto -20px;\n  --slider-border: none;\n  --slider-padding: 0;\n  --slider-width: 100%;\n  --slider-text-align: center;\n\n  margin: var(--slider-margin);\n  border: var(--slider-border);\n  padding: var(--slider-padding);\n  width: var(--slider-width);\n  text-align: var(--slider-text-align);\n}\n[id*=\"slide-\"][data-v-00b84c44] {\n  --slide-display: none;\n  display: var(--slide-display);\n}\nfigcaption[data-v-00b84c44] {\n  --slider-figcaption-padding: 5px 20px;\n  --slider-figcaption-width: 100%;\n  --slider-figcaption-height: 20%;\n  --slider-figcaption-font-weight: bold;\n  --slider-figcaption-color: var(--sky);\n\n  padding: var(--slider-figcaption-padding);\n  width: var(--slider-figcaption-width);\n  height: var(--slider-figcaption-height);\n  font-weight: var(--slider-figcaption-font-weight);\n  color: var(--slider-figcaption-color);\n}\n.controls[data-v-00b84c44] {\n  --controls-display: flex;\n  --controls-gap: 10px;\n  --controls-place-content: center;\n  --controls-opacity: 1;\n\n  display: var(--controls-display);\n  gap: var(--controls-gap);\n  place-content: var(--controls-place-content);\n  opacity: var(--controls-opacity);\n}\n.slider:hover .controls[data-v-00b84c44],\n.slider:focus .controls[data-v-00b84c44] {\n  --slider-controls-hover-opacity: 1;\n  opacity: var(--slider-controls-hover-opacity);\n}\n.controls > *[data-v-00b84c44]:hover,\n.controls > *[data-v-00b84c44]:focus {\n  --controls-hover-color: var(--sky);\n  color: var(--controls-hover-color);\n}\nbutton[data-v-00b84c44] {\n  --slider-button-border: none;\n  --slider-button-font-size: 60%;\n  --slider-button-background: none;\n  --slider-button-color: var(--grey-dark);\n\n  border: var(--slider-button-border);\n  font-size: var(--slider-button-font-size);\n  background: var(--slider-button-background);\n  color: var(--slider-button-color);\n}\n.gallery[data-v-00b84c44] {\n  --gallery-display: flex;\n  --gallery-gap: 10px;\n  --gallery-place-content: center;\n  --gallery-opacity: 1;\n  --gallery-color: var(--gray);\n\n  display: var(--gallery-display);\n  gap: var(--gallery-gap);\n  place-content: var(--gallery-place-content);\n  opacity: var(--gallery-opacity);\n  color: var(--gallery-color);\n}\n.slider:hover .gallery[data-v-00b84c44],\n.slider:focus .gallery[data-v-00b84c44] {\n  --gallery-hover-opacity: 1;\n  opacity: var(--gallery-hover-opacity);\n}\n.gallery > *[data-v-00b84c44]:hover,\n.gallery > *[data-v-00b84c44]:focus {\n  --gallery-child-hover-color: var(--sky);\n  --gallery-child-hover-cursor: pointer;\n\n  color: var(--gallery-child-hover-color);\n  cursor: var(--gallery-child-hover-cursor);\n}\n.show[data-v-00b84c44] {\n  --slider-show-display: list-item;\n  display: var(--slider-show-display);\n}\n@media (min-width: 1200px) {\n.controls[data-v-00b84c44] {\n  --controls-opacity: 0;\n}\n.gallery[data-v-00b84c44] {\n    --gallery-opacity: 0;\n}\n}\n";
+var css_248z$5 = "\nul[data-v-3e9eb491] {\n  margin: 0;\n  padding: 0;\n  list-style: none;\n}\n.slider[data-v-3e9eb491] {\n  --slider-margin: var(--slider-figcaption-height) auto -20px;\n  --slider-border: none;\n  --slider-padding: 0;\n  --slider-width: 100%;\n  --slider-text-align: center;\n\n  margin: var(--slider-margin);\n  border: var(--slider-border);\n  padding: var(--slider-padding);\n  width: var(--slider-width);\n  text-align: var(--slider-text-align);\n}\n[id*=\"slide-\"][data-v-3e9eb491] {\n  --slide-display: none;\n  display: var(--slide-display);\n}\nfigcaption[data-v-3e9eb491] {\n  --slider-figcaption-padding: 5px 20px;\n  --slider-figcaption-width: 100%;\n  --slider-figcaption-height: 20%;\n  --slider-figcaption-font-weight: bold;\n  --slider-figcaption-color: var(--sky);\n\n  padding: var(--slider-figcaption-padding);\n  width: var(--slider-figcaption-width);\n  height: var(--slider-figcaption-height);\n  font-weight: var(--slider-figcaption-font-weight);\n  color: var(--slider-figcaption-color);\n}\n.controls[data-v-3e9eb491] {\n  --controls-display: flex;\n  --controls-gap: 10px;\n  --controls-place-content: center;\n  --controls-opacity: 1;\n\n  display: var(--controls-display);\n  gap: var(--controls-gap);\n  place-content: var(--controls-place-content);\n  opacity: var(--controls-opacity);\n}\n.slider:hover .controls[data-v-3e9eb491],\n.slider:focus .controls[data-v-3e9eb491] {\n  --slider-controls-hover-opacity: 1;\n  opacity: var(--slider-controls-hover-opacity);\n}\n.controls > *[data-v-3e9eb491]:hover,\n.controls > *[data-v-3e9eb491]:focus {\n  --controls-hover-color: var(--sky);\n  color: var(--controls-hover-color);\n}\nbutton[data-v-3e9eb491] {\n  --slider-button-border: none;\n  --slider-button-font-size: 60%;\n  --slider-button-background: none;\n  --slider-button-color: var(--grey-dark);\n\n  border: var(--slider-button-border);\n  font-size: var(--slider-button-font-size);\n  background: var(--slider-button-background);\n  color: var(--slider-button-color);\n}\n.gallery[data-v-3e9eb491] {\n  --gallery-display: flex;\n  --gallery-gap: 10px;\n  --gallery-place-content: center;\n  --gallery-opacity: 1;\n  --gallery-color: var(--gray);\n\n  display: var(--gallery-display);\n  gap: var(--gallery-gap);\n  place-content: var(--gallery-place-content);\n  opacity: var(--gallery-opacity);\n  color: var(--gallery-color);\n}\n.slider:hover .gallery[data-v-3e9eb491],\n.slider:focus .gallery[data-v-3e9eb491] {\n  --gallery-hover-opacity: 1;\n  opacity: var(--gallery-hover-opacity);\n}\n.gallery > *[data-v-3e9eb491]:hover,\n.gallery > *[data-v-3e9eb491]:focus {\n  --gallery-child-hover-color: var(--sky);\n  --gallery-child-hover-cursor: pointer;\n\n  color: var(--gallery-child-hover-color);\n  cursor: var(--gallery-child-hover-cursor);\n}\n.show[data-v-3e9eb491] {\n  --slider-show-display: list-item;\n  display: var(--slider-show-display);\n}\n@media (min-width: 1200px) {\n.controls[data-v-3e9eb491] {\n  --controls-opacity: 0;\n}\n.gallery[data-v-3e9eb491] {\n    --gallery-opacity: 0;\n}\n}\n";
 styleInject(css_248z$5);
 
 script$4.render = render$4;
-script$4.__scopeId = "data-v-00b84c44";
+script$4.__scopeId = "data-v-3e9eb491";
 
 var script$3 = {
   name: "TableElt",
