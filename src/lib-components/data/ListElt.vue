@@ -1,5 +1,5 @@
 <template>
-  <!-- LIST ELT (Dynamic Slot Name) -->
+  <!-- LIST ELT (Dynamic Slot) -->
   <ul v-if="dynamic === true">
     <li v-for="(item, index) in items"
       :key="index">
@@ -29,12 +29,12 @@
     </li>
   </ul>
 
-  <!-- LIST ELT (Static Slot Name) -->
+  <!-- LIST ELT (Static Slot) -->
   <ul v-else>
     <li v-for="(item, index) in items"
       :key="index">
 
-      <slot :name="`items-${index + 1}`"
+      <slot :name="`item-${index + 1}`"
         :index="index"
         :item="item">
         {{ item }}
