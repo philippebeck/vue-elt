@@ -13,7 +13,7 @@
       :name="id"
       :step="step"
       :type="type"
-      :value="value"
+      :value="number"
       @input="onInput"
       :required="required">
 
@@ -91,23 +91,27 @@ export default {
     },
     list: {
       type: Array,
-      default: null
+      default: []
     },
     id: {
       type: String,
-      required: true
+      required: ""
     },
     info: {
       type: String,
-      default: null
+      default: ""
     },
     name: {
       type: String,
-      default: null
+      default: ""
     },
     value: {
       type: String,
-      default: null
+      default: ""
+    },
+    number: {
+      type: Number,
+      default: 0
     },
     type: {
       type: String,
@@ -148,24 +152,17 @@ export default {
     getFieldType() {
       let fieldType = "";
       switch (this.type) {
-        case "date":
         case "number":
-        case "range":
-        case "time":
           fieldType = "number";
           break;
-        case "check":
         case "checkbox":
-        case "color":
         case "radio":
           fieldType = "special";
           break;
-        case "list":
         case "option":
         case "select":
           fieldType = "list";
           break;
-        case "area":
         case "textarea":
           fieldType = "area";
           break;
