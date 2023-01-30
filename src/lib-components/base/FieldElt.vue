@@ -13,7 +13,7 @@
       :name="id"
       :step="step"
       :type="type"
-      :value="number"
+      :value="value"
       @input="onInput"
       :required="required">
 
@@ -85,42 +85,13 @@
 export default {
   name: "FieldElt",
   props: {
-    model: {
-      prop: "value",
-      event: "update"
-    },
-    list: {
-      type: Array,
-      default: []
-    },
-    id: {
-      type: String,
-      required: ""
-    },
-    info: {
-      type: String,
-      default: ""
-    },
-    name: {
-      type: String,
-      default: ""
-    },
-    value: {
-      type: String,
-      default: ""
-    },
-    number: {
-      type: Number,
-      default: 0
-    },
-    type: {
-      type: String,
-      default: "text"
-    },
     cols: {
       type: Number,
       default: 20
     },
+    id: String,
+    info: String,
+    list: Array,
     max: {
       type: Number,
       default: 50
@@ -128,6 +99,15 @@ export default {
     min: {
       type: Number,
       default: 8
+    },
+    model: {
+      prop: "value",
+      event: "update"
+    },
+    name: String,
+    required: {
+      type: String,
+      default: "required"
     },
     rows: {
       type: Number,
@@ -137,10 +117,11 @@ export default {
       type: Number,
       default: 1
     },
-    required: {
+    type: {
       type: String,
-      default: "required"
-    }
+      default: "text"
+    },
+    value: [String, Number]
   },
   methods: {
     hasSlot(name) {
