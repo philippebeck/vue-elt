@@ -179,19 +179,19 @@ tbody tr:focus {
 
 @media (min-width: 576px) {
   table {
-    --table-max-width: 95%;
+    --table-max-width: 99%;
   }
 }
 
 @media (min-width: 768px) {
   table {
-    --table-max-width: 90%;
+    --table-max-width: 98%;
   }
 }
 
 @media (min-width: 992px) {
   table {
-    --table-max-width: 85%;
+    --table-max-width: 97%;
   }
   th,
   td {
@@ -202,13 +202,13 @@ tbody tr:focus {
 
 @media (min-width: 1200px) {
   table {
-    --table-max-width: 80%;
+    --table-max-width: 96%;
   }
 }
 
 @media (min-width: 1600px) {
   table {
-    --table-max-width: 75%;
+    --table-max-width: 95%;
   }
 }
 </style>

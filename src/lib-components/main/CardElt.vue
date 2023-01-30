@@ -63,8 +63,8 @@ section {
   --card-margin: auto;
   --card-border: 1px solid transparent;
   --card-border-radius: 10px;
-  --card-padding: 20px;
-  --card-width: 90%;
+  --card-padding: 10px;
+  --card-width: 95%;
   --card-background-color: transparent;
   --card-color: var(--gray);
 
