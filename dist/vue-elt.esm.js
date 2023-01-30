@@ -98,42 +98,13 @@ script$8.__scopeId = "data-v-5e33533a";
 var script$7 = {
   name: "FieldElt",
   props: {
-    model: {
-      prop: "value",
-      event: "update"
-    },
-    list: {
-      type: Array,
-      default: []
-    },
-    id: {
-      type: String,
-      required: ""
-    },
-    info: {
-      type: String,
-      default: ""
-    },
-    name: {
-      type: String,
-      default: ""
-    },
-    value: {
-      type: String,
-      default: ""
-    },
-    number: {
-      type: Number,
-      default: 0
-    },
-    type: {
-      type: String,
-      default: "text"
-    },
     cols: {
       type: Number,
       default: 20
     },
+    id: String,
+    info: String,
+    list: Array,
     max: {
       type: Number,
       default: 50
@@ -141,6 +112,15 @@ var script$7 = {
     min: {
       type: Number,
       default: 8
+    },
+    model: {
+      prop: "value",
+      event: "update"
+    },
+    name: String,
+    required: {
+      type: String,
+      default: "required"
     },
     rows: {
       type: Number,
@@ -150,10 +130,11 @@ var script$7 = {
       type: Number,
       default: 1
     },
-    required: {
+    type: {
       type: String,
-      default: "required"
-    }
+      default: "text"
+    },
+    value: [String, Number]
   },
   methods: {
     hasSlot(name) {
@@ -222,7 +203,7 @@ function render$7(_ctx, _cache, $props, $setup, $data, $options) {
     name: $props.id,
     step: $props.step,
     type: $props.type,
-    value: $props.number,
+    value: $props.value,
     onInput: _cache[0] || (_cache[0] = function () {
       return $options.onInput && $options.onInput(...arguments);
     }),
@@ -287,11 +268,11 @@ function render$7(_ctx, _cache, $props, $setup, $data, $options) {
   }, [renderSlot(_ctx.$slots, "label")], 8, _hoisted_11$1)) : createCommentVNode("", true)], 8, _hoisted_1$7);
 }
 
-var css_248z$8 = "\nfieldset[data-v-ffedcd6c] {\n  --fieldset-display: flex;\n  --fieldset-flex-flow: row wrap;\n  --fieldset-place-items: center;\n  --fieldset-margin: auto;\n  --fieldset-border: none;\n  --fieldset-padding: 0;\n  --fieldset-max-width: 300px;\n  --fieldset-text-align: center;\n  --fieldset-transition: max-width 1s;\n\n  display: var(--fieldset-display);\n  flex-flow: var(--fieldset-flex-flow);\n  place-items: var(--fieldset-place-items);;\n  margin: var(--fieldset-margin);\n  border: var(--fieldset-border);\n  padding: var(--fieldset-padding);\n  max-width: var(--fieldset-max-width);\n  text-align: var(--fieldset-text-align);\n  transition: var(--fieldset-transition);\n}\nfieldset > *[data-v-ffedcd6c] {\n  --field-box-sizing: border-box;\n  --field-margin: 5px;\n  --field-padding: 5px;\n\n  box-sizing: var(--field-box-sizing);\n  margin: var(--field-margin);\n  padding: var(--field-padding);\n}\nlegend[data-v-ffedcd6c] {\n  --legend-width: 93%;\n  --legend-font-size: 1.2rem;\n  --legend-color: var(--gray);\n\n  width: var(--legend-width);\n  font-size: var(--legend-font-size);\n  color: var(--legend-color);\n}\nlabel[data-v-ffedcd6c] {\n  --label-width: 90%;\n  --label-visibility: hidden;\n  --label-font-size: 0.8rem;\n  --label-font-style: italic;\n  --label-color: var(--blue);\n\n  width: var(--label-width);\n  visibility: var(--label-visibility);\n  font-size: var(--label-font-size);\n  font-style: var(--label-font-style);\n  color: var(--label-color);\n}\ninput[data-v-ffedcd6c],\nselect[data-v-ffedcd6c],\ntextarea[data-v-ffedcd6c] {\n  --input-border: 1px solid var(--blue);\n  --input-border-radius: 10px;\n  --input-outline: none;\n  --input-width: 100%;\n  --input-line-height: 1.8;\n  --input-background-color: var(--white);\n\n  border: var(--input-border);\n  border-radius: var(--input-border-radius);\n  outline: var(--input-outline);\n  width: var(--input-width);\n  line-height: var(--input-line-height);\n  background-color: var(--input-background-color);\n}\nfieldset:hover legend[data-v-ffedcd6c] {\n  --hover-legend-color: var(--black);\n\n  color: var(--hover-legend-color);\n}\nfieldset:hover > input[data-v-ffedcd6c],\nfieldset:hover > select[data-v-ffedcd6c],\nfieldset:hover > textarea[data-v-ffedcd6c],\ninput[data-v-ffedcd6c]:focus,\nselect[data-v-ffedcd6c]:focus,\ntextarea[data-v-ffedcd6c]:focus {\n  --hover-input-border: 1px solid var(--sky);\n  --hover-input-border-radius: 0;\n  --hover-input-background-color: var(--white);\n  --hover-input-transition: all 500ms;\n\n  border: var(--hover-input-border);\n  border-radius: var(--hover-input-border-radius);\n  background-color: var(--hover-input-background-color);\n  transition: var(--hover-input-transition);\n}\nfieldset:hover > label[data-v-ffedcd6c],\ninput:focus + label[data-v-ffedcd6c],\nselect:focus + label[data-v-ffedcd6c],\ntextarea:focus + label[data-v-ffedcd6c] {\n  --hover-label-visibility: visible;\n  --hover-label-transform: scale(1.1);\n  --hover-label-transition: all 1s;\n\n  visibility: var(--hover-label-visibility);\n  transform: var(--hover-label-transform);\n  transition: var(--hover-label-transition);\n}\n";
+var css_248z$8 = "\nfieldset[data-v-ff1ae3be] {\n  --fieldset-display: flex;\n  --fieldset-flex-flow: row wrap;\n  --fieldset-place-items: center;\n  --fieldset-margin: auto;\n  --fieldset-border: none;\n  --fieldset-padding: 0;\n  --fieldset-max-width: 300px;\n  --fieldset-text-align: center;\n  --fieldset-transition: max-width 1s;\n\n  display: var(--fieldset-display);\n  flex-flow: var(--fieldset-flex-flow);\n  place-items: var(--fieldset-place-items);;\n  margin: var(--fieldset-margin);\n  border: var(--fieldset-border);\n  padding: var(--fieldset-padding);\n  max-width: var(--fieldset-max-width);\n  text-align: var(--fieldset-text-align);\n  transition: var(--fieldset-transition);\n}\nfieldset > *[data-v-ff1ae3be] {\n  --field-box-sizing: border-box;\n  --field-margin: 5px;\n  --field-padding: 5px;\n\n  box-sizing: var(--field-box-sizing);\n  margin: var(--field-margin);\n  padding: var(--field-padding);\n}\nlegend[data-v-ff1ae3be] {\n  --legend-width: 93%;\n  --legend-font-size: 1.2rem;\n  --legend-color: var(--gray);\n\n  width: var(--legend-width);\n  font-size: var(--legend-font-size);\n  color: var(--legend-color);\n}\nlabel[data-v-ff1ae3be] {\n  --label-width: 90%;\n  --label-visibility: hidden;\n  --label-font-size: 0.8rem;\n  --label-font-style: italic;\n  --label-color: var(--blue);\n\n  width: var(--label-width);\n  visibility: var(--label-visibility);\n  font-size: var(--label-font-size);\n  font-style: var(--label-font-style);\n  color: var(--label-color);\n}\ninput[data-v-ff1ae3be],\nselect[data-v-ff1ae3be],\ntextarea[data-v-ff1ae3be] {\n  --input-border: 1px solid var(--blue);\n  --input-border-radius: 10px;\n  --input-outline: none;\n  --input-width: 100%;\n  --input-line-height: 1.8;\n  --input-background-color: var(--white);\n\n  border: var(--input-border);\n  border-radius: var(--input-border-radius);\n  outline: var(--input-outline);\n  width: var(--input-width);\n  line-height: var(--input-line-height);\n  background-color: var(--input-background-color);\n}\nfieldset:hover legend[data-v-ff1ae3be] {\n  --hover-legend-color: var(--black);\n\n  color: var(--hover-legend-color);\n}\nfieldset:hover > input[data-v-ff1ae3be],\nfieldset:hover > select[data-v-ff1ae3be],\nfieldset:hover > textarea[data-v-ff1ae3be],\ninput[data-v-ff1ae3be]:focus,\nselect[data-v-ff1ae3be]:focus,\ntextarea[data-v-ff1ae3be]:focus {\n  --hover-input-border: 1px solid var(--sky);\n  --hover-input-border-radius: 0;\n  --hover-input-background-color: var(--white);\n  --hover-input-transition: all 500ms;\n\n  border: var(--hover-input-border);\n  border-radius: var(--hover-input-border-radius);\n  background-color: var(--hover-input-background-color);\n  transition: var(--hover-input-transition);\n}\nfieldset:hover > label[data-v-ff1ae3be],\ninput:focus + label[data-v-ff1ae3be],\nselect:focus + label[data-v-ff1ae3be],\ntextarea:focus + label[data-v-ff1ae3be] {\n  --hover-label-visibility: visible;\n  --hover-label-transform: scale(1.1);\n  --hover-label-transition: all 1s;\n\n  visibility: var(--hover-label-visibility);\n  transform: var(--hover-label-transform);\n  transition: var(--hover-label-transition);\n}\n";
 styleInject(css_248z$8);
 
 script$7.render = render$7;
-script$7.__scopeId = "data-v-ffedcd6c";
+script$7.__scopeId = "data-v-ff1ae3be";
 
 var script$6 = {
   name: "MediaElt",
