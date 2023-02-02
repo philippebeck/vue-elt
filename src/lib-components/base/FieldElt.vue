@@ -164,7 +164,7 @@ fieldset {
   --fieldset-margin: auto;
   --fieldset-border: none;
   --fieldset-padding: 0;
-  --fieldset-max-width: 300px;
+  --fieldset-max-width: 500px;
   --fieldset-text-align: center;
   --fieldset-transition: max-width 1s;
 
