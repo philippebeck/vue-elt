@@ -95,8 +95,8 @@ export default {
 <style scoped>
 figure {
   --figure-border: 1px solid transparent;
-  --figure-border-radius: 10%;
-  --figure-padding: 10px;
+  --figure-border-radius: 20px;
+  --figure-padding: 0;
   --figure-background-color: transparent;
 
   border: var(--figure-border);
@@ -108,7 +108,7 @@ figure {
 img {
   --img-border: 1px solid var(--blue);
   --img-border-radius: 20px;
-  --img-padding: 10px;
+  --img-padding: 1px;
   --img-max-width: 100%;
   --img-height: auto;
   --img-object-fit: contain;
