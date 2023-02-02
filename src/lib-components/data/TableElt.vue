@@ -82,17 +82,21 @@ export default {
 table {
   --table-display: table;
   --table-overflow: hidden;
+  --table-layout: fixed;
   --table-margin: 50px auto;
-  --table-border-collapse: collapse;
+  --table-border-collapse: separate;
+  --table-border-spacing: 1px;
   --table-border-radius: 10px;
-  --table-width: auto;
+  --table-width: 100%;
   --table-max-width: 100%;
-  --table-font-size: 1.2rem;
+  --table-font-size: 1.5rem;
 
   display: var(--table-display);
   overflow: var(--table-overflow);
+  table-layout: var(--table-layout);
   margin: var(--table-margin);
   border-collapse: var(--table-border-collapse);
+  border-spacing: var(--table-border-spacing);
   border-radius: var(--table-border-radius);
   width: var(--table-width);
   max-width: var(--table-max-width);
@@ -115,8 +119,23 @@ caption {
   text-shadow: var(--caption-text-shadow);
 }
 
+thead {
+  --thead-border-radius: 10px;
+  border-radius: var(--thead-border-radius);
+}
+
+tr {
+  --tr-display: flex;
+  --tr-flex-flow: column;
+  --tr-padding: 20px;
+
+  display: var(--tr-display);
+  flex-flow: var(--tr-flex-flow);
+  padding: var(--tr-padding);
+}
+
 th {
-  --th-display: table-column;
+  --th-display: none;
   --th-font-size: 1.5rem;
   --th-font-style: italic;
   --th-text-transform: uppercase;
@@ -143,7 +162,7 @@ td {
 }
 
 td {
-  --td-display: table-row;
+  --td-display: table;
   --td-word-break: normal;
   --td-cursor: cell;
 
@@ -193,16 +212,19 @@ tbody tr:focus {
   table {
     --table-max-width: 97%;
   }
-  th,
-  td {
-    --th-td-display: table-cell;
-    display: var(--th-td-display);
-  }
 }
 
 @media (min-width: 1200px) {
   table {
     --table-max-width: 96%;
+  }
+  tr {
+    --tr-display: table-row;
+  }
+  th,
+  td {
+    --th-td-display: table-cell;
+    display: var(--th-td-display);
   }
 }
 
