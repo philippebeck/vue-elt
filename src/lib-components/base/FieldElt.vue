@@ -121,7 +121,7 @@ export default {
       type: String,
       default: "text"
     },
-    value: [String, Number]
+    value: [String, Number, Array]
   },
   methods: {
     hasSlot(name) {
