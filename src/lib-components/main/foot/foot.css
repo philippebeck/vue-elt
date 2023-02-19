@@ -1,0 +1,53 @@
+/********************  FOOT ELT ********************/
+
+footer {
+  --ve-footer-text-align: center;
+  --ve-footer-child-margin: 0;
+  --ve-footer-child-padding: 0;
+  --ve-footer-li-list-style: none;
+  --ve-footer-a-text-decoration: none;
+  --ve-footer-ul-display: flex;
+  --ve-footer-ul-flex-direction: column;
+  --ve-footer-ul-place-items: center;
+  --ve-footer-ul-gap: 20px;
+  --ve-footer-ul-padding: 20px;
+  --ve-footer-ul-background-color: var(--ani-sky);
+  --ve-footer-h3-margin-bottom: 5px;
+  --ve-footer-h3-font-size: 2rem;
+  --ve-footer-h3-font-family: monospace;
+  --ve-footer-h3-color: var(--ani-yellow);
+  --ve-footer-section-a-color: var(--ani-white);
+  --ve-footer-section-a-hover-color: var(--ani-gray);
+}
+
+aside {
+  --ve-aside-ul-display: flex;
+  --ve-aside-ul-flex-direction: row;
+  --ve-aside-ul-place-content: center;
+  --ve-aside-ul-gap: 10px;
+  --ve-aside-ul-padding: 10px;
+  --ve-aside-ul-background-color: var(--ani-white);
+  --ve-aside-a-color: var(--ani-blue);
+  --ve-aside-a-hover-transform: scale(1.2);
+  --ve-aside-a-hover-transition: transform 200ms;
+}
+
+@media (min-width: 576px) {
+  footer {
+    --ve-footer-ul-flex-direction: row;
+    --ve-footer-ul-place-content: space-around;
+  }
+}
+
+@media (min-width: 768px) {
+  footer {
+    --ve-footer-ul-place-content: space-evenly;
+  }
+}
+
+@media (min-width: 992px) {
+  footer {
+    --ve-footer-ul-place-content: center;
+    --ve-footer-ul-gap: 10%;
+  }
+}
