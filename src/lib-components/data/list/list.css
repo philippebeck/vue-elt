@@ -1,0 +1,11 @@
+/********************  LIST ELT ********************/
+
+ul {
+  --ve-ul-margin: 20px 0;
+  --ve-ul-padding: 0;
+  --ve-ul-list-style: none;
+  --ve-ul-text-align: center;
+  --ve-li-ul-display: flex;
+  --ve-li-ul-flex-flow: wrap;
+  --ve-li-ul-place-content: center;
+}
