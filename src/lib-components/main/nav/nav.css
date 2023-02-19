@@ -1,0 +1,91 @@
+/********************  NAV ELT ********************/
+
+:root {
+  --ve-navbar-height: 50px;
+}
+
+.sidebar {
+  --ve-sidebar-display: flex;
+  --ve-sidebar-flex-flow: column;
+  --ve-sidebar-position: fixed;
+  --ve-sidebar-top: calc(var(--navbar-height) + 10px);
+  --ve-sidebar-left: 2px;
+  --ve-sidebar-z-index: 10;
+  --ve-sidebar-width: auto;
+  --ve-sidebar-a-display: flex;
+  --ve-sidebar-a-place-content: center;
+  --ve-sidebar-a-place-items: center;
+  --ve-sidebar-a-margin: 5px;
+  --ve-sidebar-a-border-radius: 20px;
+  --ve-sidebar-a-padding: 5px;
+  --ve-sidebar-a-width: 100%;
+  --ve-sidebar-a-background-color: var(--ani-white-dark);
+  --ve-sidebar-a-color: var(--ani-blue-dark);
+  --ve-sidebar-a-cursor: crosshair;
+  --ve-sidebar-a-hover-border-radius: 10px;
+  --ve-sidebar-a-hover-background-color: var(--ani-blue-dark);
+  --ve-sidebar-a-hover-color: var(--ani-white-dark);
+  --ve-sidebar-a-hover-transform: scale(1.1);
+  --ve-sidebar-a-hover-transition: all 500ms;
+}
+
+.navbar {
+  --ve-navbar-display: flex;
+  --ve-navbar-place-content: space-between;
+  --ve-navbar-place-items: center;
+  --ve-navbar-position: fixed;
+  --ve-navbar-top: 0;
+  --ve-navbar-right: 0;
+  --ve-navbar-bottom: unset;
+  --ve-navbar-left: 0;
+  --ve-navbar-z-index: 1000;
+  --ve-navbar-background-color: var(--ani-blue-dark);
+  --ve-navbar-color: var(--ani-white);
+  --ve-navbar-a-padding: 10px;
+  --ve-navbar-a-color: var(--ani-white);
+  --ve-navbar-a-cursor: pointer;
+  --ve-navbar-ul-display: flex;
+  --ve-navbar-ul-place-items: center;
+  --ve-navbar-ul-margin: 0;
+  --ve-navbar-ul-padding: 0;
+  --ve-navbar-ul-list-style: none;
+  --ve-navbar-ul-a-display: flex;
+  --ve-navbar-ul-a-not-i-display: none;
+  --ve-navbar-ul-a-flex-direction: column;
+  --ve-navbar-first-ul-a-hover-color: var(--ani-yellow);
+  --ve-navbar-first-ul-a-hover-transform: scale(0.9);
+  --ve-navbar-last-ul-a-hover-color: var(--ani-red);
+  --ve-navbar-button-background-color: transparent;
+  --ve-navbar-button-border: none;
+  --ve-navbar-button-cursor: pointer;
+  --ve-navbar-i-place-self: center;
+}
+
+.hide {
+  --ve-hide-display: none;
+}
+
+.show {
+  --ve-show-display: flex;
+}
+
+@media (min-width: 576px) {
+  .navbar {
+    --ve-navbar-place-content: space-around;
+  }
+}
+
+@media (min-width: 768px) {
+  :root {
+    --ve-navbar-height: 80px;
+  }
+
+  .navbar {
+    --ve-navbar-button-display: none;
+    --ve-navbar-ul-a-not-i-display: flex;
+  }
+
+  .hide {
+    --ve-hide-display: flex;
+  }
+}
