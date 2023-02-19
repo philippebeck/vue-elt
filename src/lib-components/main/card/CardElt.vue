@@ -57,24 +57,17 @@ export default {
 </script>
 
 <style scoped>
+@import url("card.css");
+
 article,
 section {
-  --card-box-sizing: border-box;
-  --card-margin: auto;
-  --card-border: 1px solid transparent;
-  --card-border-radius: 10px;
-  --card-padding: 10px;
-  --card-width: 95%;
-  --card-background-color: transparent;
-  --card-color: var(--gray);
-
-  box-sizing: var(--card-box-sizing);
-  margin: var(--card-margin);
-  border: var(--card-border);
-  border-radius: var(--card-border-radius);
-  padding: var(--card-padding);
-  width: var(--card-width);
-  background-color: var(--card-background-color);
-  color: var(--card-color);
+  box-sizing: var(--ve-card-box-sizing);
+  margin: var(--ve-card-margin);
+  border: var(--ve-card-border);
+  border-radius: var(--ve-card-border-radius);
+  padding: var(--ve-card-padding);
+  width: var(--ve-card-width);
+  background-color: var(--ve-card-background-color);
+  color: var(--ve-card-color);
 }
 </style>
