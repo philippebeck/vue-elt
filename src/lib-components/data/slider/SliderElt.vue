@@ -312,6 +312,8 @@ export default {
 </script>
 
 <style scoped>
+@import url("slider.css");
+
 ul {
   margin: 0;
   padding: 0;
@@ -319,114 +321,69 @@ ul {
 }
 
 .slider {
-  --slider-margin: var(--slider-figcaption-height) auto -20px;
-  --slider-border: none;
-  --slider-padding: 0;
-  --slider-width: 100%;
-  --slider-text-align: center;
-
-  margin: var(--slider-margin);
-  border: var(--slider-border);
-  padding: var(--slider-padding);
-  width: var(--slider-width);
-  text-align: var(--slider-text-align);
+  margin: var(--ve-slider-margin);
+  border: var(--ve-slider-border);
+  padding: var(--ve-slider-padding);
+  width: var(--ve-slider-width);
+  text-align: var(--ve-slider-text-align);
 }
 
 [id*="slide-"] {
-  --slide-display: none;
-  display: var(--slide-display);
+  display: var(--ve-slide-display);
 }
 
 figcaption {
-  --slider-figcaption-padding: 5px 20px;
-  --slider-figcaption-width: 100%;
-  --slider-figcaption-height: 20%;
-  --slider-figcaption-font-weight: bold;
-  --slider-figcaption-color: var(--sky);
-
-  padding: var(--slider-figcaption-padding);
-  width: var(--slider-figcaption-width);
-  height: var(--slider-figcaption-height);
-  font-weight: var(--slider-figcaption-font-weight);
-  color: var(--slider-figcaption-color);
+  padding: var(--ve-slider-figcaption-padding);
+  width: var(--ve-slider-figcaption-width);
+  height: var(--ve-slider-figcaption-height);
+  font-weight: var(--ve-slider-figcaption-font-weight);
+  color: var(--ve-slider-figcaption-color);
 }
 
 .controls {
-  --controls-display: flex;
-  --controls-gap: 10px;
-  --controls-place-content: center;
-  --controls-opacity: 1;
-
-  display: var(--controls-display);
-  gap: var(--controls-gap);
-  place-content: var(--controls-place-content);
-  opacity: var(--controls-opacity);
+  display: var(--ve-controls-display);
+  gap: var(--ve-controls-gap);
+  place-content: var(--ve-controls-place-content);
+  opacity: var(--ve-controls-opacity);
 }
 
 .slider:hover .controls,
 .slider:focus .controls {
-  --slider-controls-hover-opacity: 1;
-  opacity: var(--slider-controls-hover-opacity);
+  opacity: var(--ve-slider-controls-hover-opacity);
 }
 
 .controls > *:hover,
 .controls > *:focus {
-  --controls-hover-color: var(--sky);
-  color: var(--controls-hover-color);
+  color: var(--ve-controls-hover-color);
 }
 
 button {
-  --slider-button-border: none;
-  --slider-button-font-size: 60%;
-  --slider-button-background: none;
-  --slider-button-color: var(--grey-dark);
-
-  border: var(--slider-button-border);
-  font-size: var(--slider-button-font-size);
-  background: var(--slider-button-background);
-  color: var(--slider-button-color);
+  border: var(--ve-slider-button-border);
+  font-size: var(--ve-slider-button-font-size);
+  background: var(--ve-slider-button-background);
+  color: var(--ve-slider-button-color);
 }
 
 .gallery {
-  --gallery-display: flex;
-  --gallery-gap: 10px;
-  --gallery-place-content: center;
-  --gallery-opacity: 1;
-  --gallery-color: var(--gray);
-
-  display: var(--gallery-display);
-  gap: var(--gallery-gap);
-  place-content: var(--gallery-place-content);
-  opacity: var(--gallery-opacity);
-  color: var(--gallery-color);
+  display: var(--ve-gallery-display);
+  gap: var(--ve-gallery-gap);
+  place-content: var(--ve-gallery-place-content);
+  opacity: var(--ve-gallery-opacity);
+  color: var(--ve-gallery-color);
 }
 
 .slider:hover .gallery,
 .slider:focus .gallery {
-  --gallery-hover-opacity: 1;
-  opacity: var(--gallery-hover-opacity);
+  opacity: var(--ve-gallery-hover-opacity);
 }
 
 .gallery > *:hover,
 .gallery > *:focus {
-  --gallery-child-hover-color: var(--sky);
-  --gallery-child-hover-cursor: pointer;
-
-  color: var(--gallery-child-hover-color);
-  cursor: var(--gallery-child-hover-cursor);
+  color: var(--ve-gallery-child-hover-color);
+  cursor: var(--ve-gallery-child-hover-cursor);
 }
 
 .show {
-  --slider-show-display: list-item;
-  display: var(--slider-show-display);
-}
-
-@media (min-width: 1200px) {
-  .controls {
-  --controls-opacity: 0;
-  }
-  .gallery {
-    --gallery-opacity: 0;
-  }
+  display: var(--ve-slider-show-display);
 }
 </style>

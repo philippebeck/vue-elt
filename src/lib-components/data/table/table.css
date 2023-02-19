@@ -1,0 +1,98 @@
+/********************  TABLE ELT ********************/
+
+table {
+  --ve-table-display: table;
+  --ve-table-overflow: hidden;
+  --ve-table-layout: fixed;
+  --ve-table-margin: 50px auto;
+  --ve-table-border-collapse: separate;
+  --ve-table-border-spacing: 1px;
+  --ve-table-border-radius: 10px;
+  --ve-table-width: 100%;
+  --ve-table-max-width: 100%;
+  --ve-table-font-size: 1.5rem;
+}
+
+caption {
+  --ve-caption-caption-side: top;
+  --ve-caption-margin-bottom: 20px;
+  --ve-caption-font-size: 1.5rem;
+  --ve-caption-font-weight: bold;
+  --ve-caption-color: var(--ani-gray);
+  --ve-caption-text-shadow: 1px 1px 2px;
+}
+
+thead {
+  --ve-thead-border-radius: 10px;
+}
+
+tr {
+  --ve-tr-display: flex;
+  --ve-tr-flex-flow: column;
+  --ve-tr-padding: 20px;
+  --ve-tbody-even-background-color: var(--ani-gray-light);
+  --ve-tbody-even-color: var(--ani-black);
+  --ve-tbody-odd-background-color: var(--ani-white);
+  --ve-tbody-odd-color: var(--ani-gray);
+  --ve-tbody-hover-background-color: var(--ani-silver);
+  --ve-tbody-hover-color: var(--ani-black);
+}
+
+th {
+  --ve-th-display: none;
+  --ve-th-font-size: 1.5rem;
+  --ve-th-font-style: italic;
+  --ve-th-text-transform: uppercase;
+  --ve-th-background-color: var(--ani-blue);
+  --ve-th-color: var(--ani-white);
+}
+
+th,
+td {
+  --ve-th-td-padding: 5px;
+  --ve-th-td-text-align: center;
+  --ve-th-td-vertical-align: middle;
+}
+
+td {
+  --ve-td-display: table;
+  --ve-td-word-break: normal;
+  --ve-td-cursor: cell;
+}
+
+@media (min-width: 576px) {
+  table {
+    --ve-table-max-width: 99%;
+  }
+}
+
+@media (min-width: 768px) {
+  table {
+    --ve-table-max-width: 98%;
+  }
+}
+
+@media (min-width: 992px) {
+  table {
+    --ve-table-max-width: 97%;
+  }
+}
+
+@media (min-width: 1200px) {
+  table {
+    --ve-table-max-width: 96%;
+  }
+  tr {
+    --ve-tr-display: table-row;
+  }
+  th,
+  td {
+    --ve-th-td-display: table-cell;
+  }
+}
+
+@media (min-width: 1600px) {
+  table {
+    --ve-table-max-width: 95%;
+  }
+}

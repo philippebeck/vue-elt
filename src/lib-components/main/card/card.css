@@ -1,0 +1,13 @@
+/********************  CARD ELT ********************/
+
+article,
+section {
+  --ve-card-box-sizing: border-box;
+  --ve-card-margin: auto;
+  --ve-card-border: 1px solid transparent;
+  --ve-card-border-radius: 10px;
+  --ve-card-padding: 10px;
+  --ve-card-width: 95%;
+  --ve-card-background-color: transparent;
+  --ve-card-color: var(--ani-gray);
+}

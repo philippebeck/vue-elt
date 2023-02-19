@@ -42,8 +42,8 @@ Yarn : `yarn add vue-elt`
 
 ## CDN 
 
--   Development : [https://cdn.jsdelivr.net/npm/vue-elt@0.6.6/dist/vue-elt.esm.js](https://cdn.jsdelivr.net/npm/vue-elt@0.6.6/dist/vue-elt.esm.js)  
--   Production : [https://cdn.jsdelivr.net/npm/vue-elt@0.6.6/dist/vue-elt.min.js](https://cdn.jsdelivr.net/npm/vue-elt@0.6.6/dist/vue-elt.min.js)  
+-   Development : [https://cdn.jsdelivr.net/npm/vue-elt@0.6.7/dist/vue-elt.esm.js](https://cdn.jsdelivr.net/npm/vue-elt@0.6.7/dist/vue-elt.esm.js)  
+-   Production : [https://cdn.jsdelivr.net/npm/vue-elt@0.6.7/dist/vue-elt.min.js](https://cdn.jsdelivr.net/npm/vue-elt@0.6.7/dist/vue-elt.min.js)  
 
 ---
 
@@ -68,12 +68,17 @@ Available SFC :
 -   **CardElt** *(main)*  
 -   **FootElt** *(main)*  
 
+Overloading CSS vars :  
+-   **style.css** *(dist)*  
+
 ---
 
 ## Usage
 
-1.  In `main.js` of Vue3, import `vue-elt` like this : `import element from "vue-elt"`
-2.  Then, add this line after creating App but before mounting : `app.use(element)` ([example](https://github.com/philippebeck/vesan/blob/master/src/main.js))
-3.  Then use it in yours components like in these examples : 
+1.  In `main.js` of Vue3, import `vue-elt` like this : `import element from "vue-elt"`  
+2.  Then, add this line after creating App but before mounting : `app.use(element)` ([example](https://github.com/philippebeck/vesan/blob/master/src/main.js))  
+3.  Vue-elt use the packages `animadio` for the colors & `font-awesome` for the icons, so you need to load them (*you can watch import example in the dev/serve.vue file*)  
+4.  After, use it in yours components like in these examples : 
     -  `<ListElt :items=items />` ([example](https://github.com/philippebeck/vesan/blob/master/src/views/HomeView.vue))  
     -  `<FieldElt id="email" />` ([example](https://github.com/philippebeck/vesan/blob/master/src/views/ContactView.vue))  
+5.  Finally, you can find an overload file for the style in the dist folder, you can copy the contents to your own style file, then you can overload any css variable of the components (or `animadio`), but you need to add the `!important` for those you want to overload  

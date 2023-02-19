@@ -333,101 +333,113 @@
 
   <FootElt>
     <template #foot1>
-      <ul>
-        <li>
+      <ListElt :items="['Asperger', 'Astronomy', 'Philippe Beck']">
+        <template #item-1>
           <a href="https://asperger.philippebeck.net"
             title="Tests for Asperger's Syndrome">
             Asperger
           </a>
-        </li>
-        <li>
+        </template>
+        <template #item-2>
           <a href="https://astronomy.philippebeck.net"
             title="NASA & CDS APIs">
             Astronomy
           </a>
-        </li>
-      </ul>
-    </template>
-
-    <template #foot2>
-      <ul>
-        <li>
-          <a href="https://www.npmjs.com/package/animadio"
-            title="Animadio CSS Library">
-            Animadio
-          </a>
-        </li>
-        <li>
-          <a href="https://www.npmjs.com/package/nemjs"
-            title="JavaScript Backend Services">
-            Nemjs
-          </a>
-        </li>
-        <li>
-          <a href="https://www.npmjs.com/package/servidio"
-            title="JavaScript Frontend Services">
-            Servidio
-          </a>
-        </li>
-        <li>
-          <a href="https://www.npmjs.com/package/vesan"
-            title="CMS with Vue-Elt, Servidio, Animadio & NemJS">
-            Vesan
-          </a>
-        </li>
-        <li>
-          <a href="https://www.npmjs.com/package/servidio"
-            title="Vuejs SFC Library">
-            Vue-Elt
-          </a>
-        </li>
-      </ul>
-    </template>
-
-    <template #foot3>
-      <ul>
-        <li>
-          <a href="https://links2code.philippebeck.net"
-            title="Links For Coding">
-            Links2Code
-          </a>
-        </li>
-        <li>
+        </template>
+        <template #item-3>
           <a href="https://philippebeck.net"
             title="Portal">
             Philippe Beck
           </a>
-        </li>
-      </ul>
+        </template>
+      </ListElt>
+    </template>
+
+    <template #foot2>
+      <ListElt :items="['Vue-Elt', 'Servidio', 'Animadio', 'NemJS', 'Vesan']">
+        <template #item-1>
+          <a href="https://www.npmjs.com/package/vue-elt"
+            title="Vuejs SFC Library">
+            Vue-Elt
+          </a>
+        </template>
+        <template #item-2>
+          <a href="https://www.npmjs.com/package/servidio"
+            title="JavaScript Frontend Services">
+            Servidio
+          </a>
+        </template>
+        <template #item-3>
+          <a href="https://www.npmjs.com/package/animadio"
+            title="Animadio CSS Library">
+            Animadio
+          </a>
+        </template>
+        <template #item-4>
+          <a href="https://www.npmjs.com/package/nemjs"
+            title="JavaScript Backend Services">
+            Nemjs
+          </a>
+        </template>
+        <template #item-5>
+          <a href="https://www.npmjs.com/package/vesan"
+            title="CMS with Vue-Elt, Servidio, Animadio & NemJS">
+            Vesan
+          </a>
+        </template>
+      </ListElt>
+    </template>
+
+    <template #foot3>
+      <ListElt :items="['Contact', 'Legal Notice']">
+        <template #item-1>
+          <a href="mailto:contact@philippebeck.net"
+            title="Send a message">
+            Contact
+          </a>
+        </template>
+        <template #item-2>
+          <a href="#"
+            title="Read the legal notice">
+            Legal Notice
+          </a>
+        </template>
+      </ListElt>
     </template>
 
     <template #foot>
-      <ul>
-        <li>
+      <ListElt :items="['GitHub', 'LinkedIn', 'Medium', 'Twitter', 'CodePen']">
+        <template #item-1>
           <a href="https://github.com/philippebeck"
             title="Philippe Beck @GitHub">
-            <i class="fa-brands fa-github fa-2x fa-fw black"></i>
+            <i class="fa-brands fa-github fa-lg fa-fw black"></i>
           </a>
-        </li>
-        <li>
-          <a href="https://twitter.com/ph_beck"
-            title="Philippe Beck @Twitter">
-            <i class="fa-brands fa-twitter fa-2x fa-fw sky"></i>
-          </a>
-        </li>
-        <li>
+        </template>
+        <template #item-2>
           <a href="https://www.linkedin.com/in/philippebeck"
             title="Philippe Beck @LinkedIn">
-            <i class="fa-brands fa-linkedin-in fa-2x fa-fw blue"></i>
+            <i class="fa-brands fa-linkedin-in fa-lg fa-fw blue"></i>
           </a>
-        </li>
-        <li>
+        </template>
+        <template #item-3>
+          <a href="https://medium.com/@philippebeck"
+            title="Philippe Beck @Medium">
+            <i class="fa-brands fa-medium fa-lg fa-fw green"></i>
+          </a>
+        </template>
+        <template #item-4>
+          <a href="https://twitter.com/ph_beck"
+            title="Philippe Beck @Twitter">
+            <i class="fa-brands fa-twitter fa-lg fa-fw sky"></i>
+          </a>
+        </template>
+        <template #item-5>
           <a href="https://codepen.io/philippebeck"
             title="Philippe Beck @CodePen">
-            <i class="fa-brands fa-codepen fa-2x fa-fw black"></i>
+            <i class="fa-brands fa-codepen fa-lg fa-fw black"></i>
           </a>
-        </li>
-      </ul>
+        </template>
+      </ListElt>
     </template>
   </FootElt>
 </template>

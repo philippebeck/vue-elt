@@ -93,61 +93,39 @@ export default {
 </script>
 
 <style scoped>
-figure {
-  --figure-border: 1px solid transparent;
-  --figure-border-radius: 20px;
-  --figure-padding: 0;
-  --figure-background-color: transparent;
+@import url("media.css");
 
-  border: var(--figure-border);
-  border-radius: var(--figure-border-radius);
-  padding: var(--figure-padding);
-  background-color: var(--figure-background-color);
+figure {
+  border: var(--ve-figure-border);
+  border-radius: var(--ve-figure-border-radius);
+  padding: var(--ve-figure-padding);
+  background-color: var(--ve-figure-background-color);
 }
 
 img {
-  --img-border: 1px solid var(--blue);
-  --img-border-radius: 20px;
-  --img-padding: 1px;
-  --img-max-width: 100%;
-  --img-height: auto;
-  --img-object-fit: contain;
-  --img-object-position: 50% 50%;
-
-  border: var(--img-border);
-  border-radius: var(--img-border-radius);
-  padding: var(--img-padding);
-  max-width: var(--img-max-width);
-  height: var(--img-height);
-  object-fit: var(--img-object-fit);
-  object-position: var(--img-object-position);
+  border: var(--ve-img-border);
+  border-radius: var(--ve-img-border-radius);
+  padding: var(--ve-img-padding);
+  max-width: var(--ve-img-max-width);
+  height: var(--ve-img-height);
+  object-fit: var(--ve-img-object-fit);
+  object-position: var(--ve-img-object-position);
 }
 
 audio {
-  --audio-border: 2px solid var(--gray);
-  --audio-border-radius: 10px;
-
-  border: var(--audio-border);
-  border-radius: var(--audio-border-radius);
+  border: var(--ve-audio-border);
+  border-radius: var(--ve-audio-border-radius);
 }
 
 video {
-  --video-border: 2px solid var(--black);
-  --video-border-radius: 20px;
-
-  border: var(--video-border);
-  border-radius: var(--video-border-radius);
+  border: var(--ve-video-border);
+  border-radius: var(--ve-video-border-radius);
 }
 
 figcaption {
-  --figcaption-display: flex;
-  --figcaption-flex-flow: column nowrap;
-  --figcaption-place-content: center center;
-  --figcaption-color: var(--blue);
-
-  display: var(--figcaption-display);
-  flex-flow: var(--figcaption-flex-flow);
-  place-content: var(--figcaption-place-content);
-  color: var(--figcaption-color);
+  display: var(--ve-figcaption-display);
+  flex-flow: var(--ve-figcaption-flex-flow);
+  place-content: var(--ve-figcaption-place-content);
+  color: var(--ve-figcaption-color);
 }
 </style>

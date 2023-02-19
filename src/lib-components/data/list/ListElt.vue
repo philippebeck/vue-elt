@@ -82,25 +82,18 @@ export default {
 </script>
 
 <style scoped>
-ul {
-  --ul-margin: 20px 0;
-  --ul-padding: 0;
-  --ul-list-style: none;
-  --ul-text-align: center;
+@import url("list.css");
 
-  margin: var(--ul-margin);
-  padding: var(--ul-padding);
-  list-style: var(--ul-list-style);
-  text-align: var(--ul-text-align);
+ul {
+  margin: var(--ve-ul-margin);
+  padding: var(--ve-ul-padding);
+  list-style: var(--ve-ul-list-style);
+  text-align: var(--ve-ul-text-align);
 }
 
 li > ul {
-  --li-ul-display: flex;
-  --li-ul-flex-flow: wrap;
-  --li-ul-place-content: center;
-
-  display: var(--li-ul-display);
-  flex-flow: var(--li-ul-flex-flow);
-  place-content: var(--li-ul-place-content);
+  display: var(--ve-li-ul-display);
+  flex-flow: var(--ve-li-ul-flex-flow);
+  place-content: var(--ve-li-ul-place-content);
 }
 </style>
