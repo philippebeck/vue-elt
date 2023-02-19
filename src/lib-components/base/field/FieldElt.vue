@@ -157,84 +157,53 @@ export default {
 </script>
 
 <style scoped>
-fieldset {
-  --fieldset-display: flex;
-  --fieldset-flex-flow: row wrap;
-  --fieldset-place-items: center;
-  --fieldset-margin: auto;
-  --fieldset-border: none;
-  --fieldset-padding: 0;
-  --fieldset-max-width: 500px;
-  --fieldset-text-align: center;
-  --fieldset-transition: max-width 1s;
+@import url("field.css");
 
-  display: var(--fieldset-display);
-  flex-flow: var(--fieldset-flex-flow);
-  place-items: var(--fieldset-place-items);;
-  margin: var(--fieldset-margin);
-  border: var(--fieldset-border);
-  padding: var(--fieldset-padding);
-  max-width: var(--fieldset-max-width);
-  text-align: var(--fieldset-text-align);
-  transition: var(--fieldset-transition);
+fieldset {
+  display: var(--ve-fieldset-display);
+  flex-flow: var(--ve-fieldset-flex-flow);
+  place-items: var(--ve-fieldset-place-items);;
+  margin: var(--ve-fieldset-margin);
+  border: var(--ve-fieldset-border);
+  padding: var(--ve-fieldset-padding);
+  max-width: var(--ve-fieldset-max-width);
+  text-align: var(--ve-fieldset-text-align);
+  transition: var(--ve-fieldset-transition);
 }
 
 fieldset > * {
-  --field-box-sizing: border-box;
-  --field-margin: 5px;
-  --field-padding: 5px;
-
-  box-sizing: var(--field-box-sizing);
-  margin: var(--field-margin);
-  padding: var(--field-padding);
+  box-sizing: var(--ve-field-box-sizing);
+  margin: var(--ve-field-margin);
+  padding: var(--ve-field-padding);
 }
 
 legend {
-  --legend-width: 93%;
-  --legend-font-size: 1.2rem;
-  --legend-color: var(--gray);
-
-  width: var(--legend-width);
-  font-size: var(--legend-font-size);
-  color: var(--legend-color);
+  width: var(--ve-legend-width);
+  font-size: var(--ve-legend-font-size);
+  color: var(--ve-legend-color);
 }
 
 label {
-  --label-width: 90%;
-  --label-visibility: hidden;
-  --label-font-size: 0.8rem;
-  --label-font-style: italic;
-  --label-color: var(--blue);
-
-  width: var(--label-width);
-  visibility: var(--label-visibility);
-  font-size: var(--label-font-size);
-  font-style: var(--label-font-style);
-  color: var(--label-color);
+  width: var(--ve-label-width);
+  visibility: var(--ve-label-visibility);
+  font-size: var(--ve-label-font-size);
+  font-style: var(--ve-label-font-style);
+  color: var(--ve-label-color);
 }
 
 input,
 select,
 textarea {
-  --input-border: 1px solid var(--blue);
-  --input-border-radius: 10px;
-  --input-outline: none;
-  --input-width: 100%;
-  --input-line-height: 1.8;
-  --input-background-color: var(--white);
-
-  border: var(--input-border);
-  border-radius: var(--input-border-radius);
-  outline: var(--input-outline);
-  width: var(--input-width);
-  line-height: var(--input-line-height);
-  background-color: var(--input-background-color);
+  border: var(--ve-input-border);
+  border-radius: var(--ve-input-border-radius);
+  outline: var(--ve-input-outline);
+  width: var(--ve-input-width);
+  line-height: var(--ve-input-line-height);
+  background-color: var(--ve-input-background-color);
 }
 
 fieldset:hover legend {
-  --hover-legend-color: var(--black);
-
-  color: var(--hover-legend-color);
+  color: var(--ve-hover-legend-color);
 }
 
 fieldset:hover > input,
@@ -243,27 +212,18 @@ fieldset:hover > textarea,
 input:focus,
 select:focus,
 textarea:focus {
-  --hover-input-border: 1px solid var(--sky);
-  --hover-input-border-radius: 0;
-  --hover-input-background-color: var(--white);
-  --hover-input-transition: all 500ms;
-
-  border: var(--hover-input-border);
-  border-radius: var(--hover-input-border-radius);
-  background-color: var(--hover-input-background-color);
-  transition: var(--hover-input-transition);
+  border: var(--ve-hover-input-border);
+  border-radius: var(--ve-hover-input-border-radius);
+  background-color: var(--ve-hover-input-background-color);
+  transition: var(--ve-hover-input-transition);
 }
 
 fieldset:hover > label,
 input:focus + label,
 select:focus + label,
 textarea:focus + label {
-  --hover-label-visibility: visible;
-  --hover-label-transform: scale(1.1);
-  --hover-label-transition: all 1s;
-
-  visibility: var(--hover-label-visibility);
-  transform: var(--hover-label-transform);
-  transition: var(--hover-label-transition);
+  visibility: var(--ve-hover-label-visibility);
+  transform: var(--ve-hover-label-transform);
+  transition: var(--ve-hover-label-transition);
 }
 </style>
