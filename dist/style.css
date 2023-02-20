@@ -82,7 +82,7 @@ figure {
 }
 
 img {
-  --ve-img-border: 1px solid var(--blue);
+  --ve-img-border: 1px solid var(--ani-blue);
   --ve-img-border-radius: 20px;
   --ve-img-padding: 1px;
   --ve-img-max-width: 100%;
@@ -92,12 +92,12 @@ img {
 }
 
 audio {
-  --ve-audio-border: 2px solid var(--gray);
+  --ve-audio-border: 2px solid var(--ani-gray);
   --ve-audio-border-radius: 10px;
 }
 
 video {
-  --ve-video-border: 2px solid var(--black);
+  --ve-video-border: 2px solid var(--ani-black);
   --ve-video-border-radius: 20px;
 }
 
@@ -105,7 +105,7 @@ figcaption {
   --ve-figcaption-display: flex;
   --ve-figcaption-flex-flow: column nowrap;
   --ve-figcaption-place-content: center center;
-  --ve-figcaption-color: var(--blue);
+  --ve-figcaption-color: var(--ani-blue);
 }
 
 /********** LIST ELT **********/
@@ -121,7 +121,7 @@ ul {
 
 /********** SLIDER ELT **********/
 .slider {
-  --ve-slider-margin: var(--slider-figcaption-height) auto -20px;
+  --ve-slider-margin: var(--ve-slider-figcaption-height) auto -20px;
   --ve-slider-border: none;
   --ve-slider-padding: 0;
   --ve-slider-width: 100%;
@@ -353,7 +353,7 @@ aside {
   --ve-sidebar-display: flex;
   --ve-sidebar-flex-flow: column;
   --ve-sidebar-position: fixed;
-  --ve-sidebar-top: calc(var(--navbar-height) + 10px);
+  --ve-sidebar-top: calc(var(--ve-navbar-height) + 10px);
   --ve-sidebar-left: 2px;
   --ve-sidebar-z-index: 10;
   --ve-sidebar-width: auto;
