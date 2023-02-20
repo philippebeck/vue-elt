@@ -1,3 +1,4 @@
+/********** BTN ELT **********/
 a,
 button {
   --ve-btn-display: inline-block;
@@ -22,6 +23,8 @@ button {
   --ve-btn-child-display: block;
   --ve-btn-child-margin: auto;
 }
+
+/********** FIELD ELT **********/
 fieldset {
   --ve-fieldset-display: flex;
   --ve-fieldset-flex-flow: row wrap;
@@ -69,6 +72,8 @@ textarea {
   --ve-hover-input-background-color: var(--ani-white);
   --ve-hover-input-transition: all 500ms;
 }
+
+/********** MEDIA ELT **********/
 figure {
   --ve-figure-border: 1px solid transparent;
   --ve-figure-border-radius: 20px;
@@ -102,6 +107,8 @@ figcaption {
   --ve-figcaption-place-content: center center;
   --ve-figcaption-color: var(--blue);
 }
+
+/********** LIST ELT **********/
 ul {
   --ve-ul-margin: 20px 0;
   --ve-ul-padding: 0;
@@ -111,6 +118,8 @@ ul {
   --ve-li-ul-flex-flow: wrap;
   --ve-li-ul-place-content: center;
 }
+
+/********** SLIDER ELT **********/
 .slider {
   --ve-slider-margin: var(--slider-figcaption-height) auto -20px;
   --ve-slider-border: none;
@@ -170,6 +179,8 @@ button {
     --ve-gallery-opacity: 0;
   }
 }
+
+/********** TABLE ELT **********/
 table {
   --ve-table-display: table;
   --ve-table-overflow: hidden;
@@ -266,6 +277,8 @@ td {
     --ve-table-max-width: 95%;
   }
 }
+
+/********** CARD ELT **********/
 article,
 section {
   --ve-card-box-sizing: border-box;
@@ -277,6 +290,8 @@ section {
   --ve-card-background-color: transparent;
   --ve-card-color: var(--ani-gray);
 }
+
+/********** FOOT ELT **********/
 footer {
   --ve-footer-text-align: center;
   --ve-footer-child-margin: 0;
@@ -328,6 +343,8 @@ aside {
     --ve-footer-ul-gap: 10%;
   }
 }
+
+/********** NAV ELT **********/
 :root {
   --ve-navbar-height: 50px;
 }
