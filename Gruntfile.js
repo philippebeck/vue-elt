@@ -6,7 +6,7 @@ module.exports = function(grunt) {
         src: [
           "src/lib-components/base/btn/btn-template.html",
           "src/lib-components/base/btn/btn-script.vue",
-          "src/lib-components/base/btn/btn-var-style.vue",
+          "src/lib-components/base/btn/btn-var-style.css",
           "src/lib-components/base/btn/btn-scoped-style.vue",
         ], 
         dest: "src/lib-components/base/BtnElt.vue"

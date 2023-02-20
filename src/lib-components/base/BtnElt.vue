@@ -70,6 +70,32 @@
 </script>
 
 <style>
+/********** BTN ELT **********/
+a,
+button {
+  --ve-btn-display: inline-block;
+  --ve-btn-margin: 10px;
+  --ve-btn-border: solid 2px var(--ani-white);
+  --ve-btn-border-radius: 10px;
+  --ve-btn-padding: 5px 10px;
+  --ve-btn-font-family: var(--ani-monospace);
+  --ve-btn-font-size: 1.2rem;
+  --ve-btn-font-weight: bold;
+  --ve-btn-text-align: center;
+  --ve-btn-text-decoration: none;
+  --ve-btn-background-color: var(--ani-black);
+  --ve-btn-color: var(--ani-white);
+  --ve-btn-cursor: pointer;
+  --ve-btn-hover-border-color: var(--ani-black);
+  --ve-btn-hover-border-radius: 5px;
+  --ve-btn-hover-background-color: var(--ani-white);
+  --ve-btn-hover-color: var(--ani-black);
+  --ve-btn-hover-box-shadow: inset 0 0 5px 2px;
+  --ve-btn-hover-transition: all 200ms;
+  --ve-btn-child-display: block;
+  --ve-btn-child-margin: auto;
+}
+
 </style>
 
 <style scoped>
