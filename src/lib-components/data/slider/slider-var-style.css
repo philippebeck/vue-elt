@@ -1,5 +1,3 @@
-/********************  SLIDER ELT ********************/
-
 .slider {
   --ve-slider-margin: var(--slider-figcaption-height) auto -20px;
   --ve-slider-border: none;

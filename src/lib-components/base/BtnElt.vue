@@ -69,9 +69,10 @@
   }
 </script>
 
-<style scoped>
-@import url("btn.css");
+<style>
+</style>
 
+<style scoped>
 a,
 button {
   display: var(--ve-btn-display);
