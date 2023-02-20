@@ -115,8 +115,6 @@ aside {
 </style>
 
 <style scoped>
-@import url("foot.css");
-
 footer {
   text-align: var(--ve-footer-text-align);
 }
