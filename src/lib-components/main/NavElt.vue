@@ -122,7 +122,7 @@ export default {
   --ve-sidebar-display: flex;
   --ve-sidebar-flex-flow: column;
   --ve-sidebar-position: fixed;
-  --ve-sidebar-top: calc(var(--navbar-height) + 10px);
+  --ve-sidebar-top: calc(var(--ve-navbar-height) + 10px);
   --ve-sidebar-left: 2px;
   --ve-sidebar-z-index: 10;
   --ve-sidebar-width: auto;

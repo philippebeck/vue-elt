@@ -314,7 +314,7 @@ export default {
 <style>
 /********** SLIDER ELT **********/
 .slider {
-  --ve-slider-margin: var(--slider-figcaption-height) auto -20px;
+  --ve-slider-margin: var(--ve-slider-figcaption-height) auto -20px;
   --ve-slider-border: none;
   --ve-slider-padding: 0;
   --ve-slider-width: 100%;
