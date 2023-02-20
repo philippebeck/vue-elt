@@ -1,5 +1,3 @@
-/********************  FIELD ELT ********************/
-
 fieldset {
   --ve-fieldset-display: flex;
   --ve-fieldset-flex-flow: row wrap;

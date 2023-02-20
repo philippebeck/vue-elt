@@ -156,9 +156,57 @@ export default {
 }
 </script>
 
-<style scoped>
-@import url("field.css");
+<style>
+fieldset {
+  --ve-fieldset-display: flex;
+  --ve-fieldset-flex-flow: row wrap;
+  --ve-fieldset-place-items: center;
+  --ve-fieldset-margin: auto;
+  --ve-fieldset-border: none;
+  --ve-fieldset-padding: 0;
+  --ve-fieldset-max-width: 500px;
+  --ve-fieldset-text-align: center;
+  --ve-fieldset-transition: max-width 1s;
+  --ve-field-box-sizing: border-box;
+  --ve-field-margin: 5px;
+  --ve-field-padding: 5px;
+}
 
+legend {
+  --ve-legend-width: 93%;
+  --ve-legend-font-size: 1.2rem;
+  --ve-legend-color: var(--ani-gray);
+  --ve-hover-legend-color: var(--ani-black);
+}
+
+label {
+  --ve-label-width: 90%;
+  --ve-label-visibility: hidden;
+  --ve-label-font-size: 0.8rem;
+  --ve-label-font-style: italic;
+  --ve-label-color: var(--ani-blue);
+  --ve-hover-label-visibility: visible;
+  --ve-hover-label-transform: scale(1.1);
+  --ve-hover-label-transition: all 1s;
+}
+
+input,
+select,
+textarea {
+  --ve-input-border: 1px solid var(--ani-blue);
+  --ve-input-border-radius: 10px;
+  --ve-input-outline: none;
+  --ve-input-width: 100%;
+  --ve-input-line-height: 1.8;
+  --ve-input-background-color: var(--ani-white);
+  --ve-hover-input-border: 1px solid var(--ani-sky);
+  --ve-hover-input-border-radius: 0;
+  --ve-hover-input-background-color: var(--ani-white);
+  --ve-hover-input-transition: all 500ms;
+}
+</style>
+
+<style scoped>
 fieldset {
   display: var(--ve-fieldset-display);
   flex-flow: var(--ve-fieldset-flex-flow);

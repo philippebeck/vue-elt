@@ -1,0 +1,82 @@
+<template>
+  <fieldset :title="info">
+    <!-- Legend (option) -->
+    <legend v-if="hasSlot('legend')">
+      <slot name="legend"></slot>
+    </legend>
+
+    <!-- NUMBER, DATE, TIME, RANGE ELT -->
+    <input v-if="getFieldType() === 'number'"
+      :id="id"
+      :max="max"
+      :min="min"
+      :name="id"
+      :step="step"
+      :type="type"
+      :value="value"
+      @input="onInput"
+      :required="required">
+
+    <!-- CHECKBOX, RADIO, COLOR ELT -->
+    <input v-else-if="getFieldType() === 'special'"
+      :id="id"
+      :name="name"
+      :type="type"
+      :value="value"
+      @input="onInput"
+      :required="required">
+
+    <!-- SELECT, OPTION ELT -->
+    <select v-else-if="getFieldType() === 'list'"
+      :id="id"
+      :name="id"
+      :placeholder="info"
+      @input="onInput"
+      :required="required">
+
+      <option v-if="value"
+        :value="value">
+        {{ value }}
+      </option>
+      <option v-else>
+        {{ info }}
+      </option>
+      <option v-for="(value, index) in list"
+        :key="index"
+        :value="value">
+        {{ value }}
+      </option>
+    </select>
+
+    <!-- TEXTAREA ELT -->
+    <textarea v-else-if="getFieldType() === 'area'"
+      :id="id"
+      :name="id"
+      :cols="cols"
+      :maxlength="max"
+      :minlength="min"
+      :placeholder="info"
+      :rows="rows"
+      :value="value"
+      @input="onInput"
+      :required="required"></textarea>
+
+    <!-- TEXT, OTHERS ELT -->
+    <input v-else
+      :id="id"
+      :maxlength="max"
+      :minlength="min"
+      :name="id"
+      :placeholder="info"
+      :type="type"
+      :value="value"
+      @input="onInput"
+      :required="required">
+
+    <!-- Label (option) -->
+    <label v-if="hasSlot('label')"
+      :for="id">
+      <slot name="label"></slot>
+    </label>
+  </fieldset>
+</template>
