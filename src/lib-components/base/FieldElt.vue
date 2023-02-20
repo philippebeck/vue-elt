@@ -157,6 +157,7 @@ export default {
 </script>
 
 <style>
+/********** FIELD ELT **********/
 fieldset {
   --ve-fieldset-display: flex;
   --ve-fieldset-flex-flow: row wrap;
@@ -204,6 +205,7 @@ textarea {
   --ve-hover-input-background-color: var(--ani-white);
   --ve-hover-input-transition: all 500ms;
 }
+
 </style>
 
 <style scoped>

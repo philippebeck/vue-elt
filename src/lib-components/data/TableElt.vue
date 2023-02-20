@@ -79,6 +79,7 @@ export default {
 </script>
 
 <style>
+/********** TABLE ELT **********/
 table {
   --ve-table-display: table;
   --ve-table-overflow: hidden;
@@ -175,6 +176,7 @@ td {
     --ve-table-max-width: 95%;
   }
 }
+
 </style>
 
 <style scoped>

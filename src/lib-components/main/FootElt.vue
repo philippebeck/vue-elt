@@ -61,6 +61,7 @@ export default {
 </script>
 
 <style>
+/********** FOOT ELT **********/
 footer {
   --ve-footer-text-align: center;
   --ve-footer-child-margin: 0;
@@ -112,6 +113,7 @@ aside {
     --ve-footer-ul-gap: 10%;
   }
 }
+
 </style>
 
 <style scoped>

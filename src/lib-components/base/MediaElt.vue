@@ -93,6 +93,7 @@ export default {
 </script>
 
 <style>
+/********** MEDIA ELT **********/
 figure {
   --ve-figure-border: 1px solid transparent;
   --ve-figure-border-radius: 20px;
@@ -126,6 +127,7 @@ figcaption {
   --ve-figcaption-place-content: center center;
   --ve-figcaption-color: var(--blue);
 }
+
 </style>
 
 <style scoped>

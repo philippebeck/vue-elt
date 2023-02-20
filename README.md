@@ -42,8 +42,8 @@ Yarn : `yarn add vue-elt`
 
 ## CDN 
 
--   Development : [https://cdn.jsdelivr.net/npm/vue-elt@0.7.1/dist/vue-elt.esm.js](https://cdn.jsdelivr.net/npm/vue-elt@0.7.1/dist/vue-elt.esm.js)  
--   Production : [https://cdn.jsdelivr.net/npm/vue-elt@0.7.1/dist/vue-elt.min.js](https://cdn.jsdelivr.net/npm/vue-elt@0.7.1/dist/vue-elt.min.js)  
+-   Development : [https://cdn.jsdelivr.net/npm/vue-elt@0.7.2/dist/vue-elt.esm.js](https://cdn.jsdelivr.net/npm/vue-elt@0.7.2/dist/vue-elt.esm.js)  
+-   Production : [https://cdn.jsdelivr.net/npm/vue-elt@0.7.2/dist/vue-elt.min.js](https://cdn.jsdelivr.net/npm/vue-elt@0.7.2/dist/vue-elt.min.js)  
 
 ---
 
@@ -81,4 +81,4 @@ Overloading CSS vars :
 4.  After, use it in yours components like in these examples : 
     -  `<ListElt :items=items />` ([example](https://github.com/philippebeck/vesan/blob/master/src/views/HomeView.vue))  
     -  `<FieldElt id="email" />` ([example](https://github.com/philippebeck/vesan/blob/master/src/views/ContactView.vue))  
-5.  Finally, you can find an overload file for the style in the dist folder, you can copy the contents to your own style file, then you can overload any css variable of the components (or `animadio`), but you need to add the `!important` for those you want to overload  
+5.  Finally, you can find an overload file for the style in the dist folder, you can copy the contents to your own style file, then you can overload any css variable of the components (or `animadio`)  

@@ -113,6 +113,7 @@ export default {
 </script>
 
 <style>
+/********** NAV ELT **********/
 :root {
   --ve-navbar-height: 50px;
 }
@@ -202,6 +203,7 @@ export default {
     --ve-hide-display: flex;
   }
 }
+
 </style>
 
 <style>
