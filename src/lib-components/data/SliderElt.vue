@@ -1,0 +1,449 @@
+<template>
+  <!-- SLIDER ELT -->
+  <figure class="slider">
+
+    <!-- Controls Part -->
+    <ul class="controls">
+      <li>
+        <button @click="goPrevious()"
+          title="Previous (&larr;)">
+          <i class="fas fa-step-backward fa-2x"></i>
+        </button>
+      </li>
+      <li>
+        <button v-if="random === true"
+          @click="checkRandom()"
+          id="slider-random" 
+          title="Normal">
+          <i class="fas fa-long-arrow-alt-right fa-2x"></i>
+        </button>
+        <button v-else 
+          @click="checkRandom()"
+          id="slider-random" 
+          title="Random">
+          <i class="fas fa-random fa-2x"></i>
+        </button>
+      </li>
+      <li>
+        <button v-if="auto === true" 
+          @click="checkAuto()"
+          id="slider-auto" 
+          title="Pause">
+          <i class="fas fa-pause fa-2x"></i>
+        </button>
+        <button v-else 
+          @click="checkAuto()"
+          id="slider-auto" 
+          title="Play">
+          <i class="fas fa-play fa-2x"></i>
+        </button>
+      </li>
+      <li>
+        <button @click="goNext()"
+          title="Next">
+          <i class="fas fa-step-forward fa-2x"></i>
+        </button>
+      </li>
+    </ul>
+
+    <!-- Slider Part -->
+    <ul class="slides">
+
+      <li v-for="(slide, index) in slides"
+        :key="index"
+        :id="'slide-' + (index + 1)">
+        <figure>
+
+          <slot name="slide"
+            :slide="slide"
+            :index="index">
+          </slot>
+
+          <!-- Figcaption (option) -->
+          <figcaption v-if="hasSlot('info')">
+            <slot name="info"
+              :slide="slide"
+              :index="index">
+            </slot>
+          </figcaption>
+
+        </figure>
+      </li>
+    </ul>
+
+    <!-- Gallery Part -->
+    <ul class="gallery">
+
+      <li v-for="(slide, index) in slides"
+        :key="index"
+        @click="setSlide(index)">
+
+        <slot name="gallery"
+          :slide="slide"
+          :index="index">
+        </slot>
+
+      </li>
+    </ul>
+  </figure>
+</template>
+
+<script>
+export default {
+  name: "SliderElt",
+
+  props: {
+    slides: {
+      type: Array
+    },
+    delay: {
+      type: Number,
+      default: 2000
+    },
+    auto: {
+      type: Boolean,
+      default: true
+    },
+    random: {
+      type: Boolean,
+      default: false
+    }
+  },
+
+  data() {
+    return {
+      index: -1,
+      intervalId: 0,
+      autoElt: null,
+      randomElt: null,
+      autoState: this.auto,
+      randomState: this.random
+    }
+  },
+
+  beforeCreate() {
+    for (let i = 0; i < 1000; i++) {
+      clearTimeout(i);
+    }
+  },
+
+  mounted() {
+    this.autoElt    = document.getElementById("slider-auto");
+    this.randomElt  = document.getElementById("slider-random");
+
+    document.addEventListener("keydown", this.setKeyboard);
+    document.getElementById("slide-1").classList.add("show");
+
+    this.runSlider();
+  },
+
+  methods: {
+    /******************** SETTERS ********************/
+
+    /**
+     * SET ICON
+     * @param {object} icon
+     * @param {string} add
+     * @param {string} remove
+     */
+    setIcon(icon, add, remove) {
+      icon.classList.add(add);
+      icon.classList.remove(remove);
+    },
+
+    /**
+     * SET AUTO
+     * @param {boolean} state
+     * @param {string} title
+     * @param {string} add
+     * @param {string} remove
+     */
+    setAuto(state, title, add, remove) {
+      this.autoState      = state;
+      this.autoElt.title  = title;
+      this.setIcon(this.autoElt.querySelector("i"), add, remove);
+    },
+
+    /**
+     * SET RANDOM
+     * @param {boolean} state
+     * @param {string} title
+     * @param {string} add
+     * @param {string} remove
+     */
+    setRandom(state, title, add, remove) {
+      this.randomState      = state;
+      this.randomElt.title  = title;
+      this.setIcon(this.randomElt.querySelector("i"), add, remove);
+    },
+    
+    /**
+     * SET SLIDE
+     * @param {Number} index 
+     */
+    setSlide(index) {
+      this.index = index;
+      this.refreshSlide();
+    },
+
+    /**
+     * SET KEYBOARD
+     * @param {Object} event
+     */
+    setKeyboard(event) {
+      switch (event.code) {
+        case "ArrowLeft":
+          this.goPrevious();
+          break;
+        case "ArrowUp":
+          this.checkRandom();
+          break;
+        case "ArrowDown":
+          this.checkAuto();
+          break;
+        case "ArrowRight":
+          this.goNext();
+          break;
+      }
+    },
+
+    /******************** GETTERS ********************/
+
+    /**
+     * GET RANDOM INTEGER
+     * @param {number} min
+     * @param {number} max
+     * @return
+     */
+    getRandomInteger(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    },
+
+    /******************** CHECKERS ********************/
+
+    /**
+     * HAS SLOT
+     * @param {string} name 
+     */
+    hasSlot(name) {
+      return this.$slots[name] !== undefined;
+    },
+
+    /**
+     * CHECK AUTO
+     */
+    checkAuto() {
+      if (this.autoState) {
+        this.setAuto(false, "Play", "fa-play", "fa-pause");
+        window.clearInterval(this.intervalId);
+      } else {
+        this.setAuto(true, "Pause", "fa-pause", "fa-play");
+        this.intervalId = window.setInterval(this.goNext, this.delay);
+      }
+      this.refreshSlide();
+    },
+
+    /**
+     * CHECK RANDOM
+     */
+    checkRandom() {
+      if (this.randomState) {
+        this.setRandom(false, "Random", "fa-random", "fa-long-arrow-alt-right");
+      } else {
+        this.setRandom(true, "Normal", "fa-long-arrow-alt-right", "fa-random");
+      }
+      this.refreshSlide();
+    },
+
+    /******************** MAIN ********************/
+
+    /**
+     * RUN SLIDER
+     */
+    runSlider() {
+      if (this.autoState) {
+        this.intervalId = window.setInterval(this.goNext, this.delay);
+      } else {
+        this.goNext();
+      }
+    },
+
+    /**
+     * REFRESH SLIDE
+     */
+    refreshSlide() {
+      for (let i = 1; i <= this.slides.length; i++) {
+        document.getElementById(`slide-${i}`).classList.remove("show");
+      }
+      document.getElementById(`slide-${this.index + 1}`).classList.add("show");
+    },
+
+    /**
+     * GO NEXT SLIDE
+     */
+    goNext() {
+      if (this.randomState) {
+        this.index = this.getRandomInteger(0, this.slides.length - 1);
+      } else {
+        this.index++;
+        if (this.index >= this.slides.length) {
+          this.index = 0;
+        }
+      }
+      this.refreshSlide();
+    },
+
+    /**
+     * GO PREVIOUS SLIDE
+     */
+    goPrevious() {
+      if (this.randomState) {
+        this.index = this.getRandomInteger(0, this.slides.length - 1);
+      } else {
+        this.index--;
+        if (this.index < 0) {
+          this.index = this.slides.length - 1;
+        }
+      }
+      this.refreshSlide();
+    },
+  }
+}
+</script>
+
+<style>
+.slider {
+  --ve-slider-margin: var(--slider-figcaption-height) auto -20px;
+  --ve-slider-border: none;
+  --ve-slider-padding: 0;
+  --ve-slider-width: 100%;
+  --ve-slider-text-align: center;
+}
+
+[id*="slide-"] {
+  --ve-slide-display: none;
+}
+
+figcaption {
+  --ve-slider-figcaption-padding: 5px 20px;
+  --ve-slider-figcaption-width: 100%;
+  --ve-slider-figcaption-height: 20%;
+  --ve-slider-figcaption-font-weight: bold;
+  --ve-slider-figcaption-color: var(--ani-sky);
+}
+
+.controls {
+  --ve-controls-display: flex;
+  --ve-controls-gap: 10px;
+  --ve-controls-place-content: center;
+  --ve-controls-opacity: 1;
+  --ve-slider-controls-hover-opacity: 1;
+  --ve-controls-hover-color: var(--ani-sky);
+}
+
+button {
+  --ve-slider-button-border: none;
+  --ve-slider-button-font-size: 60%;
+  --ve-slider-button-background: none;
+  --ve-slider-button-color: var(--ani-grey-dark);
+}
+
+.gallery {
+  --ve-gallery-display: flex;
+  --ve-gallery-gap: 10px;
+  --ve-gallery-place-content: center;
+  --ve-gallery-opacity: 1;
+  --ve-gallery-color: var(--ani-gray);
+  --ve-gallery-hover-opacity: 1;
+  --ve-gallery-child-hover-color: var(--ani-sky);
+  --ve-gallery-child-hover-cursor: pointer;
+}
+
+.show {
+  --ve-slider-show-display: list-item;
+}
+
+@media (min-width: 1200px) {
+  .controls {
+  --ve-controls-opacity: 0;
+  }
+  .gallery {
+    --ve-gallery-opacity: 0;
+  }
+}
+</style>
+
+<style scoped>
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.slider {
+  margin: var(--ve-slider-margin);
+  border: var(--ve-slider-border);
+  padding: var(--ve-slider-padding);
+  width: var(--ve-slider-width);
+  text-align: var(--ve-slider-text-align);
+}
+
+[id*="slide-"] {
+  display: var(--ve-slide-display);
+}
+
+figcaption {
+  padding: var(--ve-slider-figcaption-padding);
+  width: var(--ve-slider-figcaption-width);
+  height: var(--ve-slider-figcaption-height);
+  font-weight: var(--ve-slider-figcaption-font-weight);
+  color: var(--ve-slider-figcaption-color);
+}
+
+.controls {
+  display: var(--ve-controls-display);
+  gap: var(--ve-controls-gap);
+  place-content: var(--ve-controls-place-content);
+  opacity: var(--ve-controls-opacity);
+}
+
+.slider:hover .controls,
+.slider:focus .controls {
+  opacity: var(--ve-slider-controls-hover-opacity);
+}
+
+.controls > *:hover,
+.controls > *:focus {
+  color: var(--ve-controls-hover-color);
+}
+
+button {
+  border: var(--ve-slider-button-border);
+  font-size: var(--ve-slider-button-font-size);
+  background: var(--ve-slider-button-background);
+  color: var(--ve-slider-button-color);
+}
+
+.gallery {
+  display: var(--ve-gallery-display);
+  gap: var(--ve-gallery-gap);
+  place-content: var(--ve-gallery-place-content);
+  opacity: var(--ve-gallery-opacity);
+  color: var(--ve-gallery-color);
+}
+
+.slider:hover .gallery,
+.slider:focus .gallery {
+  opacity: var(--ve-gallery-hover-opacity);
+}
+
+.gallery > *:hover,
+.gallery > *:focus {
+  color: var(--ve-gallery-child-hover-color);
+  cursor: var(--ve-gallery-child-hover-cursor);
+}
+
+.show {
+  display: var(--ve-slider-show-display);
+}
+</style>
