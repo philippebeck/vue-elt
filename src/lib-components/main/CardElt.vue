@@ -57,6 +57,7 @@ export default {
 </script>
 
 <style>
+/********** CARD ELT **********/
 article,
 section {
   --ve-card-box-sizing: border-box;
@@ -68,6 +69,7 @@ section {
   --ve-card-background-color: transparent;
   --ve-card-color: var(--ani-gray);
 }
+
 </style>
 
 <style scoped>

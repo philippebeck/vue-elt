@@ -312,6 +312,7 @@ export default {
 </script>
 
 <style>
+/********** SLIDER ELT **********/
 .slider {
   --ve-slider-margin: var(--slider-figcaption-height) auto -20px;
   --ve-slider-border: none;
@@ -371,6 +372,7 @@ button {
     --ve-gallery-opacity: 0;
   }
 }
+
 </style>
 
 <style scoped>

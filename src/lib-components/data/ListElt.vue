@@ -82,6 +82,7 @@ export default {
 </script>
 
 <style>
+/********** LIST ELT **********/
 ul {
   --ve-ul-margin: 20px 0;
   --ve-ul-padding: 0;
@@ -91,6 +92,7 @@ ul {
   --ve-li-ul-flex-flow: wrap;
   --ve-li-ul-place-content: center;
 }
+
 </style>
 
 <style scoped>
