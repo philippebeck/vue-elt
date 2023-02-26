@@ -80,12 +80,15 @@ td {
   table {
     --ve-table-max-width: 96%;
   }
+
   tr {
     --ve-table-tr-display: table-row;
   }
+
   th {
     --ve-table-th-display: table-cell;
   }
+
   td {
     --ve-table-td-display: table-cell;
   }

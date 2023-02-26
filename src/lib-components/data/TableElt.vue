@@ -161,12 +161,15 @@ td {
   table {
     --ve-table-max-width: 96%;
   }
+
   tr {
     --ve-table-tr-display: table-row;
   }
+
   th {
     --ve-table-th-display: table-cell;
   }
+
   td {
     --ve-table-td-display: table-cell;
   }
@@ -213,6 +216,22 @@ tr {
   padding: var(--ve-table-tr-padding);
 }
 
+tbody tr:nth-child(even) {
+  background-color: var(--ve-table-tbody-tr-even-background-color);
+  color: var(--ve-table-tbody-tr-even-color);
+}
+
+tbody tr:nth-child(odd) {
+  background-color: var(--ve-table-tbody-tr-odd-background-color);
+  color: var(--ve-table-tbody-tr-odd-color);
+}
+
+tbody tr:hover,
+tbody tr:focus {
+  background-color: var(--ve-table-tbody-tr-hover-background-color);
+  color: var(--ve-table-tbody-tr-hover-color);
+}
+
 th {
   display: var(--ve-table-th-display);
   padding: var(--ve-table-th-padding);
@@ -234,19 +253,4 @@ td {
   cursor: var(--ve-table-td-cursor);
 }
 
-tbody tr:nth-child(even) {
-  background-color: var(--ve-table-tbody-tr-even-background-color);
-  color: var(--ve-table-tbody-tr-even-color);
-}
-
-tbody tr:nth-child(odd) {
-  background-color: var(--ve-table-tbody-tr-odd-background-color);
-  color: var(--ve-table-tbody-tr-odd-color);
-}
-
-tbody tr:hover,
-tbody tr:focus {
-  background-color: var(--ve-table-tbody-tr-hover-background-color);
-  color: var(--ve-table-tbody-tr-hover-color);
-}
 </style>
