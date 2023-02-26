@@ -95,73 +95,73 @@ export default {
 <style>
 /********** MEDIA ELT **********/
 figure {
-  --ve-figure-border: 1px solid transparent;
-  --ve-figure-border-radius: 20px;
-  --ve-figure-padding: 0;
-  --ve-figure-background-color: transparent;
+  --ve-media-figure-border: 1px solid transparent;
+  --ve-media-figure-border-radius: 20px;
+  --ve-media-figure-padding: 0;
+  --ve-media-figure-background-color: transparent;
 }
 
 img {
-  --ve-img-border: 1px solid var(--ani-blue);
-  --ve-img-border-radius: 20px;
-  --ve-img-padding: 1px;
-  --ve-img-max-width: 100%;
-  --ve-img-height: auto;
-  --ve-img-object-fit: contain;
-  --ve-img-object-position: 50% 50%;
+  --ve-media-img-border: 1px solid var(--ani-blue);
+  --ve-media-img-border-radius: 20px;
+  --ve-media-img-padding: 1px;
+  --ve-media-img-max-width: 100%;
+  --ve-media-img-height: auto;
+  --ve-media-img-object-fit: contain;
+  --ve-media-img-object-position: 50% 50%;
 }
 
 audio {
-  --ve-audio-border: 2px solid var(--ani-gray);
-  --ve-audio-border-radius: 10px;
+  --ve-media-audio-border: 2px solid var(--ani-gray);
+  --ve-media-audio-border-radius: 10px;
 }
 
 video {
-  --ve-video-border: 2px solid var(--ani-black);
-  --ve-video-border-radius: 20px;
+  --ve-media-video-border: 2px solid var(--ani-black);
+  --ve-media-video-border-radius: 20px;
 }
 
 figcaption {
-  --ve-figcaption-display: flex;
-  --ve-figcaption-flex-flow: column nowrap;
-  --ve-figcaption-place-content: center center;
-  --ve-figcaption-color: var(--ani-blue);
+  --ve-media-figcaption-display: flex;
+  --ve-media-figcaption-flex-flow: column nowrap;
+  --ve-media-figcaption-place-content: center center;
+  --ve-media-figcaption-color: var(--ani-blue);
 }
 
 </style>
 
 <style scoped>
 figure {
-  border: var(--ve-figure-border);
-  border-radius: var(--ve-figure-border-radius);
-  padding: var(--ve-figure-padding);
-  background-color: var(--ve-figure-background-color);
+  border: var(--ve-media-figure-border);
+  border-radius: var(--ve-media-figure-border-radius);
+  padding: var(--ve-media-figure-padding);
+  background-color: var(--ve-media-figure-background-color);
 }
 
 img {
-  border: var(--ve-img-border);
-  border-radius: var(--ve-img-border-radius);
-  padding: var(--ve-img-padding);
-  max-width: var(--ve-img-max-width);
-  height: var(--ve-img-height);
-  object-fit: var(--ve-img-object-fit);
-  object-position: var(--ve-img-object-position);
+  border: var(--ve-media-img-border);
+  border-radius: var(--ve-media-img-border-radius);
+  padding: var(--ve-media-img-padding);
+  max-width: var(--ve-media-img-max-width);
+  height: var(--ve-media-img-height);
+  object-fit: var(--ve-media-img-object-fit);
+  object-position: var(--ve-media-img-object-position);
 }
 
 audio {
-  border: var(--ve-audio-border);
-  border-radius: var(--ve-audio-border-radius);
+  border: var(--ve-media-audio-border);
+  border-radius: var(--ve-media-audio-border-radius);
 }
 
 video {
-  border: var(--ve-video-border);
-  border-radius: var(--ve-video-border-radius);
+  border: var(--ve-media-video-border);
+  border-radius: var(--ve-media-video-border-radius);
 }
 
 figcaption {
-  display: var(--ve-figcaption-display);
-  flex-flow: var(--ve-figcaption-flex-flow);
-  place-content: var(--ve-figcaption-place-content);
-  color: var(--ve-figcaption-color);
+  display: var(--ve-media-figcaption-display);
+  flex-flow: var(--ve-media-figcaption-flex-flow);
+  place-content: var(--ve-media-figcaption-place-content);
+  color: var(--ve-media-figcaption-color);
 }
 </style>

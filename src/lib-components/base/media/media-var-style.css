@@ -1,34 +1,34 @@
 /********** MEDIA ELT **********/
 figure {
-  --ve-figure-border: 1px solid transparent;
-  --ve-figure-border-radius: 20px;
-  --ve-figure-padding: 0;
-  --ve-figure-background-color: transparent;
+  --ve-media-figure-border: 1px solid transparent;
+  --ve-media-figure-border-radius: 20px;
+  --ve-media-figure-padding: 0;
+  --ve-media-figure-background-color: transparent;
 }
 
 img {
-  --ve-img-border: 1px solid var(--ani-blue);
-  --ve-img-border-radius: 20px;
-  --ve-img-padding: 1px;
-  --ve-img-max-width: 100%;
-  --ve-img-height: auto;
-  --ve-img-object-fit: contain;
-  --ve-img-object-position: 50% 50%;
+  --ve-media-img-border: 1px solid var(--ani-blue);
+  --ve-media-img-border-radius: 20px;
+  --ve-media-img-padding: 1px;
+  --ve-media-img-max-width: 100%;
+  --ve-media-img-height: auto;
+  --ve-media-img-object-fit: contain;
+  --ve-media-img-object-position: 50% 50%;
 }
 
 audio {
-  --ve-audio-border: 2px solid var(--ani-gray);
-  --ve-audio-border-radius: 10px;
+  --ve-media-audio-border: 2px solid var(--ani-gray);
+  --ve-media-audio-border-radius: 10px;
 }
 
 video {
-  --ve-video-border: 2px solid var(--ani-black);
-  --ve-video-border-radius: 20px;
+  --ve-media-video-border: 2px solid var(--ani-black);
+  --ve-media-video-border-radius: 20px;
 }
 
 figcaption {
-  --ve-figcaption-display: flex;
-  --ve-figcaption-flex-flow: column nowrap;
-  --ve-figcaption-place-content: center center;
-  --ve-figcaption-color: var(--ani-blue);
+  --ve-media-figcaption-display: flex;
+  --ve-media-figcaption-flex-flow: column nowrap;
+  --ve-media-figcaption-place-content: center center;
+  --ve-media-figcaption-color: var(--ani-blue);
 }
