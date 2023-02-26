@@ -304,6 +304,11 @@
                 {'SFC': 'FootElt', 'Cat': 'Main', 'V': '0.1', 'State': 'Working'},
                 {'SFC': 'NavElt', 'Cat': 'Main', 'V': '0.4', 'State': 'Working'}
               ]">
+
+              <template #cell-State="slotProps">
+                {{ slotProps.item.State }}
+                <i class="fa-regular fa-thumbs-up"></i>
+              </template>
             </TableElt>
           </template>
         </CardElt>
