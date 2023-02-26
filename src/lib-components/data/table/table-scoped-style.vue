@@ -4,7 +4,7 @@
 table {
   display: var(--ve-table-display);
   overflow: var(--ve-table-overflow);
-  table-layout: var(--ve-table-layout);
+  table-layout: var(--ve-table-table-layout);
   margin: var(--ve-table-margin);
   border-collapse: var(--ve-table-border-collapse);
   border-spacing: var(--ve-table-border-spacing);
@@ -15,66 +15,58 @@ table {
 }
 
 caption {
-  caption-side: var(--ve-caption-caption-side);
-  margin-bottom: var(--ve-caption-margin-bottom);
-  font-size: var(--ve-caption-font-size);
-  font-weight: var(--ve-caption-font-weight);
-  color: var(--ve-caption-color);
-  text-shadow: var(--ve-caption-text-shadow);
+  caption-side: var(--ve-table-caption-caption-side);
+  margin-bottom: var(--ve-table-caption-margin-bottom);
+  font-size: var(--ve-table-caption-font-size);
+  font-weight: var(--ve-table-caption-font-weight);
+  color: var(--ve-table-caption-color);
+  text-shadow: var(--ve-table-caption-text-shadow);
 }
 
 thead {
-  border-radius: var(--ve-thead-border-radius);
+  border-radius: var(--ve-table-thead-border-radius);
 }
 
 tr {
-  display: var(--ve-tr-display);
-  flex-flow: var(--ve-tr-flex-flow);
-  padding: var(--ve-tr-padding);
+  display: var(--ve-table-tr-display);
+  flex-flow: var(--ve-table-tr-flex-flow);
+  padding: var(--ve-table-tr-padding);
 }
 
 th {
-  display: var(--ve-th-display);
-  font-size: var(--ve-th-font-size);
-  font-style: var(--ve-th-font-style);
-  text-transform: var(--ve-th-text-transform);
-  background-color: var(--ve-th-background-color);
-  color: var(--ve-th-color);
-}
-
-th,
-td {
-  padding: var(--ve-th-td-padding);
-  text-align: var(--ve-th-td-text-align);
-  vertical-align: var(--ve-th-td-vertical-align);
+  display: var(--ve-table-th-display);
+  padding: var(--ve-table-th-padding);
+  font-size: var(--ve-table-th-font-size);
+  font-style: var(--ve-table-th-font-style);
+  text-align: var(--ve-table-th-text-align);
+  text-transform: var(--ve-table-th-text-transform);
+  vertical-align: var(--ve-table-th-vertical-align);
+  background-color: var(--ve-table-th-background-color);
+  color: var(--ve-table-th-color);
 }
 
 td {
-  display: var(--ve-td-display);
-  word-break: var(--ve-td-word-break);;
-  cursor: var(--ve-td-cursor);
+  display: var(--ve-table-td-display);
+  padding: var(--ve-table-td-padding);
+  text-align: var(--ve-table-td-text-align);
+  vertical-align: var(--ve-table-td-vertical-align);
+  word-break: var(--ve-table-td-word-break);;
+  cursor: var(--ve-table-td-cursor);
 }
 
 tbody tr:nth-child(even) {
-  background-color: var(--ve-tbody-even-background-color);
-  color: var(--ve-tbody-even-color);
+  background-color: var(--ve-table-tbody-tr-even-background-color);
+  color: var(--ve-table-tbody-tr-even-color);
 }
 
 tbody tr:nth-child(odd) {
-  background-color: var(--ve-tbody-odd-background-color);
-  color: var(--ve-tbody-odd-color);
+  background-color: var(--ve-table-tbody-tr-odd-background-color);
+  color: var(--ve-table-tbody-tr-odd-color);
 }
 
 tbody tr:hover,
 tbody tr:focus {
-  background-color: var(--ve-tbody-hover-background-color);
-  color: var(--ve-tbody-hover-color);
-}
-
-@media (min-width: 1200px) {
-  th,
-  td {
-    display: var(--ve-th-td-display);
-  }
+  background-color: var(--ve-table-tbody-tr-hover-background-color);
+  color: var(--ve-table-tbody-tr-hover-color);
 }
 </style>

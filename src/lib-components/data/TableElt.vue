@@ -83,7 +83,7 @@ export default {
 table {
   --ve-table-display: table;
   --ve-table-overflow: hidden;
-  --ve-table-layout: fixed;
+  --ve-table-table-layout: fixed;
   --ve-table-margin: 50px auto;
   --ve-table-border-collapse: separate;
   --ve-table-border-spacing: 1px;
@@ -94,50 +94,49 @@ table {
 }
 
 caption {
-  --ve-caption-caption-side: top;
-  --ve-caption-margin-bottom: 20px;
-  --ve-caption-font-size: 1.5rem;
-  --ve-caption-font-weight: bold;
-  --ve-caption-color: var(--ani-gray);
-  --ve-caption-text-shadow: 1px 1px 2px;
+  --ve-table-caption-caption-side: top;
+  --ve-table-caption-margin-bottom: 20px;
+  --ve-table-caption-font-size: 1.5rem;
+  --ve-table-caption-font-weight: bold;
+  --ve-table-caption-color: var(--ani-gray);
+  --ve-table-caption-text-shadow: 1px 1px 2px;
 }
 
 thead {
-  --ve-thead-border-radius: 10px;
+  --ve-table-thead-border-radius: 10px;
 }
 
 tr {
-  --ve-tr-display: flex;
-  --ve-tr-flex-flow: column;
-  --ve-tr-padding: 20px;
-  --ve-tbody-even-background-color: var(--ani-gray-light);
-  --ve-tbody-even-color: var(--ani-black);
-  --ve-tbody-odd-background-color: var(--ani-white);
-  --ve-tbody-odd-color: var(--ani-gray);
-  --ve-tbody-hover-background-color: var(--ani-silver);
-  --ve-tbody-hover-color: var(--ani-black);
+  --ve-table-tr-display: flex;
+  --ve-table-tr-flex-flow: column;
+  --ve-table-tr-padding: 20px;
+  --ve-table-tbody-tr-even-background-color: var(--ani-gray-light);
+  --ve-table-tbody-tr-even-color: var(--ani-black);
+  --ve-table-tbody-tr-odd-background-color: var(--ani-white);
+  --ve-table-tbody-tr-odd-color: var(--ani-gray);
+  --ve-table-tbody-tr-hover-background-color: var(--ani-silver);
+  --ve-table-tbody-tr-hover-color: var(--ani-black);
 }
 
 th {
-  --ve-th-display: none;
-  --ve-th-font-size: 1.5rem;
-  --ve-th-font-style: italic;
-  --ve-th-text-transform: uppercase;
-  --ve-th-background-color: var(--ani-blue);
-  --ve-th-color: var(--ani-white);
-}
-
-th,
-td {
-  --ve-th-td-padding: 5px;
-  --ve-th-td-text-align: center;
-  --ve-th-td-vertical-align: middle;
+  --ve-table-th-display: none;
+  --ve-table-th-padding: 5px;
+  --ve-table-th-font-size: 1.5rem;
+  --ve-table-th-font-style: italic;
+  --ve-table-th-text-align: center;
+  --ve-table-th-text-transform: uppercase;
+  --ve-table-th-vertical-align: middle;
+  --ve-table-th-background-color: var(--ani-blue);
+  --ve-table-th-color: var(--ani-white);
 }
 
 td {
-  --ve-td-display: table;
-  --ve-td-word-break: normal;
-  --ve-td-cursor: cell;
+  --ve-table-td-display: table;
+  --ve-table-td-padding: 5px;
+  --ve-table-td-text-align: center;
+  --ve-table-td-vertical-align: middle;
+  --ve-table-td-word-break: normal;
+  --ve-table-td-cursor: cell;
 }
 
 @media (min-width: 576px) {
@@ -163,11 +162,13 @@ td {
     --ve-table-max-width: 96%;
   }
   tr {
-    --ve-tr-display: table-row;
+    --ve-table-tr-display: table-row;
   }
-  th,
+  th {
+    --ve-table-th-display: table-cell;
+  }
   td {
-    --ve-th-td-display: table-cell;
+    --ve-table-td-display: table-cell;
   }
 }
 
@@ -183,7 +184,7 @@ td {
 table {
   display: var(--ve-table-display);
   overflow: var(--ve-table-overflow);
-  table-layout: var(--ve-table-layout);
+  table-layout: var(--ve-table-table-layout);
   margin: var(--ve-table-margin);
   border-collapse: var(--ve-table-border-collapse);
   border-spacing: var(--ve-table-border-spacing);
@@ -194,66 +195,58 @@ table {
 }
 
 caption {
-  caption-side: var(--ve-caption-caption-side);
-  margin-bottom: var(--ve-caption-margin-bottom);
-  font-size: var(--ve-caption-font-size);
-  font-weight: var(--ve-caption-font-weight);
-  color: var(--ve-caption-color);
-  text-shadow: var(--ve-caption-text-shadow);
+  caption-side: var(--ve-table-caption-caption-side);
+  margin-bottom: var(--ve-table-caption-margin-bottom);
+  font-size: var(--ve-table-caption-font-size);
+  font-weight: var(--ve-table-caption-font-weight);
+  color: var(--ve-table-caption-color);
+  text-shadow: var(--ve-table-caption-text-shadow);
 }
 
 thead {
-  border-radius: var(--ve-thead-border-radius);
+  border-radius: var(--ve-table-thead-border-radius);
 }
 
 tr {
-  display: var(--ve-tr-display);
-  flex-flow: var(--ve-tr-flex-flow);
-  padding: var(--ve-tr-padding);
+  display: var(--ve-table-tr-display);
+  flex-flow: var(--ve-table-tr-flex-flow);
+  padding: var(--ve-table-tr-padding);
 }
 
 th {
-  display: var(--ve-th-display);
-  font-size: var(--ve-th-font-size);
-  font-style: var(--ve-th-font-style);
-  text-transform: var(--ve-th-text-transform);
-  background-color: var(--ve-th-background-color);
-  color: var(--ve-th-color);
-}
-
-th,
-td {
-  padding: var(--ve-th-td-padding);
-  text-align: var(--ve-th-td-text-align);
-  vertical-align: var(--ve-th-td-vertical-align);
+  display: var(--ve-table-th-display);
+  padding: var(--ve-table-th-padding);
+  font-size: var(--ve-table-th-font-size);
+  font-style: var(--ve-table-th-font-style);
+  text-align: var(--ve-table-th-text-align);
+  text-transform: var(--ve-table-th-text-transform);
+  vertical-align: var(--ve-table-th-vertical-align);
+  background-color: var(--ve-table-th-background-color);
+  color: var(--ve-table-th-color);
 }
 
 td {
-  display: var(--ve-td-display);
-  word-break: var(--ve-td-word-break);;
-  cursor: var(--ve-td-cursor);
+  display: var(--ve-table-td-display);
+  padding: var(--ve-table-td-padding);
+  text-align: var(--ve-table-td-text-align);
+  vertical-align: var(--ve-table-td-vertical-align);
+  word-break: var(--ve-table-td-word-break);;
+  cursor: var(--ve-table-td-cursor);
 }
 
 tbody tr:nth-child(even) {
-  background-color: var(--ve-tbody-even-background-color);
-  color: var(--ve-tbody-even-color);
+  background-color: var(--ve-table-tbody-tr-even-background-color);
+  color: var(--ve-table-tbody-tr-even-color);
 }
 
 tbody tr:nth-child(odd) {
-  background-color: var(--ve-tbody-odd-background-color);
-  color: var(--ve-tbody-odd-color);
+  background-color: var(--ve-table-tbody-tr-odd-background-color);
+  color: var(--ve-table-tbody-tr-odd-color);
 }
 
 tbody tr:hover,
 tbody tr:focus {
-  background-color: var(--ve-tbody-hover-background-color);
-  color: var(--ve-tbody-hover-color);
-}
-
-@media (min-width: 1200px) {
-  th,
-  td {
-    display: var(--ve-th-td-display);
-  }
+  background-color: var(--ve-table-tbody-tr-hover-background-color);
+  color: var(--ve-table-tbody-tr-hover-color);
 }
 </style>
