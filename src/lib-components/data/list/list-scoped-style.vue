@@ -2,10 +2,10 @@
 
 <style scoped>
 ul {
-  margin: var(--ve-list-ul-margin);
-  padding: var(--ve-list-ul-padding);
-  list-style: var(--ve-list-ul-list-style);
-  text-align: var(--ve-list-ul-text-align);
+  margin: var(--ve-list-margin);
+  padding: var(--ve-list-padding);
+  list-style: var(--ve-list-list-style);
+  text-align: var(--ve-list-text-align);
 }
 
 li > ul {

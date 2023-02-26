@@ -1,9 +1,9 @@
 /********** LIST ELT **********/
 ul {
-  --ve-list-ul-margin: 20px 0;
-  --ve-list-ul-padding: 0;
-  --ve-list-ul-list-style: none;
-  --ve-list-ul-text-align: center;
+  --ve-list-margin: 20px 0;
+  --ve-list-padding: 0;
+  --ve-list-list-style: none;
+  --ve-list-text-align: center;
   --ve-list-li-ul-display: flex;
   --ve-list-li-ul-flex-flow: wrap;
   --ve-list-li-ul-gap: 20px;

@@ -84,10 +84,10 @@ export default {
 <style>
 /********** LIST ELT **********/
 ul {
-  --ve-list-ul-margin: 20px 0;
-  --ve-list-ul-padding: 0;
-  --ve-list-ul-list-style: none;
-  --ve-list-ul-text-align: center;
+  --ve-list-margin: 20px 0;
+  --ve-list-padding: 0;
+  --ve-list-list-style: none;
+  --ve-list-text-align: center;
   --ve-list-li-ul-display: flex;
   --ve-list-li-ul-flex-flow: wrap;
   --ve-list-li-ul-gap: 20px;
@@ -100,10 +100,10 @@ ul {
 
 <style scoped>
 ul {
-  margin: var(--ve-list-ul-margin);
-  padding: var(--ve-list-ul-padding);
-  list-style: var(--ve-list-ul-list-style);
-  text-align: var(--ve-list-ul-text-align);
+  margin: var(--ve-list-margin);
+  padding: var(--ve-list-padding);
+  list-style: var(--ve-list-list-style);
+  text-align: var(--ve-list-text-align);
 }
 
 li > ul {
