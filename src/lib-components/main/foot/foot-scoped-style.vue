@@ -2,76 +2,72 @@
 
 <style scoped>
 footer {
-  text-align: var(--ve-footer-text-align);
+  text-align: var(--ve-foot-text-align);
 }
 
 h3,
+h4,
 :deep(ul) {
-  margin: var(--ve-footer-child-margin);
-  padding: var(--ve-footer-child-padding);
+  margin: var(--ve-foot-child-margin);
+  padding: var(--ve-foot-child-padding);
 }
 
 :deep(li) {
-  list-style: var(--ve-footer-li-list-style);
+  list-style: var(--ve-foot-li-list-style);
 }
 
 :deep(a) {
-  text-decoration: var(--ve-footer-a-text-decoration);
+  text-decoration: var(--ve-foot-a-text-decoration);
 }
 
 /********************* MAIN PART *********************/
 
 footer > ul { 
-  display: var(--ve-footer-ul-display);
-  flex-direction: var(--ve-footer-ul-flex-direction);
-  place-items: var(--ve-footer-ul-place-items);
-  gap: var(--ve-footer-ul-gap);
-  padding: var(--ve-footer-ul-padding);
-  background-color: var(--ve-footer-ul-background-color);
+  display: var(--ve-foot-ul-display);
+  flex-flow: var(--ve-foot-ul-flex-flow);
+  gap: var(--ve-foot-ul-gap);
+  place-content: var(--ve-foot-ul-place-content);
+  place-items: var(--ve-foot-ul-place-items);
+  padding: var(--ve-foot-ul-padding);
+  background-color: var(--ve-foot-ul-background-color);
 }
 
-h3 {
-  margin-bottom: var(--ve-footer-h3-margin-bottom);
-  font-size: var(--ve-footer-h3-font-size);
-  font-family: var(--ve-footer-h3-font-family);
-  color: var(--ve-footer-h3-color);
+h3,
+h4 {
+  margin-bottom: var(--ve-foot-title-margin-bottom);
+  font-size: var(--ve-foot-title-font-size);
+  font-family: var(--ve-foot-title-font-family);
+  color: var(--ve-foot-title-color);
 }
 
 section :deep(a) {
-  color: var(--ve-footer-section-a-color);
+  color: var(--ve-foot-section-a-color);
 }
 
 section :deep(a):hover,
 section :deep(a):focus {
-  color: var(--ve-footer-section-a-hover-color);
+  color: var(--ve-foot-section-a-hover-color);
 }
 
 /********************* SECOND PART *********************/
 
 aside :deep(ul) {
-  display: var(--ve-aside-ul-display);
-  flex-direction: var(--ve-aside-ul-flex-direction);
-  place-content: var(--ve-aside-ul-place-content);
-  gap: var(--ve-aside-ul-gap);
-  padding: var(--ve-aside-ul-padding);
-  background-color: var(--ve-aside-ul-background-color);
+  display: var(--ve-foot-aside-ul-display);
+  flex-flow: var(--ve-foot-aside-ul-flex-flow);
+  gap: var(--ve-foot-aside-ul-gap);
+  place-content: var(--ve-foot-aside-ul-place-content);
+  place-items: var(--ve-foot-aside-ul-place-items);
+  padding: var(--ve-foot-aside-ul-padding);
+  background-color: var(--ve-foot-aside-ul-background-color);
 }
 
 aside :deep(a) {
-  color: var(--ve-aside-a-color);
+  color: var(--ve-foot-aside-a-color);
 }
 
 aside :deep(i):hover,
 aside :deep(i):focus {
-  transform: var(--ve-aside-a-hover-transform);
-  transition: var(--ve-aside-a-hover-transition);
-}
-
-/********************* RESPONSIVE *********************/
-
-@media (min-width: 576px) {
-  footer > ul {
-    place-content: var(--ve-footer-ul-place-content);
-  }
+  transform: var(--ve-foot-aside-i-hover-transform);
+  transition: var(--ve-foot-aside-i-hover-transition);
 }
 </style>

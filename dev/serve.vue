@@ -304,6 +304,11 @@
                 {'SFC': 'FootElt', 'Cat': 'Main', 'V': '0.1', 'State': 'Working'},
                 {'SFC': 'NavElt', 'Cat': 'Main', 'V': '0.4', 'State': 'Working'}
               ]">
+
+              <template #cell-State="slotProps">
+                {{ slotProps.item.State }}
+                <i class="fa-regular fa-thumbs-up"></i>
+              </template>
             </TableElt>
           </template>
         </CardElt>
@@ -408,7 +413,7 @@
     </template>
 
     <template #foot>
-      <ListElt :items="['GitHub', 'LinkedIn', 'Medium', 'Twitter', 'CodePen']">
+      <ListElt :items="['GitHub', 'LinkedIn', 'Medium', 'NPM', 'Twitter', 'CodePen']">
         <template #item-1>
           <a href="https://github.com/philippebeck"
             title="Philippe Beck @GitHub">
@@ -428,12 +433,18 @@
           </a>
         </template>
         <template #item-4>
+          <a href="https://www.npmjs.com/~philippebeck"
+            title="Philippe Beck @NPM">
+            <i class="fa-brands fa-npm fa-lg fa-fw red"></i>
+          </a>
+        </template>
+        <template #item-5>
           <a href="https://twitter.com/ph_beck"
             title="Philippe Beck @Twitter">
             <i class="fa-brands fa-twitter fa-lg fa-fw sky"></i>
           </a>
         </template>
-        <template #item-5>
+        <template #item-6>
           <a href="https://codepen.io/philippebeck"
             title="Philippe Beck @CodePen">
             <i class="fa-brands fa-codepen fa-lg fa-fw black"></i>

@@ -84,28 +84,37 @@ export default {
 <style>
 /********** LIST ELT **********/
 ul {
-  --ve-ul-margin: 20px 0;
-  --ve-ul-padding: 0;
-  --ve-ul-list-style: none;
-  --ve-ul-text-align: center;
-  --ve-li-ul-display: flex;
-  --ve-li-ul-flex-flow: wrap;
-  --ve-li-ul-place-content: center;
+  --ve-list-margin: 20px 0;
+  --ve-list-padding: 0;
+  --ve-list-list-style: none;
+  --ve-list-text-align: center;
+  --ve-list-li-ul-display: flex;
+  --ve-list-li-ul-flex-flow: wrap;
+  --ve-list-li-ul-gap: 20px;
+  --ve-list-li-ul-place-content: center;
+  --ve-list-li-ul-place-items: end;
+  --ve-list-li-li-max-width: 300px;
 }
 
 </style>
 
 <style scoped>
 ul {
-  margin: var(--ve-ul-margin);
-  padding: var(--ve-ul-padding);
-  list-style: var(--ve-ul-list-style);
-  text-align: var(--ve-ul-text-align);
+  margin: var(--ve-list-margin);
+  padding: var(--ve-list-padding);
+  list-style: var(--ve-list-list-style);
+  text-align: var(--ve-list-text-align);
 }
 
 li > ul {
-  display: var(--ve-li-ul-display);
-  flex-flow: var(--ve-li-ul-flex-flow);
-  place-content: var(--ve-li-ul-place-content);
+  display: var(--ve-list-li-ul-display);
+  flex-flow: var(--ve-list-li-ul-flex-flow);
+  gap: var(--ve-list-li-ul-gap);
+  place-content: var(--ve-list-li-ul-place-content);
+  place-items: var(--ve-list-li-ul-place-items);
+}
+
+li li {
+  max-width: var(--ve-list-li-li-max-width);
 }
 </style>

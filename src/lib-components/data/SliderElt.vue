@@ -322,7 +322,7 @@ export default {
 }
 
 [id*="slide-"] {
-  --ve-slide-display: none;
+  --ve-slider-slide-display: none;
 }
 
 figcaption {
@@ -334,30 +334,30 @@ figcaption {
 }
 
 .controls {
-  --ve-controls-display: flex;
-  --ve-controls-gap: 10px;
-  --ve-controls-place-content: center;
-  --ve-controls-opacity: 1;
+  --ve-slider-controls-display: flex;
+  --ve-slider-controls-gap: 10px;
+  --ve-slider-controls-place-content: center;
+  --ve-slider-controls-opacity: 1;
   --ve-slider-controls-hover-opacity: 1;
-  --ve-controls-hover-color: var(--ani-sky);
+  --ve-slider-controls-hover-color: var(--ani-sky);
 }
 
 button {
   --ve-slider-button-border: none;
   --ve-slider-button-font-size: 60%;
-  --ve-slider-button-background: none;
+  --ve-slider-button-background-color: none;
   --ve-slider-button-color: var(--ani-grey-dark);
 }
 
 .gallery {
-  --ve-gallery-display: flex;
-  --ve-gallery-gap: 10px;
-  --ve-gallery-place-content: center;
-  --ve-gallery-opacity: 1;
-  --ve-gallery-color: var(--ani-gray);
-  --ve-gallery-hover-opacity: 1;
-  --ve-gallery-child-hover-color: var(--ani-sky);
-  --ve-gallery-child-hover-cursor: pointer;
+  --ve-slider-gallery-display: flex;
+  --ve-slider-gallery-gap: 10px;
+  --ve-slider-gallery-place-content: center;
+  --ve-slider-gallery-opacity: 1;
+  --ve-slider-gallery-color: var(--ani-gray);
+  --ve-slider-hover-gallery-opacity: 1;
+  --ve-slider-gallery-child-hover-color: var(--ani-sky);
+  --ve-slider-gallery-child-hover-cursor: pointer;
 }
 
 .show {
@@ -366,10 +366,10 @@ button {
 
 @media (min-width: 1200px) {
   .controls {
-  --ve-controls-opacity: 0;
+  --ve-slider-controls-opacity: 0;
   }
   .gallery {
-    --ve-gallery-opacity: 0;
+    --ve-slider-gallery-opacity: 0;
   }
 }
 
@@ -391,7 +391,7 @@ ul {
 }
 
 [id*="slide-"] {
-  display: var(--ve-slide-display);
+  display: var(--ve-slider-slide-display);
 }
 
 figcaption {
@@ -403,10 +403,10 @@ figcaption {
 }
 
 .controls {
-  display: var(--ve-controls-display);
-  gap: var(--ve-controls-gap);
-  place-content: var(--ve-controls-place-content);
-  opacity: var(--ve-controls-opacity);
+  display: var(--ve-slider-controls-display);
+  gap: var(--ve-slider-controls-gap);
+  place-content: var(--ve-slider-controls-place-content);
+  opacity: var(--ve-slider-controls-opacity);
 }
 
 .slider:hover .controls,
@@ -416,33 +416,33 @@ figcaption {
 
 .controls > *:hover,
 .controls > *:focus {
-  color: var(--ve-controls-hover-color);
+  color: var(--ve-slider-controls-hover-color);
 }
 
 button {
   border: var(--ve-slider-button-border);
   font-size: var(--ve-slider-button-font-size);
-  background: var(--ve-slider-button-background);
+  background-color: var(--ve-slider-button-background-color);
   color: var(--ve-slider-button-color);
 }
 
 .gallery {
-  display: var(--ve-gallery-display);
-  gap: var(--ve-gallery-gap);
-  place-content: var(--ve-gallery-place-content);
-  opacity: var(--ve-gallery-opacity);
-  color: var(--ve-gallery-color);
+  display: var(--ve-slider-gallery-display);
+  gap: var(--ve-slider-gallery-gap);
+  place-content: var(--ve-slider-gallery-place-content);
+  opacity: var(--ve-slider-gallery-opacity);
+  color: var(--ve-slider-gallery-color);
 }
 
 .slider:hover .gallery,
 .slider:focus .gallery {
-  opacity: var(--ve-gallery-hover-opacity);
+  opacity: var(--ve-slider-hover-gallery-opacity);
 }
 
 .gallery > *:hover,
 .gallery > *:focus {
-  color: var(--ve-gallery-child-hover-color);
-  cursor: var(--ve-gallery-child-hover-cursor);
+  color: var(--ve-slider-gallery-child-hover-color);
+  cursor: var(--ve-slider-gallery-child-hover-cursor);
 }
 
 .show {

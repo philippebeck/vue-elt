@@ -2,36 +2,36 @@
 
 <style scoped>
 figure {
-  border: var(--ve-figure-border);
-  border-radius: var(--ve-figure-border-radius);
-  padding: var(--ve-figure-padding);
-  background-color: var(--ve-figure-background-color);
+  border: var(--ve-media-figure-border);
+  border-radius: var(--ve-media-figure-border-radius);
+  padding: var(--ve-media-figure-padding);
+  background-color: var(--ve-media-figure-background-color);
 }
 
 img {
-  border: var(--ve-img-border);
-  border-radius: var(--ve-img-border-radius);
-  padding: var(--ve-img-padding);
-  max-width: var(--ve-img-max-width);
-  height: var(--ve-img-height);
-  object-fit: var(--ve-img-object-fit);
-  object-position: var(--ve-img-object-position);
+  border: var(--ve-media-img-border);
+  border-radius: var(--ve-media-img-border-radius);
+  padding: var(--ve-media-img-padding);
+  max-width: var(--ve-media-img-max-width);
+  height: var(--ve-media-img-height);
+  object-fit: var(--ve-media-img-object-fit);
+  object-position: var(--ve-media-img-object-position);
 }
 
 audio {
-  border: var(--ve-audio-border);
-  border-radius: var(--ve-audio-border-radius);
+  border: var(--ve-media-audio-border);
+  border-radius: var(--ve-media-audio-border-radius);
 }
 
 video {
-  border: var(--ve-video-border);
-  border-radius: var(--ve-video-border-radius);
+  border: var(--ve-media-video-border);
+  border-radius: var(--ve-media-video-border-radius);
 }
 
 figcaption {
-  display: var(--ve-figcaption-display);
-  flex-flow: var(--ve-figcaption-flex-flow);
-  place-content: var(--ve-figcaption-place-content);
-  color: var(--ve-figcaption-color);
+  display: var(--ve-media-figcaption-display);
+  flex-flow: var(--ve-media-figcaption-flex-flow);
+  place-content: var(--ve-media-figcaption-place-content);
+  color: var(--ve-media-figcaption-color);
 }
 </style>

@@ -16,7 +16,7 @@ ul {
 }
 
 [id*="slide-"] {
-  display: var(--ve-slide-display);
+  display: var(--ve-slider-slide-display);
 }
 
 figcaption {
@@ -28,10 +28,10 @@ figcaption {
 }
 
 .controls {
-  display: var(--ve-controls-display);
-  gap: var(--ve-controls-gap);
-  place-content: var(--ve-controls-place-content);
-  opacity: var(--ve-controls-opacity);
+  display: var(--ve-slider-controls-display);
+  gap: var(--ve-slider-controls-gap);
+  place-content: var(--ve-slider-controls-place-content);
+  opacity: var(--ve-slider-controls-opacity);
 }
 
 .slider:hover .controls,
@@ -41,33 +41,33 @@ figcaption {
 
 .controls > *:hover,
 .controls > *:focus {
-  color: var(--ve-controls-hover-color);
+  color: var(--ve-slider-controls-hover-color);
 }
 
 button {
   border: var(--ve-slider-button-border);
   font-size: var(--ve-slider-button-font-size);
-  background: var(--ve-slider-button-background);
+  background-color: var(--ve-slider-button-background-color);
   color: var(--ve-slider-button-color);
 }
 
 .gallery {
-  display: var(--ve-gallery-display);
-  gap: var(--ve-gallery-gap);
-  place-content: var(--ve-gallery-place-content);
-  opacity: var(--ve-gallery-opacity);
-  color: var(--ve-gallery-color);
+  display: var(--ve-slider-gallery-display);
+  gap: var(--ve-slider-gallery-gap);
+  place-content: var(--ve-slider-gallery-place-content);
+  opacity: var(--ve-slider-gallery-opacity);
+  color: var(--ve-slider-gallery-color);
 }
 
 .slider:hover .gallery,
 .slider:focus .gallery {
-  opacity: var(--ve-gallery-hover-opacity);
+  opacity: var(--ve-slider-hover-gallery-opacity);
 }
 
 .gallery > *:hover,
 .gallery > *:focus {
-  color: var(--ve-gallery-child-hover-color);
-  cursor: var(--ve-gallery-child-hover-cursor);
+  color: var(--ve-slider-gallery-child-hover-color);
+  cursor: var(--ve-slider-gallery-child-hover-cursor);
 }
 
 .show {

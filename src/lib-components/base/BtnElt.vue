@@ -120,7 +120,7 @@ a:hover,
 a:focus,
 button:hover,
 button:focus {
-  border-color: var(--ve-btn-hover-border);
+  border-color: var(--ve-btn-hover-border-color);
   border-radius: var(--ve-btn-hover-border-radius);
   background-color: var(--ve-btn-hover-background-color);
   color: var(--ve-btn-hover-color);
