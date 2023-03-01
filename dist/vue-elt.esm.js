@@ -1,4 +1,4 @@
-import { openBlock, createElementBlock, renderSlot, createTextVNode, toDisplayString, createCommentVNode, Fragment, renderList, createElementVNode, pushScopeId, popScopeId } from 'vue';
+import { openBlock, createElementBlock, renderSlot, createTextVNode, toDisplayString, createCommentVNode, Fragment, renderList, createElementVNode, pushScopeId, popScopeId, normalizeClass } from 'vue';
 
 var script$8 = {
   name: "BtnElt",
@@ -935,7 +935,7 @@ var script = {
   }
 };
 
-const _withScopeId = n => (pushScopeId("data-v-110c7342"), n = n(), popScopeId(), n);
+const _withScopeId = n => (pushScopeId("data-v-7d195c1c"), n = n(), popScopeId(), n);
 const _hoisted_1 = {
   key: 0,
   class: "sidebar"
@@ -983,12 +983,14 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     return openBlock(), createElementBlock("li", {
       key: index
     }, [createElementVNode("a", {
-      href: '/' + item,
-      title: item.charAt(0).toUpperCase() + item.slice(1)
-    }, [renderSlot(_ctx.$slots, item, {
+      href: item.href,
+      title: item.name
+    }, [renderSlot(_ctx.$slots, "items", {
       item: item,
       index: index
-    }), createElementVNode("b", null, toDisplayString(item.charAt(0).toUpperCase() + item.slice(1)), 1)], 8, _hoisted_7)]);
+    }, () => [createElementVNode("i", {
+      class: normalizeClass(`fa-${item.type} fa-${item.icon} fa-fw`)
+    }, null, 2)]), createElementVNode("b", null, toDisplayString(item.name), 1)], 8, _hoisted_7)]);
   }), 128))]), $options.hasSlot('admin') ? (openBlock(), createElementBlock("aside", _hoisted_8, [renderSlot(_ctx.$slots, "admin")])) : createCommentVNode("", true), createElementVNode("button", {
     type: "button",
     onClick: _cache[0] || (_cache[0] = $event => $options.toggleMenu()),
@@ -1002,11 +1004,11 @@ styleInject(css_248z$2);
 var css_248z$1 = "\n[id=\"app\"] {\n  margin-top: var(--ve-nav-height);\n}\n";
 styleInject(css_248z$1);
 
-var css_248z = "\n.navbar[data-v-110c7342] {\n  display: var(--ve-nav-display);\n  place-content: var(--ve-nav-place-content);\n  place-items: var(--ve-nav-place-items);\n  position: var(--ve-nav-position);\n  top: var(--ve-nav-top);\n  right: var(--ve-nav-right);\n  bottom: var(--ve-nav-bottom);\n  left: var(--ve-nav-left);\n  z-index: var(--ve-nav-z-index);\n  height: var(--ve-nav-height);\n  background-color: var(--ve-nav-background-color);\n  color: var(--ve-nav-color);\n}\n.navbar[data-v-110c7342] a,\n.navbar[data-v-110c7342] button {\n  padding: var(--ve-nav-a-padding);\n  color: var(--ve-nav-a-color);\n  cursor: var(--ve-nav-a-cursor);\n}\n.navbar[data-v-110c7342] ul {\n  display: var(--ve-nav-ul-display);\n  place-items: var(--ve-nav-ul-place-items);\n  margin: var(--ve-nav-ul-margin);\n  padding: var(--ve-nav-ul-padding);\n  list-style: var(--ve-nav-ul-list-style);\n}\n.navbar ul a[data-v-110c7342] {\n  display: var(--ve-nav-ul-a-display);\n}\n.navbar ul a[data-v-110c7342] :not(i) {\n  display: var(--ve-nav-ul-a-not-i-display);\n}\n.navbar[data-v-110c7342] ul a,\n.navbar[data-v-110c7342] ul button {\n  flex-direction: var(--ve-nav-ul-a-flex-direction);\n}\n.navbar ul a[data-v-110c7342]:hover,\n.navbar ul a[data-v-110c7342]:focus,\n.navbar ul button[data-v-110c7342]:hover,\n.navbar ul button[data-v-110c7342]:focus {\n  color: var(--ve-nav-ul-a-hover-color) !important;\n  transform: var(--ve-nav-ul-a-hover-transform) !important;\n}\n.navbar[data-v-110c7342] ul:last-of-type a:hover,\n.navbar[data-v-110c7342] ul:last-of-type a:focus,\n.navbar[data-v-110c7342] ul:last-of-type button:hover,\n.navbar[data-v-110c7342] ul:last-of-type button:focus {\n  color: var(--ve-nav-last-ul-a-hover-color);\n}\n.navbar[data-v-110c7342] button {\n  background-color: var(--ve-nav-button-background-color);\n  border: var(--ve-nav-button-border);\n  cursor: var(--ve-nav-button-cursor);\n}\n.navbar[data-v-110c7342] i {\n  place-self: var(--ve-nav-i-place-self);\n}\n.sidebar[data-v-110c7342] {\n  display: var(--ve-side-display);\n  flex-flow: var(--ve-side-flex-flow);\n  position: var(--ve-side-position);\n  top: var(--ve-side-top);\n  left: var(--ve-side-left);\n  z-index: var(--ve-side-z-index);\n  width: var(--ve-side-width);\n}\n.sidebar[data-v-110c7342] a {\n  display: var(--ve-side-a-display);\n  place-content: var(--ve-side-a-place-content);\n  place-items: var(--ve-side-a-place-items);\n  margin: var(--ve-side-a-margin);\n  border-radius: var(--ve-side-a-border-radius);\n  padding: var(--ve-side-a-padding);\n  width: var(--ve-side-a-width);\n  background-color: var(--ve-side-a-background-color);\n  color: var(--ve-side-a-color);\n  cursor: var(--ve-side-a-cursor);\n}\n.sidebar[data-v-110c7342] a:hover,\n.sidebar[data-v-110c7342] a:focus {\n  border-radius: var(--ve-side-a-hover-border-radius);\n  color: var(--ve-side-a-hover-color);\n  background-color: var(--ve-side-a-hover-background-color);\n  transform: var(--ve-side-a-hover-transform);\n  transition: var(--ve-side-a-hover-transition);\n}\n.hide[data-v-110c7342] {\n  display: var(--ve-nav-hide-display) !important;\n}\n.show[data-v-110c7342] {\n  display: var(--ve-nav-show-display);\n}\n@media (min-width: 768px) {\n.navbar > button[data-v-110c7342] {\n    display: var(--ve-nav-button-display);\n}\n}\n";
+var css_248z = "\n.navbar[data-v-7d195c1c] {\n  display: var(--ve-nav-display);\n  place-content: var(--ve-nav-place-content);\n  place-items: var(--ve-nav-place-items);\n  position: var(--ve-nav-position);\n  top: var(--ve-nav-top);\n  right: var(--ve-nav-right);\n  bottom: var(--ve-nav-bottom);\n  left: var(--ve-nav-left);\n  z-index: var(--ve-nav-z-index);\n  height: var(--ve-nav-height);\n  background-color: var(--ve-nav-background-color);\n  color: var(--ve-nav-color);\n}\n.navbar[data-v-7d195c1c] a,\n.navbar[data-v-7d195c1c] button {\n  padding: var(--ve-nav-a-padding);\n  color: var(--ve-nav-a-color);\n  cursor: var(--ve-nav-a-cursor);\n}\n.navbar[data-v-7d195c1c] ul {\n  display: var(--ve-nav-ul-display);\n  place-items: var(--ve-nav-ul-place-items);\n  margin: var(--ve-nav-ul-margin);\n  padding: var(--ve-nav-ul-padding);\n  list-style: var(--ve-nav-ul-list-style);\n}\n.navbar ul a[data-v-7d195c1c] {\n  display: var(--ve-nav-ul-a-display);\n}\n.navbar ul a[data-v-7d195c1c] :not(i) {\n  display: var(--ve-nav-ul-a-not-i-display);\n}\n.navbar[data-v-7d195c1c] ul a,\n.navbar[data-v-7d195c1c] ul button {\n  flex-direction: var(--ve-nav-ul-a-flex-direction);\n}\n.navbar ul a[data-v-7d195c1c]:hover,\n.navbar ul a[data-v-7d195c1c]:focus,\n.navbar ul button[data-v-7d195c1c]:hover,\n.navbar ul button[data-v-7d195c1c]:focus {\n  color: var(--ve-nav-ul-a-hover-color) !important;\n  transform: var(--ve-nav-ul-a-hover-transform) !important;\n}\n.navbar[data-v-7d195c1c] ul:last-of-type a:hover,\n.navbar[data-v-7d195c1c] ul:last-of-type a:focus,\n.navbar[data-v-7d195c1c] ul:last-of-type button:hover,\n.navbar[data-v-7d195c1c] ul:last-of-type button:focus {\n  color: var(--ve-nav-last-ul-a-hover-color);\n}\n.navbar[data-v-7d195c1c] button {\n  background-color: var(--ve-nav-button-background-color);\n  border: var(--ve-nav-button-border);\n  cursor: var(--ve-nav-button-cursor);\n}\n.navbar[data-v-7d195c1c] i {\n  place-self: var(--ve-nav-i-place-self);\n}\n.sidebar[data-v-7d195c1c] {\n  display: var(--ve-side-display);\n  flex-flow: var(--ve-side-flex-flow);\n  position: var(--ve-side-position);\n  top: var(--ve-side-top);\n  left: var(--ve-side-left);\n  z-index: var(--ve-side-z-index);\n  width: var(--ve-side-width);\n}\n.sidebar[data-v-7d195c1c] a {\n  display: var(--ve-side-a-display);\n  place-content: var(--ve-side-a-place-content);\n  place-items: var(--ve-side-a-place-items);\n  margin: var(--ve-side-a-margin);\n  border-radius: var(--ve-side-a-border-radius);\n  padding: var(--ve-side-a-padding);\n  width: var(--ve-side-a-width);\n  background-color: var(--ve-side-a-background-color);\n  color: var(--ve-side-a-color);\n  cursor: var(--ve-side-a-cursor);\n}\n.sidebar[data-v-7d195c1c] a:hover,\n.sidebar[data-v-7d195c1c] a:focus {\n  border-radius: var(--ve-side-a-hover-border-radius);\n  color: var(--ve-side-a-hover-color);\n  background-color: var(--ve-side-a-hover-background-color);\n  transform: var(--ve-side-a-hover-transform);\n  transition: var(--ve-side-a-hover-transition);\n}\n.hide[data-v-7d195c1c] {\n  display: var(--ve-nav-hide-display) !important;\n}\n.show[data-v-7d195c1c] {\n  display: var(--ve-nav-show-display);\n}\n@media (min-width: 768px) {\n.navbar > button[data-v-7d195c1c] {\n    display: var(--ve-nav-button-display);\n}\n}\n";
 styleInject(css_248z);
 
 script.render = render;
-script.__scopeId = "data-v-110c7342";
+script.__scopeId = "data-v-7d195c1c";
 
 /* eslint-disable import/prefer-default-export */
 
