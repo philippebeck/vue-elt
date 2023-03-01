@@ -43,15 +43,16 @@
 
       <li v-for="(item, index) in items"
         :key="index">
-        <a :href="'/' + item"
-          :title="item.charAt(0).toUpperCase() + item.slice(1)">
+        <a :href="item.href"
+          :title="item.name">
 
-          <slot :name="item"
+          <slot name="items"
             :item="item"
             :index="index">
+            <i :class="`fa-${item.type} fa-${item.icon} fa-fw`"></i>
           </slot>
 
-          <b>{{ item.charAt(0).toUpperCase() + item.slice(1) }}</b>
+          <b>{{ item.name }}</b>
         </a>
       </li>
     </ul>
