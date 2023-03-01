@@ -1,11 +1,7 @@
 <template>
-  <NavElt :items="['home']">
+  <NavElt :items="[{ 'href': '/home', 'name': 'Home', 'type': 'solid', 'icon': 'home' }]">
     <template #brand>
       <i class="fa-brands fa-vuejs fa-3x"></i>
-    </template>
-
-    <template #home>
-      <i class="fa-solid fa-home fa-fw"></i>
     </template>
 
     <template #admin>
