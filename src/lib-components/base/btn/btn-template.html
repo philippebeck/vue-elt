@@ -1,11 +1,9 @@
 <template>
   <!-- BUTTON -->
   <button v-if="getBtnType() === 'button'"
-    :id="id"
-    :name="name"
-    :title="title"
     :type="type"
-    :value="value">
+    :value="value"
+    :title="title">
     <slot name="btn"></slot>
     {{ content }}
   </button>
@@ -13,7 +11,6 @@
   <!-- LINK -->
   <a v-else
     :href="href"
-    :id="id"
     :title="title">
     <slot name="btn"></slot>
     {{ content }}

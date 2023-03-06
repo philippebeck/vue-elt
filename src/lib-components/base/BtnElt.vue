@@ -1,11 +1,9 @@
 <template>
   <!-- BUTTON -->
   <button v-if="getBtnType() === 'button'"
-    :id="id"
-    :name="name"
-    :title="title"
     :type="type"
-    :value="value">
+    :value="value"
+    :title="title">
     <slot name="btn"></slot>
     {{ content }}
   </button>
@@ -13,7 +11,6 @@
   <!-- LINK -->
   <a v-else
     :href="href"
-    :id="id"
     :title="title">
     <slot name="btn"></slot>
     {{ content }}
@@ -25,34 +22,14 @@
     name: "BtnElt",
 
     props: {
-      content: {
-        type: String,
-        default: "",
-      },
-      href: {
-        type: String,
-        default: null
-      },
-      id: {
-        type: String,
-        default: null
-      },
-      name: {
-        type: String,
-        default: null
-      },
-      title: {
-        type: String,
-        default: null
-      },
       type: {
         type: String,
         default: "link"
       },
-      value: {
-        type: String,
-        default: null
-      }
+      value: String,
+      href: String,
+      content: String,
+      title: String
     },
 
     methods: {
@@ -60,7 +37,8 @@
         if (
           this.type === "button" || 
           this.type === "submit" || 
-          this.type === "reset") {
+          this.type === "reset"
+          ) {
           return "button";
         }
         return "link";
@@ -79,7 +57,7 @@ button {
   --ve-btn-border-radius: 10px;
   --ve-btn-padding: 5px 10px;
   --ve-btn-font-family: var(--ani-monospace);
-  --ve-btn-font-size: 1.2rem;
+  --ve-btn-font-size: 1.5rem;
   --ve-btn-font-weight: bold;
   --ve-btn-text-align: center;
   --ve-btn-text-decoration: none;
