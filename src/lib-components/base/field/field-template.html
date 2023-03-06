@@ -7,20 +7,15 @@
 
     <!-- NUMBER, DATE, TIME, RANGE ELT -->
     <input v-if="getFieldType() === 'number'"
-      :id="id"
-      :max="max"
-      :min="min"
-      :name="id"
-      :step="step"
       :type="type"
       :value="value"
       @input="onInput"
+      :min="min"
+      :max="max"
       :required="required">
 
     <!-- CHECKBOX, RADIO, COLOR ELT -->
     <input v-else-if="getFieldType() === 'special'"
-      :id="id"
-      :name="name"
       :type="type"
       :value="value"
       @input="onInput"
@@ -28,10 +23,8 @@
 
     <!-- SELECT, OPTION ELT -->
     <select v-else-if="getFieldType() === 'list'"
-      :id="id"
-      :name="id"
-      :placeholder="info"
       @input="onInput"
+      :placeholder="info"
       :required="required">
 
       <option v-if="value"
@@ -41,8 +34,8 @@
       <option v-else>
         {{ info }}
       </option>
-      <option v-for="(value, index) in list"
-        :key="index"
+      <option v-for="(value, key) in list"
+        :key="key"
         :value="value">
         {{ value }}
       </option>
@@ -50,27 +43,23 @@
 
     <!-- TEXTAREA ELT -->
     <textarea v-else-if="getFieldType() === 'area'"
-      :id="id"
-      :name="id"
-      :cols="cols"
-      :maxlength="max"
-      :minlength="min"
-      :placeholder="info"
-      :rows="rows"
       :value="value"
       @input="onInput"
+      :placeholder="info"
+      :minlength="min"
+      :maxlength="max"
+      :cols="cols"
+      :rows="rows"
       :required="required"></textarea>
 
     <!-- TEXT, OTHERS ELT -->
     <input v-else
-      :id="id"
-      :maxlength="max"
-      :minlength="min"
-      :name="id"
-      :placeholder="info"
       :type="type"
       :value="value"
       @input="onInput"
+      :placeholder="info"
+      :minlength="min"
+      :maxlength="max"
       :required="required">
 
     <!-- Label (option) -->
