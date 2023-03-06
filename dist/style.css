@@ -7,7 +7,7 @@ button {
   --ve-btn-border-radius: 10px;
   --ve-btn-padding: 5px 10px;
   --ve-btn-font-family: var(--ani-monospace);
-  --ve-btn-font-size: 1.2rem;
+  --ve-btn-font-size: 1.5rem;
   --ve-btn-font-weight: bold;
   --ve-btn-text-align: center;
   --ve-btn-text-decoration: none;
@@ -42,7 +42,7 @@ fieldset {
 
 legend {
   --ve-field-legend-width: 93%;
-  --ve-field-legend-font-size: 1.2rem;
+  --ve-field-legend-font-size: 2rem;
   --ve-field-legend-color: var(--ani-gray);
   --ve-field-hover-legend-color: var(--ani-black);
 }
@@ -50,7 +50,7 @@ legend {
 label {
   --ve-field-label-width: 90%;
   --ve-field-label-visibility: hidden;
-  --ve-field-label-font-size: 0.8rem;
+  --ve-field-label-font-size: 1.5rem;
   --ve-field-label-font-style: italic;
   --ve-field-label-color: var(--ani-blue);
   --ve-field-hover-label-visibility: visible;
@@ -305,6 +305,7 @@ footer {
   --ve-foot-child-padding: 0;
   --ve-foot-li-list-style: none;
   --ve-foot-a-text-decoration: none;
+  --ve-foot-a-cursor: pointer;
   --ve-foot-ul-display: flex;
   --ve-foot-ul-flex-flow: column;
   --ve-foot-ul-gap: 20px;
