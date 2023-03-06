@@ -29,9 +29,9 @@
 
       <source v-for="(picture, index) in medias"
         :key="index"
+        :type="picture.type"
         :srcset="picture.src"
-        :media="picture.media"
-        :type="picture.type">
+        :media="picture.media">
 
       <img :src="src"
         :alt="alt">
@@ -54,33 +54,25 @@ export default {
   name: "MediaElt",
 
   props: {
+    type: {
+      type: String,
+      default: "img"
+    },
     src: {
       type: String,
       required: true
     },
-    alt: {
-      type: String
-    },
-    title: {
-      type: String
-    },
-    type: {
-      type: String,
-      default: ""
-    },
-    medias: {
-      type: Array
+    medias: Array,
+    alt: String,
+    title: String,
+    height: Number,
+    width: {
+      type: Number,
+      default: 300
     },
     loop: {
       type: Boolean,
       default: false
-    },
-    height: {
-      type: Number
-    },
-    width: {
-      type: Number,
-      default: 300
     }
   },
   

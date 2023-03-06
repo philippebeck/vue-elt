@@ -7,20 +7,15 @@
 
     <!-- NUMBER, DATE, TIME, RANGE ELT -->
     <input v-if="getFieldType() === 'number'"
-      :id="id"
-      :max="max"
-      :min="min"
-      :name="id"
-      :step="step"
       :type="type"
       :value="value"
       @input="onInput"
+      :min="min"
+      :max="max"
       :required="required">
 
     <!-- CHECKBOX, RADIO, COLOR ELT -->
     <input v-else-if="getFieldType() === 'special'"
-      :id="id"
-      :name="name"
       :type="type"
       :value="value"
       @input="onInput"
@@ -28,10 +23,8 @@
 
     <!-- SELECT, OPTION ELT -->
     <select v-else-if="getFieldType() === 'list'"
-      :id="id"
-      :name="id"
-      :placeholder="info"
       @input="onInput"
+      :placeholder="info"
       :required="required">
 
       <option v-if="value"
@@ -41,8 +34,8 @@
       <option v-else>
         {{ info }}
       </option>
-      <option v-for="(value, index) in list"
-        :key="index"
+      <option v-for="(value, key) in list"
+        :key="key"
         :value="value">
         {{ value }}
       </option>
@@ -50,27 +43,23 @@
 
     <!-- TEXTAREA ELT -->
     <textarea v-else-if="getFieldType() === 'area'"
-      :id="id"
-      :name="id"
-      :cols="cols"
-      :maxlength="max"
-      :minlength="min"
-      :placeholder="info"
-      :rows="rows"
       :value="value"
       @input="onInput"
+      :placeholder="info"
+      :minlength="min"
+      :maxlength="max"
+      :cols="cols"
+      :rows="rows"
       :required="required"></textarea>
 
     <!-- TEXT, OTHERS ELT -->
     <input v-else
-      :id="id"
-      :maxlength="max"
-      :minlength="min"
-      :name="id"
-      :placeholder="info"
       :type="type"
       :value="value"
       @input="onInput"
+      :placeholder="info"
+      :minlength="min"
+      :maxlength="max"
       :required="required">
 
     <!-- Label (option) -->
@@ -84,60 +73,66 @@
 <script>
 export default {
   name: "FieldElt",
+
   props: {
-    cols: {
-      type: Number,
-      default: 20
-    },
-    id: String,
-    info: String,
-    list: Array,
-    max: {
-      type: Number,
-      default: 50
-    },
-    min: {
-      type: Number,
-      default: 8
-    },
     model: {
       prop: "value",
       event: "update"
-    },
-    name: String,
-    required: {
-      type: String,
-      default: "required"
-    },
-    rows: {
-      type: Number,
-      default: 5
-    },
-    step: {
-      type: Number,
-      default: 1
     },
     type: {
       type: String,
       default: "text"
     },
-    value: [String, Number, Array]
+    value: [
+      String, 
+      Number, 
+      Array
+    ],
+    list: Array,
+    info: String,
+    min: {
+      type: Number,
+      default: 2
+    },
+    max: {
+      type: Number,
+      default: 50
+    },
+    cols: {
+      type: Number,
+      default: 20
+    },
+    rows: {
+      type: Number,
+      default: 5
+    },
+    required: {
+      type: String,
+      default: "required"
+    }
   },
+
   methods: {
     hasSlot(name) {
       return this.$slots[name] !== undefined;
     },
+
     onInput(event) {
       this.$emit("update:value", event.target.value)
     },
+
     getFieldType() {
       let fieldType = "";
       switch (this.type) {
         case "number":
+        case "date":
+        case "time":
+        case "range":
           fieldType = "number";
           break;
         case "checkbox":
         case "radio":
+        case "color":
           fieldType = "special";
           break;
         case "option":
@@ -175,7 +170,7 @@ fieldset {
 
 legend {
   --ve-field-legend-width: 93%;
-  --ve-field-legend-font-size: 1.2rem;
+  --ve-field-legend-font-size: 2rem;
   --ve-field-legend-color: var(--ani-gray);
   --ve-field-hover-legend-color: var(--ani-black);
 }
@@ -183,7 +178,7 @@ legend {
 label {
   --ve-field-label-width: 90%;
   --ve-field-label-visibility: hidden;
-  --ve-field-label-font-size: 0.8rem;
+  --ve-field-label-font-size: 1.5rem;
   --ve-field-label-font-style: italic;
   --ve-field-label-color: var(--ani-blue);
   --ve-field-hover-label-visibility: visible;

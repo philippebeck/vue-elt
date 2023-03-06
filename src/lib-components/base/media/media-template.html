@@ -29,9 +29,9 @@
 
       <source v-for="(picture, index) in medias"
         :key="index"
+        :type="picture.type"
         :srcset="picture.src"
-        :media="picture.media"
-        :type="picture.type">
+        :media="picture.media">
 
       <img :src="src"
         :alt="alt">

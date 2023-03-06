@@ -3,34 +3,14 @@ import { openBlock, createElementBlock, renderSlot, createTextVNode, toDisplaySt
 var script$8 = {
   name: "BtnElt",
   props: {
-    content: {
-      type: String,
-      default: ""
-    },
-    href: {
-      type: String,
-      default: null
-    },
-    id: {
-      type: String,
-      default: null
-    },
-    name: {
-      type: String,
-      default: null
-    },
-    title: {
-      type: String,
-      default: null
-    },
     type: {
       type: String,
       default: "link"
     },
-    value: {
-      type: String,
-      default: null
-    }
+    value: String,
+    href: String,
+    content: String,
+    title: String
   },
   methods: {
     getBtnType() {
@@ -42,20 +22,17 @@ var script$8 = {
   }
 };
 
-const _hoisted_1$8 = ["id", "name", "title", "type", "value"];
-const _hoisted_2$8 = ["href", "id", "title"];
+const _hoisted_1$8 = ["type", "value", "title"];
+const _hoisted_2$8 = ["href", "title"];
 function render$8(_ctx, _cache, $props, $setup, $data, $options) {
   return $options.getBtnType() === 'button' ? (openBlock(), createElementBlock("button", {
     key: 0,
-    id: $props.id,
-    name: $props.name,
-    title: $props.title,
     type: $props.type,
-    value: $props.value
+    value: $props.value,
+    title: $props.title
   }, [renderSlot(_ctx.$slots, "btn"), createTextVNode(" " + toDisplayString($props.content), 1)], 8, _hoisted_1$8)) : (openBlock(), createElementBlock("a", {
     key: 1,
     href: $props.href,
-    id: $props.id,
     title: $props.title
   }, [renderSlot(_ctx.$slots, "btn"), createTextVNode(" " + toDisplayString($props.content), 1)], 8, _hoisted_2$8));
 }
@@ -87,55 +64,49 @@ function styleInject(css, ref) {
   }
 }
 
-var css_248z$i = "\n/********** BTN ELT **********/\na,\nbutton {\n  --ve-btn-display: inline-block;\n  --ve-btn-margin: 10px;\n  --ve-btn-border: solid 2px var(--ani-white);\n  --ve-btn-border-radius: 10px;\n  --ve-btn-padding: 5px 10px;\n  --ve-btn-font-family: var(--ani-monospace);\n  --ve-btn-font-size: 1.2rem;\n  --ve-btn-font-weight: bold;\n  --ve-btn-text-align: center;\n  --ve-btn-text-decoration: none;\n  --ve-btn-background-color: var(--ani-black);\n  --ve-btn-color: var(--ani-white);\n  --ve-btn-cursor: pointer;\n  --ve-btn-hover-border-color: var(--ani-black);\n  --ve-btn-hover-border-radius: 5px;\n  --ve-btn-hover-background-color: var(--ani-white);\n  --ve-btn-hover-color: var(--ani-black);\n  --ve-btn-hover-box-shadow: inset 0 0 5px 2px;\n  --ve-btn-hover-transition: all 200ms;\n  --ve-btn-child-display: block;\n  --ve-btn-child-margin: auto;\n}\n\n";
+var css_248z$i = "\n/********** BTN ELT **********/\na,\nbutton {\n  --ve-btn-display: inline-block;\n  --ve-btn-margin: 10px;\n  --ve-btn-border: solid 2px var(--ani-white);\n  --ve-btn-border-radius: 10px;\n  --ve-btn-padding: 5px 10px;\n  --ve-btn-font-family: var(--ani-monospace);\n  --ve-btn-font-size: 1.5rem;\n  --ve-btn-font-weight: bold;\n  --ve-btn-text-align: center;\n  --ve-btn-text-decoration: none;\n  --ve-btn-background-color: var(--ani-black);\n  --ve-btn-color: var(--ani-white);\n  --ve-btn-cursor: pointer;\n  --ve-btn-hover-border-color: var(--ani-black);\n  --ve-btn-hover-border-radius: 5px;\n  --ve-btn-hover-background-color: var(--ani-white);\n  --ve-btn-hover-color: var(--ani-black);\n  --ve-btn-hover-box-shadow: inset 0 0 5px 2px;\n  --ve-btn-hover-transition: all 200ms;\n  --ve-btn-child-display: block;\n  --ve-btn-child-margin: auto;\n}\n\n";
 styleInject(css_248z$i);
 
-var css_248z$h = "\na[data-v-6330e384],\nbutton[data-v-6330e384] {\n  display: var(--ve-btn-display);\n  margin: var(--ve-btn-margin);\n  border: var(--ve-btn-border);\n  border-radius: var(--ve-btn-border-radius);\n  padding: var(--ve-btn-padding);\n  font-family: var(--ve-btn-font-family);\n  font-size: var(--ve-btn-font-size);\n  font-weight: var(--ve-btn-font-weight);\n  text-align: var(--ve-btn-text-align);\n  text-decoration: var(--ve-btn-text-decoration);\n  background-color: var(--ve-btn-background-color);\n  color: var(--ve-btn-color);\n  cursor: var(--ve-btn-cursor);\n}\na[data-v-6330e384]:hover,\na[data-v-6330e384]:focus,\nbutton[data-v-6330e384]:hover,\nbutton[data-v-6330e384]:focus {\n  border-color: var(--ve-btn-hover-border-color);\n  border-radius: var(--ve-btn-hover-border-radius);\n  background-color: var(--ve-btn-hover-background-color);\n  color: var(--ve-btn-hover-color);\n  box-shadow: var(--ve-btn-hover-box-shadow);\n  transition: var(--ve-btn-hover-transition);\n}\na > *[data-v-6330e384],\nbutton > *[data-v-6330e384] {\n  display: var(--ve-btn-child-display);\n  margin: var(--ve-btn-child-margin);\n}\n\n/* RED */\n.btn-red[data-v-6330e384] {\n  background-color: var(--ani-red);\n}\n.btn-red[data-v-6330e384]:hover,\n.btn-red[data-v-6330e384]:focus {\n  border-color: var(--ani-red);\n  color: var(--ani-red);\n}\n\n/* ORANGE */\n.btn-orange[data-v-6330e384] {\n  background-color: var(--ani-orange);\n}\n.btn-orange[data-v-6330e384]:hover,\n.btn-orange[data-v-6330e384]:focus {\n  border-color: var(--ani-orange);\n  color: var(--ani-orange);\n}\n\n/* YELLOW */\n.btn-yellow[data-v-6330e384] {\n  background-color: var(--ani-yellow);\n}\n.btn-yellow[data-v-6330e384]:hover,\n.btn-yellow[data-v-6330e384]:focus {\n  border-color: var(--ani-yellow);\n  color: var(--ani-yellow);\n}\n\n/* GREEN */\n.btn-green[data-v-6330e384] {\n  background-color: var(--ani-green);\n}\n.btn-green[data-v-6330e384]:hover,\n.btn-green[data-v-6330e384]:focus {\n  border-color: var(--ani-green);\n  color: var(--ani-green);\n}\n\n/* SKY */\n.btn-sky[data-v-6330e384] {\n  background-color: var(--ani-sky);\n}\n.btn-sky[data-v-6330e384]:hover,\n.btn-sky[data-v-6330e384]:focus {\n  border-color: var(--ani-sky);\n  color: var(--ani-sky);\n}\n\n/* BLUE */\n.btn-blue[data-v-6330e384] {\n  background-color: var(--ani-blue);\n}\n.btn-blue[data-v-6330e384]:hover,\n.btn-blue[data-v-6330e384]:focus {\n  border-color: var(--ani-blue);\n  color: var(--ani-blue);\n}\n\n/* VIOLET */\n.btn-violet[data-v-6330e384] {\n  background-color: var(--ani-violet);\n}\n.btn-violet[data-v-6330e384]:hover,\n.btn-violet[data-v-6330e384]:focus {\n  border-color: var(--ani-violet);\n  color: var(--ani-violet);\n}\n\n/* PINK */\n.btn-pink[data-v-6330e384] {\n  background-color: var(--ani-pink);\n}\n.btn-pink[data-v-6330e384]:hover,\n.btn-pink[data-v-6330e384]:focus {\n  border-color: var(--ani-pink);\n  color: var(--ani-pink);\n}\n";
+var css_248z$h = "\na[data-v-4630a1ee],\nbutton[data-v-4630a1ee] {\n  display: var(--ve-btn-display);\n  margin: var(--ve-btn-margin);\n  border: var(--ve-btn-border);\n  border-radius: var(--ve-btn-border-radius);\n  padding: var(--ve-btn-padding);\n  font-family: var(--ve-btn-font-family);\n  font-size: var(--ve-btn-font-size);\n  font-weight: var(--ve-btn-font-weight);\n  text-align: var(--ve-btn-text-align);\n  text-decoration: var(--ve-btn-text-decoration);\n  background-color: var(--ve-btn-background-color);\n  color: var(--ve-btn-color);\n  cursor: var(--ve-btn-cursor);\n}\na[data-v-4630a1ee]:hover,\na[data-v-4630a1ee]:focus,\nbutton[data-v-4630a1ee]:hover,\nbutton[data-v-4630a1ee]:focus {\n  border-color: var(--ve-btn-hover-border-color);\n  border-radius: var(--ve-btn-hover-border-radius);\n  background-color: var(--ve-btn-hover-background-color);\n  color: var(--ve-btn-hover-color);\n  box-shadow: var(--ve-btn-hover-box-shadow);\n  transition: var(--ve-btn-hover-transition);\n}\na > *[data-v-4630a1ee],\nbutton > *[data-v-4630a1ee] {\n  display: var(--ve-btn-child-display);\n  margin: var(--ve-btn-child-margin);\n}\n\n/* RED */\n.btn-red[data-v-4630a1ee] {\n  background-color: var(--ani-red);\n}\n.btn-red[data-v-4630a1ee]:hover,\n.btn-red[data-v-4630a1ee]:focus {\n  border-color: var(--ani-red);\n  color: var(--ani-red);\n}\n\n/* ORANGE */\n.btn-orange[data-v-4630a1ee] {\n  background-color: var(--ani-orange);\n}\n.btn-orange[data-v-4630a1ee]:hover,\n.btn-orange[data-v-4630a1ee]:focus {\n  border-color: var(--ani-orange);\n  color: var(--ani-orange);\n}\n\n/* YELLOW */\n.btn-yellow[data-v-4630a1ee] {\n  background-color: var(--ani-yellow);\n}\n.btn-yellow[data-v-4630a1ee]:hover,\n.btn-yellow[data-v-4630a1ee]:focus {\n  border-color: var(--ani-yellow);\n  color: var(--ani-yellow);\n}\n\n/* GREEN */\n.btn-green[data-v-4630a1ee] {\n  background-color: var(--ani-green);\n}\n.btn-green[data-v-4630a1ee]:hover,\n.btn-green[data-v-4630a1ee]:focus {\n  border-color: var(--ani-green);\n  color: var(--ani-green);\n}\n\n/* SKY */\n.btn-sky[data-v-4630a1ee] {\n  background-color: var(--ani-sky);\n}\n.btn-sky[data-v-4630a1ee]:hover,\n.btn-sky[data-v-4630a1ee]:focus {\n  border-color: var(--ani-sky);\n  color: var(--ani-sky);\n}\n\n/* BLUE */\n.btn-blue[data-v-4630a1ee] {\n  background-color: var(--ani-blue);\n}\n.btn-blue[data-v-4630a1ee]:hover,\n.btn-blue[data-v-4630a1ee]:focus {\n  border-color: var(--ani-blue);\n  color: var(--ani-blue);\n}\n\n/* VIOLET */\n.btn-violet[data-v-4630a1ee] {\n  background-color: var(--ani-violet);\n}\n.btn-violet[data-v-4630a1ee]:hover,\n.btn-violet[data-v-4630a1ee]:focus {\n  border-color: var(--ani-violet);\n  color: var(--ani-violet);\n}\n\n/* PINK */\n.btn-pink[data-v-4630a1ee] {\n  background-color: var(--ani-pink);\n}\n.btn-pink[data-v-4630a1ee]:hover,\n.btn-pink[data-v-4630a1ee]:focus {\n  border-color: var(--ani-pink);\n  color: var(--ani-pink);\n}\n";
 styleInject(css_248z$h);
 
 script$8.render = render$8;
-script$8.__scopeId = "data-v-6330e384";
+script$8.__scopeId = "data-v-4630a1ee";
 
 var script$7 = {
   name: "FieldElt",
   props: {
-    cols: {
-      type: Number,
-      default: 20
-    },
-    id: String,
-    info: String,
-    list: Array,
-    max: {
-      type: Number,
-      default: 50
-    },
-    min: {
-      type: Number,
-      default: 8
-    },
     model: {
       prop: "value",
       event: "update"
-    },
-    name: String,
-    required: {
-      type: String,
-      default: "required"
-    },
-    rows: {
-      type: Number,
-      default: 5
-    },
-    step: {
-      type: Number,
-      default: 1
     },
     type: {
       type: String,
       default: "text"
     },
-    value: [String, Number, Array]
+    value: [String, Number, Array],
+    list: Array,
+    info: String,
+    min: {
+      type: Number,
+      default: 2
+    },
+    max: {
+      type: Number,
+      default: 50
+    },
+    cols: {
+      type: Number,
+      default: 20
+    },
+    rows: {
+      type: Number,
+      default: 5
+    },
+    required: {
+      type: String,
+      default: "required"
+    }
   },
   methods: {
     hasSlot(name) {
@@ -148,10 +119,14 @@ var script$7 = {
       let fieldType = "";
       switch (this.type) {
         case "number":
+        case "date":
+        case "time":
+        case "range":
           fieldType = "number";
           break;
         case "checkbox":
         case "radio":
+        case "color":
           fieldType = "special";
           break;
         case "option":
@@ -173,37 +148,32 @@ const _hoisted_1$7 = ["title"];
 const _hoisted_2$7 = {
   key: 0
 };
-const _hoisted_3$7 = ["id", "max", "min", "name", "step", "type", "value", "required"];
-const _hoisted_4$7 = ["id", "name", "type", "value", "required"];
-const _hoisted_5$4 = ["id", "name", "placeholder", "required"];
+const _hoisted_3$7 = ["type", "value", "min", "max", "required"];
+const _hoisted_4$7 = ["type", "value", "required"];
+const _hoisted_5$4 = ["placeholder", "required"];
 const _hoisted_6$4 = ["value"];
 const _hoisted_7$3 = {
   key: 1
 };
 const _hoisted_8$3 = ["value"];
-const _hoisted_9$3 = ["id", "name", "cols", "maxlength", "minlength", "placeholder", "rows", "value", "required"];
-const _hoisted_10$2 = ["id", "maxlength", "minlength", "name", "placeholder", "type", "value", "required"];
+const _hoisted_9$3 = ["value", "placeholder", "minlength", "maxlength", "cols", "rows", "required"];
+const _hoisted_10$2 = ["type", "value", "placeholder", "minlength", "maxlength", "required"];
 const _hoisted_11$1 = ["for"];
 function render$7(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("fieldset", {
     title: $props.info
   }, [$options.hasSlot('legend') ? (openBlock(), createElementBlock("legend", _hoisted_2$7, [renderSlot(_ctx.$slots, "legend")])) : createCommentVNode("", true), $options.getFieldType() === 'number' ? (openBlock(), createElementBlock("input", {
     key: 1,
-    id: $props.id,
-    max: $props.max,
-    min: $props.min,
-    name: $props.id,
-    step: $props.step,
     type: $props.type,
     value: $props.value,
     onInput: _cache[0] || (_cache[0] = function () {
       return $options.onInput && $options.onInput(...arguments);
     }),
+    min: $props.min,
+    max: $props.max,
     required: $props.required
   }, null, 40, _hoisted_3$7)) : $options.getFieldType() === 'special' ? (openBlock(), createElementBlock("input", {
     key: 2,
-    id: $props.id,
-    name: $props.name,
     type: $props.type,
     value: $props.value,
     onInput: _cache[1] || (_cache[1] = function () {
@@ -212,93 +182,79 @@ function render$7(_ctx, _cache, $props, $setup, $data, $options) {
     required: $props.required
   }, null, 40, _hoisted_4$7)) : $options.getFieldType() === 'list' ? (openBlock(), createElementBlock("select", {
     key: 3,
-    id: $props.id,
-    name: $props.id,
-    placeholder: $props.info,
     onInput: _cache[2] || (_cache[2] = function () {
       return $options.onInput && $options.onInput(...arguments);
     }),
+    placeholder: $props.info,
     required: $props.required
   }, [$props.value ? (openBlock(), createElementBlock("option", {
     key: 0,
     value: $props.value
-  }, toDisplayString($props.value), 9, _hoisted_6$4)) : (openBlock(), createElementBlock("option", _hoisted_7$3, toDisplayString($props.info), 1)), (openBlock(true), createElementBlock(Fragment, null, renderList($props.list, (value, index) => {
+  }, toDisplayString($props.value), 9, _hoisted_6$4)) : (openBlock(), createElementBlock("option", _hoisted_7$3, toDisplayString($props.info), 1)), (openBlock(true), createElementBlock(Fragment, null, renderList($props.list, (value, key) => {
     return openBlock(), createElementBlock("option", {
-      key: index,
+      key: key,
       value: value
     }, toDisplayString(value), 9, _hoisted_8$3);
   }), 128))], 40, _hoisted_5$4)) : $options.getFieldType() === 'area' ? (openBlock(), createElementBlock("textarea", {
     key: 4,
-    id: $props.id,
-    name: $props.id,
-    cols: $props.cols,
-    maxlength: $props.max,
-    minlength: $props.min,
-    placeholder: $props.info,
-    rows: $props.rows,
     value: $props.value,
     onInput: _cache[3] || (_cache[3] = function () {
       return $options.onInput && $options.onInput(...arguments);
     }),
+    placeholder: $props.info,
+    minlength: $props.min,
+    maxlength: $props.max,
+    cols: $props.cols,
+    rows: $props.rows,
     required: $props.required
   }, null, 40, _hoisted_9$3)) : (openBlock(), createElementBlock("input", {
     key: 5,
-    id: $props.id,
-    maxlength: $props.max,
-    minlength: $props.min,
-    name: $props.id,
-    placeholder: $props.info,
     type: $props.type,
     value: $props.value,
     onInput: _cache[4] || (_cache[4] = function () {
       return $options.onInput && $options.onInput(...arguments);
     }),
+    placeholder: $props.info,
+    minlength: $props.min,
+    maxlength: $props.max,
     required: $props.required
   }, null, 40, _hoisted_10$2)), $options.hasSlot('label') ? (openBlock(), createElementBlock("label", {
     key: 6,
-    for: $props.id
+    for: _ctx.id
   }, [renderSlot(_ctx.$slots, "label")], 8, _hoisted_11$1)) : createCommentVNode("", true)], 8, _hoisted_1$7);
 }
 
-var css_248z$g = "\n/********** FIELD ELT **********/\nfieldset {\n  --ve-field-display: flex;\n  --ve-field-flex-flow: row wrap;\n  --ve-field-place-items: center;\n  --ve-field-margin: auto;\n  --ve-field-border: none;\n  --ve-field-padding: 0;\n  --ve-field-max-width: 500px;\n  --ve-field-text-align: center;\n  --ve-field-transition: max-width 1s;\n  --ve-field-child-box-sizing: border-box;\n  --ve-field-child-margin: 5px;\n  --ve-field-child-padding: 5px;\n}\nlegend {\n  --ve-field-legend-width: 93%;\n  --ve-field-legend-font-size: 1.2rem;\n  --ve-field-legend-color: var(--ani-gray);\n  --ve-field-hover-legend-color: var(--ani-black);\n}\nlabel {\n  --ve-field-label-width: 90%;\n  --ve-field-label-visibility: hidden;\n  --ve-field-label-font-size: 0.8rem;\n  --ve-field-label-font-style: italic;\n  --ve-field-label-color: var(--ani-blue);\n  --ve-field-hover-label-visibility: visible;\n  --ve-field-hover-label-transform: scale(1.1);\n  --ve-field-hover-label-transition: all 1s;\n}\ninput,\nselect,\ntextarea {\n  --ve-field-input-border: 1px solid var(--ani-blue);\n  --ve-field-input-border-radius: 10px;\n  --ve-field-input-outline: none;\n  --ve-field-input-width: 100%;\n  --ve-field-input-line-height: 1.8;\n  --ve-field-input-background-color: var(--ani-white);\n  --ve-field-hover-input-border: 1px solid var(--ani-sky);\n  --ve-field-hover-input-border-radius: 0;\n  --ve-field-hover-input-background-color: var(--ani-white);\n  --ve-field-hover-input-transition: all 500ms;\n}\n\n";
+var css_248z$g = "\n/********** FIELD ELT **********/\nfieldset {\n  --ve-field-display: flex;\n  --ve-field-flex-flow: row wrap;\n  --ve-field-place-items: center;\n  --ve-field-margin: auto;\n  --ve-field-border: none;\n  --ve-field-padding: 0;\n  --ve-field-max-width: 500px;\n  --ve-field-text-align: center;\n  --ve-field-transition: max-width 1s;\n  --ve-field-child-box-sizing: border-box;\n  --ve-field-child-margin: 5px;\n  --ve-field-child-padding: 5px;\n}\nlegend {\n  --ve-field-legend-width: 93%;\n  --ve-field-legend-font-size: 2rem;\n  --ve-field-legend-color: var(--ani-gray);\n  --ve-field-hover-legend-color: var(--ani-black);\n}\nlabel {\n  --ve-field-label-width: 90%;\n  --ve-field-label-visibility: hidden;\n  --ve-field-label-font-size: 1.5rem;\n  --ve-field-label-font-style: italic;\n  --ve-field-label-color: var(--ani-blue);\n  --ve-field-hover-label-visibility: visible;\n  --ve-field-hover-label-transform: scale(1.1);\n  --ve-field-hover-label-transition: all 1s;\n}\ninput,\nselect,\ntextarea {\n  --ve-field-input-border: 1px solid var(--ani-blue);\n  --ve-field-input-border-radius: 10px;\n  --ve-field-input-outline: none;\n  --ve-field-input-width: 100%;\n  --ve-field-input-line-height: 1.8;\n  --ve-field-input-background-color: var(--ani-white);\n  --ve-field-hover-input-border: 1px solid var(--ani-sky);\n  --ve-field-hover-input-border-radius: 0;\n  --ve-field-hover-input-background-color: var(--ani-white);\n  --ve-field-hover-input-transition: all 500ms;\n}\n\n";
 styleInject(css_248z$g);
 
-var css_248z$f = "\nfieldset[data-v-81222a8c] {\n  display: var(--ve-field-display);\n  flex-flow: var(--ve-field-flex-flow);\n  place-items: var(--ve-field-place-items);;\n  margin: var(--ve-field-margin);\n  border: var(--ve-field-border);\n  padding: var(--ve-field-padding);\n  max-width: var(--ve-field-max-width);\n  text-align: var(--ve-field-text-align);\n  transition: var(--ve-field-transition);\n}\nfieldset > *[data-v-81222a8c] {\n  box-sizing: var(--ve-field-child-box-sizing);\n  margin: var(--ve-field-child-margin);\n  padding: var(--ve-field-child-padding);\n}\nlegend[data-v-81222a8c] {\n  width: var(--ve-field-legend-width);\n  font-size: var(--ve-field-legend-font-size);\n  color: var(--ve-field-legend-color);\n}\nfieldset:hover legend[data-v-81222a8c] {\n  color: var(--ve-field-hover-legend-color);\n}\nlabel[data-v-81222a8c] {\n  width: var(--ve-field-label-width);\n  visibility: var(--ve-field-label-visibility);\n  font-size: var(--ve-field-label-font-size);\n  font-style: var(--ve-field-label-font-style);\n  color: var(--ve-field-label-color);\n}\nfieldset:hover > label[data-v-81222a8c],\ninput:focus + label[data-v-81222a8c],\nselect:focus + label[data-v-81222a8c],\ntextarea:focus + label[data-v-81222a8c] {\n  visibility: var(--ve-field-hover-label-visibility);\n  transform: var(--ve-field-hover-label-transform);\n  transition: var(--ve-field-hover-label-transition);\n}\ninput[data-v-81222a8c],\nselect[data-v-81222a8c],\ntextarea[data-v-81222a8c] {\n  border: var(--ve-field-input-border);\n  border-radius: var(--ve-field-input-border-radius);\n  outline: var(--ve-field-input-outline);\n  width: var(--ve-field-input-width);\n  line-height: var(--ve-field-input-line-height);\n  background-color: var(--ve-field-input-background-color);\n}\nfieldset:hover > input[data-v-81222a8c],\nfieldset:hover > select[data-v-81222a8c],\nfieldset:hover > textarea[data-v-81222a8c],\ninput[data-v-81222a8c]:focus,\nselect[data-v-81222a8c]:focus,\ntextarea[data-v-81222a8c]:focus {\n  border: var(--ve-field-hover-input-border);\n  border-radius: var(--ve-field-hover-input-border-radius);\n  background-color: var(--ve-field-hover-input-background-color);\n  transition: var(--ve-field-hover-input-transition);\n}\n";
+var css_248z$f = "\nfieldset[data-v-f8b79834] {\n  display: var(--ve-field-display);\n  flex-flow: var(--ve-field-flex-flow);\n  place-items: var(--ve-field-place-items);;\n  margin: var(--ve-field-margin);\n  border: var(--ve-field-border);\n  padding: var(--ve-field-padding);\n  max-width: var(--ve-field-max-width);\n  text-align: var(--ve-field-text-align);\n  transition: var(--ve-field-transition);\n}\nfieldset > *[data-v-f8b79834] {\n  box-sizing: var(--ve-field-child-box-sizing);\n  margin: var(--ve-field-child-margin);\n  padding: var(--ve-field-child-padding);\n}\nlegend[data-v-f8b79834] {\n  width: var(--ve-field-legend-width);\n  font-size: var(--ve-field-legend-font-size);\n  color: var(--ve-field-legend-color);\n}\nfieldset:hover legend[data-v-f8b79834] {\n  color: var(--ve-field-hover-legend-color);\n}\nlabel[data-v-f8b79834] {\n  width: var(--ve-field-label-width);\n  visibility: var(--ve-field-label-visibility);\n  font-size: var(--ve-field-label-font-size);\n  font-style: var(--ve-field-label-font-style);\n  color: var(--ve-field-label-color);\n}\nfieldset:hover > label[data-v-f8b79834],\ninput:focus + label[data-v-f8b79834],\nselect:focus + label[data-v-f8b79834],\ntextarea:focus + label[data-v-f8b79834] {\n  visibility: var(--ve-field-hover-label-visibility);\n  transform: var(--ve-field-hover-label-transform);\n  transition: var(--ve-field-hover-label-transition);\n}\ninput[data-v-f8b79834],\nselect[data-v-f8b79834],\ntextarea[data-v-f8b79834] {\n  border: var(--ve-field-input-border);\n  border-radius: var(--ve-field-input-border-radius);\n  outline: var(--ve-field-input-outline);\n  width: var(--ve-field-input-width);\n  line-height: var(--ve-field-input-line-height);\n  background-color: var(--ve-field-input-background-color);\n}\nfieldset:hover > input[data-v-f8b79834],\nfieldset:hover > select[data-v-f8b79834],\nfieldset:hover > textarea[data-v-f8b79834],\ninput[data-v-f8b79834]:focus,\nselect[data-v-f8b79834]:focus,\ntextarea[data-v-f8b79834]:focus {\n  border: var(--ve-field-hover-input-border);\n  border-radius: var(--ve-field-hover-input-border-radius);\n  background-color: var(--ve-field-hover-input-background-color);\n  transition: var(--ve-field-hover-input-transition);\n}\n";
 styleInject(css_248z$f);
 
 script$7.render = render$7;
-script$7.__scopeId = "data-v-81222a8c";
+script$7.__scopeId = "data-v-f8b79834";
 
 var script$6 = {
   name: "MediaElt",
   props: {
+    type: {
+      type: String,
+      default: "img"
+    },
     src: {
       type: String,
       required: true
     },
-    alt: {
-      type: String
-    },
-    title: {
-      type: String
-    },
-    type: {
-      type: String,
-      default: ""
-    },
-    medias: {
-      type: Array
+    medias: Array,
+    alt: String,
+    title: String,
+    height: Number,
+    width: {
+      type: Number,
+      default: 300
     },
     loop: {
       type: Boolean,
       default: false
-    },
-    height: {
-      type: Number
-    },
-    width: {
-      type: Number,
-      default: 300
     }
   },
   methods: {
@@ -315,7 +271,7 @@ const _hoisted_4$6 = ["src", "type"];
 const _hoisted_5$3 = {
   key: 2
 };
-const _hoisted_6$3 = ["srcset", "media", "type"];
+const _hoisted_6$3 = ["type", "srcset", "media"];
 const _hoisted_7$2 = ["src", "alt"];
 const _hoisted_8$2 = ["src", "alt"];
 const _hoisted_9$2 = {
@@ -345,9 +301,9 @@ function render$6(_ctx, _cache, $props, $setup, $data, $options) {
   }), 128)), renderSlot(_ctx.$slots, "video")], 8, _hoisted_3$6)) : $props.type === 'picture' ? (openBlock(), createElementBlock("picture", _hoisted_5$3, [(openBlock(true), createElementBlock(Fragment, null, renderList($props.medias, (picture, index) => {
     return openBlock(), createElementBlock("source", {
       key: index,
+      type: picture.type,
       srcset: picture.src,
-      media: picture.media,
-      type: picture.type
+      media: picture.media
     }, null, 8, _hoisted_6$3);
   }), 128)), createElementVNode("img", {
     src: $props.src,
@@ -362,11 +318,11 @@ function render$6(_ctx, _cache, $props, $setup, $data, $options) {
 var css_248z$e = "\n/********** MEDIA ELT **********/\nfigure {\n  --ve-media-figure-border: 1px solid transparent;\n  --ve-media-figure-border-radius: 20px;\n  --ve-media-figure-padding: 0;\n  --ve-media-figure-background-color: transparent;\n}\nimg {\n  --ve-media-img-border: 1px solid var(--ani-blue);\n  --ve-media-img-border-radius: 20px;\n  --ve-media-img-padding: 1px;\n  --ve-media-img-max-width: 100%;\n  --ve-media-img-height: auto;\n  --ve-media-img-object-fit: contain;\n  --ve-media-img-object-position: 50% 50%;\n}\naudio {\n  --ve-media-audio-border: 2px solid var(--ani-gray);\n  --ve-media-audio-border-radius: 10px;\n}\nvideo {\n  --ve-media-video-border: 2px solid var(--ani-black);\n  --ve-media-video-border-radius: 20px;\n}\nfigcaption {\n  --ve-media-figcaption-display: flex;\n  --ve-media-figcaption-flex-flow: column nowrap;\n  --ve-media-figcaption-place-content: center center;\n  --ve-media-figcaption-color: var(--ani-blue);\n}\n\n";
 styleInject(css_248z$e);
 
-var css_248z$d = "\nfigure[data-v-ef11aa1e] {\n  border: var(--ve-media-figure-border);\n  border-radius: var(--ve-media-figure-border-radius);\n  padding: var(--ve-media-figure-padding);\n  background-color: var(--ve-media-figure-background-color);\n}\nimg[data-v-ef11aa1e] {\n  border: var(--ve-media-img-border);\n  border-radius: var(--ve-media-img-border-radius);\n  padding: var(--ve-media-img-padding);\n  max-width: var(--ve-media-img-max-width);\n  height: var(--ve-media-img-height);\n  object-fit: var(--ve-media-img-object-fit);\n  object-position: var(--ve-media-img-object-position);\n}\naudio[data-v-ef11aa1e] {\n  border: var(--ve-media-audio-border);\n  border-radius: var(--ve-media-audio-border-radius);\n}\nvideo[data-v-ef11aa1e] {\n  border: var(--ve-media-video-border);\n  border-radius: var(--ve-media-video-border-radius);\n}\nfigcaption[data-v-ef11aa1e] {\n  display: var(--ve-media-figcaption-display);\n  flex-flow: var(--ve-media-figcaption-flex-flow);\n  place-content: var(--ve-media-figcaption-place-content);\n  color: var(--ve-media-figcaption-color);\n}\n";
+var css_248z$d = "\nfigure[data-v-61ebeeec] {\n  border: var(--ve-media-figure-border);\n  border-radius: var(--ve-media-figure-border-radius);\n  padding: var(--ve-media-figure-padding);\n  background-color: var(--ve-media-figure-background-color);\n}\nimg[data-v-61ebeeec] {\n  border: var(--ve-media-img-border);\n  border-radius: var(--ve-media-img-border-radius);\n  padding: var(--ve-media-img-padding);\n  max-width: var(--ve-media-img-max-width);\n  height: var(--ve-media-img-height);\n  object-fit: var(--ve-media-img-object-fit);\n  object-position: var(--ve-media-img-object-position);\n}\naudio[data-v-61ebeeec] {\n  border: var(--ve-media-audio-border);\n  border-radius: var(--ve-media-audio-border-radius);\n}\nvideo[data-v-61ebeeec] {\n  border: var(--ve-media-video-border);\n  border-radius: var(--ve-media-video-border-radius);\n}\nfigcaption[data-v-61ebeeec] {\n  display: var(--ve-media-figcaption-display);\n  flex-flow: var(--ve-media-figcaption-flex-flow);\n  place-content: var(--ve-media-figcaption-place-content);\n  color: var(--ve-media-figcaption-color);\n}\n";
 styleInject(css_248z$d);
 
 script$6.render = render$6;
-script$6.__scopeId = "data-v-ef11aa1e";
+script$6.__scopeId = "data-v-61ebeeec";
 
 var script$5 = {
   name: "ListElt",
@@ -894,14 +850,14 @@ function render$1(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("footer", null, [createElementVNode("ul", null, [$options.hasSlot('foot1') ? (openBlock(), createElementBlock("li", _hoisted_1$1, [createElementVNode("section", null, [createElementVNode("h3", null, toDisplayString($props.title1), 1), renderSlot(_ctx.$slots, "foot1")])])) : createCommentVNode("", true), $options.hasSlot('foot2') ? (openBlock(), createElementBlock("li", _hoisted_2$1, [createElementVNode("section", null, [createElementVNode("h3", null, toDisplayString($props.title2), 1), renderSlot(_ctx.$slots, "foot2")])])) : createCommentVNode("", true), $options.hasSlot('foot3') ? (openBlock(), createElementBlock("li", _hoisted_3$1, [createElementVNode("section", null, [createElementVNode("h3", null, toDisplayString($props.title3), 1), renderSlot(_ctx.$slots, "foot3")])])) : createCommentVNode("", true)]), $options.hasSlot('foot') ? (openBlock(), createElementBlock("aside", _hoisted_4$1, [renderSlot(_ctx.$slots, "foot")])) : createCommentVNode("", true)]);
 }
 
-var css_248z$4 = "\n/********** FOOT ELT **********/\nfooter {\n  --ve-foot-text-align: center;\n  --ve-foot-child-margin: 0;\n  --ve-foot-child-padding: 0;\n  --ve-foot-li-list-style: none;\n  --ve-foot-a-text-decoration: none;\n  --ve-foot-ul-display: flex;\n  --ve-foot-ul-flex-flow: column;\n  --ve-foot-ul-gap: 20px;\n  --ve-foot-ul-place-content: center;\n  --ve-foot-ul-place-items: center;\n  --ve-foot-ul-padding: 20px;\n  --ve-foot-ul-background-color: var(--ani-sky);\n  --ve-foot-title-margin-bottom: 5px;\n  --ve-foot-title-font-size: 2rem;\n  --ve-foot-title-font-family: var(--ani-monospace);\n  --ve-foot-title-color: var(--ani-yellow);\n  --ve-foot-section-a-color: var(--ani-white);\n  --ve-foot-section-a-hover-color: var(--ani-gray);\n}\naside {\n  --ve-foot-aside-ul-display: flex;\n  --ve-foot-aside-ul-flex-flow: row;\n  --ve-foot-aside-ul-gap: 10px;\n  --ve-foot-aside-ul-place-content: center;\n  --ve-foot-aside-ul-place-items: center;\n  --ve-foot-aside-ul-padding: 10px;\n  --ve-foot-aside-ul-background-color: var(--ani-white);\n  --ve-foot-aside-a-color: var(--ani-blue);\n  --ve-foot-aside-i-hover-transform: scale(1.2);\n  --ve-foot-aside-i-hover-transition: transform 200ms;\n}\n@media (min-width: 576px) {\nfooter {\n    --ve-foot-ul-flex-flow: row;\n    --ve-foot-ul-place-content: space-around;\n}\n}\n@media (min-width: 768px) {\nfooter {\n    --ve-foot-ul-place-content: space-evenly;\n}\n}\n@media (min-width: 992px) {\nfooter {\n    --ve-foot-ul-place-content: center;\n    --ve-foot-ul-gap: 10%;\n}\n}\n\n";
+var css_248z$4 = "\n/********** FOOT ELT **********/\nfooter {\n  --ve-foot-text-align: center;\n  --ve-foot-child-margin: 0;\n  --ve-foot-child-padding: 0;\n  --ve-foot-li-list-style: none;\n  --ve-foot-a-text-decoration: none;\n  --ve-foot-a-cursor: pointer;\n  --ve-foot-ul-display: flex;\n  --ve-foot-ul-flex-flow: column;\n  --ve-foot-ul-gap: 20px;\n  --ve-foot-ul-place-content: center;\n  --ve-foot-ul-place-items: center;\n  --ve-foot-ul-padding: 20px;\n  --ve-foot-ul-background-color: var(--ani-sky);\n  --ve-foot-title-margin-bottom: 5px;\n  --ve-foot-title-font-size: 2rem;\n  --ve-foot-title-font-family: var(--ani-monospace);\n  --ve-foot-title-color: var(--ani-yellow);\n  --ve-foot-section-a-color: var(--ani-white);\n  --ve-foot-section-a-hover-color: var(--ani-gray);\n}\naside {\n  --ve-foot-aside-ul-display: flex;\n  --ve-foot-aside-ul-flex-flow: row;\n  --ve-foot-aside-ul-gap: 10px;\n  --ve-foot-aside-ul-place-content: center;\n  --ve-foot-aside-ul-place-items: center;\n  --ve-foot-aside-ul-padding: 10px;\n  --ve-foot-aside-ul-background-color: var(--ani-white);\n  --ve-foot-aside-a-color: var(--ani-blue);\n  --ve-foot-aside-i-hover-transform: scale(1.2);\n  --ve-foot-aside-i-hover-transition: transform 200ms;\n}\n@media (min-width: 576px) {\nfooter {\n    --ve-foot-ul-flex-flow: row;\n    --ve-foot-ul-place-content: space-around;\n}\n}\n@media (min-width: 768px) {\nfooter {\n    --ve-foot-ul-place-content: space-evenly;\n}\n}\n@media (min-width: 992px) {\nfooter {\n    --ve-foot-ul-place-content: center;\n    --ve-foot-ul-gap: 10%;\n}\n}\n\n";
 styleInject(css_248z$4);
 
-var css_248z$3 = "\nfooter[data-v-78edd541] {\n  text-align: var(--ve-foot-text-align);\n}\nh3[data-v-78edd541],\nh4[data-v-78edd541],[data-v-78edd541] ul {\n  margin: var(--ve-foot-child-margin);\n  padding: var(--ve-foot-child-padding);\n}\n[data-v-78edd541] li {\n  list-style: var(--ve-foot-li-list-style);\n}\n[data-v-78edd541] a {\n  text-decoration: var(--ve-foot-a-text-decoration);\n}\n\n/********************* MAIN PART *********************/\nfooter > ul[data-v-78edd541] { \n  display: var(--ve-foot-ul-display);\n  flex-flow: var(--ve-foot-ul-flex-flow);\n  gap: var(--ve-foot-ul-gap);\n  place-content: var(--ve-foot-ul-place-content);\n  place-items: var(--ve-foot-ul-place-items);\n  padding: var(--ve-foot-ul-padding);\n  background-color: var(--ve-foot-ul-background-color);\n}\nh3[data-v-78edd541],\nh4[data-v-78edd541] {\n  margin-bottom: var(--ve-foot-title-margin-bottom);\n  font-size: var(--ve-foot-title-font-size);\n  font-family: var(--ve-foot-title-font-family);\n  color: var(--ve-foot-title-color);\n}\nsection[data-v-78edd541] a {\n  color: var(--ve-foot-section-a-color);\n}\nsection[data-v-78edd541] a:hover,\nsection[data-v-78edd541] a:focus {\n  color: var(--ve-foot-section-a-hover-color);\n}\n\n/********************* SECOND PART *********************/\naside[data-v-78edd541] ul {\n  display: var(--ve-foot-aside-ul-display);\n  flex-flow: var(--ve-foot-aside-ul-flex-flow);\n  gap: var(--ve-foot-aside-ul-gap);\n  place-content: var(--ve-foot-aside-ul-place-content);\n  place-items: var(--ve-foot-aside-ul-place-items);\n  padding: var(--ve-foot-aside-ul-padding);\n  background-color: var(--ve-foot-aside-ul-background-color);\n}\naside[data-v-78edd541] a {\n  color: var(--ve-foot-aside-a-color);\n}\naside[data-v-78edd541] i:hover,\naside[data-v-78edd541] i:focus {\n  transform: var(--ve-foot-aside-i-hover-transform);\n  transition: var(--ve-foot-aside-i-hover-transition);\n}\n";
+var css_248z$3 = "\nfooter[data-v-03ecf146] {\n  text-align: var(--ve-foot-text-align);\n}\nh3[data-v-03ecf146],\nh4[data-v-03ecf146],[data-v-03ecf146] ul {\n  margin: var(--ve-foot-child-margin);\n  padding: var(--ve-foot-child-padding);\n}\n[data-v-03ecf146] li {\n  list-style: var(--ve-foot-li-list-style);\n}\n[data-v-03ecf146] a {\n  text-decoration: var(--ve-foot-a-text-decoration);\n  cursor: var(--ve-foot-a-cursor);\n}\n\n/********************* MAIN PART *********************/\nfooter > ul[data-v-03ecf146] { \n  display: var(--ve-foot-ul-display);\n  flex-flow: var(--ve-foot-ul-flex-flow);\n  gap: var(--ve-foot-ul-gap);\n  place-content: var(--ve-foot-ul-place-content);\n  place-items: var(--ve-foot-ul-place-items);\n  padding: var(--ve-foot-ul-padding);\n  background-color: var(--ve-foot-ul-background-color);\n}\nh3[data-v-03ecf146],\nh4[data-v-03ecf146] {\n  margin-bottom: var(--ve-foot-title-margin-bottom);\n  font-size: var(--ve-foot-title-font-size);\n  font-family: var(--ve-foot-title-font-family);\n  color: var(--ve-foot-title-color);\n}\nsection[data-v-03ecf146] a {\n  color: var(--ve-foot-section-a-color);\n}\nsection[data-v-03ecf146] a:hover,\nsection[data-v-03ecf146] a:focus {\n  color: var(--ve-foot-section-a-hover-color);\n}\n\n/********************* SECOND PART *********************/\naside[data-v-03ecf146] ul {\n  display: var(--ve-foot-aside-ul-display);\n  flex-flow: var(--ve-foot-aside-ul-flex-flow);\n  gap: var(--ve-foot-aside-ul-gap);\n  place-content: var(--ve-foot-aside-ul-place-content);\n  place-items: var(--ve-foot-aside-ul-place-items);\n  padding: var(--ve-foot-aside-ul-padding);\n  background-color: var(--ve-foot-aside-ul-background-color);\n}\naside[data-v-03ecf146] a {\n  color: var(--ve-foot-aside-a-color);\n}\naside[data-v-03ecf146] i:hover,\naside[data-v-03ecf146] i:focus {\n  transform: var(--ve-foot-aside-i-hover-transform);\n  transition: var(--ve-foot-aside-i-hover-transition);\n}\n";
 styleInject(css_248z$3);
 
 script$1.render = render$1;
-script$1.__scopeId = "data-v-78edd541";
+script$1.__scopeId = "data-v-03ecf146";
 
 var script = {
   name: "NavElt",

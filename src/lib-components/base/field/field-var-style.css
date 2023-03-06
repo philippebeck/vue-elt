@@ -16,7 +16,7 @@ fieldset {
 
 legend {
   --ve-field-legend-width: 93%;
-  --ve-field-legend-font-size: 1.2rem;
+  --ve-field-legend-font-size: 2rem;
   --ve-field-legend-color: var(--ani-gray);
   --ve-field-hover-legend-color: var(--ani-black);
 }
@@ -24,7 +24,7 @@ legend {
 label {
   --ve-field-label-width: 90%;
   --ve-field-label-visibility: hidden;
-  --ve-field-label-font-size: 0.8rem;
+  --ve-field-label-font-size: 1.5rem;
   --ve-field-label-font-style: italic;
   --ve-field-label-color: var(--ani-blue);
   --ve-field-hover-label-visibility: visible;
