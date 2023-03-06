@@ -18,6 +18,7 @@ h4,
 
 :deep(a) {
   text-decoration: var(--ve-foot-a-text-decoration);
+  cursor: var(--ve-foot-a-cursor);
 }
 
 /********************* MAIN PART *********************/

@@ -68,6 +68,7 @@ footer {
   --ve-foot-child-padding: 0;
   --ve-foot-li-list-style: none;
   --ve-foot-a-text-decoration: none;
+  --ve-foot-a-cursor: pointer;
   --ve-foot-ul-display: flex;
   --ve-foot-ul-flex-flow: column;
   --ve-foot-ul-gap: 20px;
@@ -136,6 +137,7 @@ h4,
 
 :deep(a) {
   text-decoration: var(--ve-foot-a-text-decoration);
+  cursor: var(--ve-foot-a-cursor);
 }
 
 /********************* MAIN PART *********************/
