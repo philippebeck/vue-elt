@@ -8,6 +8,8 @@
     <!-- NUMBER, DATE, TIME, RANGE ELT -->
     <input v-if="getFieldType() === 'number'"
       :type="type"
+      :id="id"
+      :name="name"
       :value="value"
       @input="onInput"
       :min="min"
@@ -17,12 +19,16 @@
     <!-- CHECKBOX, RADIO, COLOR ELT -->
     <input v-else-if="getFieldType() === 'special'"
       :type="type"
+      :id="id"
+      :name="name"
       :value="value"
       @input="onInput"
       :required="required">
 
     <!-- SELECT, OPTION ELT -->
     <select v-else-if="getFieldType() === 'list'"
+      :id="id"
+      :name="name"
       @input="onInput"
       :placeholder="info"
       :required="required">
@@ -43,6 +49,8 @@
 
     <!-- TEXTAREA ELT -->
     <textarea v-else-if="getFieldType() === 'area'"
+      :id="id"
+      :name="name"
       :value="value"
       @input="onInput"
       :placeholder="info"
@@ -55,6 +63,8 @@
     <!-- TEXT, OTHERS ELT -->
     <input v-else
       :type="type"
+      :id="id"
+      :name="name"
       :value="value"
       @input="onInput"
       :placeholder="info"
