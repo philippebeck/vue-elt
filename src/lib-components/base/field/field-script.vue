@@ -16,6 +16,8 @@ export default {
       Number, 
       Array
     ],
+    id: String,
+    name: String,
     list: Array,
     info: String,
     min: {
