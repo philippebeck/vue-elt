@@ -1,7 +1,7 @@
 <template>
   <!-- FOOT ELT -->
   <footer>
-    <ul>
+    <ul v-if="hasSlot('foot1') || hasSlot('foot2') || hasSlot('foot3')">
 
       <!-- Column 1 (option) -->
       <li v-if="hasSlot('foot1')">
