@@ -76,6 +76,40 @@
             <BtnElt type="button"
               content="btn-pink"
               class="btn-pink"/>
+
+              <br>
+
+              <BtnElt type="button"
+              content="label-red"
+              class="label-red"/>
+
+            <BtnElt type="button"
+              content="label-orange"
+              class="label-orange"/>
+
+            <BtnElt type="button"
+              content="label-yellow"
+              class="label-yellow"/>
+
+            <BtnElt type="button"
+              content="label-green"
+              class="label-green"/>
+
+            <BtnElt type="button"
+              content="label-sky"
+              class="label-sky"/>
+
+            <BtnElt type="button"
+              content="label-blue"
+              class="label-blue"/>
+
+            <BtnElt type="button"
+              content="label-violet"
+              class="label-violet"/>
+
+            <BtnElt type="button"
+              content="label-pink"
+              class="label-pink"/>
           </template>
         </CardElt>
         
