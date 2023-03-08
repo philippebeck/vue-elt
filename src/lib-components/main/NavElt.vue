@@ -3,28 +3,46 @@
   <nav v-if="getNavClass() === 'sidebar'" 
     class="sidebar">
 
-    <slot name="first"></slot>
+    <!-- Hide Action (option) -->
+    <button v-if="hasSlot('hide')"
+      @click="toggleSide()">
+      <slot name="hide"></slot>
+    </button>
 
-    <a v-for="(item, index) in items"
-      :key="index"
-      :href="`#${item}`"
-      :title="item">
+    <ul id="side"
+      class="show">
+        <!-- Top static Link (option) -->
+        <li v-if="hasSlot('first')">
+          <slot name="first"></slot>
+        </li>
 
-      <slot name="items"
-        :item="item"
-        :index="index">
-        {{ item }}
-      </slot>
-    </a>
+        <!-- Main Links -->
+        <li v-for="(item, index) in items"
+          :key="index">
+          <a :href="`#${item}`"
+            :title="item">
 
-    <slot name="last"></slot>
+            <slot name="items"
+              :item="item"
+              :index="index">
+              {{ item }}
+            </slot>
+          </a>
+        </li>
 
-    <!-- Bottom Link (option) -->
-    <a v-if="hasSlot('top')"
-      href="#top"
-      title="Top of the Page">
-      <slot name="top"></slot>
-    </a>
+        <!-- Bottom static Link (option) -->
+        <li v-if="hasSlot('last')">
+          <slot name="last"></slot>
+        </li>
+
+        <!-- Bottom Link (option) -->
+        <li>
+          <a v-if="hasSlot('top')"
+          href="#top">
+          <slot name="top"></slot>
+          </a>
+      </li>
+    </ul>
   </nav>
   
   <!-- NAVBAR ELT -->
@@ -38,8 +56,9 @@
       <slot name="brand"></slot>
     </a>
 
+    <!-- Main Links -->
     <ul id="nav"
-      class="show">
+      class="nav">
 
       <li v-for="(item, index) in items"
         :key="index">
@@ -60,13 +79,13 @@
     <!-- Admin Part (option) -->
     <aside v-if="hasSlot('admin')"
       id="admin"
-      class="hide">
+      class="admin">
       <slot name="admin"></slot>
     </aside>
     
     <!-- Responsive Toggle -->
     <button type="button"
-      @click="toggleMenu()"
+      @click="toggleNav()"
       title="Menu">
       <i class="fa-solid fa-bars"></i>
     </button>
@@ -99,15 +118,22 @@ export default {
       return this.$slots[name] !== undefined;
     },
 
-    toggleMenu() {
+    toggleNav() {
       const nav = document.getElementById("nav");
       const admin = document.getElementById("admin");
 
-      nav.classList.toggle("show");
-      nav.classList.toggle("hide");
+      nav.classList.toggle("nav");
+      nav.classList.toggle("admin");
 
-      admin.classList.toggle("show");
-      admin.classList.toggle("hide");
+      admin.classList.toggle("nav");
+      admin.classList.toggle("admin");
+    },
+
+    toggleSide() {
+      const side = document.getElementById("side");
+
+      side.classList.toggle("show");
+      side.classList.toggle("hide");
     }
   }
 }
@@ -151,6 +177,14 @@ export default {
   --ve-nav-i-place-self: center;
 }
 
+.admin {
+  --ve-nav-hide-display: none;
+}
+
+.nav {
+  --ve-nav-show-display: flex;
+}
+
 .sidebar {
   --ve-side-display: flex;
   --ve-side-flex-flow: column;
@@ -159,11 +193,15 @@ export default {
   --ve-side-left: 2px;
   --ve-side-z-index: 10;
   --ve-side-width: auto;
+  --ve-side-ul-display: flex;
+  --ve-side-ul-flex-flow: column;
   --ve-side-a-display: flex;
   --ve-side-a-place-content: center;
   --ve-side-a-place-items: center;
   --ve-side-a-margin: 5px;
+  --ve-side-a-border: none;
   --ve-side-a-border-radius: 20px;
+  --ve-side-a-outline: none;
   --ve-side-a-padding: 5px;
   --ve-side-a-width: 100%;
   --ve-side-a-background-color: var(--ani-white-dark);
@@ -177,11 +215,11 @@ export default {
 }
 
 .hide {
-  --ve-nav-hide-display: none;
+  --ve-side-hide-display: none;
 }
 
 .show {
-  --ve-nav-show-display: flex;
+  --ve-side-show-display: flex;
 }
 
 @media (min-width: 576px) {
@@ -200,7 +238,7 @@ export default {
     --ve-nav-ul-a-not-i-display: flex;
   }
 
-  .hide {
+  .admin {
     --ve-nav-hide-display: flex;
   }
 }
@@ -282,6 +320,14 @@ export default {
   place-self: var(--ve-nav-i-place-self);
 }
 
+.admin {
+  display: var(--ve-nav-hide-display) !important;
+}
+
+.nav {
+  display: var(--ve-nav-show-display);
+}
+
 .sidebar {
   display: var(--ve-side-display);
   flex-flow: var(--ve-side-flex-flow);
@@ -291,12 +337,21 @@ export default {
   z-index: var(--ve-side-z-index);
   width: var(--ve-side-width);
 }
-.sidebar :deep(a) {
+
+.sidebar ul {
+  display: var(--ve-side-ul-display);
+  flex-flow: var(--ve-side-ul-flex-flow);
+}
+
+.sidebar :deep(a),
+.sidebar button {
   display: var(--ve-side-a-display);
   place-content: var(--ve-side-a-place-content);
   place-items: var(--ve-side-a-place-items);
   margin: var(--ve-side-a-margin);
+  border: var(--ve-side-a-border);
   border-radius: var(--ve-side-a-border-radius);
+  outline: var(--ve-side-a-outline);
   padding: var(--ve-side-a-padding);
   width: var(--ve-side-a-width);
   background-color: var(--ve-side-a-background-color);
@@ -305,7 +360,9 @@ export default {
 }
 
 .sidebar :deep(a:hover),
-.sidebar :deep(a:focus) {
+.sidebar :deep(a:focus),
+.sidebar button:hover,
+.sidebar button:focus {
   border-radius: var(--ve-side-a-hover-border-radius);
   color: var(--ve-side-a-hover-color);
   background-color: var(--ve-side-a-hover-background-color);
@@ -314,11 +371,11 @@ export default {
 }
 
 .hide {
-  display: var(--ve-nav-hide-display) !important;
+  display: var(--ve-side-hide-display) !important;
 }
 
 .show {
-  display: var(--ve-nav-show-display);
+  display: var(--ve-side-show-display);
 }
 
 @media (min-width: 768px) {
