@@ -25,6 +25,10 @@
   <NavElt :items="['btn', 'field', 'media', 'list', 'slider', 'table', 'nav', 'card', 'foot']"
     class="sidebar">
 
+    <template #hide>
+      <i class="fa-solid fa-eye"></i>
+    </template>
+
     <template #top>
       <i class="fa-solid fa-long-arrow-up"></i>
     </template>
@@ -76,6 +80,40 @@
             <BtnElt type="button"
               content="btn-pink"
               class="btn-pink"/>
+
+              <br>
+
+              <BtnElt type="button"
+              content="label-red"
+              class="label-red"/>
+
+            <BtnElt type="button"
+              content="label-orange"
+              class="label-orange"/>
+
+            <BtnElt type="button"
+              content="label-yellow"
+              class="label-yellow"/>
+
+            <BtnElt type="button"
+              content="label-green"
+              class="label-green"/>
+
+            <BtnElt type="button"
+              content="label-sky"
+              class="label-sky"/>
+
+            <BtnElt type="button"
+              content="label-blue"
+              class="label-blue"/>
+
+            <BtnElt type="button"
+              content="label-violet"
+              class="label-violet"/>
+
+            <BtnElt type="button"
+              content="label-pink"
+              class="label-pink"/>
           </template>
         </CardElt>
         
@@ -386,23 +424,6 @@
           <a href="https://www.npmjs.com/package/vesan"
             title="CMS with Vue-Elt, Servidio, Animadio & NemJS">
             Vesan
-          </a>
-        </template>
-      </ListElt>
-    </template>
-
-    <template #foot3>
-      <ListElt :items="['Contact', 'Legal Notice']">
-        <template #item-1>
-          <a href="mailto:contact@philippebeck.net"
-            title="Send a message">
-            Contact
-          </a>
-        </template>
-        <template #item-2>
-          <a href="#"
-            title="Read the legal notice">
-            Legal Notice
           </a>
         </template>
       </ListElt>

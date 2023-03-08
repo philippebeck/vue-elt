@@ -22,4 +22,9 @@ button {
   --ve-btn-hover-transition: all 200ms;
   --ve-btn-child-display: block;
   --ve-btn-child-margin: auto;
+  --ve-label-border-radius: 20px;
+  --ve-label-background-color: var(--ani-white);
+  --ve-label-border-color: var(--ani-white);
+  --ve-label-color: var(--ani-white);
+  --ve-label-hover-border-radius: 20px;
 }

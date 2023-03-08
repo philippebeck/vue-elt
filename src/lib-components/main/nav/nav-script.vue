@@ -24,15 +24,22 @@ export default {
       return this.$slots[name] !== undefined;
     },
 
-    toggleMenu() {
+    toggleNav() {
       const nav = document.getElementById("nav");
       const admin = document.getElementById("admin");
 
-      nav.classList.toggle("show");
-      nav.classList.toggle("hide");
+      nav.classList.toggle("nav");
+      nav.classList.toggle("admin");
 
-      admin.classList.toggle("show");
-      admin.classList.toggle("hide");
+      admin.classList.toggle("nav");
+      admin.classList.toggle("admin");
+    },
+
+    toggleSide() {
+      const side = document.getElementById("side");
+
+      side.classList.toggle("show");
+      side.classList.toggle("hide");
     }
   }
 }

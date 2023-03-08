@@ -75,6 +75,14 @@
   place-self: var(--ve-nav-i-place-self);
 }
 
+.admin {
+  display: var(--ve-nav-hide-display) !important;
+}
+
+.nav {
+  display: var(--ve-nav-show-display);
+}
+
 .sidebar {
   display: var(--ve-side-display);
   flex-flow: var(--ve-side-flex-flow);
@@ -84,12 +92,21 @@
   z-index: var(--ve-side-z-index);
   width: var(--ve-side-width);
 }
-.sidebar :deep(a) {
+
+.sidebar ul {
+  display: var(--ve-side-ul-display);
+  flex-flow: var(--ve-side-ul-flex-flow);
+}
+
+.sidebar :deep(a),
+.sidebar button {
   display: var(--ve-side-a-display);
   place-content: var(--ve-side-a-place-content);
   place-items: var(--ve-side-a-place-items);
   margin: var(--ve-side-a-margin);
+  border: var(--ve-side-a-border);
   border-radius: var(--ve-side-a-border-radius);
+  outline: var(--ve-side-a-outline);
   padding: var(--ve-side-a-padding);
   width: var(--ve-side-a-width);
   background-color: var(--ve-side-a-background-color);
@@ -98,7 +115,9 @@
 }
 
 .sidebar :deep(a:hover),
-.sidebar :deep(a:focus) {
+.sidebar :deep(a:focus),
+.sidebar button:hover,
+.sidebar button:focus {
   border-radius: var(--ve-side-a-hover-border-radius);
   color: var(--ve-side-a-hover-color);
   background-color: var(--ve-side-a-hover-background-color);
@@ -107,11 +126,11 @@
 }
 
 .hide {
-  display: var(--ve-nav-hide-display) !important;
+  display: var(--ve-side-hide-display) !important;
 }
 
 .show {
-  display: var(--ve-nav-show-display);
+  display: var(--ve-side-show-display);
 }
 
 @media (min-width: 768px) {

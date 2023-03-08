@@ -42,8 +42,8 @@ Yarn : `yarn add vue-elt`
 
 ## CDN 
 
--   Development : [https://cdn.jsdelivr.net/npm/vue-elt@0.10.1/dist/vue-elt.esm.js](https://cdn.jsdelivr.net/npm/vue-elt@0.10.1/dist/vue-elt.esm.js)  
--   Production : [https://cdn.jsdelivr.net/npm/vue-elt@0.10.1/dist/vue-elt.min.js](https://cdn.jsdelivr.net/npm/vue-elt@0.10.1/dist/vue-elt.min.js)  
+-   Development : [https://cdn.jsdelivr.net/npm/vue-elt@1.0.0/dist/vue-elt.esm.js](https://cdn.jsdelivr.net/npm/vue-elt@1.0.0/dist/vue-elt.esm.js)  
+-   Production : [https://cdn.jsdelivr.net/npm/vue-elt@1.0.0/dist/vue-elt.min.js](https://cdn.jsdelivr.net/npm/vue-elt@1.0.0/dist/vue-elt.min.js)  
 
 ---
 
@@ -78,7 +78,7 @@ Overloading CSS vars :
 -  In `main.js` of Vue3, import `vue-elt` like this : `import element from "vue-elt"`  
 -  Then, add this line after creating App but before mounting : `app.use(element)` ([example](https://github.com/philippebeck/vesan/blob/master/src/main.js))  
 -  Vue-elt use the packages `animadio` for the colors & `font-awesome` for the icons, so you need to load them (*you can watch import example in the dev/serve.vue file*)  
--  After, use it in yours components like in these examples : 
+-  After, use it in your components like in these examples : 
     -  `<ListElt :items=items />` ([example](https://github.com/philippebeck/vesan/blob/master/src/views/HomeView.vue))  
     -  `<FieldElt id="email" />` ([example](https://github.com/philippebeck/vesan/blob/master/src/views/ContactView.vue))  
--  Finally, you can find an overload file for the style in the dist folder, you can copy the contents to your own style file, then you can overload any css variable of the components  
+-  Finally, you can find an overloading file for the style in the dist folder, you can copy the content to your own style file, then you can overload any css variable of the components  

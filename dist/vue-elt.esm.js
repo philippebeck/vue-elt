@@ -64,14 +64,14 @@ function styleInject(css, ref) {
   }
 }
 
-var css_248z$i = "\n/********** BTN ELT **********/\na,\nbutton {\n  --ve-btn-display: inline-block;\n  --ve-btn-margin: 10px;\n  --ve-btn-border: solid 2px var(--ani-white);\n  --ve-btn-border-radius: 10px;\n  --ve-btn-padding: 5px 10px;\n  --ve-btn-font-family: var(--ani-monospace);\n  --ve-btn-font-size: 1.5rem;\n  --ve-btn-font-weight: bold;\n  --ve-btn-text-align: center;\n  --ve-btn-text-decoration: none;\n  --ve-btn-background-color: var(--ani-black);\n  --ve-btn-color: var(--ani-white);\n  --ve-btn-cursor: pointer;\n  --ve-btn-hover-border-color: var(--ani-black);\n  --ve-btn-hover-border-radius: 5px;\n  --ve-btn-hover-background-color: var(--ani-white);\n  --ve-btn-hover-color: var(--ani-black);\n  --ve-btn-hover-box-shadow: inset 0 0 5px 2px;\n  --ve-btn-hover-transition: all 200ms;\n  --ve-btn-child-display: block;\n  --ve-btn-child-margin: auto;\n}\n\n";
+var css_248z$i = "\n/********** BTN ELT **********/\na,\nbutton {\n  --ve-btn-display: inline-block;\n  --ve-btn-margin: 10px;\n  --ve-btn-border: solid 2px var(--ani-white);\n  --ve-btn-border-radius: 10px;\n  --ve-btn-padding: 5px 10px;\n  --ve-btn-font-family: var(--ani-monospace);\n  --ve-btn-font-size: 1.5rem;\n  --ve-btn-font-weight: bold;\n  --ve-btn-text-align: center;\n  --ve-btn-text-decoration: none;\n  --ve-btn-background-color: var(--ani-black);\n  --ve-btn-color: var(--ani-white);\n  --ve-btn-cursor: pointer;\n  --ve-btn-hover-border-color: var(--ani-black);\n  --ve-btn-hover-border-radius: 5px;\n  --ve-btn-hover-background-color: var(--ani-white);\n  --ve-btn-hover-color: var(--ani-black);\n  --ve-btn-hover-box-shadow: inset 0 0 5px 2px;\n  --ve-btn-hover-transition: all 200ms;\n  --ve-btn-child-display: block;\n  --ve-btn-child-margin: auto;\n  --ve-label-border-radius: 20px;\n  --ve-label-background-color: var(--ani-white);\n  --ve-label-border-color: var(--ani-white);\n  --ve-label-color: var(--ani-white);\n  --ve-label-hover-border-radius: 20px;\n}\n\n";
 styleInject(css_248z$i);
 
-var css_248z$h = "\na[data-v-4630a1ee],\nbutton[data-v-4630a1ee] {\n  display: var(--ve-btn-display);\n  margin: var(--ve-btn-margin);\n  border: var(--ve-btn-border);\n  border-radius: var(--ve-btn-border-radius);\n  padding: var(--ve-btn-padding);\n  font-family: var(--ve-btn-font-family);\n  font-size: var(--ve-btn-font-size);\n  font-weight: var(--ve-btn-font-weight);\n  text-align: var(--ve-btn-text-align);\n  text-decoration: var(--ve-btn-text-decoration);\n  background-color: var(--ve-btn-background-color);\n  color: var(--ve-btn-color);\n  cursor: var(--ve-btn-cursor);\n}\na[data-v-4630a1ee]:hover,\na[data-v-4630a1ee]:focus,\nbutton[data-v-4630a1ee]:hover,\nbutton[data-v-4630a1ee]:focus {\n  border-color: var(--ve-btn-hover-border-color);\n  border-radius: var(--ve-btn-hover-border-radius);\n  background-color: var(--ve-btn-hover-background-color);\n  color: var(--ve-btn-hover-color);\n  box-shadow: var(--ve-btn-hover-box-shadow);\n  transition: var(--ve-btn-hover-transition);\n}\na > *[data-v-4630a1ee],\nbutton > *[data-v-4630a1ee] {\n  display: var(--ve-btn-child-display);\n  margin: var(--ve-btn-child-margin);\n}\n\n/* RED */\n.btn-red[data-v-4630a1ee] {\n  background-color: var(--ani-red);\n}\n.btn-red[data-v-4630a1ee]:hover,\n.btn-red[data-v-4630a1ee]:focus {\n  border-color: var(--ani-red);\n  color: var(--ani-red);\n}\n\n/* ORANGE */\n.btn-orange[data-v-4630a1ee] {\n  background-color: var(--ani-orange);\n}\n.btn-orange[data-v-4630a1ee]:hover,\n.btn-orange[data-v-4630a1ee]:focus {\n  border-color: var(--ani-orange);\n  color: var(--ani-orange);\n}\n\n/* YELLOW */\n.btn-yellow[data-v-4630a1ee] {\n  background-color: var(--ani-yellow);\n}\n.btn-yellow[data-v-4630a1ee]:hover,\n.btn-yellow[data-v-4630a1ee]:focus {\n  border-color: var(--ani-yellow);\n  color: var(--ani-yellow);\n}\n\n/* GREEN */\n.btn-green[data-v-4630a1ee] {\n  background-color: var(--ani-green);\n}\n.btn-green[data-v-4630a1ee]:hover,\n.btn-green[data-v-4630a1ee]:focus {\n  border-color: var(--ani-green);\n  color: var(--ani-green);\n}\n\n/* SKY */\n.btn-sky[data-v-4630a1ee] {\n  background-color: var(--ani-sky);\n}\n.btn-sky[data-v-4630a1ee]:hover,\n.btn-sky[data-v-4630a1ee]:focus {\n  border-color: var(--ani-sky);\n  color: var(--ani-sky);\n}\n\n/* BLUE */\n.btn-blue[data-v-4630a1ee] {\n  background-color: var(--ani-blue);\n}\n.btn-blue[data-v-4630a1ee]:hover,\n.btn-blue[data-v-4630a1ee]:focus {\n  border-color: var(--ani-blue);\n  color: var(--ani-blue);\n}\n\n/* VIOLET */\n.btn-violet[data-v-4630a1ee] {\n  background-color: var(--ani-violet);\n}\n.btn-violet[data-v-4630a1ee]:hover,\n.btn-violet[data-v-4630a1ee]:focus {\n  border-color: var(--ani-violet);\n  color: var(--ani-violet);\n}\n\n/* PINK */\n.btn-pink[data-v-4630a1ee] {\n  background-color: var(--ani-pink);\n}\n.btn-pink[data-v-4630a1ee]:hover,\n.btn-pink[data-v-4630a1ee]:focus {\n  border-color: var(--ani-pink);\n  color: var(--ani-pink);\n}\n";
+var css_248z$h = "\na[data-v-6539af48],\nbutton[data-v-6539af48] {\n  display: var(--ve-btn-display);\n  margin: var(--ve-btn-margin);\n  border: var(--ve-btn-border);\n  border-radius: var(--ve-btn-border-radius);\n  padding: var(--ve-btn-padding);\n  font-family: var(--ve-btn-font-family);\n  font-size: var(--ve-btn-font-size);\n  font-weight: var(--ve-btn-font-weight);\n  text-align: var(--ve-btn-text-align);\n  text-decoration: var(--ve-btn-text-decoration);\n  background-color: var(--ve-btn-background-color);\n  color: var(--ve-btn-color);\n  cursor: var(--ve-btn-cursor);\n}\n[class*=\"label-\"][data-v-6539af48] {\n  border-radius: var(--ve-label-border-radius);\n  background-color: var(--ve-label-background-color);\n}\na[data-v-6539af48]:hover,\na[data-v-6539af48]:focus,\nbutton[data-v-6539af48]:hover,\nbutton[data-v-6539af48]:focus {\n  border-color: var(--ve-btn-hover-border-color);\n  border-radius: var(--ve-btn-hover-border-radius);\n  background-color: var(--ve-btn-hover-background-color);\n  color: var(--ve-btn-hover-color);\n  box-shadow: var(--ve-btn-hover-box-shadow);\n  transition: var(--ve-btn-hover-transition);\n}\n[class*=\"label-\"][data-v-6539af48]:hover,\n[class*=\"label-\"][data-v-6539af48]:focus {\n  border-color: var(--ve-label-border-color);\n  border-radius: var(--ve-label-hover-border-radius);\n  color: var(--ve-label-color);\n}\na > *[data-v-6539af48],\nbutton > *[data-v-6539af48] {\n  display: var(--ve-btn-child-display);\n  margin: var(--ve-btn-child-margin);\n}\n\n/* RED */\n.btn-red[data-v-6539af48] {\n  background-color: var(--ani-red);\n}\n.btn-red[data-v-6539af48]:hover,\n.btn-red[data-v-6539af48]:focus {\n  border-color: var(--ani-red);\n  color: var(--ani-red);\n}\n.label-red[data-v-6539af48] {\n  border-color: var(--ani-red);\n  color: var(--ani-red);\n}\n.label-red[data-v-6539af48]:hover,\n.label-red[data-v-6539af48]:focus {\n  background-color: var(--ani-red);\n}\n\n/* ORANGE */\n.btn-orange[data-v-6539af48] {\n  background-color: var(--ani-orange);\n}\n.btn-orange[data-v-6539af48]:hover,\n.btn-orange[data-v-6539af48]:focus {\n  border-color: var(--ani-orange);\n  color: var(--ani-orange);\n}\n.label-orange[data-v-6539af48] {\n  border-color: var(--ani-orange);\n  color: var(--ani-orange);\n}\n.label-orange[data-v-6539af48]:hover,\n.label-orange[data-v-6539af48]:focus {\n  background-color: var(--ani-orange);\n}\n\n/* YELLOW */\n.btn-yellow[data-v-6539af48] {\n  background-color: var(--ani-yellow);\n}\n.btn-yellow[data-v-6539af48]:hover,\n.btn-yellow[data-v-6539af48]:focus {\n  border-color: var(--ani-yellow);\n  color: var(--ani-yellow);\n}\n.label-yellow[data-v-6539af48] {\n  border-color: var(--ani-yellow);\n  color: var(--ani-yellow);\n}\n.label-yellow[data-v-6539af48]:hover,\n.label-yellow[data-v-6539af48]:focus {\n  background-color: var(--ani-yellow);\n}\n\n/* GREEN */\n.btn-green[data-v-6539af48] {\n  background-color: var(--ani-green);\n}\n.btn-green[data-v-6539af48]:hover,\n.btn-green[data-v-6539af48]:focus {\n  border-color: var(--ani-green);\n  color: var(--ani-green);\n}\n.label-green[data-v-6539af48] {\n  border-color: var(--ani-green);\n  color: var(--ani-green);\n}\n.label-green[data-v-6539af48]:hover,\n.label-green[data-v-6539af48]:focus {\n  background-color: var(--ani-green);\n}\n\n/* SKY */\n.btn-sky[data-v-6539af48] {\n  background-color: var(--ani-sky);\n}\n.btn-sky[data-v-6539af48]:hover,\n.btn-sky[data-v-6539af48]:focus {\n  border-color: var(--ani-sky);\n  color: var(--ani-sky);\n}\n.label-sky[data-v-6539af48] {\n  border-color: var(--ani-sky);\n  color: var(--ani-sky);\n}\n.label-sky[data-v-6539af48]:hover,\n.label-sky[data-v-6539af48]:focus {\n  background-color: var(--ani-sky);\n}\n\n/* BLUE */\n.btn-blue[data-v-6539af48] {\n  background-color: var(--ani-blue);\n}\n.btn-blue[data-v-6539af48]:hover,\n.btn-blue[data-v-6539af48]:focus {\n  border-color: var(--ani-blue);\n  color: var(--ani-blue);\n}\n.label-blue[data-v-6539af48] {\n  border-color: var(--ani-blue);\n  color: var(--ani-blue);\n}\n.label-blue[data-v-6539af48]:hover,\n.label-blue[data-v-6539af48]:focus {\n  background-color: var(--ani-blue);\n}\n\n/* VIOLET */\n.btn-violet[data-v-6539af48] {\n  background-color: var(--ani-violet);\n}\n.btn-violet[data-v-6539af48]:hover,\n.btn-violet[data-v-6539af48]:focus {\n  border-color: var(--ani-violet);\n  color: var(--ani-violet);\n}\n.label-violet[data-v-6539af48] {\n  border-color: var(--ani-violet);\n  color: var(--ani-violet);\n}\n.label-violet[data-v-6539af48]:hover,\n.label-violet[data-v-6539af48]:focus {\n  background-color: var(--ani-violet);\n}\n\n/* PINK */\n.btn-pink[data-v-6539af48] {\n  background-color: var(--ani-pink);\n}\n.btn-pink[data-v-6539af48]:hover,\n.btn-pink[data-v-6539af48]:focus {\n  border-color: var(--ani-pink);\n  color: var(--ani-pink);\n}\n.label-pink[data-v-6539af48] {\n  border-color: var(--ani-pink);\n  color: var(--ani-pink);\n}\n.label-pink[data-v-6539af48]:hover,\n.label-pink[data-v-6539af48]:focus {\n  background-color: var(--ani-pink);\n}\n";
 styleInject(css_248z$h);
 
 script$8.render = render$8;
-script$8.__scopeId = "data-v-4630a1ee";
+script$8.__scopeId = "data-v-6539af48";
 
 var script$7 = {
   name: "FieldElt",
@@ -160,7 +160,7 @@ const _hoisted_7$3 = {
 const _hoisted_8$3 = ["value"];
 const _hoisted_9$3 = ["id", "name", "value", "placeholder", "minlength", "maxlength", "cols", "rows", "required"];
 const _hoisted_10$2 = ["type", "id", "name", "value", "placeholder", "minlength", "maxlength", "required"];
-const _hoisted_11$1 = ["for"];
+const _hoisted_11$2 = ["for"];
 function render$7(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("fieldset", {
     title: $props.info
@@ -233,7 +233,7 @@ function render$7(_ctx, _cache, $props, $setup, $data, $options) {
   }, null, 40, _hoisted_10$2)), $options.hasSlot('label') ? (openBlock(), createElementBlock("label", {
     key: 6,
     for: $props.id
-  }, [renderSlot(_ctx.$slots, "label")], 8, _hoisted_11$1)) : createCommentVNode("", true)], 8, _hoisted_1$7);
+  }, [renderSlot(_ctx.$slots, "label")], 8, _hoisted_11$2)) : createCommentVNode("", true)], 8, _hoisted_1$7);
 }
 
 var css_248z$g = "\n/********** FIELD ELT **********/\nfieldset {\n  --ve-field-display: flex;\n  --ve-field-flex-flow: row wrap;\n  --ve-field-place-items: center;\n  --ve-field-margin: auto;\n  --ve-field-border: none;\n  --ve-field-padding: 0;\n  --ve-field-max-width: 500px;\n  --ve-field-text-align: center;\n  --ve-field-transition: max-width 1s;\n  --ve-field-child-box-sizing: border-box;\n  --ve-field-child-margin: 5px;\n  --ve-field-child-padding: 5px;\n}\nlegend {\n  --ve-field-legend-width: 93%;\n  --ve-field-legend-font-size: 2rem;\n  --ve-field-legend-color: var(--ani-gray);\n  --ve-field-hover-legend-color: var(--ani-black);\n}\nlabel {\n  --ve-field-label-width: 90%;\n  --ve-field-label-visibility: hidden;\n  --ve-field-label-font-size: 1.5rem;\n  --ve-field-label-font-style: italic;\n  --ve-field-label-color: var(--ani-blue);\n  --ve-field-hover-label-visibility: visible;\n  --ve-field-hover-label-transform: scale(1.1);\n  --ve-field-hover-label-transition: all 1s;\n}\ninput,\nselect,\ntextarea {\n  --ve-field-input-border: 1px solid var(--ani-blue);\n  --ve-field-input-border-radius: 10px;\n  --ve-field-input-outline: none;\n  --ve-field-input-width: 100%;\n  --ve-field-input-line-height: 1.8;\n  --ve-field-input-background-color: var(--ani-white);\n  --ve-field-hover-input-border: 1px solid var(--ani-sky);\n  --ve-field-hover-input-border-radius: 0;\n  --ve-field-hover-input-background-color: var(--ani-white);\n  --ve-field-hover-input-transition: all 500ms;\n}\n\n";
@@ -420,7 +420,7 @@ var script$4 = {
     },
     delay: {
       type: Number,
-      default: 2000
+      default: 5000
     },
     auto: {
       type: Boolean,
@@ -614,7 +614,7 @@ var script$4 = {
   }
 };
 
-const _withScopeId$1 = n => (pushScopeId("data-v-b2efd158"), n = n(), popScopeId(), n);
+const _withScopeId$1 = n => (pushScopeId("data-v-39d3af52"), n = n(), popScopeId(), n);
 const _hoisted_1$4 = {
   class: "slider"
 };
@@ -637,14 +637,14 @@ const _hoisted_9$1 = /*#__PURE__*/_withScopeId$1(() => /*#__PURE__*/createElemen
   class: "fas fa-pause fa-2x"
 }, null, -1));
 const _hoisted_10$1 = [_hoisted_9$1];
-const _hoisted_11 = /*#__PURE__*/_withScopeId$1(() => /*#__PURE__*/createElementVNode("i", {
+const _hoisted_11$1 = /*#__PURE__*/_withScopeId$1(() => /*#__PURE__*/createElementVNode("i", {
   class: "fas fa-play fa-2x"
 }, null, -1));
-const _hoisted_12 = [_hoisted_11];
-const _hoisted_13 = /*#__PURE__*/_withScopeId$1(() => /*#__PURE__*/createElementVNode("i", {
+const _hoisted_12$1 = [_hoisted_11$1];
+const _hoisted_13$1 = /*#__PURE__*/_withScopeId$1(() => /*#__PURE__*/createElementVNode("i", {
   class: "fas fa-step-forward fa-2x"
 }, null, -1));
-const _hoisted_14 = [_hoisted_13];
+const _hoisted_14 = [_hoisted_13$1];
 const _hoisted_15 = {
   class: "slides"
 };
@@ -680,7 +680,7 @@ function render$4(_ctx, _cache, $props, $setup, $data, $options) {
     onClick: _cache[4] || (_cache[4] = $event => $options.checkAuto()),
     id: "slider-auto",
     title: "Play"
-  }, _hoisted_12))]), createElementVNode("li", null, [createElementVNode("button", {
+  }, _hoisted_12$1))]), createElementVNode("li", null, [createElementVNode("button", {
     onClick: _cache[5] || (_cache[5] = $event => $options.goNext()),
     title: "Next"
   }, _hoisted_14)])]), createElementVNode("ul", _hoisted_15, [(openBlock(true), createElementBlock(Fragment, null, renderList($props.slides, (slide, index) => {
@@ -708,11 +708,11 @@ function render$4(_ctx, _cache, $props, $setup, $data, $options) {
 var css_248z$a = "\n/********** SLIDER ELT **********/\n.slider {\n  --ve-slider-margin: var(--ve-slider-figcaption-height) auto -20px;\n  --ve-slider-border: none;\n  --ve-slider-padding: 0;\n  --ve-slider-width: 100%;\n  --ve-slider-text-align: center;\n}\n[id*=\"slide-\"] {\n  --ve-slider-slide-display: none;\n}\nfigcaption {\n  --ve-slider-figcaption-padding: 5px 20px;\n  --ve-slider-figcaption-width: 100%;\n  --ve-slider-figcaption-height: 20%;\n  --ve-slider-figcaption-font-weight: bold;\n  --ve-slider-figcaption-color: var(--ani-sky);\n}\n.controls {\n  --ve-slider-controls-display: flex;\n  --ve-slider-controls-gap: 10px;\n  --ve-slider-controls-place-content: center;\n  --ve-slider-controls-opacity: 1;\n  --ve-slider-controls-hover-opacity: 1;\n  --ve-slider-controls-hover-color: var(--ani-sky);\n}\nbutton {\n  --ve-slider-button-border: none;\n  --ve-slider-button-font-size: 60%;\n  --ve-slider-button-background-color: none;\n  --ve-slider-button-color: var(--ani-grey-dark);\n}\n.gallery {\n  --ve-slider-gallery-display: flex;\n  --ve-slider-gallery-gap: 10px;\n  --ve-slider-gallery-place-content: center;\n  --ve-slider-gallery-opacity: 1;\n  --ve-slider-gallery-color: var(--ani-gray);\n  --ve-slider-hover-gallery-opacity: 1;\n  --ve-slider-gallery-child-hover-color: var(--ani-sky);\n  --ve-slider-gallery-child-hover-cursor: pointer;\n}\n.show {\n  --ve-slider-show-display: list-item;\n}\n@media (min-width: 1200px) {\n.controls {\n  --ve-slider-controls-opacity: 0;\n}\n.gallery {\n    --ve-slider-gallery-opacity: 0;\n}\n}\n\n";
 styleInject(css_248z$a);
 
-var css_248z$9 = "\nul[data-v-b2efd158] {\n  margin: 0;\n  padding: 0;\n  list-style: none;\n}\n.slider[data-v-b2efd158] {\n  margin: var(--ve-slider-margin);\n  border: var(--ve-slider-border);\n  padding: var(--ve-slider-padding);\n  width: var(--ve-slider-width);\n  text-align: var(--ve-slider-text-align);\n}\n[id*=\"slide-\"][data-v-b2efd158] {\n  display: var(--ve-slider-slide-display);\n}\nfigcaption[data-v-b2efd158] {\n  padding: var(--ve-slider-figcaption-padding);\n  width: var(--ve-slider-figcaption-width);\n  height: var(--ve-slider-figcaption-height);\n  font-weight: var(--ve-slider-figcaption-font-weight);\n  color: var(--ve-slider-figcaption-color);\n}\n.controls[data-v-b2efd158] {\n  display: var(--ve-slider-controls-display);\n  gap: var(--ve-slider-controls-gap);\n  place-content: var(--ve-slider-controls-place-content);\n  opacity: var(--ve-slider-controls-opacity);\n}\n.slider:hover .controls[data-v-b2efd158],\n.slider:focus .controls[data-v-b2efd158] {\n  opacity: var(--ve-slider-controls-hover-opacity);\n}\n.controls > *[data-v-b2efd158]:hover,\n.controls > *[data-v-b2efd158]:focus {\n  color: var(--ve-slider-controls-hover-color);\n}\nbutton[data-v-b2efd158] {\n  border: var(--ve-slider-button-border);\n  font-size: var(--ve-slider-button-font-size);\n  background-color: var(--ve-slider-button-background-color);\n  color: var(--ve-slider-button-color);\n}\n.gallery[data-v-b2efd158] {\n  display: var(--ve-slider-gallery-display);\n  gap: var(--ve-slider-gallery-gap);\n  place-content: var(--ve-slider-gallery-place-content);\n  opacity: var(--ve-slider-gallery-opacity);\n  color: var(--ve-slider-gallery-color);\n}\n.slider:hover .gallery[data-v-b2efd158],\n.slider:focus .gallery[data-v-b2efd158] {\n  opacity: var(--ve-slider-hover-gallery-opacity);\n}\n.gallery > *[data-v-b2efd158]:hover,\n.gallery > *[data-v-b2efd158]:focus {\n  color: var(--ve-slider-gallery-child-hover-color);\n  cursor: var(--ve-slider-gallery-child-hover-cursor);\n}\n.show[data-v-b2efd158] {\n  display: var(--ve-slider-show-display);\n}\n";
+var css_248z$9 = "\nul[data-v-39d3af52] {\n  margin: 0;\n  padding: 0;\n  list-style: none;\n}\n.slider[data-v-39d3af52] {\n  margin: var(--ve-slider-margin);\n  border: var(--ve-slider-border);\n  padding: var(--ve-slider-padding);\n  width: var(--ve-slider-width);\n  text-align: var(--ve-slider-text-align);\n}\n[id*=\"slide-\"][data-v-39d3af52] {\n  display: var(--ve-slider-slide-display);\n}\nfigcaption[data-v-39d3af52] {\n  padding: var(--ve-slider-figcaption-padding);\n  width: var(--ve-slider-figcaption-width);\n  height: var(--ve-slider-figcaption-height);\n  font-weight: var(--ve-slider-figcaption-font-weight);\n  color: var(--ve-slider-figcaption-color);\n}\n.controls[data-v-39d3af52] {\n  display: var(--ve-slider-controls-display);\n  gap: var(--ve-slider-controls-gap);\n  place-content: var(--ve-slider-controls-place-content);\n  opacity: var(--ve-slider-controls-opacity);\n}\n.slider:hover .controls[data-v-39d3af52],\n.slider:focus .controls[data-v-39d3af52] {\n  opacity: var(--ve-slider-controls-hover-opacity);\n}\n.controls > *[data-v-39d3af52]:hover,\n.controls > *[data-v-39d3af52]:focus {\n  color: var(--ve-slider-controls-hover-color);\n}\nbutton[data-v-39d3af52] {\n  border: var(--ve-slider-button-border);\n  font-size: var(--ve-slider-button-font-size);\n  background-color: var(--ve-slider-button-background-color);\n  color: var(--ve-slider-button-color);\n}\n.gallery[data-v-39d3af52] {\n  display: var(--ve-slider-gallery-display);\n  gap: var(--ve-slider-gallery-gap);\n  place-content: var(--ve-slider-gallery-place-content);\n  opacity: var(--ve-slider-gallery-opacity);\n  color: var(--ve-slider-gallery-color);\n}\n.slider:hover .gallery[data-v-39d3af52],\n.slider:focus .gallery[data-v-39d3af52] {\n  opacity: var(--ve-slider-hover-gallery-opacity);\n}\n.gallery > *[data-v-39d3af52]:hover,\n.gallery > *[data-v-39d3af52]:focus {\n  color: var(--ve-slider-gallery-child-hover-color);\n  cursor: var(--ve-slider-gallery-child-hover-cursor);\n}\n.show[data-v-39d3af52] {\n  display: var(--ve-slider-show-display);\n}\n";
 styleInject(css_248z$9);
 
 script$4.render = render$4;
-script$4.__scopeId = "data-v-b2efd158";
+script$4.__scopeId = "data-v-39d3af52";
 
 var script$3 = {
   name: "TableElt",
@@ -895,62 +895,80 @@ var script = {
     hasSlot(name) {
       return this.$slots[name] !== undefined;
     },
-    toggleMenu() {
+    toggleNav() {
       const nav = document.getElementById("nav");
       const admin = document.getElementById("admin");
-      nav.classList.toggle("show");
-      nav.classList.toggle("hide");
-      admin.classList.toggle("show");
-      admin.classList.toggle("hide");
+      nav.classList.toggle("nav");
+      nav.classList.toggle("admin");
+      admin.classList.toggle("nav");
+      admin.classList.toggle("admin");
+    },
+    toggleSide() {
+      const side = document.getElementById("side");
+      side.classList.toggle("show");
+      side.classList.toggle("hide");
     }
   }
 };
 
-const _withScopeId = n => (pushScopeId("data-v-7d195c1c"), n = n(), popScopeId(), n);
+const _withScopeId = n => (pushScopeId("data-v-b42aea82"), n = n(), popScopeId(), n);
 const _hoisted_1 = {
   key: 0,
   class: "sidebar"
 };
-const _hoisted_2 = ["href", "title"];
-const _hoisted_3 = {
-  key: 0,
-  href: "#top",
-  title: "Top of the Page"
+const _hoisted_2 = {
+  id: "side",
+  class: "show"
 };
-const _hoisted_4 = {
+const _hoisted_3 = {
+  key: 0
+};
+const _hoisted_4 = ["href", "title"];
+const _hoisted_5 = {
+  key: 1
+};
+const _hoisted_6 = {
+  key: 0,
+  href: "#top"
+};
+const _hoisted_7 = {
   key: 1,
   class: "navbar"
 };
-const _hoisted_5 = {
+const _hoisted_8 = {
   key: 0,
   href: "/",
   title: "Home"
 };
-const _hoisted_6 = {
+const _hoisted_9 = {
   id: "nav",
-  class: "show"
+  class: "nav"
 };
-const _hoisted_7 = ["href", "title"];
-const _hoisted_8 = {
+const _hoisted_10 = ["href", "title"];
+const _hoisted_11 = {
   key: 1,
   id: "admin",
-  class: "hide"
+  class: "admin"
 };
-const _hoisted_9 = /*#__PURE__*/_withScopeId(() => /*#__PURE__*/createElementVNode("i", {
+const _hoisted_12 = /*#__PURE__*/_withScopeId(() => /*#__PURE__*/createElementVNode("i", {
   class: "fa-solid fa-bars"
 }, null, -1));
-const _hoisted_10 = [_hoisted_9];
+const _hoisted_13 = [_hoisted_12];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return $options.getNavClass() === 'sidebar' ? (openBlock(), createElementBlock("nav", _hoisted_1, [renderSlot(_ctx.$slots, "first"), (openBlock(true), createElementBlock(Fragment, null, renderList($props.items, (item, index) => {
-    return openBlock(), createElementBlock("a", {
-      key: index,
+  return $options.getNavClass() === 'sidebar' ? (openBlock(), createElementBlock("nav", _hoisted_1, [$options.hasSlot('hide') ? (openBlock(), createElementBlock("button", {
+    key: 0,
+    onClick: _cache[0] || (_cache[0] = $event => $options.toggleSide())
+  }, [renderSlot(_ctx.$slots, "hide")])) : createCommentVNode("", true), createElementVNode("ul", _hoisted_2, [$options.hasSlot('first') ? (openBlock(), createElementBlock("li", _hoisted_3, [renderSlot(_ctx.$slots, "first")])) : createCommentVNode("", true), (openBlock(true), createElementBlock(Fragment, null, renderList($props.items, (item, index) => {
+    return openBlock(), createElementBlock("li", {
+      key: index
+    }, [createElementVNode("a", {
       href: `#${item}`,
       title: item
     }, [renderSlot(_ctx.$slots, "items", {
       item: item,
       index: index
-    }, () => [createTextVNode(toDisplayString(item), 1)])], 8, _hoisted_2);
-  }), 128)), renderSlot(_ctx.$slots, "last"), $options.hasSlot('top') ? (openBlock(), createElementBlock("a", _hoisted_3, [renderSlot(_ctx.$slots, "top")])) : createCommentVNode("", true)])) : (openBlock(), createElementBlock("nav", _hoisted_4, [$options.hasSlot('brand') ? (openBlock(), createElementBlock("a", _hoisted_5, [renderSlot(_ctx.$slots, "brand")])) : createCommentVNode("", true), createElementVNode("ul", _hoisted_6, [(openBlock(true), createElementBlock(Fragment, null, renderList($props.items, (item, index) => {
+    }, () => [createTextVNode(toDisplayString(item), 1)])], 8, _hoisted_4)]);
+  }), 128)), $options.hasSlot('last') ? (openBlock(), createElementBlock("li", _hoisted_5, [renderSlot(_ctx.$slots, "last")])) : createCommentVNode("", true), createElementVNode("li", null, [$options.hasSlot('top') ? (openBlock(), createElementBlock("a", _hoisted_6, [renderSlot(_ctx.$slots, "top")])) : createCommentVNode("", true)])])])) : (openBlock(), createElementBlock("nav", _hoisted_7, [$options.hasSlot('brand') ? (openBlock(), createElementBlock("a", _hoisted_8, [renderSlot(_ctx.$slots, "brand")])) : createCommentVNode("", true), createElementVNode("ul", _hoisted_9, [(openBlock(true), createElementBlock(Fragment, null, renderList($props.items, (item, index) => {
     return openBlock(), createElementBlock("li", {
       key: index
     }, [createElementVNode("a", {
@@ -961,25 +979,25 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       index: index
     }, () => [createElementVNode("i", {
       class: normalizeClass(`fa-${item.type} fa-${item.icon} fa-fw`)
-    }, null, 2)]), createElementVNode("b", null, toDisplayString(item.name), 1)], 8, _hoisted_7)]);
-  }), 128))]), $options.hasSlot('admin') ? (openBlock(), createElementBlock("aside", _hoisted_8, [renderSlot(_ctx.$slots, "admin")])) : createCommentVNode("", true), createElementVNode("button", {
+    }, null, 2)]), createElementVNode("b", null, toDisplayString(item.name), 1)], 8, _hoisted_10)]);
+  }), 128))]), $options.hasSlot('admin') ? (openBlock(), createElementBlock("aside", _hoisted_11, [renderSlot(_ctx.$slots, "admin")])) : createCommentVNode("", true), createElementVNode("button", {
     type: "button",
-    onClick: _cache[0] || (_cache[0] = $event => $options.toggleMenu()),
+    onClick: _cache[1] || (_cache[1] = $event => $options.toggleNav()),
     title: "Menu"
-  }, _hoisted_10)]));
+  }, _hoisted_13)]));
 }
 
-var css_248z$2 = "\n/********** NAV ELT **********/\n:root {\n  --ve-nav-height: 50px;\n}\n.navbar {\n  --ve-nav-display: flex;\n  --ve-nav-place-content: space-between;\n  --ve-nav-place-items: center;\n  --ve-nav-position: fixed;\n  --ve-nav-top: 0;\n  --ve-nav-right: 0;\n  --ve-nav-bottom: unset;\n  --ve-nav-left: 0;\n  --ve-nav-z-index: 1000;\n  --ve-nav-background-color: var(--ani-blue-dark);\n  --ve-nav-color: var(--ani-white);\n  --ve-nav-a-padding: 10px;\n  --ve-nav-a-color: var(--ani-white);\n  --ve-nav-a-cursor: pointer;\n  --ve-nav-ul-display: flex;\n  --ve-nav-ul-place-items: center;\n  --ve-nav-ul-margin: 0;\n  --ve-nav-ul-padding: 0;\n  --ve-nav-ul-list-style: none;\n  --ve-nav-ul-a-display: flex;\n  --ve-nav-ul-a-not-i-display: none;\n  --ve-nav-ul-a-flex-direction: column;\n  --ve-nav-ul-a-hover-color: var(--ani-yellow);\n  --ve-nav-ul-a-hover-transform: scale(0.9);\n  --ve-nav-last-ul-a-hover-color: var(--ani-red);\n  --ve-nav-button-background-color: transparent;\n  --ve-nav-button-border: none;\n  --ve-nav-button-cursor: pointer;\n  --ve-nav-i-place-self: center;\n}\n.sidebar {\n  --ve-side-display: flex;\n  --ve-side-flex-flow: column;\n  --ve-side-position: fixed;\n  --ve-side-top: calc(var(--ve-nav-height) + 10px);\n  --ve-side-left: 2px;\n  --ve-side-z-index: 10;\n  --ve-side-width: auto;\n  --ve-side-a-display: flex;\n  --ve-side-a-place-content: center;\n  --ve-side-a-place-items: center;\n  --ve-side-a-margin: 5px;\n  --ve-side-a-border-radius: 20px;\n  --ve-side-a-padding: 5px;\n  --ve-side-a-width: 100%;\n  --ve-side-a-background-color: var(--ani-white-dark);\n  --ve-side-a-color: var(--ani-blue-dark);\n  --ve-side-a-cursor: crosshair;\n  --ve-side-a-hover-border-radius: 10px;\n  --ve-side-a-hover-background-color: var(--ani-blue-dark);\n  --ve-side-a-hover-color: var(--ani-white-dark);\n  --ve-side-a-hover-transform: scale(1.1);\n  --ve-side-a-hover-transition: all 500ms;\n}\n.hide {\n  --ve-nav-hide-display: none;\n}\n.show {\n  --ve-nav-show-display: flex;\n}\n@media (min-width: 576px) {\n.navbar {\n    --ve-nav-place-content: space-around;\n}\n}\n@media (min-width: 768px) {\n:root {\n    --ve-nav-height: 80px;\n}\n.navbar {\n    --ve-nav-button-display: none;\n    --ve-nav-ul-a-not-i-display: flex;\n}\n.hide {\n    --ve-nav-hide-display: flex;\n}\n}\n\n";
+var css_248z$2 = "\n/********** NAV ELT **********/\n:root {\n  --ve-nav-height: 50px;\n}\n.navbar {\n  --ve-nav-display: flex;\n  --ve-nav-place-content: space-between;\n  --ve-nav-place-items: center;\n  --ve-nav-position: fixed;\n  --ve-nav-top: 0;\n  --ve-nav-right: 0;\n  --ve-nav-bottom: unset;\n  --ve-nav-left: 0;\n  --ve-nav-z-index: 1000;\n  --ve-nav-background-color: var(--ani-blue-dark);\n  --ve-nav-color: var(--ani-white);\n  --ve-nav-a-padding: 10px;\n  --ve-nav-a-color: var(--ani-white);\n  --ve-nav-a-cursor: pointer;\n  --ve-nav-ul-display: flex;\n  --ve-nav-ul-place-items: center;\n  --ve-nav-ul-margin: 0;\n  --ve-nav-ul-padding: 0;\n  --ve-nav-ul-list-style: none;\n  --ve-nav-ul-a-display: flex;\n  --ve-nav-ul-a-not-i-display: none;\n  --ve-nav-ul-a-flex-direction: column;\n  --ve-nav-ul-a-hover-color: var(--ani-yellow);\n  --ve-nav-ul-a-hover-transform: scale(0.9);\n  --ve-nav-last-ul-a-hover-color: var(--ani-red);\n  --ve-nav-button-background-color: transparent;\n  --ve-nav-button-border: none;\n  --ve-nav-button-cursor: pointer;\n  --ve-nav-i-place-self: center;\n}\n.admin {\n  --ve-nav-hide-display: none;\n}\n.nav {\n  --ve-nav-show-display: flex;\n}\n.sidebar {\n  --ve-side-display: flex;\n  --ve-side-flex-flow: column;\n  --ve-side-position: fixed;\n  --ve-side-top: calc(var(--ve-nav-height) + 10px);\n  --ve-side-left: 2px;\n  --ve-side-z-index: 10;\n  --ve-side-width: auto;\n  --ve-side-ul-display: flex;\n  --ve-side-ul-flex-flow: column;\n  --ve-side-a-display: flex;\n  --ve-side-a-place-content: center;\n  --ve-side-a-place-items: center;\n  --ve-side-a-margin: 5px;\n  --ve-side-a-border: none;\n  --ve-side-a-border-radius: 20px;\n  --ve-side-a-outline: none;\n  --ve-side-a-padding: 5px;\n  --ve-side-a-width: 100%;\n  --ve-side-a-background-color: var(--ani-white-dark);\n  --ve-side-a-color: var(--ani-blue-dark);\n  --ve-side-a-cursor: crosshair;\n  --ve-side-a-hover-border-radius: 10px;\n  --ve-side-a-hover-background-color: var(--ani-blue-dark);\n  --ve-side-a-hover-color: var(--ani-white-dark);\n  --ve-side-a-hover-transform: scale(1.1);\n  --ve-side-a-hover-transition: all 500ms;\n}\n.hide {\n  --ve-side-hide-display: none;\n}\n.show {\n  --ve-side-show-display: flex;\n}\n@media (min-width: 576px) {\n.navbar {\n    --ve-nav-place-content: space-around;\n}\n}\n@media (min-width: 768px) {\n:root {\n    --ve-nav-height: 80px;\n}\n.navbar {\n    --ve-nav-button-display: none;\n    --ve-nav-ul-a-not-i-display: flex;\n}\n.admin {\n    --ve-nav-hide-display: flex;\n}\n}\n\n";
 styleInject(css_248z$2);
 
 var css_248z$1 = "\n[id=\"app\"] {\n  margin-top: var(--ve-nav-height);\n}\n";
 styleInject(css_248z$1);
 
-var css_248z = "\n.navbar[data-v-7d195c1c] {\n  display: var(--ve-nav-display);\n  place-content: var(--ve-nav-place-content);\n  place-items: var(--ve-nav-place-items);\n  position: var(--ve-nav-position);\n  top: var(--ve-nav-top);\n  right: var(--ve-nav-right);\n  bottom: var(--ve-nav-bottom);\n  left: var(--ve-nav-left);\n  z-index: var(--ve-nav-z-index);\n  height: var(--ve-nav-height);\n  background-color: var(--ve-nav-background-color);\n  color: var(--ve-nav-color);\n}\n.navbar[data-v-7d195c1c] a,\n.navbar[data-v-7d195c1c] button {\n  padding: var(--ve-nav-a-padding);\n  color: var(--ve-nav-a-color);\n  cursor: var(--ve-nav-a-cursor);\n}\n.navbar[data-v-7d195c1c] ul {\n  display: var(--ve-nav-ul-display);\n  place-items: var(--ve-nav-ul-place-items);\n  margin: var(--ve-nav-ul-margin);\n  padding: var(--ve-nav-ul-padding);\n  list-style: var(--ve-nav-ul-list-style);\n}\n.navbar ul a[data-v-7d195c1c] {\n  display: var(--ve-nav-ul-a-display);\n}\n.navbar ul a[data-v-7d195c1c] :not(i) {\n  display: var(--ve-nav-ul-a-not-i-display);\n}\n.navbar[data-v-7d195c1c] ul a,\n.navbar[data-v-7d195c1c] ul button {\n  flex-direction: var(--ve-nav-ul-a-flex-direction);\n}\n.navbar ul a[data-v-7d195c1c]:hover,\n.navbar ul a[data-v-7d195c1c]:focus,\n.navbar ul button[data-v-7d195c1c]:hover,\n.navbar ul button[data-v-7d195c1c]:focus {\n  color: var(--ve-nav-ul-a-hover-color) !important;\n  transform: var(--ve-nav-ul-a-hover-transform) !important;\n}\n.navbar[data-v-7d195c1c] ul:last-of-type a:hover,\n.navbar[data-v-7d195c1c] ul:last-of-type a:focus,\n.navbar[data-v-7d195c1c] ul:last-of-type button:hover,\n.navbar[data-v-7d195c1c] ul:last-of-type button:focus {\n  color: var(--ve-nav-last-ul-a-hover-color);\n}\n.navbar[data-v-7d195c1c] button {\n  background-color: var(--ve-nav-button-background-color);\n  border: var(--ve-nav-button-border);\n  cursor: var(--ve-nav-button-cursor);\n}\n.navbar[data-v-7d195c1c] i {\n  place-self: var(--ve-nav-i-place-self);\n}\n.sidebar[data-v-7d195c1c] {\n  display: var(--ve-side-display);\n  flex-flow: var(--ve-side-flex-flow);\n  position: var(--ve-side-position);\n  top: var(--ve-side-top);\n  left: var(--ve-side-left);\n  z-index: var(--ve-side-z-index);\n  width: var(--ve-side-width);\n}\n.sidebar[data-v-7d195c1c] a {\n  display: var(--ve-side-a-display);\n  place-content: var(--ve-side-a-place-content);\n  place-items: var(--ve-side-a-place-items);\n  margin: var(--ve-side-a-margin);\n  border-radius: var(--ve-side-a-border-radius);\n  padding: var(--ve-side-a-padding);\n  width: var(--ve-side-a-width);\n  background-color: var(--ve-side-a-background-color);\n  color: var(--ve-side-a-color);\n  cursor: var(--ve-side-a-cursor);\n}\n.sidebar[data-v-7d195c1c] a:hover,\n.sidebar[data-v-7d195c1c] a:focus {\n  border-radius: var(--ve-side-a-hover-border-radius);\n  color: var(--ve-side-a-hover-color);\n  background-color: var(--ve-side-a-hover-background-color);\n  transform: var(--ve-side-a-hover-transform);\n  transition: var(--ve-side-a-hover-transition);\n}\n.hide[data-v-7d195c1c] {\n  display: var(--ve-nav-hide-display) !important;\n}\n.show[data-v-7d195c1c] {\n  display: var(--ve-nav-show-display);\n}\n@media (min-width: 768px) {\n.navbar > button[data-v-7d195c1c] {\n    display: var(--ve-nav-button-display);\n}\n}\n";
+var css_248z = "\n.navbar[data-v-b42aea82] {\n  display: var(--ve-nav-display);\n  place-content: var(--ve-nav-place-content);\n  place-items: var(--ve-nav-place-items);\n  position: var(--ve-nav-position);\n  top: var(--ve-nav-top);\n  right: var(--ve-nav-right);\n  bottom: var(--ve-nav-bottom);\n  left: var(--ve-nav-left);\n  z-index: var(--ve-nav-z-index);\n  height: var(--ve-nav-height);\n  background-color: var(--ve-nav-background-color);\n  color: var(--ve-nav-color);\n}\n.navbar[data-v-b42aea82] a,\n.navbar[data-v-b42aea82] button {\n  padding: var(--ve-nav-a-padding);\n  color: var(--ve-nav-a-color);\n  cursor: var(--ve-nav-a-cursor);\n}\n.navbar[data-v-b42aea82] ul {\n  display: var(--ve-nav-ul-display);\n  place-items: var(--ve-nav-ul-place-items);\n  margin: var(--ve-nav-ul-margin);\n  padding: var(--ve-nav-ul-padding);\n  list-style: var(--ve-nav-ul-list-style);\n}\n.navbar ul a[data-v-b42aea82] {\n  display: var(--ve-nav-ul-a-display);\n}\n.navbar ul a[data-v-b42aea82] :not(i) {\n  display: var(--ve-nav-ul-a-not-i-display);\n}\n.navbar[data-v-b42aea82] ul a,\n.navbar[data-v-b42aea82] ul button {\n  flex-direction: var(--ve-nav-ul-a-flex-direction);\n}\n.navbar ul a[data-v-b42aea82]:hover,\n.navbar ul a[data-v-b42aea82]:focus,\n.navbar ul button[data-v-b42aea82]:hover,\n.navbar ul button[data-v-b42aea82]:focus {\n  color: var(--ve-nav-ul-a-hover-color) !important;\n  transform: var(--ve-nav-ul-a-hover-transform) !important;\n}\n.navbar[data-v-b42aea82] ul:last-of-type a:hover,\n.navbar[data-v-b42aea82] ul:last-of-type a:focus,\n.navbar[data-v-b42aea82] ul:last-of-type button:hover,\n.navbar[data-v-b42aea82] ul:last-of-type button:focus {\n  color: var(--ve-nav-last-ul-a-hover-color);\n}\n.navbar[data-v-b42aea82] button {\n  background-color: var(--ve-nav-button-background-color);\n  border: var(--ve-nav-button-border);\n  cursor: var(--ve-nav-button-cursor);\n}\n.navbar[data-v-b42aea82] i {\n  place-self: var(--ve-nav-i-place-self);\n}\n.admin[data-v-b42aea82] {\n  display: var(--ve-nav-hide-display) !important;\n}\n.nav[data-v-b42aea82] {\n  display: var(--ve-nav-show-display);\n}\n.sidebar[data-v-b42aea82] {\n  display: var(--ve-side-display);\n  flex-flow: var(--ve-side-flex-flow);\n  position: var(--ve-side-position);\n  top: var(--ve-side-top);\n  left: var(--ve-side-left);\n  z-index: var(--ve-side-z-index);\n  width: var(--ve-side-width);\n}\n.sidebar ul[data-v-b42aea82] {\n  display: var(--ve-side-ul-display);\n  flex-flow: var(--ve-side-ul-flex-flow);\n}\n.sidebar[data-v-b42aea82] a,\n.sidebar button[data-v-b42aea82] {\n  display: var(--ve-side-a-display);\n  place-content: var(--ve-side-a-place-content);\n  place-items: var(--ve-side-a-place-items);\n  margin: var(--ve-side-a-margin);\n  border: var(--ve-side-a-border);\n  border-radius: var(--ve-side-a-border-radius);\n  outline: var(--ve-side-a-outline);\n  padding: var(--ve-side-a-padding);\n  width: var(--ve-side-a-width);\n  background-color: var(--ve-side-a-background-color);\n  color: var(--ve-side-a-color);\n  cursor: var(--ve-side-a-cursor);\n}\n.sidebar[data-v-b42aea82] a:hover,\n.sidebar[data-v-b42aea82] a:focus,\n.sidebar button[data-v-b42aea82]:hover,\n.sidebar button[data-v-b42aea82]:focus {\n  border-radius: var(--ve-side-a-hover-border-radius);\n  color: var(--ve-side-a-hover-color);\n  background-color: var(--ve-side-a-hover-background-color);\n  transform: var(--ve-side-a-hover-transform);\n  transition: var(--ve-side-a-hover-transition);\n}\n.hide[data-v-b42aea82] {\n  display: var(--ve-side-hide-display) !important;\n}\n.show[data-v-b42aea82] {\n  display: var(--ve-side-show-display);\n}\n@media (min-width: 768px) {\n.navbar > button[data-v-b42aea82] {\n    display: var(--ve-nav-button-display);\n}\n}\n";
 styleInject(css_248z);
 
 script.render = render;
-script.__scopeId = "data-v-7d195c1c";
+script.__scopeId = "data-v-b42aea82";
 
 /* eslint-disable import/prefer-default-export */
 

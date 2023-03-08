@@ -22,6 +22,11 @@ button {
   --ve-btn-hover-transition: all 200ms;
   --ve-btn-child-display: block;
   --ve-btn-child-margin: auto;
+  --ve-label-border-radius: 20px;
+  --ve-label-background-color: var(--ani-white);
+  --ve-label-border-color: var(--ani-white);
+  --ve-label-color: var(--ani-white);
+  --ve-label-hover-border-radius: 20px;
 }
 
 /********** FIELD ELT **********/
@@ -391,6 +396,14 @@ aside {
   --ve-nav-i-place-self: center;
 }
 
+.admin {
+  --ve-nav-hide-display: none;
+}
+
+.nav {
+  --ve-nav-show-display: flex;
+}
+
 .sidebar {
   --ve-side-display: flex;
   --ve-side-flex-flow: column;
@@ -399,11 +412,15 @@ aside {
   --ve-side-left: 2px;
   --ve-side-z-index: 10;
   --ve-side-width: auto;
+  --ve-side-ul-display: flex;
+  --ve-side-ul-flex-flow: column;
   --ve-side-a-display: flex;
   --ve-side-a-place-content: center;
   --ve-side-a-place-items: center;
   --ve-side-a-margin: 5px;
+  --ve-side-a-border: none;
   --ve-side-a-border-radius: 20px;
+  --ve-side-a-outline: none;
   --ve-side-a-padding: 5px;
   --ve-side-a-width: 100%;
   --ve-side-a-background-color: var(--ani-white-dark);
@@ -417,11 +434,11 @@ aside {
 }
 
 .hide {
-  --ve-nav-hide-display: none;
+  --ve-side-hide-display: none;
 }
 
 .show {
-  --ve-nav-show-display: flex;
+  --ve-side-show-display: flex;
 }
 
 @media (min-width: 576px) {
@@ -440,7 +457,7 @@ aside {
     --ve-nav-ul-a-not-i-display: flex;
   }
 
-  .hide {
+  .admin {
     --ve-nav-hide-display: flex;
   }
 }
