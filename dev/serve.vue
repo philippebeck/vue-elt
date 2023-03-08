@@ -25,6 +25,10 @@
   <NavElt :items="['btn', 'field', 'media', 'list', 'slider', 'table', 'nav', 'card', 'foot']"
     class="sidebar">
 
+    <template #hide>
+      <i class="fa-solid fa-eye"></i>
+    </template>
+
     <template #top>
       <i class="fa-solid fa-long-arrow-up"></i>
     </template>
