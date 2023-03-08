@@ -391,23 +391,6 @@
       </ListElt>
     </template>
 
-    <template #foot3>
-      <ListElt :items="['Contact', 'Legal Notice']">
-        <template #item-1>
-          <a href="mailto:contact@philippebeck.net"
-            title="Send a message">
-            Contact
-          </a>
-        </template>
-        <template #item-2>
-          <a href="#"
-            title="Read the legal notice">
-            Legal Notice
-          </a>
-        </template>
-      </ListElt>
-    </template>
-
     <template #foot>
       <ListElt :items="['GitHub', 'LinkedIn', 'Medium', 'NPM', 'Twitter', 'CodePen']">
         <template #item-1>
