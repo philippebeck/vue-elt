@@ -98,7 +98,7 @@ export default {
     },
     delay: {
       type: Number,
-      default: 2000
+      default: 5000
     },
     auto: {
       type: Boolean,
