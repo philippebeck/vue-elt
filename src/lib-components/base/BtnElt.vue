@@ -72,6 +72,11 @@ button {
   --ve-btn-hover-transition: all 200ms;
   --ve-btn-child-display: block;
   --ve-btn-child-margin: auto;
+  --ve-label-border-radius: 20px;
+  --ve-label-background-color: var(--ani-white);
+  --ve-label-border-color: var(--ani-white);
+  --ve-label-color: var(--ani-white);
+  --ve-label-hover-border-radius: 20px;
 }
 
 </style>
@@ -94,6 +99,11 @@ button {
   cursor: var(--ve-btn-cursor);
 }
 
+[class*="label-"] {
+  border-radius: var(--ve-label-border-radius);
+  background-color: var(--ve-label-background-color);
+}
+
 a:hover,
 a:focus,
 button:hover,
@@ -104,6 +114,13 @@ button:focus {
   color: var(--ve-btn-hover-color);
   box-shadow: var(--ve-btn-hover-box-shadow);
   transition: var(--ve-btn-hover-transition);
+}
+
+[class*="label-"]:hover,
+[class*="label-"]:focus {
+  border-color: var(--ve-label-border-color);
+  border-radius: var(--ve-label-hover-border-radius);
+  color: var(--ve-label-color);
 }
 
 a > *,
@@ -124,6 +141,16 @@ button > * {
   color: var(--ani-red);
 }
 
+.label-red {
+  border-color: var(--ani-red);
+  color: var(--ani-red);
+}
+
+.label-red:hover,
+.label-red:focus {
+  background-color: var(--ani-red);
+}
+
 /* ORANGE */
 
 .btn-orange {
@@ -134,6 +161,16 @@ button > * {
 .btn-orange:focus {
   border-color: var(--ani-orange);
   color: var(--ani-orange);
+}
+
+.label-orange {
+  border-color: var(--ani-orange);
+  color: var(--ani-orange);
+}
+
+.label-orange:hover,
+.label-orange:focus {
+  background-color: var(--ani-orange);
 }
 
 /* YELLOW */
@@ -148,6 +185,16 @@ button > * {
   color: var(--ani-yellow);
 }
 
+.label-yellow {
+  border-color: var(--ani-yellow);
+  color: var(--ani-yellow);
+}
+
+.label-yellow:hover,
+.label-yellow:focus {
+  background-color: var(--ani-yellow);
+}
+
 /* GREEN */
 
 .btn-green {
@@ -158,6 +205,16 @@ button > * {
 .btn-green:focus {
   border-color: var(--ani-green);
   color: var(--ani-green);
+}
+
+.label-green {
+  border-color: var(--ani-green);
+  color: var(--ani-green);
+}
+
+.label-green:hover,
+.label-green:focus {
+  background-color: var(--ani-green);
 }
 
 /* SKY */
@@ -172,6 +229,16 @@ button > * {
   color: var(--ani-sky);
 }
 
+.label-sky {
+  border-color: var(--ani-sky);
+  color: var(--ani-sky);
+}
+
+.label-sky:hover,
+.label-sky:focus {
+  background-color: var(--ani-sky);
+}
+
 /* BLUE */
 
 .btn-blue {
@@ -182,6 +249,16 @@ button > * {
 .btn-blue:focus {
   border-color: var(--ani-blue);
   color: var(--ani-blue);
+}
+
+.label-blue {
+  border-color: var(--ani-blue);
+  color: var(--ani-blue);
+}
+
+.label-blue:hover,
+.label-blue:focus {
+  background-color: var(--ani-blue);
 }
 
 /* VIOLET */
@@ -196,6 +273,16 @@ button > * {
   color: var(--ani-violet);
 }
 
+.label-violet {
+  border-color: var(--ani-violet);
+  color: var(--ani-violet);
+}
+
+.label-violet:hover,
+.label-violet:focus {
+  background-color: var(--ani-violet);
+}
+
 /* PINK */
 
 .btn-pink {
@@ -206,5 +293,15 @@ button > * {
 .btn-pink:focus {
   border-color: var(--ani-pink);
   color: var(--ani-pink);
+}
+
+.label-pink {
+  border-color: var(--ani-pink);
+  color: var(--ani-pink);
+}
+
+.label-pink:hover,
+.label-pink:focus {
+  background-color: var(--ani-pink);
 }
 </style>
