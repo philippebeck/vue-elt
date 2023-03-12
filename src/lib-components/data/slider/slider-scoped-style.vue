@@ -32,6 +32,7 @@ figcaption {
   gap: var(--ve-slider-controls-gap);
   place-content: var(--ve-slider-controls-place-content);
   opacity: var(--ve-slider-controls-opacity);
+  color: var(--ve-slider-controls-color);
 }
 
 .slider:hover .controls,

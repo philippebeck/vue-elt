@@ -142,6 +142,7 @@ export default {
 <style>
 /********** NAV ELT **********/
 :root {
+  --ve-nav-margin: 20px;
   --ve-nav-height: 50px;
 }
 
@@ -230,6 +231,7 @@ export default {
 
 @media (min-width: 768px) {
   :root {
+    --ve-nav-margin: 40px;
     --ve-nav-height: 80px;
   }
 
@@ -247,7 +249,7 @@ export default {
 
 <style>
 [id="app"] {
-  margin-top: var(--ve-nav-height);
+  margin-top: calc(var(--ve-nav-height) + var(--ve-nav-margin));
 }
 </style>
 

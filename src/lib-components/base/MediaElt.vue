@@ -99,7 +99,7 @@ figure {
 }
 
 img {
-  --ve-media-img-border: 1px solid var(--ani-blue);
+  --ve-media-img-border: 2px solid var(--ani-gray);
   --ve-media-img-border-radius: 20px;
   --ve-media-img-padding: 1px;
   --ve-media-img-max-width: 100%;
@@ -114,7 +114,7 @@ audio {
 }
 
 video {
-  --ve-media-video-border: 2px solid var(--ani-black);
+  --ve-media-video-border: 2px solid var(--ani-gray);
   --ve-media-video-border-radius: 20px;
 }
 
@@ -122,7 +122,7 @@ figcaption {
   --ve-media-figcaption-display: flex;
   --ve-media-figcaption-flex-flow: column nowrap;
   --ve-media-figcaption-place-content: center center;
-  --ve-media-figcaption-color: var(--ani-blue);
+  --ve-media-figcaption-color: var(--ani-black);
 }
 
 </style>
