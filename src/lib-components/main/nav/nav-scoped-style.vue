@@ -2,7 +2,7 @@
 
 <style>
 [id="app"] {
-  margin-top: var(--ve-nav-height);
+  margin-top: calc(var(--ve-nav-height) + var(--ve-nav-margin));
 }
 </style>
 

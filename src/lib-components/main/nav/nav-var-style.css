@@ -1,5 +1,6 @@
 /********** NAV ELT **********/
 :root {
+  --ve-nav-margin: 20px;
   --ve-nav-height: 50px;
 }
 
@@ -88,6 +89,7 @@
 
 @media (min-width: 768px) {
   :root {
+    --ve-nav-margin: 40px;
     --ve-nav-height: 80px;
   }
 
