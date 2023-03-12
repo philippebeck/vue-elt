@@ -337,7 +337,8 @@ figcaption {
   --ve-slider-controls-display: flex;
   --ve-slider-controls-gap: 10px;
   --ve-slider-controls-place-content: center;
-  --ve-slider-controls-opacity: 1;
+  --ve-slider-controls-opacity: 0.5;
+  --ve-slider-controls-color: var(--ani-silver);
   --ve-slider-controls-hover-opacity: 1;
   --ve-slider-controls-hover-color: var(--ani-sky);
 }
@@ -353,8 +354,8 @@ button {
   --ve-slider-gallery-display: flex;
   --ve-slider-gallery-gap: 10px;
   --ve-slider-gallery-place-content: center;
-  --ve-slider-gallery-opacity: 1;
-  --ve-slider-gallery-color: var(--ani-gray);
+  --ve-slider-gallery-opacity: 0.5;
+  --ve-slider-gallery-color: var(--ani-silver);
   --ve-slider-hover-gallery-opacity: 1;
   --ve-slider-gallery-child-hover-color: var(--ani-sky);
   --ve-slider-gallery-child-hover-cursor: pointer;
@@ -407,6 +408,7 @@ figcaption {
   gap: var(--ve-slider-controls-gap);
   place-content: var(--ve-slider-controls-place-content);
   opacity: var(--ve-slider-controls-opacity);
+  color: var(--ve-slider-controls-color);
 }
 
 .slider:hover .controls,
