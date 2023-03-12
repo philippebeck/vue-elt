@@ -22,7 +22,8 @@ export default {
     loop: {
       type: Boolean,
       default: false
-    }
+    },
+    itemprop: String
   },
   
   methods: {

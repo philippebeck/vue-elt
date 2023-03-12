@@ -5,7 +5,8 @@
     <audio v-if="type === 'audio'"
       controls
       :src="src"
-      :loop="loop">
+      :loop="loop"
+      :itemprop="itemprop">
       <slot name="audio"></slot>
     </audio>
 
@@ -15,7 +16,8 @@
       :src="src"
       :loop="loop"
       :height="height"
-      :width="width">
+      :width="width"
+      :itemprop="itemprop">
 
       <source v-for="(video, index) in medias"
         :key="index"
@@ -34,13 +36,15 @@
         :media="picture.media">
 
       <img :src="src"
-        :alt="alt">
+        :alt="alt"
+        :itemprop="itemprop">
     </picture>
 
     <!-- IMAGE ELT (single source) -->
     <img v-else
       :src="src"
-      :alt="alt">
+      :alt="alt"
+      :itemprop="itemprop">
 
     <!-- Figcaption (option) -->
     <figcaption v-if="hasSlot('figcaption')">
@@ -73,7 +77,8 @@ export default {
     loop: {
       type: Boolean,
       default: false
-    }
+    },
+    itemprop: String
   },
   
   methods: {
