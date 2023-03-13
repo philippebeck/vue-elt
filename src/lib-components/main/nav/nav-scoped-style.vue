@@ -37,11 +37,13 @@
   list-style: var(--ve-nav-ul-list-style);
 }
 
-.navbar ul a {
+.navbar ul a,
+.navbar ul button {
   display: var(--ve-nav-ul-a-display);
 }
 
-.navbar ul a :not(i) {
+.navbar ul a :not(i),
+.navbar ul button :not(i) {
   display: var(--ve-nav-ul-a-not-i-display);
 }
 
