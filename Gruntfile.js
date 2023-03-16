@@ -85,6 +85,7 @@ module.exports = function(grunt) {
       },
       style: {
         src: [
+          "node_modules/animadio/dist/style.css",
           "src/lib-components/base/btn/btn-var-style.css",
           "src/lib-components/base/field/field-var-style.css",
           "src/lib-components/base/media/media-var-style.css",
