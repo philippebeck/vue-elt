@@ -12,13 +12,13 @@ footer {
   --ve-foot-ul-place-content: center;
   --ve-foot-ul-place-items: center;
   --ve-foot-ul-padding: 20px;
-  --ve-foot-ul-background-color: var(--ani-blue);
+  --ve-foot-ul-background-color: var(--ani-sky-light);
   --ve-foot-title-margin-bottom: 5px;
   --ve-foot-title-font-size: 2rem;
   --ve-foot-title-font-family: var(--ani-monospace);
-  --ve-foot-title-color: var(--ani-yellow);
-  --ve-foot-section-a-color: var(--ani-white);
-  --ve-foot-section-a-hover-color: var(--ani-yellow);
+  --ve-foot-title-color: var(--ani-black);
+  --ve-foot-section-a-color: var(--ani-black);
+  --ve-foot-section-a-hover-color: var(--ani-slate);
 }
 
 aside {
