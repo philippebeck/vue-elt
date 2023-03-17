@@ -472,19 +472,19 @@
         <template #item-2>
           <a href="https://www.linkedin.com/in/philippebeck"
             title="Philippe Beck @LinkedIn">
-            <i class="fa-brands fa-linkedin-in fa-lg fa-fw blue"></i>
+            <i class="fa-brands fa-linkedin-in fa-lg fa-fw sky-dark"></i>
           </a>
         </template>
         <template #item-3>
           <a href="https://medium.com/@philippebeck"
             title="Philippe Beck @Medium">
-            <i class="fa-brands fa-medium fa-lg fa-fw green"></i>
+            <i class="fa-brands fa-medium fa-lg fa-fw green-dark"></i>
           </a>
         </template>
         <template #item-4>
           <a href="https://www.npmjs.com/~philippebeck"
             title="Philippe Beck @NPM">
-            <i class="fa-brands fa-npm fa-lg fa-fw red"></i>
+            <i class="fa-brands fa-npm fa-lg fa-fw red-dark"></i>
           </a>
         </template>
         <template #item-5>
