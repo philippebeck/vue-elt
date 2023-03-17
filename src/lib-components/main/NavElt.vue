@@ -156,7 +156,7 @@ export default {
   --ve-nav-bottom: unset;
   --ve-nav-left: 0;
   --ve-nav-z-index: 1000;
-  --ve-nav-background-color: var(--ani-blue-darker);
+  --ve-nav-background-color: var(--ani-sky-dark);
   --ve-nav-color: var(--ani-white);
   --ve-nav-a-padding: 10px;
   --ve-nav-a-color: var(--ani-white);
@@ -206,7 +206,7 @@ export default {
   --ve-side-a-padding: 5px;
   --ve-side-a-width: 100%;
   --ve-side-a-background-color: var(--ani-white-lighter);
-  --ve-side-a-color: var(--ani-sky-dark);
+  --ve-side-a-color: var(--ani-sky);
   --ve-side-a-cursor: crosshair;
   --ve-side-a-hover-border-radius: 10px;
   --ve-side-a-hover-background-color: var(--ani-sky-darker);
