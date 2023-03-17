@@ -14,8 +14,8 @@
   --ani-max: 100%;
   /* lightness */
   --ani-base: 50%;
-  --ani-dark: 30%;
-  --ani-light: 70%;
+  --ani-dark: 40%;
+  --ani-light: 60%;
   /* opacity */
   --ani-darker: 0.7;
   --ani-lighter: 0.3;
@@ -343,26 +343,27 @@ button {
   --ve-btn-margin: 10px;
   --ve-btn-border: none;
   --ve-btn-border-radius: 10px;
-  --ve-btn-padding: 5px 10px;
+  --ve-btn-padding: 10px 15px;
   --ve-btn-font-family: var(--ani-monospace);
   --ve-btn-font-size: 1.5rem;
   --ve-btn-font-weight: bold;
   --ve-btn-text-align: center;
   --ve-btn-text-decoration: none;
-  --ve-btn-background-color: var(--ani-slate);
+  --ve-btn-background-color: transparent;
   --ve-btn-color: var(--ani-white);
   --ve-btn-cursor: pointer;
   --ve-btn-hover-border-radius: 5px;
-  --ve-btn-hover-background-color: var(--ani-gray);
+  --ve-btn-hover-background-color: transparent;
   --ve-btn-hover-color: var(--ani-white);
   --ve-btn-hover-box-shadow: inset 0 0 5px 2px;
   --ve-btn-hover-transition: all 200ms;
   --ve-btn-child-display: block;
   --ve-btn-child-margin: auto;
+  --ve-label-border: solid 2px var(--ani-slate);
   --ve-label-border-radius: 20px;
   --ve-label-background-color: var(--ani-white);
-  --ve-label-border-color: var(--ani-white);
-  --ve-label-color: var(--ani-white);
+  --ve-label-border-color: var(--ani-slate);
+  --ve-label-color: var(--ani-slate);
   --ve-label-hover-border-radius: 20px;
 }
 
@@ -385,7 +386,7 @@ fieldset {
 legend {
   --ve-field-legend-width: 93%;
   --ve-field-legend-font-size: 2rem;
-  --ve-field-legend-color: var(--ani-gray);
+  --ve-field-legend-color: var(--ani-slate);
   --ve-field-hover-legend-color: var(--ani-black);
 }
 
@@ -394,7 +395,7 @@ label {
   --ve-field-label-visibility: hidden;
   --ve-field-label-font-size: 1.5rem;
   --ve-field-label-font-style: italic;
-  --ve-field-label-color: var(--ani-blue);
+  --ve-field-label-color: var(--ani-blue-dark);
   --ve-field-hover-label-visibility: visible;
   --ve-field-hover-label-transform: scale(1.1);
   --ve-field-hover-label-transition: all 1s;
@@ -403,7 +404,7 @@ label {
 input,
 select,
 textarea {
-  --ve-field-input-border: 1px solid var(--ani-blue);
+  --ve-field-input-border: 1px solid var(--ani-sky-light);
   --ve-field-input-border-radius: 10px;
   --ve-field-input-outline: none;
   --ve-field-input-width: 100%;
@@ -424,7 +425,7 @@ figure {
 }
 
 img {
-  --ve-media-img-border: 2px solid var(--ani-gray);
+  --ve-media-img-border: 2px solid var(--ani-slate);
   --ve-media-img-border-radius: 20px;
   --ve-media-img-padding: 1px;
   --ve-media-img-max-width: 100%;
@@ -434,12 +435,12 @@ img {
 }
 
 audio {
-  --ve-media-audio-border: 2px solid var(--ani-gray);
+  --ve-media-audio-border: 2px solid var(--ani-slate);
   --ve-media-audio-border-radius: 10px;
 }
 
 video {
-  --ve-media-video-border: 2px solid var(--ani-gray);
+  --ve-media-video-border: 2px solid var(--ani-black);
   --ve-media-video-border-radius: 20px;
 }
 
@@ -557,11 +558,11 @@ tr {
   --ve-table-tr-display: flex;
   --ve-table-tr-flex-flow: column;
   --ve-table-tr-padding: 20px;
-  --ve-table-tbody-tr-even-background-color: var(--ani-gray-light);
+  --ve-table-tbody-tr-even-background-color: var(--ani-silver);
   --ve-table-tbody-tr-even-color: var(--ani-black);
   --ve-table-tbody-tr-odd-background-color: var(--ani-white);
-  --ve-table-tbody-tr-odd-color: var(--ani-gray);
-  --ve-table-tbody-tr-hover-background-color: var(--ani-silver);
+  --ve-table-tbody-tr-odd-color: var(--ani-slate);
+  --ve-table-tbody-tr-hover-background-color: var(--ani-gray);
   --ve-table-tbody-tr-hover-color: var(--ani-black);
 }
 
@@ -573,7 +574,7 @@ th {
   --ve-table-th-text-align: center;
   --ve-table-th-text-transform: uppercase;
   --ve-table-th-vertical-align: middle;
-  --ve-table-th-background-color: var(--ani-blue);
+  --ve-table-th-background-color: var(--ani-sky);
   --ve-table-th-color: var(--ani-white);
 }
 
@@ -655,13 +656,13 @@ footer {
   --ve-foot-ul-place-content: center;
   --ve-foot-ul-place-items: center;
   --ve-foot-ul-padding: 20px;
-  --ve-foot-ul-background-color: var(--ani-sky-light);
+  --ve-foot-ul-background-color: var(--ani-violet-dark);
   --ve-foot-title-margin-bottom: 5px;
   --ve-foot-title-font-size: 2rem;
   --ve-foot-title-font-family: var(--ani-monospace);
-  --ve-foot-title-color: var(--ani-black);
-  --ve-foot-section-a-color: var(--ani-black);
-  --ve-foot-section-a-hover-color: var(--ani-slate);
+  --ve-foot-title-color: var(--ani-yellow-light);
+  --ve-foot-section-a-color: var(--ani-white);
+  --ve-foot-section-a-hover-color: var(--ani-yellow-light);
 }
 
 aside {
@@ -713,7 +714,7 @@ aside {
   --ve-nav-bottom: unset;
   --ve-nav-left: 0;
   --ve-nav-z-index: 1000;
-  --ve-nav-background-color: var(--ani-sky-darker);
+  --ve-nav-background-color: var(--ani-blue-darker);
   --ve-nav-color: var(--ani-white);
   --ve-nav-a-padding: 10px;
   --ve-nav-a-color: var(--ani-white);
@@ -726,9 +727,9 @@ aside {
   --ve-nav-ul-a-display: flex;
   --ve-nav-ul-a-not-i-display: none;
   --ve-nav-ul-a-flex-direction: column;
-  --ve-nav-ul-a-hover-color: var(--ani-yellow);
+  --ve-nav-ul-a-hover-color: var(--ani-yellow-light);
   --ve-nav-ul-a-hover-transform: scale(0.9);
-  --ve-nav-last-ul-a-hover-color: var(--ani-red);
+  --ve-nav-last-ul-a-hover-color: var(--ani-red-light);
   --ve-nav-button-background-color: transparent;
   --ve-nav-button-border: none;
   --ve-nav-button-cursor: pointer;
@@ -762,12 +763,12 @@ aside {
   --ve-side-a-outline: none;
   --ve-side-a-padding: 5px;
   --ve-side-a-width: 100%;
-  --ve-side-a-background-color: var(--ani-white-dark);
-  --ve-side-a-color: var(--ani-blue-dark);
+  --ve-side-a-background-color: var(--ani-white-lighter);
+  --ve-side-a-color: var(--ani-sky-dark);
   --ve-side-a-cursor: crosshair;
   --ve-side-a-hover-border-radius: 10px;
-  --ve-side-a-hover-background-color: var(--ani-blue-dark);
-  --ve-side-a-hover-color: var(--ani-white-dark);
+  --ve-side-a-hover-background-color: var(--ani-sky-darker);
+  --ve-side-a-hover-color: var(--ani-white);
   --ve-side-a-hover-transform: scale(1.1);
   --ve-side-a-hover-transition: all 500ms;
 }
