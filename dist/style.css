@@ -14,11 +14,11 @@
   --ani-max: 100%;
   /* lightness */
   --ani-base: 50%;
-  --ani-dark: 40%;
-  --ani-light: 60%;
+  --ani-dark: 30%;
+  --ani-light: 70%;
   /* opacity */
-  --ani-darker: 0.7;
-  --ani-lighter: 0.3;
+  --ani-darker: 0.8;
+  --ani-lighter: 0.2;
   /* color hues */
   --ani-red-hue: 0;
   --ani-orange-hue: 30;
@@ -639,7 +639,7 @@ section {
   --ve-card-padding: 10px;
   --ve-card-width: 95%;
   --ve-card-background-color: transparent;
-  --ve-card-color: var(--ani-gray);
+  --ve-card-color: var(--ani-slate);
 }
 
 /********** FOOT ELT **********/
@@ -656,7 +656,7 @@ footer {
   --ve-foot-ul-place-content: center;
   --ve-foot-ul-place-items: center;
   --ve-foot-ul-padding: 20px;
-  --ve-foot-ul-background-color: var(--ani-violet-dark);
+  --ve-foot-ul-background-color: var(--ani-sky-dark);
   --ve-foot-title-margin-bottom: 5px;
   --ve-foot-title-font-size: 2rem;
   --ve-foot-title-font-family: var(--ani-monospace);
@@ -714,7 +714,7 @@ aside {
   --ve-nav-bottom: unset;
   --ve-nav-left: 0;
   --ve-nav-z-index: 1000;
-  --ve-nav-background-color: var(--ani-blue-darker);
+  --ve-nav-background-color: var(--ani-sky-dark);
   --ve-nav-color: var(--ani-white);
   --ve-nav-a-padding: 10px;
   --ve-nav-a-color: var(--ani-white);
@@ -764,7 +764,7 @@ aside {
   --ve-side-a-padding: 5px;
   --ve-side-a-width: 100%;
   --ve-side-a-background-color: var(--ani-white-lighter);
-  --ve-side-a-color: var(--ani-sky-dark);
+  --ve-side-a-color: var(--ani-sky);
   --ve-side-a-cursor: crosshair;
   --ve-side-a-hover-border-radius: 10px;
   --ve-side-a-hover-background-color: var(--ani-sky-darker);
