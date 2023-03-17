@@ -343,7 +343,7 @@
           <template #body>
             <SliderElt :slides="['html5', 'css3', 'js', 'vuejs']">
               <template #slide="slotProps">
-                <i :class="`fa-brands fa-${slotProps.slide.toLowerCase()} fa-10x blue`"></i>
+                <i :class="`fa-brands fa-${slotProps.slide.toLowerCase()} fa-10x sky`"></i>
               </template>
 
               <template #gallery="slotProps">
