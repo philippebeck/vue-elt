@@ -17,7 +17,7 @@ fieldset {
 legend {
   --ve-field-legend-width: 93%;
   --ve-field-legend-font-size: 2rem;
-  --ve-field-legend-color: var(--ani-gray);
+  --ve-field-legend-color: var(--ani-slate);
   --ve-field-hover-legend-color: var(--ani-black);
 }
 
@@ -26,7 +26,7 @@ label {
   --ve-field-label-visibility: hidden;
   --ve-field-label-font-size: 1.5rem;
   --ve-field-label-font-style: italic;
-  --ve-field-label-color: var(--ani-blue);
+  --ve-field-label-color: var(--ani-blue-dark);
   --ve-field-hover-label-visibility: visible;
   --ve-field-hover-label-transform: scale(1.1);
   --ve-field-hover-label-transition: all 1s;
@@ -35,7 +35,7 @@ label {
 input,
 select,
 textarea {
-  --ve-field-input-border: 1px solid var(--ani-blue);
+  --ve-field-input-border: 1px solid var(--ani-sky-light);
   --ve-field-input-border-radius: 10px;
   --ve-field-input-outline: none;
   --ve-field-input-width: 100%;
