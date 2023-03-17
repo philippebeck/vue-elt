@@ -29,11 +29,11 @@ tr {
   --ve-table-tr-display: flex;
   --ve-table-tr-flex-flow: column;
   --ve-table-tr-padding: 20px;
-  --ve-table-tbody-tr-even-background-color: var(--ani-gray-light);
+  --ve-table-tbody-tr-even-background-color: var(--ani-silver);
   --ve-table-tbody-tr-even-color: var(--ani-black);
   --ve-table-tbody-tr-odd-background-color: var(--ani-white);
-  --ve-table-tbody-tr-odd-color: var(--ani-gray);
-  --ve-table-tbody-tr-hover-background-color: var(--ani-silver);
+  --ve-table-tbody-tr-odd-color: var(--ani-slate);
+  --ve-table-tbody-tr-hover-background-color: var(--ani-gray);
   --ve-table-tbody-tr-hover-color: var(--ani-black);
 }
 
@@ -45,7 +45,7 @@ th {
   --ve-table-th-text-align: center;
   --ve-table-th-text-transform: uppercase;
   --ve-table-th-vertical-align: middle;
-  --ve-table-th-background-color: var(--ani-blue);
+  --ve-table-th-background-color: var(--ani-sky);
   --ve-table-th-color: var(--ani-white);
 }
 

@@ -75,13 +75,13 @@ footer {
   --ve-foot-ul-place-content: center;
   --ve-foot-ul-place-items: center;
   --ve-foot-ul-padding: 20px;
-  --ve-foot-ul-background-color: var(--ani-blue);
+  --ve-foot-ul-background-color: var(--ani-violet-dark);
   --ve-foot-title-margin-bottom: 5px;
   --ve-foot-title-font-size: 2rem;
   --ve-foot-title-font-family: var(--ani-monospace);
-  --ve-foot-title-color: var(--ani-yellow);
+  --ve-foot-title-color: var(--ani-yellow-light);
   --ve-foot-section-a-color: var(--ani-white);
-  --ve-foot-section-a-hover-color: var(--ani-yellow);
+  --ve-foot-section-a-hover-color: var(--ani-yellow-light);
 }
 
 aside {

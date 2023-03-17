@@ -62,8 +62,20 @@
               class="btn-yellow"/>
 
             <BtnElt type="button"
-              content="btn-green"
-              class="btn-green"/>
+              content="btn-lime"
+              class="btn-lime"/>
+
+            <BtnElt type="button"
+            content="btn-green"
+            class="btn-green"/>
+
+            <BtnElt type="button"
+            content="btn-aqua"
+            class="btn-aqua"/>
+
+            <BtnElt type="button"
+              content="btn-cyan"
+              class="btn-cyan"/>
 
             <BtnElt type="button"
               content="btn-sky"
@@ -76,6 +88,10 @@
             <BtnElt type="button"
               content="btn-violet"
               class="btn-violet"/>
+
+            <BtnElt type="button"
+            content="btn-magenta"
+            class="btn-magenta"/>
 
             <BtnElt type="button"
               content="btn-pink"
@@ -96,8 +112,20 @@
               class="label-yellow"/>
 
             <BtnElt type="button"
-              content="label-green"
-              class="label-green"/>
+            content="label-lime"
+            class="label-lime"/>
+
+            <BtnElt type="button"
+            content="label-green"
+            class="label-green"/>
+
+            <BtnElt type="button"
+            content="label-aqua"
+            class="label-aqua"/>
+
+            <BtnElt type="button"
+            content="label-cyan"
+            class="label-cyan"/>
 
             <BtnElt type="button"
               content="label-sky"
@@ -110,6 +138,10 @@
             <BtnElt type="button"
               content="label-violet"
               class="label-violet"/>
+
+            <BtnElt type="button"
+            content="label-magenta"
+            class="label-magenta"/>
 
             <BtnElt type="button"
               content="label-pink"
@@ -311,7 +343,7 @@
           <template #body>
             <SliderElt :slides="['html5', 'css3', 'js', 'vuejs']">
               <template #slide="slotProps">
-                <i :class="`fa-brands fa-${slotProps.slide.toLowerCase()} fa-10x blue`"></i>
+                <i :class="`fa-brands fa-${slotProps.slide.toLowerCase()} fa-10x sky`"></i>
               </template>
 
               <template #gallery="slotProps">

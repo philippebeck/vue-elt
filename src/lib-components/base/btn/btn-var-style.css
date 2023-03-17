@@ -3,28 +3,28 @@ a,
 button {
   --ve-btn-display: inline-block;
   --ve-btn-margin: 10px;
-  --ve-btn-border: solid 2px var(--ani-white);
+  --ve-btn-border: none;
   --ve-btn-border-radius: 10px;
-  --ve-btn-padding: 5px 10px;
+  --ve-btn-padding: 10px 15px;
   --ve-btn-font-family: var(--ani-monospace);
   --ve-btn-font-size: 1.5rem;
   --ve-btn-font-weight: bold;
   --ve-btn-text-align: center;
   --ve-btn-text-decoration: none;
-  --ve-btn-background-color: var(--ani-black);
+  --ve-btn-background-color: transparent;
   --ve-btn-color: var(--ani-white);
   --ve-btn-cursor: pointer;
-  --ve-btn-hover-border-color: var(--ani-black);
   --ve-btn-hover-border-radius: 5px;
-  --ve-btn-hover-background-color: var(--ani-white);
-  --ve-btn-hover-color: var(--ani-black);
+  --ve-btn-hover-background-color: transparent;
+  --ve-btn-hover-color: var(--ani-white);
   --ve-btn-hover-box-shadow: inset 0 0 5px 2px;
   --ve-btn-hover-transition: all 200ms;
   --ve-btn-child-display: block;
   --ve-btn-child-margin: auto;
+  --ve-label-border: solid 2px var(--ani-slate);
   --ve-label-border-radius: 20px;
   --ve-label-background-color: var(--ani-white);
-  --ve-label-border-color: var(--ani-white);
-  --ve-label-color: var(--ani-white);
+  --ve-label-border-color: var(--ani-slate);
+  --ve-label-color: var(--ani-slate);
   --ve-label-hover-border-radius: 20px;
 }

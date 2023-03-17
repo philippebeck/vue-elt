@@ -156,7 +156,7 @@ export default {
   --ve-nav-bottom: unset;
   --ve-nav-left: 0;
   --ve-nav-z-index: 1000;
-  --ve-nav-background-color: var(--ani-blue-dark);
+  --ve-nav-background-color: var(--ani-blue-darker);
   --ve-nav-color: var(--ani-white);
   --ve-nav-a-padding: 10px;
   --ve-nav-a-color: var(--ani-white);
@@ -169,9 +169,9 @@ export default {
   --ve-nav-ul-a-display: flex;
   --ve-nav-ul-a-not-i-display: none;
   --ve-nav-ul-a-flex-direction: column;
-  --ve-nav-ul-a-hover-color: var(--ani-yellow);
+  --ve-nav-ul-a-hover-color: var(--ani-yellow-light);
   --ve-nav-ul-a-hover-transform: scale(0.9);
-  --ve-nav-last-ul-a-hover-color: var(--ani-red);
+  --ve-nav-last-ul-a-hover-color: var(--ani-red-light);
   --ve-nav-button-background-color: transparent;
   --ve-nav-button-border: none;
   --ve-nav-button-cursor: pointer;
@@ -205,12 +205,12 @@ export default {
   --ve-side-a-outline: none;
   --ve-side-a-padding: 5px;
   --ve-side-a-width: 100%;
-  --ve-side-a-background-color: var(--ani-white-dark);
-  --ve-side-a-color: var(--ani-blue-dark);
+  --ve-side-a-background-color: var(--ani-white-lighter);
+  --ve-side-a-color: var(--ani-sky-dark);
   --ve-side-a-cursor: crosshair;
   --ve-side-a-hover-border-radius: 10px;
-  --ve-side-a-hover-background-color: var(--ani-blue-dark);
-  --ve-side-a-hover-color: var(--ani-white-dark);
+  --ve-side-a-hover-background-color: var(--ani-sky-darker);
+  --ve-side-a-hover-color: var(--ani-white);
   --ve-side-a-hover-transform: scale(1.1);
   --ve-side-a-hover-transition: all 500ms;
 }
