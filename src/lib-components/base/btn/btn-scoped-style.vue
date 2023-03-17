@@ -19,8 +19,8 @@ button {
 }
 
 [class*="label-"] {
+  border: var(--ve-label-border);
   border-radius: var(--ve-label-border-radius);
-  background-color: var(--ve-label-background-color);
 }
 
 a:hover,
@@ -58,13 +58,14 @@ button > * {
 }
 
 .label-red {
-  border-color: var(--ani-red);
-  color: var(--ani-red);
+  border-color: var(--ani-red-dark);
+  color: var(--ani-red-dark);
 }
 
 .label-red:hover,
 .label-red:focus {
-  background-color: var(--ani-red);
+  border-color: var(--ani-red);
+  color: var(--ani-red);
 }
 
 /* ORANGE */
@@ -79,13 +80,14 @@ button > * {
 }
 
 .label-orange {
-  border-color: var(--ani-orange);
-  color: var(--ani-orange);
+  border-color: var(--ani-orange-dark);
+  color: var(--ani-orange-dark);
 }
 
 .label-orange:hover,
 .label-orange:focus {
-  background-color: var(--ani-orange);
+  border-color: var(--ani-orange);
+  color: var(--ani-orange);
 }
 
 /* YELLOW */
@@ -101,13 +103,14 @@ button > * {
 }
 
 .label-yellow {
-  border-color: var(--ani-yellow);
-  color: var(--ani-yellow);
+  border-color: var(--ani-yellow-dark);
+  color: var(--ani-yellow-dark);
 }
 
 .label-yellow:hover,
 .label-yellow:focus {
-  background-color: var(--ani-yellow);
+  border-color: var(--ani-yellow);
+  color: var(--ani-yellow);
 }
 
 /* LIME */
@@ -123,13 +126,14 @@ button > * {
 }
 
 .label-lime {
-  border-color: var(--ani-lime);
-  color: var(--ani-lime);
+  border-color: var(--ani-lime-dark);
+  color: var(--ani-lime-dark);
 }
 
 .label-lime:hover,
 .label-lime:focus {
-  background-color: var(--ani-lime);
+  border-color: var(--ani-lime);
+  color: var(--ani-lime);
 }
 
 /* GREEN */
@@ -145,13 +149,14 @@ button > * {
 }
 
 .label-green {
-  border-color: var(--ani-green);
-  color: var(--ani-green);
+  border-color: var(--ani-green-dark);
+  color: var(--ani-green-dark);
 }
 
 .label-green:hover,
 .label-green:focus {
-  background-color: var(--ani-green);
+  border-color: var(--ani-green);
+  color: var(--ani-green);
 }
 
 /* AQUA */
@@ -167,13 +172,14 @@ button > * {
 }
 
 .label-aqua {
-  border-color: var(--ani-aqua);
-  color: var(--ani-aqua);
+  border-color: var(--ani-aqua-dark);
+  color: var(--ani-aqua-dark);
 }
 
 .label-aqua:hover,
 .label-aqua:focus {
-  background-color: var(--ani-aqua);
+  border-color: var(--ani-aqua);
+  color: var(--ani-aqua);
 }
 
 /* CYAN */
@@ -189,13 +195,14 @@ button > * {
 }
 
 .label-cyan {
-  border-color: var(--ani-cyan);
-  color: var(--ani-cyan);
+  border-color: var(--ani-cyan-dark);
+  color: var(--ani-cyan-dark);
 }
 
 .label-cyan:hover,
 .label-cyan:focus {
-  background-color: var(--ani-cyan);
+  border-color: var(--ani-cyan);
+  color: var(--ani-cyan);
 }
 
 /* SKY */
@@ -210,13 +217,14 @@ button > * {
 }
 
 .label-sky {
-  border-color: var(--ani-sky);
-  color: var(--ani-sky);
+  border-color: var(--ani-sky-dark);
+  color: var(--ani-sky-dark);
 }
 
 .label-sky:hover,
 .label-sky:focus {
-  background-color: var(--ani-sky);
+  border-color: var(--ani-sky);
+  color: var(--ani-sky);
 }
 
 /* BLUE */
@@ -231,13 +239,14 @@ button > * {
 }
 
 .label-blue {
-  border-color: var(--ani-blue);
-  color: var(--ani-blue);
+  border-color: var(--ani-blue-dark);
+  color: var(--ani-blue-dark);
 }
 
 .label-blue:hover,
 .label-blue:focus {
-  background-color: var(--ani-blue);
+  border-color: var(--ani-blue);
+  color: var(--ani-blue);
 }
 
 /* VIOLET */
@@ -252,13 +261,14 @@ button > * {
 }
 
 .label-violet {
-  border-color: var(--ani-violet);
-  color: var(--ani-violet);
+  border-color: var(--ani-violet-dark);
+  color: var(--ani-violet-dark);
 }
 
 .label-violet:hover,
 .label-violet:focus {
-  background-color: var(--ani-violet);
+  border-color: var(--ani-violet);
+  color: var(--ani-violet);
 }
 
 /* MAGENTA */
@@ -273,13 +283,14 @@ button > * {
 }
 
 .label-magenta {
-  border-color: var(--ani-magenta);
-  color: var(--ani-magenta);
+  border-color: var(--ani-magenta-dark);
+  color: var(--ani-magenta-dark);
 }
 
 .label-magenta:hover,
 .label-magenta:focus {
-  background-color: var(--ani-magenta);
+  border-color: var(--ani-magenta);
+  color: var(--ani-magenta);
 }
 
 /* PINK */
@@ -294,12 +305,13 @@ button > * {
 }
 
 .label-pink {
-  border-color: var(--ani-pink);
-  color: var(--ani-pink);
+  border-color: var(--ani-pink-dark);
+  color: var(--ani-pink-dark);
 }
 
 .label-pink:hover,
 .label-pink:focus {
-  background-color: var(--ani-pink);
+  border-color: var(--ani-pink);
+  color: var(--ani-pink);
 }
 </style>
