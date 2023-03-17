@@ -67,7 +67,7 @@ section {
   --ve-card-padding: 10px;
   --ve-card-width: 95%;
   --ve-card-background-color: transparent;
-  --ve-card-color: var(--ani-gray);
+  --ve-card-color: var(--ani-slate);
 }
 
 </style>
