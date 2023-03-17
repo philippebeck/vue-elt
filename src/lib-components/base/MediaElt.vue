@@ -99,7 +99,7 @@ figure {
 }
 
 img {
-  --ve-media-img-border: 2px solid var(--ani-gray);
+  --ve-media-img-border: 2px solid var(--ani-slate);
   --ve-media-img-border-radius: 20px;
   --ve-media-img-padding: 1px;
   --ve-media-img-max-width: 100%;
@@ -109,12 +109,12 @@ img {
 }
 
 audio {
-  --ve-media-audio-border: 2px solid var(--ani-gray);
+  --ve-media-audio-border: 2px solid var(--ani-slate);
   --ve-media-audio-border-radius: 10px;
 }
 
 video {
-  --ve-media-video-border: 2px solid var(--ani-gray);
+  --ve-media-video-border: 2px solid var(--ani-black);
   --ve-media-video-border-radius: 20px;
 }
 
