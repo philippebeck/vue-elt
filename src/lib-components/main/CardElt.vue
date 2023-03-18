@@ -1,6 +1,8 @@
 <template>
   <!-- ARTICLE ELT -->
-<article v-if="isArticle === true">
+<article v-if="isArticle === true"
+  :class="$attrs.class"
+  :id="id">
   <header>
     <slot name="header"></slot>
   </header>
@@ -19,7 +21,9 @@
 </article>
 
 <!-- SECTION ELT -->
-<section v-else>
+<section v-else
+  :class="$attrs.class"
+  :id="id">
   <header>
     <slot name="header"></slot>
   </header>
@@ -45,7 +49,8 @@ export default {
     isArticle: {
       type: Boolean,
       default: false
-    }
+    },
+    id: String
   },
   
   methods: {

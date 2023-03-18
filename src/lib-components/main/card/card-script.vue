@@ -5,7 +5,8 @@ export default {
     isArticle: {
       type: Boolean,
       default: false
-    }
+    },
+    id: String
   },
   
   methods: {
