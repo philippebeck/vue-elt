@@ -3,6 +3,7 @@
   <button v-if="getBtnType() === 'button'"
     :type="type"
     :value="value"
+    :class="$attrs.class"
     :title="title">
     <slot name="btn"></slot>
     {{ content }}
@@ -11,6 +12,7 @@
   <!-- LINK -->
   <a v-else
     :href="href"
+    :class="$attrs.class"
     :title="title">
     <slot name="btn"></slot>
     {{ content }}
