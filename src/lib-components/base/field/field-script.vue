@@ -36,6 +36,7 @@ export default {
       type: Number,
       default: 5
     },
+    itemprop: String,
     required: {
       type: String,
       default: "required"

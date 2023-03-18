@@ -14,6 +14,7 @@
       @input="onInput"
       :min="min"
       :max="max"
+      :itemprop="itemprop"
       :required="required">
 
     <!-- CHECKBOX, RADIO, COLOR ELT -->
@@ -31,6 +32,7 @@
       :name="name"
       @input="onInput"
       :placeholder="info"
+      :itemprop="itemprop"
       :required="required">
 
       <option v-if="value"
@@ -58,6 +60,7 @@
       :maxlength="max"
       :cols="cols"
       :rows="rows"
+      :itemprop="itemprop"
       :required="required"></textarea>
 
     <!-- TEXT, OTHERS ELT -->
@@ -70,6 +73,7 @@
       :placeholder="info"
       :minlength="min"
       :maxlength="max"
+      :itemprop="itemprop"
       :required="required">
 
     <!-- Label (option) -->
