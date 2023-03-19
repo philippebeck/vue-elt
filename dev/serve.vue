@@ -282,8 +282,16 @@
               src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4">
             </MediaElt>
 
-            <MediaElt src="https://philippebeck.net/img/logo.svg">
+            <MediaElt type="quote"
+              content="E = MC²">
+              <template #figcaption>
+                Albert Einstein
+              </template>
             </MediaElt>
+
+            <MediaElt src="https://philippebeck.net/img/logo.svg"
+              width="300"
+              height="300"/>
           </template>
         </CardElt>
 
