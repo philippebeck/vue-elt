@@ -98,7 +98,7 @@ caption {
   --ve-table-caption-margin-bottom: 20px;
   --ve-table-caption-font-size: 1.5rem;
   --ve-table-caption-font-weight: bold;
-  --ve-table-caption-color: var(--ani-gray);
+  --ve-table-caption-color: var(--ani-slate);
   --ve-table-caption-text-shadow: 1px 1px 2px;
 }
 
@@ -126,7 +126,7 @@ th {
   --ve-table-th-text-align: center;
   --ve-table-th-text-transform: uppercase;
   --ve-table-th-vertical-align: middle;
-  --ve-table-th-background-color: var(--ani-sky);
+  --ve-table-th-background-color: var(--ani-sky-dark);
   --ve-table-th-color: var(--ani-white);
 }
 

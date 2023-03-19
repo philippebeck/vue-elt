@@ -50,6 +50,10 @@
 
           <template #body>
             <BtnElt type="button"
+              content="btn"
+              class="btn"/>
+
+            <BtnElt type="button"
               content="btn-red"
               class="btn-red"/>
 
@@ -97,9 +101,13 @@
               content="btn-pink"
               class="btn-pink"/>
 
-              <br>
+            <br>
 
-              <BtnElt type="button"
+            <BtnElt type="button"
+              content="label"
+              class="label"/>
+
+            <BtnElt type="button"
               content="label-red"
               class="label-red"/>
 
