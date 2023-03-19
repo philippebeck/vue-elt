@@ -26,6 +26,14 @@
       <slot name="video"></slot>
     </video>
 
+    <!-- QUOTE ELT -->
+    <blockquote v-else-if="type === 'quote'"
+      :cite="src"
+      :itemprop="itemprop">
+      {{ content }}
+      <slot name="quote"></slot>
+    </blockquote>
+
     <!-- IMAGE ELT (multiple sources) -->
     <picture v-else-if="type === 'picture'">
 
