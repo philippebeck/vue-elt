@@ -7,14 +7,6 @@ export default {
       type: String,
       default: "img"
     },
-    src: {
-      type: String,
-      required: true
-    },
-    medias: Array,
-    alt: String,
-    title: String,
-    height: Number,
     width: {
       type: Number,
       default: 300
@@ -23,6 +15,12 @@ export default {
       type: Boolean,
       default: false
     },
+    content: String,
+    src: String,
+    medias: Array,
+    alt: String,
+    title: String,
+    height: Number,
     itemprop: String
   },
   
