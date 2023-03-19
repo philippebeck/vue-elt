@@ -157,7 +157,6 @@ export default {
   --ve-nav-left: 0;
   --ve-nav-z-index: 1000;
   --ve-nav-background-color: var(--ani-sky-dark);
-  --ve-nav-color: var(--ani-white);
   --ve-nav-a-padding: 10px;
   --ve-nav-a-color: var(--ani-white);
   --ve-nav-a-cursor: pointer;
