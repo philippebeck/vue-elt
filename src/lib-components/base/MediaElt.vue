@@ -137,8 +137,8 @@ figcaption {
   --ve-media-figcaption-display: flex;
   --ve-media-figcaption-flex-flow: column nowrap;
   --ve-media-figcaption-place-content: center center;
-  --ve-media-figcaption-font-size: 1.5rem;
-  --ve-media-figcaption-font-style: italic;
+  --ve-media-figcaption-font-size: 1.6rem;
+  --ve-media-figcaption-font-style: normal;
   --ve-media-figcaption-color: var(--ani-slate);
 }
 
