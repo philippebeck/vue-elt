@@ -26,6 +26,14 @@
       <slot name="video"></slot>
     </video>
 
+    <!-- QUOTE ELT -->
+    <blockquote v-else-if="type === 'quote'"
+      :cite="src"
+      :itemprop="itemprop">
+      {{ content }}
+      <slot name="quote"></slot>
+    </blockquote>
+
     <!-- IMAGE ELT (multiple sources) -->
     <picture v-else-if="type === 'picture'">
 
@@ -44,6 +52,8 @@
     <img v-else
       :src="src"
       :alt="alt"
+      :height="height"
+      :width="width"
       :itemprop="itemprop">
 
     <!-- Figcaption (option) -->
@@ -62,14 +72,6 @@ export default {
       type: String,
       default: "img"
     },
-    src: {
-      type: String,
-      required: true
-    },
-    medias: Array,
-    alt: String,
-    title: String,
-    height: Number,
     width: {
       type: Number,
       default: 300
@@ -78,6 +80,12 @@ export default {
       type: Boolean,
       default: false
     },
+    content: String,
+    src: String,
+    medias: Array,
+    alt: String,
+    title: String,
+    height: Number,
     itemprop: String
   },
   
@@ -94,14 +102,14 @@ export default {
 figure {
   --ve-media-figure-border: 1px solid transparent;
   --ve-media-figure-border-radius: 20px;
-  --ve-media-figure-padding: 0;
+  --ve-media-figure-padding: 10px;
   --ve-media-figure-background-color: transparent;
 }
 
 img {
   --ve-media-img-border: 2px solid var(--ani-slate);
   --ve-media-img-border-radius: 20px;
-  --ve-media-img-padding: 1px;
+  --ve-media-img-padding: 0;
   --ve-media-img-max-width: 100%;
   --ve-media-img-height: auto;
   --ve-media-img-object-fit: contain;
@@ -118,11 +126,20 @@ video {
   --ve-media-video-border-radius: 20px;
 }
 
+blockquote {
+  --ve-media-blockquote-color: var(--ani-blue-dark);
+  --ve-media-blockquote-font-size: 2rem;
+  --ve-media-blockquote-margin: auto;
+  --ve-media-blockquote-max-width: 700px;
+}
+
 figcaption {
   --ve-media-figcaption-display: flex;
   --ve-media-figcaption-flex-flow: column nowrap;
   --ve-media-figcaption-place-content: center center;
-  --ve-media-figcaption-color: var(--ani-black);
+  --ve-media-figcaption-font-size: 1.5rem;
+  --ve-media-figcaption-font-style: italic;
+  --ve-media-figcaption-color: var(--ani-slate);
 }
 
 </style>
@@ -155,10 +172,19 @@ video {
   border-radius: var(--ve-media-video-border-radius);
 }
 
+blockquote {
+  margin: var(--ve-media-blockquote-margin);
+  max-width: var(--ve-media-blockquote-max-width);
+  font-size: var(--ve-media-blockquote-font-size);
+  color: var(--ve-media-blockquote-color);
+}
+
 figcaption {
   display: var(--ve-media-figcaption-display);
   flex-flow: var(--ve-media-figcaption-flex-flow);
   place-content: var(--ve-media-figcaption-place-content);
+  font-size: var(--ve-media-figcaption-font-size);
+  font-style: var(--ve-media-figcaption-font-style);
   color: var(--ve-media-figcaption-color);
 }
 </style>
