@@ -194,7 +194,7 @@ var _hoisted_7$3 = {
 };
 var _hoisted_8$3 = ["value"];
 var _hoisted_9$3 = ["id", "name", "value", "placeholder", "minlength", "maxlength", "cols", "rows", "itemprop", "required"];
-var _hoisted_10$2 = ["type", "id", "name", "value", "placeholder", "minlength", "maxlength", "itemprop", "required"];
+var _hoisted_10$3 = ["type", "id", "name", "value", "placeholder", "minlength", "maxlength", "itemprop", "required"];
 var _hoisted_11$2 = ["for"];
 function render$7(_ctx, _cache, $props, $setup, $data, $options) {
   return vue.openBlock(), vue.createElementBlock("fieldset", {
@@ -269,7 +269,7 @@ function render$7(_ctx, _cache, $props, $setup, $data, $options) {
     maxlength: $props.max,
     itemprop: $props.itemprop,
     required: $props.required
-  }, null, 40, _hoisted_10$2)), $options.hasSlot('label') ? (vue.openBlock(), vue.createElementBlock("label", {
+  }, null, 40, _hoisted_10$3)), $options.hasSlot('label') ? (vue.openBlock(), vue.createElementBlock("label", {
     key: 6,
     for: $props.id
   }, [vue.renderSlot(_ctx.$slots, "label")], 8, _hoisted_11$2)) : vue.createCommentVNode("", true)], 8, _hoisted_1$7);
@@ -283,14 +283,6 @@ script$7.__scopeId = "data-v-6d79c068";var script$6 = {
       type: String,
       default: "img"
     },
-    src: {
-      type: String,
-      required: true
-    },
-    medias: Array,
-    alt: String,
-    title: String,
-    height: Number,
     width: {
       type: Number,
       default: 300
@@ -299,6 +291,12 @@ script$7.__scopeId = "data-v-6d79c068";var script$6 = {
       type: Boolean,
       default: false
     },
+    content: String,
+    src: String,
+    medias: Array,
+    alt: String,
+    title: String,
+    height: Number,
     itemprop: String
   },
   methods: {
@@ -310,14 +308,15 @@ script$7.__scopeId = "data-v-6d79c068";var script$6 = {
 var _hoisted_2$6 = ["src", "loop", "itemprop"];
 var _hoisted_3$6 = ["src", "loop", "height", "width", "itemprop"];
 var _hoisted_4$6 = ["src", "type"];
-var _hoisted_5$4 = {
-  key: 2
+var _hoisted_5$4 = ["cite", "itemprop"];
+var _hoisted_6$3 = {
+  key: 3
 };
-var _hoisted_6$3 = ["type", "srcset", "media"];
-var _hoisted_7$2 = ["src", "alt", "itemprop"];
+var _hoisted_7$2 = ["type", "srcset", "media"];
 var _hoisted_8$2 = ["src", "alt", "itemprop"];
-var _hoisted_9$2 = {
-  key: 4
+var _hoisted_9$2 = ["src", "alt", "height", "width", "itemprop"];
+var _hoisted_10$2 = {
+  key: 5
 };
 function render$6(_ctx, _cache, $props, $setup, $data, $options) {
   return vue.openBlock(), vue.createElementBlock("figure", {
@@ -342,27 +341,33 @@ function render$6(_ctx, _cache, $props, $setup, $data, $options) {
       src: video.src,
       type: video.type
     }, null, 8, _hoisted_4$6);
-  }), 128)), vue.renderSlot(_ctx.$slots, "video")], 8, _hoisted_3$6)) : $props.type === 'picture' ? (vue.openBlock(), vue.createElementBlock("picture", _hoisted_5$4, [(vue.openBlock(true), vue.createElementBlock(vue.Fragment, null, vue.renderList($props.medias, function (picture, index) {
+  }), 128)), vue.renderSlot(_ctx.$slots, "video")], 8, _hoisted_3$6)) : $props.type === 'quote' ? (vue.openBlock(), vue.createElementBlock("blockquote", {
+    key: 2,
+    cite: $props.src,
+    itemprop: $props.itemprop
+  }, [vue.createTextVNode(vue.toDisplayString($props.content) + " ", 1), vue.renderSlot(_ctx.$slots, "quote")], 8, _hoisted_5$4)) : $props.type === 'picture' ? (vue.openBlock(), vue.createElementBlock("picture", _hoisted_6$3, [(vue.openBlock(true), vue.createElementBlock(vue.Fragment, null, vue.renderList($props.medias, function (picture, index) {
     return vue.openBlock(), vue.createElementBlock("source", {
       key: index,
       type: picture.type,
       srcset: picture.src,
       media: picture.media
-    }, null, 8, _hoisted_6$3);
+    }, null, 8, _hoisted_7$2);
   }), 128)), vue.createElementVNode("img", {
     src: $props.src,
     alt: $props.alt,
     itemprop: $props.itemprop
-  }, null, 8, _hoisted_7$2)])) : (vue.openBlock(), vue.createElementBlock("img", {
-    key: 3,
+  }, null, 8, _hoisted_8$2)])) : (vue.openBlock(), vue.createElementBlock("img", {
+    key: 4,
     src: $props.src,
     alt: $props.alt,
+    height: $props.height,
+    width: $props.width,
     itemprop: $props.itemprop
-  }, null, 8, _hoisted_8$2)), $options.hasSlot('figcaption') ? (vue.openBlock(), vue.createElementBlock("figcaption", _hoisted_9$2, [vue.renderSlot(_ctx.$slots, "figcaption")])) : vue.createCommentVNode("", true)], 8, _hoisted_1$6);
-}var css_248z$e = "\n/********** MEDIA ELT **********/\nfigure {\n  --ve-media-figure-border: 1px solid transparent;\n  --ve-media-figure-border-radius: 20px;\n  --ve-media-figure-padding: 0;\n  --ve-media-figure-background-color: transparent;\n}\nimg {\n  --ve-media-img-border: 2px solid var(--ani-slate);\n  --ve-media-img-border-radius: 20px;\n  --ve-media-img-padding: 1px;\n  --ve-media-img-max-width: 100%;\n  --ve-media-img-height: auto;\n  --ve-media-img-object-fit: contain;\n  --ve-media-img-object-position: 50% 50%;\n}\naudio {\n  --ve-media-audio-border: 2px solid var(--ani-slate);\n  --ve-media-audio-border-radius: 10px;\n}\nvideo {\n  --ve-media-video-border: 2px solid var(--ani-black);\n  --ve-media-video-border-radius: 20px;\n}\nfigcaption {\n  --ve-media-figcaption-display: flex;\n  --ve-media-figcaption-flex-flow: column nowrap;\n  --ve-media-figcaption-place-content: center center;\n  --ve-media-figcaption-color: var(--ani-black);\n}\n\n";
-styleInject(css_248z$e);var css_248z$d = "\nfigure[data-v-7b987b26] {\n  border: var(--ve-media-figure-border);\n  border-radius: var(--ve-media-figure-border-radius);\n  padding: var(--ve-media-figure-padding);\n  background-color: var(--ve-media-figure-background-color);\n}\nimg[data-v-7b987b26] {\n  border: var(--ve-media-img-border);\n  border-radius: var(--ve-media-img-border-radius);\n  padding: var(--ve-media-img-padding);\n  max-width: var(--ve-media-img-max-width);\n  height: var(--ve-media-img-height);\n  object-fit: var(--ve-media-img-object-fit);\n  object-position: var(--ve-media-img-object-position);\n}\naudio[data-v-7b987b26] {\n  border: var(--ve-media-audio-border);\n  border-radius: var(--ve-media-audio-border-radius);\n}\nvideo[data-v-7b987b26] {\n  border: var(--ve-media-video-border);\n  border-radius: var(--ve-media-video-border-radius);\n}\nfigcaption[data-v-7b987b26] {\n  display: var(--ve-media-figcaption-display);\n  flex-flow: var(--ve-media-figcaption-flex-flow);\n  place-content: var(--ve-media-figcaption-place-content);\n  color: var(--ve-media-figcaption-color);\n}\n";
+  }, null, 8, _hoisted_9$2)), $options.hasSlot('figcaption') ? (vue.openBlock(), vue.createElementBlock("figcaption", _hoisted_10$2, [vue.renderSlot(_ctx.$slots, "figcaption")])) : vue.createCommentVNode("", true)], 8, _hoisted_1$6);
+}var css_248z$e = "\n/********** MEDIA ELT **********/\nfigure {\n  --ve-media-figure-border: 1px solid transparent;\n  --ve-media-figure-border-radius: 20px;\n  --ve-media-figure-padding: 10px;\n  --ve-media-figure-background-color: transparent;\n}\nimg {\n  --ve-media-img-border: 2px solid var(--ani-slate);\n  --ve-media-img-border-radius: 20px;\n  --ve-media-img-padding: 0;\n  --ve-media-img-max-width: 100%;\n  --ve-media-img-height: auto;\n  --ve-media-img-object-fit: contain;\n  --ve-media-img-object-position: 50% 50%;\n}\naudio {\n  --ve-media-audio-border: 2px solid var(--ani-slate);\n  --ve-media-audio-border-radius: 10px;\n}\nvideo {\n  --ve-media-video-border: 2px solid var(--ani-black);\n  --ve-media-video-border-radius: 20px;\n}\nblockquote {\n  --ve-media-blockquote-color: var(--ani-blue-dark);\n  --ve-media-blockquote-font-size: 2rem;\n  --ve-media-blockquote-margin: auto;\n  --ve-media-blockquote-max-width: 700px;\n}\nfigcaption {\n  --ve-media-figcaption-display: flex;\n  --ve-media-figcaption-flex-flow: column nowrap;\n  --ve-media-figcaption-place-content: center center;\n  --ve-media-figcaption-font-size: 1.5rem;\n  --ve-media-figcaption-font-style: italic;\n  --ve-media-figcaption-color: var(--ani-slate);\n}\n\n";
+styleInject(css_248z$e);var css_248z$d = "\nfigure[data-v-eec16510] {\n  border: var(--ve-media-figure-border);\n  border-radius: var(--ve-media-figure-border-radius);\n  padding: var(--ve-media-figure-padding);\n  background-color: var(--ve-media-figure-background-color);\n}\nimg[data-v-eec16510] {\n  border: var(--ve-media-img-border);\n  border-radius: var(--ve-media-img-border-radius);\n  padding: var(--ve-media-img-padding);\n  max-width: var(--ve-media-img-max-width);\n  height: var(--ve-media-img-height);\n  object-fit: var(--ve-media-img-object-fit);\n  object-position: var(--ve-media-img-object-position);\n}\naudio[data-v-eec16510] {\n  border: var(--ve-media-audio-border);\n  border-radius: var(--ve-media-audio-border-radius);\n}\nvideo[data-v-eec16510] {\n  border: var(--ve-media-video-border);\n  border-radius: var(--ve-media-video-border-radius);\n}\nblockquote[data-v-eec16510] {\n  margin: var(--ve-media-blockquote-margin);\n  max-width: var(--ve-media-blockquote-max-width);\n  font-size: var(--ve-media-blockquote-font-size);\n  color: var(--ve-media-blockquote-color);\n}\nfigcaption[data-v-eec16510] {\n  display: var(--ve-media-figcaption-display);\n  flex-flow: var(--ve-media-figcaption-flex-flow);\n  place-content: var(--ve-media-figcaption-place-content);\n  font-size: var(--ve-media-figcaption-font-size);\n  font-style: var(--ve-media-figcaption-font-style);\n  color: var(--ve-media-figcaption-color);\n}\n";
 styleInject(css_248z$d);script$6.render = render$6;
-script$6.__scopeId = "data-v-7b987b26";var script$5 = {
+script$6.__scopeId = "data-v-eec16510";var script$5 = {
   name: "ListElt",
   props: {
     items: {
@@ -927,7 +932,7 @@ script$1.__scopeId = "data-v-05c2a73e";var script = {
     }
   }
 };var _withScopeId = function _withScopeId(n) {
-  return vue.pushScopeId("data-v-6fe5f294"), n = n(), vue.popScopeId(), n;
+  return vue.pushScopeId("data-v-b65ea318"), n = n(), vue.popScopeId(), n;
 };
 var _hoisted_1 = {
   key: 0,
@@ -1012,11 +1017,11 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     }),
     title: "Menu"
   }, _hoisted_13)]));
-}var css_248z$2 = "\n/********** NAV ELT **********/\n:root {\n  --ve-nav-margin: 20px;\n  --ve-nav-height: 50px;\n}\n.navbar {\n  --ve-nav-display: flex;\n  --ve-nav-place-content: space-between;\n  --ve-nav-place-items: center;\n  --ve-nav-position: fixed;\n  --ve-nav-top: 0;\n  --ve-nav-right: 0;\n  --ve-nav-bottom: unset;\n  --ve-nav-left: 0;\n  --ve-nav-z-index: 1000;\n  --ve-nav-background-color: var(--ani-sky-dark);\n  --ve-nav-color: var(--ani-white);\n  --ve-nav-a-padding: 10px;\n  --ve-nav-a-color: var(--ani-white);\n  --ve-nav-a-cursor: pointer;\n  --ve-nav-ul-display: flex;\n  --ve-nav-ul-place-items: center;\n  --ve-nav-ul-margin: 0;\n  --ve-nav-ul-padding: 0;\n  --ve-nav-ul-list-style: none;\n  --ve-nav-ul-a-display: flex;\n  --ve-nav-ul-a-not-i-display: none;\n  --ve-nav-ul-a-flex-direction: column;\n  --ve-nav-ul-a-hover-color: var(--ani-yellow-light);\n  --ve-nav-ul-a-hover-transform: scale(0.9);\n  --ve-nav-last-ul-a-hover-color: var(--ani-red-light);\n  --ve-nav-button-background-color: transparent;\n  --ve-nav-button-border: none;\n  --ve-nav-button-cursor: pointer;\n  --ve-nav-i-place-self: center;\n}\n.admin {\n  --ve-nav-hide-display: none;\n}\n.nav {\n  --ve-nav-show-display: flex;\n}\n.sidebar {\n  --ve-side-display: flex;\n  --ve-side-flex-flow: column;\n  --ve-side-position: fixed;\n  --ve-side-top: calc(var(--ve-nav-height) + 10px);\n  --ve-side-left: 2px;\n  --ve-side-z-index: 10;\n  --ve-side-width: auto;\n  --ve-side-ul-display: flex;\n  --ve-side-ul-flex-flow: column;\n  --ve-side-a-display: flex;\n  --ve-side-a-place-content: center;\n  --ve-side-a-place-items: center;\n  --ve-side-a-margin: 5px;\n  --ve-side-a-border: none;\n  --ve-side-a-border-radius: 20px;\n  --ve-side-a-outline: none;\n  --ve-side-a-padding: 5px;\n  --ve-side-a-width: 100%;\n  --ve-side-a-background-color: var(--ani-white-lighter);\n  --ve-side-a-color: var(--ani-sky);\n  --ve-side-a-cursor: crosshair;\n  --ve-side-a-hover-border-radius: 10px;\n  --ve-side-a-hover-background-color: var(--ani-sky-darker);\n  --ve-side-a-hover-color: var(--ani-white);\n  --ve-side-a-hover-transform: scale(1.1);\n  --ve-side-a-hover-transition: all 500ms;\n}\n.hide {\n  --ve-side-hide-display: none;\n}\n.show {\n  --ve-side-show-display: flex;\n}\n@media (min-width: 576px) {\n.navbar {\n    --ve-nav-place-content: space-around;\n}\n}\n@media (min-width: 768px) {\n:root {\n    --ve-nav-margin: 40px;\n    --ve-nav-height: 80px;\n}\n.navbar {\n    --ve-nav-button-display: none;\n    --ve-nav-ul-a-not-i-display: flex;\n}\n.admin {\n    --ve-nav-hide-display: flex;\n}\n}\n\n";
+}var css_248z$2 = "\n/********** NAV ELT **********/\n:root {\n  --ve-nav-margin: 20px;\n  --ve-nav-height: 50px;\n}\n.navbar {\n  --ve-nav-display: flex;\n  --ve-nav-place-content: space-between;\n  --ve-nav-place-items: center;\n  --ve-nav-position: fixed;\n  --ve-nav-top: 0;\n  --ve-nav-right: 0;\n  --ve-nav-bottom: unset;\n  --ve-nav-left: 0;\n  --ve-nav-z-index: 1000;\n  --ve-nav-background-color: var(--ani-sky-dark);\n  --ve-nav-color: var(--ani-white);\n  --ve-nav-a-padding: 10px;\n  --ve-nav-a-color: var(--ani-white);\n  --ve-nav-a-cursor: pointer;\n  --ve-nav-ul-display: flex;\n  --ve-nav-ul-place-items: center;\n  --ve-nav-ul-margin: 0;\n  --ve-nav-ul-padding: 0;\n  --ve-nav-ul-list-style: none;\n  --ve-nav-ul-a-display: flex;\n  --ve-nav-ul-a-not-i-display: none;\n  --ve-nav-ul-a-flex-direction: column;\n  --ve-nav-ul-a-hover-color: var(--ani-yellow-light);\n  --ve-nav-ul-a-hover-transform: scale(0.9);\n  --ve-nav-last-ul-a-hover-color: var(--ani-red-light);\n  --ve-nav-button-background-color: transparent;\n  --ve-nav-button-border: none;\n  --ve-nav-button-cursor: pointer;\n  --ve-nav-i-place-self: center;\n}\n.admin {\n  --ve-nav-hide-display: none;\n}\n.nav {\n  --ve-nav-show-display: flex;\n}\n.sidebar {\n  --ve-side-display: flex;\n  --ve-side-flex-flow: column;\n  --ve-side-position: fixed;\n  --ve-side-top: calc(var(--ve-nav-height) + 10px);\n  --ve-side-left: 2px;\n  --ve-side-z-index: 10;\n  --ve-side-width: auto;\n  --ve-side-ul-display: flex;\n  --ve-side-ul-flex-flow: column;\n  --ve-side-a-display: flex;\n  --ve-side-a-place-content: center;\n  --ve-side-a-place-items: center;\n  --ve-side-a-margin: 5px;\n  --ve-side-a-border: none;\n  --ve-side-a-border-radius: 20px;\n  --ve-side-a-outline: none;\n  --ve-side-a-padding: 5px;\n  --ve-side-a-width: 100%;\n  --ve-side-a-background-color: var(--ani-white-lighter);\n  --ve-side-a-color: var(--ani-sky-darker);\n  --ve-side-a-cursor: crosshair;\n  --ve-side-a-hover-border-radius: 10px;\n  --ve-side-a-hover-background-color: var(--ani-sky);\n  --ve-side-a-hover-color: var(--ani-white);\n  --ve-side-a-hover-transform: scale(1.1);\n  --ve-side-a-hover-transition: all 500ms;\n}\n.hide {\n  --ve-side-hide-display: none;\n}\n.show {\n  --ve-side-show-display: flex;\n}\n@media (min-width: 576px) {\n.navbar {\n    --ve-nav-place-content: space-around;\n}\n}\n@media (min-width: 768px) {\n:root {\n    --ve-nav-margin: 40px;\n    --ve-nav-height: 80px;\n}\n.navbar {\n    --ve-nav-button-display: none;\n    --ve-nav-ul-a-not-i-display: flex;\n}\n.admin {\n    --ve-nav-hide-display: flex;\n}\n}\n\n";
 styleInject(css_248z$2);var css_248z$1 = "\n[id=\"app\"] {\n  margin-top: calc(var(--ve-nav-height) + var(--ve-nav-margin));\n}\n";
-styleInject(css_248z$1);var css_248z = "\n.navbar[data-v-6fe5f294] {\n  display: var(--ve-nav-display);\n  place-content: var(--ve-nav-place-content);\n  place-items: var(--ve-nav-place-items);\n  position: var(--ve-nav-position);\n  top: var(--ve-nav-top);\n  right: var(--ve-nav-right);\n  bottom: var(--ve-nav-bottom);\n  left: var(--ve-nav-left);\n  z-index: var(--ve-nav-z-index);\n  height: var(--ve-nav-height);\n  background-color: var(--ve-nav-background-color);\n  color: var(--ve-nav-color);\n}\n.navbar[data-v-6fe5f294] a,\n.navbar[data-v-6fe5f294] button {\n  padding: var(--ve-nav-a-padding);\n  color: var(--ve-nav-a-color);\n  cursor: var(--ve-nav-a-cursor);\n}\n.navbar[data-v-6fe5f294] ul {\n  display: var(--ve-nav-ul-display);\n  place-items: var(--ve-nav-ul-place-items);\n  margin: var(--ve-nav-ul-margin);\n  padding: var(--ve-nav-ul-padding);\n  list-style: var(--ve-nav-ul-list-style);\n}\n.navbar ul a[data-v-6fe5f294],\n.navbar ul button[data-v-6fe5f294] {\n  display: var(--ve-nav-ul-a-display);\n}\n.navbar ul a[data-v-6fe5f294] :not(i),\n.navbar ul button[data-v-6fe5f294] :not(i) {\n  display: var(--ve-nav-ul-a-not-i-display);\n}\n.navbar[data-v-6fe5f294] ul a,\n.navbar[data-v-6fe5f294] ul button {\n  flex-direction: var(--ve-nav-ul-a-flex-direction);\n}\n.navbar ul a[data-v-6fe5f294]:hover,\n.navbar ul a[data-v-6fe5f294]:focus,\n.navbar ul button[data-v-6fe5f294]:hover,\n.navbar ul button[data-v-6fe5f294]:focus {\n  color: var(--ve-nav-ul-a-hover-color) !important;\n  transform: var(--ve-nav-ul-a-hover-transform) !important;\n}\n.navbar[data-v-6fe5f294] ul:last-of-type a:hover,\n.navbar[data-v-6fe5f294] ul:last-of-type a:focus,\n.navbar[data-v-6fe5f294] ul:last-of-type button:hover,\n.navbar[data-v-6fe5f294] ul:last-of-type button:focus {\n  color: var(--ve-nav-last-ul-a-hover-color);\n}\n.navbar[data-v-6fe5f294] button {\n  background-color: var(--ve-nav-button-background-color);\n  border: var(--ve-nav-button-border);\n  cursor: var(--ve-nav-button-cursor);\n}\n.navbar[data-v-6fe5f294] i {\n  place-self: var(--ve-nav-i-place-self);\n}\n.admin[data-v-6fe5f294] {\n  display: var(--ve-nav-hide-display) !important;\n}\n.nav[data-v-6fe5f294] {\n  display: var(--ve-nav-show-display);\n}\n.sidebar[data-v-6fe5f294] {\n  display: var(--ve-side-display);\n  flex-flow: var(--ve-side-flex-flow);\n  position: var(--ve-side-position);\n  top: var(--ve-side-top);\n  left: var(--ve-side-left);\n  z-index: var(--ve-side-z-index);\n  width: var(--ve-side-width);\n}\n.sidebar ul[data-v-6fe5f294] {\n  display: var(--ve-side-ul-display);\n  flex-flow: var(--ve-side-ul-flex-flow);\n}\n.sidebar[data-v-6fe5f294] a,\n.sidebar button[data-v-6fe5f294] {\n  display: var(--ve-side-a-display);\n  place-content: var(--ve-side-a-place-content);\n  place-items: var(--ve-side-a-place-items);\n  margin: var(--ve-side-a-margin);\n  border: var(--ve-side-a-border);\n  border-radius: var(--ve-side-a-border-radius);\n  outline: var(--ve-side-a-outline);\n  padding: var(--ve-side-a-padding);\n  width: var(--ve-side-a-width);\n  background-color: var(--ve-side-a-background-color);\n  color: var(--ve-side-a-color);\n  cursor: var(--ve-side-a-cursor);\n}\n.sidebar[data-v-6fe5f294] a:hover,\n.sidebar[data-v-6fe5f294] a:focus,\n.sidebar button[data-v-6fe5f294]:hover,\n.sidebar button[data-v-6fe5f294]:focus {\n  border-radius: var(--ve-side-a-hover-border-radius);\n  color: var(--ve-side-a-hover-color);\n  background-color: var(--ve-side-a-hover-background-color);\n  transform: var(--ve-side-a-hover-transform);\n  transition: var(--ve-side-a-hover-transition);\n}\n.hide[data-v-6fe5f294] {\n  display: var(--ve-side-hide-display) !important;\n}\n.show[data-v-6fe5f294] {\n  display: var(--ve-side-show-display);\n}\n@media (min-width: 768px) {\n.navbar > button[data-v-6fe5f294] {\n    display: var(--ve-nav-button-display);\n}\n}\n";
+styleInject(css_248z$1);var css_248z = "\n.navbar[data-v-b65ea318] {\n  display: var(--ve-nav-display);\n  place-content: var(--ve-nav-place-content);\n  place-items: var(--ve-nav-place-items);\n  position: var(--ve-nav-position);\n  top: var(--ve-nav-top);\n  right: var(--ve-nav-right);\n  bottom: var(--ve-nav-bottom);\n  left: var(--ve-nav-left);\n  z-index: var(--ve-nav-z-index);\n  height: var(--ve-nav-height);\n  background-color: var(--ve-nav-background-color);\n  color: var(--ve-nav-color);\n}\n.navbar[data-v-b65ea318] a,\n.navbar[data-v-b65ea318] button {\n  padding: var(--ve-nav-a-padding);\n  color: var(--ve-nav-a-color);\n  cursor: var(--ve-nav-a-cursor);\n}\n.navbar[data-v-b65ea318] ul {\n  display: var(--ve-nav-ul-display);\n  place-items: var(--ve-nav-ul-place-items);\n  margin: var(--ve-nav-ul-margin);\n  padding: var(--ve-nav-ul-padding);\n  list-style: var(--ve-nav-ul-list-style);\n}\n.navbar ul a[data-v-b65ea318],\n.navbar ul button[data-v-b65ea318] {\n  display: var(--ve-nav-ul-a-display);\n}\n.navbar ul a[data-v-b65ea318] :not(i),\n.navbar ul button[data-v-b65ea318] :not(i) {\n  display: var(--ve-nav-ul-a-not-i-display);\n}\n.navbar[data-v-b65ea318] ul a,\n.navbar[data-v-b65ea318] ul button {\n  flex-direction: var(--ve-nav-ul-a-flex-direction);\n}\n.navbar ul a[data-v-b65ea318]:hover,\n.navbar ul a[data-v-b65ea318]:focus,\n.navbar ul button[data-v-b65ea318]:hover,\n.navbar ul button[data-v-b65ea318]:focus {\n  color: var(--ve-nav-ul-a-hover-color) !important;\n  transform: var(--ve-nav-ul-a-hover-transform) !important;\n}\n.navbar[data-v-b65ea318] ul:last-of-type a:hover,\n.navbar[data-v-b65ea318] ul:last-of-type a:focus,\n.navbar[data-v-b65ea318] ul:last-of-type button:hover,\n.navbar[data-v-b65ea318] ul:last-of-type button:focus {\n  color: var(--ve-nav-last-ul-a-hover-color);\n}\n.navbar[data-v-b65ea318] button {\n  background-color: var(--ve-nav-button-background-color);\n  border: var(--ve-nav-button-border);\n  cursor: var(--ve-nav-button-cursor);\n}\n.navbar[data-v-b65ea318] i {\n  place-self: var(--ve-nav-i-place-self);\n}\n.admin[data-v-b65ea318] {\n  display: var(--ve-nav-hide-display) !important;\n}\n.nav[data-v-b65ea318] {\n  display: var(--ve-nav-show-display);\n}\n.sidebar[data-v-b65ea318] {\n  display: var(--ve-side-display);\n  flex-flow: var(--ve-side-flex-flow);\n  position: var(--ve-side-position);\n  top: var(--ve-side-top);\n  left: var(--ve-side-left);\n  z-index: var(--ve-side-z-index);\n  width: var(--ve-side-width);\n}\n.sidebar ul[data-v-b65ea318] {\n  display: var(--ve-side-ul-display);\n  flex-flow: var(--ve-side-ul-flex-flow);\n}\n.sidebar[data-v-b65ea318] a,\n.sidebar button[data-v-b65ea318] {\n  display: var(--ve-side-a-display);\n  place-content: var(--ve-side-a-place-content);\n  place-items: var(--ve-side-a-place-items);\n  margin: var(--ve-side-a-margin);\n  border: var(--ve-side-a-border);\n  border-radius: var(--ve-side-a-border-radius);\n  outline: var(--ve-side-a-outline);\n  padding: var(--ve-side-a-padding);\n  width: var(--ve-side-a-width);\n  background-color: var(--ve-side-a-background-color);\n  color: var(--ve-side-a-color);\n  cursor: var(--ve-side-a-cursor);\n}\n.sidebar[data-v-b65ea318] a:hover,\n.sidebar[data-v-b65ea318] a:focus,\n.sidebar button[data-v-b65ea318]:hover,\n.sidebar button[data-v-b65ea318]:focus {\n  border-radius: var(--ve-side-a-hover-border-radius);\n  color: var(--ve-side-a-hover-color);\n  background-color: var(--ve-side-a-hover-background-color);\n  transform: var(--ve-side-a-hover-transform);\n  transition: var(--ve-side-a-hover-transition);\n}\n.hide[data-v-b65ea318] {\n  display: var(--ve-side-hide-display) !important;\n}\n.show[data-v-b65ea318] {\n  display: var(--ve-side-show-display);\n}\n@media (min-width: 768px) {\n.navbar > button[data-v-b65ea318] {\n    display: var(--ve-nav-button-display);\n}\n}\n";
 styleInject(css_248z);script.render = render;
-script.__scopeId = "data-v-6fe5f294";/* eslint-disable import/prefer-default-export */var components$1=/*#__PURE__*/Object.freeze({__proto__:null,BtnElt:script$8,FieldElt:script$7,MediaElt:script$6,ListElt:script$5,SliderElt:script$4,TableElt:script$3,CardElt:script$2,FootElt:script$1,NavElt:script});var install = function installVueElt(app) {
+script.__scopeId = "data-v-b65ea318";/* eslint-disable import/prefer-default-export */var components$1=/*#__PURE__*/Object.freeze({__proto__:null,BtnElt:script$8,FieldElt:script$7,MediaElt:script$6,ListElt:script$5,SliderElt:script$4,TableElt:script$3,CardElt:script$2,FootElt:script$1,NavElt:script});var install = function installVueElt(app) {
   Object.entries(components$1).forEach(function (_ref) {
     var _ref2 = _slicedToArray(_ref, 2),
       componentName = _ref2[0],
