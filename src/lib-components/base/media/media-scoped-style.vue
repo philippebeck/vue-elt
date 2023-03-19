@@ -28,6 +28,13 @@ video {
   border-radius: var(--ve-media-video-border-radius);
 }
 
+blockquote {
+  margin: var(--ve-media-blockquote-margin);
+  max-width: var(--ve-media-blockquote-max-width);
+  font-size: var(--ve-media-blockquote-font-size);
+  color: var(--ve-media-blockquote-color);
+}
+
 figcaption {
   display: var(--ve-media-figcaption-display);
   flex-flow: var(--ve-media-figcaption-flex-flow);

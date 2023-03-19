@@ -26,6 +26,13 @@ video {
   --ve-media-video-border-radius: 20px;
 }
 
+blockquote {
+  --ve-media-blockquote-color: var(--ani-blue-dark);
+  --ve-media-blockquote-font-size: 2rem;
+  --ve-media-blockquote-margin: auto;
+  --ve-media-blockquote-max-width: 700px;
+}
+
 figcaption {
   --ve-media-figcaption-display: flex;
   --ve-media-figcaption-flex-flow: column nowrap;
