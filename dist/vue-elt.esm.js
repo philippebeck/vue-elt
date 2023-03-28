@@ -162,7 +162,7 @@ const _hoisted_7$3 = {
 };
 const _hoisted_8$3 = ["value"];
 const _hoisted_9$3 = ["id", "name", "value", "placeholder", "minlength", "maxlength", "cols", "rows", "itemprop", "required"];
-const _hoisted_10$3 = ["type", "id", "name", "value", "placeholder", "minlength", "maxlength", "itemprop", "required"];
+const _hoisted_10$2 = ["type", "id", "name", "value", "placeholder", "minlength", "maxlength", "itemprop", "required"];
 const _hoisted_11$2 = ["for"];
 function render$7(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("fieldset", {
@@ -237,7 +237,7 @@ function render$7(_ctx, _cache, $props, $setup, $data, $options) {
     maxlength: $props.max,
     itemprop: $props.itemprop,
     required: $props.required
-  }, null, 40, _hoisted_10$3)), $options.hasSlot('label') ? (openBlock(), createElementBlock("label", {
+  }, null, 40, _hoisted_10$2)), $options.hasSlot('label') ? (openBlock(), createElementBlock("label", {
     key: 6,
     for: $props.id
   }, [renderSlot(_ctx.$slots, "label")], 8, _hoisted_11$2)) : createCommentVNode("", true)], 8, _hoisted_1$7);
@@ -282,76 +282,78 @@ var script$6 = {
   }
 };
 
-const _hoisted_1$6 = ["title"];
-const _hoisted_2$6 = ["src", "loop", "itemprop"];
-const _hoisted_3$6 = ["src", "loop", "height", "width", "itemprop"];
-const _hoisted_4$6 = ["src", "type"];
-const _hoisted_5$4 = ["cite", "itemprop"];
-const _hoisted_6$3 = {
+const _hoisted_1$6 = ["src", "loop", "title", "itemprop"];
+const _hoisted_2$6 = ["src", "loop", "height", "width", "title", "itemprop"];
+const _hoisted_3$6 = ["src", "type"];
+const _hoisted_4$6 = ["cite", "title", "itemprop"];
+const _hoisted_5$4 = {
   key: 3
 };
-const _hoisted_7$2 = ["type", "srcset", "media"];
-const _hoisted_8$2 = ["src", "alt", "itemprop"];
-const _hoisted_9$2 = ["src", "alt", "height", "width", "itemprop"];
-const _hoisted_10$2 = {
+const _hoisted_6$3 = ["type", "srcset", "media"];
+const _hoisted_7$2 = ["src", "alt", "title", "itemprop"];
+const _hoisted_8$2 = ["src", "alt", "height", "width", "title", "itemprop"];
+const _hoisted_9$2 = {
   key: 5
 };
 function render$6(_ctx, _cache, $props, $setup, $data, $options) {
-  return openBlock(), createElementBlock("figure", {
-    title: $props.title
-  }, [$props.type === 'audio' ? (openBlock(), createElementBlock("audio", {
+  return openBlock(), createElementBlock("figure", null, [$props.type === 'audio' ? (openBlock(), createElementBlock("audio", {
     key: 0,
     controls: "",
     src: $props.src,
     loop: $props.loop,
+    title: $props.title,
     itemprop: $props.itemprop
-  }, [renderSlot(_ctx.$slots, "audio")], 8, _hoisted_2$6)) : $props.type === 'video' ? (openBlock(), createElementBlock("video", {
+  }, [renderSlot(_ctx.$slots, "audio")], 8, _hoisted_1$6)) : $props.type === 'video' ? (openBlock(), createElementBlock("video", {
     key: 1,
     controls: "",
     src: $props.src,
     loop: $props.loop,
     height: $props.height,
     width: $props.width,
+    title: $props.title,
     itemprop: $props.itemprop
   }, [(openBlock(true), createElementBlock(Fragment, null, renderList($props.medias, (video, index) => {
     return openBlock(), createElementBlock("source", {
       key: index,
       src: video.src,
       type: video.type
-    }, null, 8, _hoisted_4$6);
-  }), 128)), renderSlot(_ctx.$slots, "video")], 8, _hoisted_3$6)) : $props.type === 'quote' ? (openBlock(), createElementBlock("blockquote", {
+    }, null, 8, _hoisted_3$6);
+  }), 128)), renderSlot(_ctx.$slots, "video")], 8, _hoisted_2$6)) : $props.type === 'quote' ? (openBlock(), createElementBlock("blockquote", {
     key: 2,
     cite: $props.src,
+    title: $props.title,
     itemprop: $props.itemprop
-  }, [createTextVNode(toDisplayString($props.content) + " ", 1), renderSlot(_ctx.$slots, "quote")], 8, _hoisted_5$4)) : $props.type === 'picture' ? (openBlock(), createElementBlock("picture", _hoisted_6$3, [(openBlock(true), createElementBlock(Fragment, null, renderList($props.medias, (picture, index) => {
+  }, [createTextVNode(toDisplayString($props.content) + " ", 1), renderSlot(_ctx.$slots, "quote")], 8, _hoisted_4$6)) : $props.type === 'picture' ? (openBlock(), createElementBlock("picture", _hoisted_5$4, [(openBlock(true), createElementBlock(Fragment, null, renderList($props.medias, (picture, index) => {
     return openBlock(), createElementBlock("source", {
       key: index,
       type: picture.type,
       srcset: picture.src,
       media: picture.media
-    }, null, 8, _hoisted_7$2);
+    }, null, 8, _hoisted_6$3);
   }), 128)), createElementVNode("img", {
     src: $props.src,
     alt: $props.alt,
+    title: $props.title,
     itemprop: $props.itemprop
-  }, null, 8, _hoisted_8$2)])) : (openBlock(), createElementBlock("img", {
+  }, null, 8, _hoisted_7$2)])) : (openBlock(), createElementBlock("img", {
     key: 4,
     src: $props.src,
     alt: $props.alt,
     height: $props.height,
     width: $props.width,
+    title: $props.title,
     itemprop: $props.itemprop
-  }, null, 8, _hoisted_9$2)), $options.hasSlot('figcaption') ? (openBlock(), createElementBlock("figcaption", _hoisted_10$2, [renderSlot(_ctx.$slots, "figcaption")])) : createCommentVNode("", true)], 8, _hoisted_1$6);
+  }, null, 8, _hoisted_8$2)), $options.hasSlot('figcaption') ? (openBlock(), createElementBlock("figcaption", _hoisted_9$2, [renderSlot(_ctx.$slots, "figcaption")])) : createCommentVNode("", true)]);
 }
 
 var css_248z$e = "\n/********** MEDIA ELT **********/\nfigure {\n  --ve-media-figure-border: 1px solid transparent;\n  --ve-media-figure-border-radius: 20px;\n  --ve-media-figure-padding: 10px;\n  --ve-media-figure-background-color: transparent;\n}\nimg {\n  --ve-media-img-border: 2px solid var(--ani-slate);\n  --ve-media-img-border-radius: 20px;\n  --ve-media-img-padding: 0;\n  --ve-media-img-max-width: 100%;\n  --ve-media-img-height: auto;\n  --ve-media-img-object-fit: contain;\n  --ve-media-img-object-position: 50% 50%;\n}\naudio {\n  --ve-media-audio-border: 2px solid var(--ani-slate);\n  --ve-media-audio-border-radius: 10px;\n}\nvideo {\n  --ve-media-video-border: 2px solid var(--ani-black);\n  --ve-media-video-border-radius: 20px;\n}\nblockquote {\n  --ve-media-blockquote-color: var(--ani-blue-dark);\n  --ve-media-blockquote-font-size: 2rem;\n  --ve-media-blockquote-margin: auto;\n  --ve-media-blockquote-max-width: 700px;\n}\nfigcaption {\n  --ve-media-figcaption-display: flex;\n  --ve-media-figcaption-flex-flow: column nowrap;\n  --ve-media-figcaption-place-content: center center;\n  --ve-media-figcaption-font-size: 1.6rem;\n  --ve-media-figcaption-font-style: normal;\n  --ve-media-figcaption-color: var(--ani-slate);\n}\n\n";
 styleInject(css_248z$e);
 
-var css_248z$d = "\nfigure[data-v-11cf438e] {\n  border: var(--ve-media-figure-border);\n  border-radius: var(--ve-media-figure-border-radius);\n  padding: var(--ve-media-figure-padding);\n  background-color: var(--ve-media-figure-background-color);\n}\nimg[data-v-11cf438e] {\n  border: var(--ve-media-img-border);\n  border-radius: var(--ve-media-img-border-radius);\n  padding: var(--ve-media-img-padding);\n  max-width: var(--ve-media-img-max-width);\n  height: var(--ve-media-img-height);\n  object-fit: var(--ve-media-img-object-fit);\n  object-position: var(--ve-media-img-object-position);\n}\naudio[data-v-11cf438e] {\n  border: var(--ve-media-audio-border);\n  border-radius: var(--ve-media-audio-border-radius);\n}\nvideo[data-v-11cf438e] {\n  border: var(--ve-media-video-border);\n  border-radius: var(--ve-media-video-border-radius);\n}\nblockquote[data-v-11cf438e] {\n  margin: var(--ve-media-blockquote-margin);\n  max-width: var(--ve-media-blockquote-max-width);\n  font-size: var(--ve-media-blockquote-font-size);\n  color: var(--ve-media-blockquote-color);\n}\nfigcaption[data-v-11cf438e] {\n  display: var(--ve-media-figcaption-display);\n  flex-flow: var(--ve-media-figcaption-flex-flow);\n  place-content: var(--ve-media-figcaption-place-content);\n  font-size: var(--ve-media-figcaption-font-size);\n  font-style: var(--ve-media-figcaption-font-style);\n  color: var(--ve-media-figcaption-color);\n}\n";
+var css_248z$d = "\nfigure[data-v-6935c662] {\n  border: var(--ve-media-figure-border);\n  border-radius: var(--ve-media-figure-border-radius);\n  padding: var(--ve-media-figure-padding);\n  background-color: var(--ve-media-figure-background-color);\n}\nimg[data-v-6935c662] {\n  border: var(--ve-media-img-border);\n  border-radius: var(--ve-media-img-border-radius);\n  padding: var(--ve-media-img-padding);\n  max-width: var(--ve-media-img-max-width);\n  height: var(--ve-media-img-height);\n  object-fit: var(--ve-media-img-object-fit);\n  object-position: var(--ve-media-img-object-position);\n}\naudio[data-v-6935c662] {\n  border: var(--ve-media-audio-border);\n  border-radius: var(--ve-media-audio-border-radius);\n}\nvideo[data-v-6935c662] {\n  border: var(--ve-media-video-border);\n  border-radius: var(--ve-media-video-border-radius);\n}\nblockquote[data-v-6935c662] {\n  margin: var(--ve-media-blockquote-margin);\n  max-width: var(--ve-media-blockquote-max-width);\n  font-size: var(--ve-media-blockquote-font-size);\n  color: var(--ve-media-blockquote-color);\n}\nfigcaption[data-v-6935c662] {\n  display: var(--ve-media-figcaption-display);\n  flex-flow: var(--ve-media-figcaption-flex-flow);\n  place-content: var(--ve-media-figcaption-place-content);\n  font-size: var(--ve-media-figcaption-font-size);\n  font-style: var(--ve-media-figcaption-font-style);\n  color: var(--ve-media-figcaption-color);\n}\n";
 styleInject(css_248z$d);
 
 script$6.render = render$6;
-script$6.__scopeId = "data-v-11cf438e";
+script$6.__scopeId = "data-v-6935c662";
 
 var script$5 = {
   name: "ListElt",
