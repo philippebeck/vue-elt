@@ -190,15 +190,19 @@ var _hoisted_3$7 = ["type", "id", "name", "value", "min", "max", "itemprop", "re
 var _hoisted_4$7 = ["type", "id", "name", "value", "required"];
 var _hoisted_5$5 = ["id", "name", "placeholder", "itemprop", "required"];
 var _hoisted_6$4 = ["value"];
-var _hoisted_7$3 = ["value"];
-var _hoisted_8$3 = {
-  key: 2
+var _hoisted_7$3 = {
+  key: 1
 };
-var _hoisted_9$3 = ["index", "value"];
-var _hoisted_10$2 = ["index", "value"];
-var _hoisted_11$1 = ["id", "name", "value", "placeholder", "minlength", "maxlength", "cols", "rows", "itemprop", "required"];
-var _hoisted_12$1 = ["type", "id", "name", "value", "placeholder", "minlength", "maxlength", "itemprop", "required"];
-var _hoisted_13$1 = ["for"];
+var _hoisted_8$3 = ["value"];
+var _hoisted_9$3 = ["id", "name", "placeholder", "itemprop", "required"];
+var _hoisted_10$2 = ["value"];
+var _hoisted_11$1 = {
+  key: 1
+};
+var _hoisted_12$1 = ["value"];
+var _hoisted_13$1 = ["id", "name", "value", "placeholder", "minlength", "maxlength", "cols", "rows", "itemprop", "required"];
+var _hoisted_14$1 = ["type", "id", "name", "value", "placeholder", "minlength", "maxlength", "itemprop", "required"];
+var _hoisted_15$1 = ["for"];
 function render$7(_ctx, _cache, $props, $setup, $data, $options) {
   return vue.openBlock(), vue.createElementBlock("fieldset", {
     title: $props.info
@@ -225,7 +229,7 @@ function render$7(_ctx, _cache, $props, $setup, $data, $options) {
       return $options.onInput && $options.onInput.apply($options, arguments);
     }),
     required: $props.required
-  }, null, 40, _hoisted_4$7)) : $options.getFieldType() === 'list' ? (vue.openBlock(), vue.createElementBlock("select", {
+  }, null, 40, _hoisted_4$7)) : $options.getFieldType() === 'list' && $props.list[0].value ? (vue.openBlock(), vue.createElementBlock("select", {
     key: 3,
     id: $props.id,
     name: $props.name,
@@ -238,41 +242,31 @@ function render$7(_ctx, _cache, $props, $setup, $data, $options) {
   }, [$props.content ? (vue.openBlock(), vue.createElementBlock("option", {
     key: 0,
     value: $props.value
-  }, vue.toDisplayString($props.content), 9, _hoisted_6$4)) : $props.value ? (vue.openBlock(), vue.createElementBlock("option", {
-    key: 1,
-    value: $props.value
-  }, vue.toDisplayString($props.value), 9, _hoisted_7$3)) : (vue.openBlock(), vue.createElementBlock("option", _hoisted_8$3, vue.toDisplayString($props.info), 1)), $props.list[0].value ? (vue.openBlock(true), vue.createElementBlock(vue.Fragment, {
-    key: 3
-  }, vue.renderList($props.list, function (item, index) {
+  }, vue.toDisplayString($props.content), 9, _hoisted_6$4)) : (vue.openBlock(), vue.createElementBlock("option", _hoisted_7$3, vue.toDisplayString($props.info), 1)), (vue.openBlock(true), vue.createElementBlock(vue.Fragment, null, vue.renderList($props.list, function (item, key) {
     return vue.openBlock(), vue.createElementBlock("option", {
-      index: index,
+      key: key,
       value: item.value
-    }, vue.toDisplayString(item.content), 9, _hoisted_9$3);
-  }), 256)) : (vue.openBlock(true), vue.createElementBlock(vue.Fragment, {
-    key: 4
-  }, vue.renderList($props.list, function (item, index) {
-    return vue.openBlock(), vue.createElementBlock("option", {
-      index: index,
-      value: item
-    }, vue.toDisplayString(item), 9, _hoisted_10$2);
-  }), 256))], 40, _hoisted_5$5)) : $options.getFieldType() === 'area' ? (vue.openBlock(), vue.createElementBlock("textarea", {
+    }, vue.toDisplayString(item.content), 9, _hoisted_8$3);
+  }), 128))], 40, _hoisted_5$5)) : $options.getFieldType() === 'list' ? (vue.openBlock(), vue.createElementBlock("select", {
     key: 4,
     id: $props.id,
     name: $props.name,
-    value: $props.value,
     onInput: _cache[3] || (_cache[3] = function () {
       return $options.onInput && $options.onInput.apply($options, arguments);
     }),
     placeholder: $props.info,
-    minlength: $props.min,
-    maxlength: $props.max,
-    cols: $props.cols,
-    rows: $props.rows,
     itemprop: $props.itemprop,
     required: $props.required
-  }, null, 40, _hoisted_11$1)) : (vue.openBlock(), vue.createElementBlock("input", {
+  }, [$props.value ? (vue.openBlock(), vue.createElementBlock("option", {
+    key: 0,
+    value: $props.value
+  }, vue.toDisplayString($props.value), 9, _hoisted_10$2)) : (vue.openBlock(), vue.createElementBlock("option", _hoisted_11$1, vue.toDisplayString($props.info), 1)), (vue.openBlock(true), vue.createElementBlock(vue.Fragment, null, vue.renderList($props.list, function (item, key) {
+    return vue.openBlock(), vue.createElementBlock("option", {
+      key: key,
+      value: item
+    }, vue.toDisplayString(item), 9, _hoisted_12$1);
+  }), 128))], 40, _hoisted_9$3)) : $options.getFieldType() === 'area' ? (vue.openBlock(), vue.createElementBlock("textarea", {
     key: 5,
-    type: $props.type,
     id: $props.id,
     name: $props.name,
     value: $props.value,
@@ -282,16 +276,32 @@ function render$7(_ctx, _cache, $props, $setup, $data, $options) {
     placeholder: $props.info,
     minlength: $props.min,
     maxlength: $props.max,
+    cols: $props.cols,
+    rows: $props.rows,
     itemprop: $props.itemprop,
     required: $props.required
-  }, null, 40, _hoisted_12$1)), $options.hasSlot('label') ? (vue.openBlock(), vue.createElementBlock("label", {
+  }, null, 40, _hoisted_13$1)) : (vue.openBlock(), vue.createElementBlock("input", {
     key: 6,
+    type: $props.type,
+    id: $props.id,
+    name: $props.name,
+    value: $props.value,
+    onInput: _cache[5] || (_cache[5] = function () {
+      return $options.onInput && $options.onInput.apply($options, arguments);
+    }),
+    placeholder: $props.info,
+    minlength: $props.min,
+    maxlength: $props.max,
+    itemprop: $props.itemprop,
+    required: $props.required
+  }, null, 40, _hoisted_14$1)), $options.hasSlot('label') ? (vue.openBlock(), vue.createElementBlock("label", {
+    key: 7,
     for: $props.id
-  }, [vue.renderSlot(_ctx.$slots, "label")], 8, _hoisted_13$1)) : vue.createCommentVNode("", true)], 8, _hoisted_1$7);
+  }, [vue.renderSlot(_ctx.$slots, "label")], 8, _hoisted_15$1)) : vue.createCommentVNode("", true)], 8, _hoisted_1$7);
 }var css_248z$g = "\n/********** FIELD ELT **********/\nfieldset {\n  --ve-field-display: flex;\n  --ve-field-flex-flow: row wrap;\n  --ve-field-place-items: center;\n  --ve-field-margin: auto;\n  --ve-field-border: none;\n  --ve-field-padding: 0;\n  --ve-field-max-width: 500px;\n  --ve-field-text-align: center;\n  --ve-field-transition: max-width 1s;\n  --ve-field-child-box-sizing: border-box;\n  --ve-field-child-margin: 5px;\n  --ve-field-child-padding: 5px;\n}\nlegend {\n  --ve-field-legend-width: 93%;\n  --ve-field-legend-font-size: 2rem;\n  --ve-field-legend-color: var(--ani-slate);\n  --ve-field-hover-legend-color: var(--ani-black);\n}\nlabel {\n  --ve-field-label-width: 90%;\n  --ve-field-label-visibility: hidden;\n  --ve-field-label-font-size: 1.5rem;\n  --ve-field-label-font-style: italic;\n  --ve-field-label-color: var(--ani-blue-dark);\n  --ve-field-hover-label-visibility: visible;\n  --ve-field-hover-label-transform: scale(1.1);\n  --ve-field-hover-label-transition: all 1s;\n}\ninput,\nselect,\ntextarea {\n  --ve-field-input-border: 1px solid var(--ani-sky-light);\n  --ve-field-input-border-radius: 10px;\n  --ve-field-input-outline: none;\n  --ve-field-input-width: 100%;\n  --ve-field-input-line-height: 1.8;\n  --ve-field-input-background-color: var(--ani-white);\n  --ve-field-hover-input-border: 1px solid var(--ani-sky);\n  --ve-field-hover-input-border-radius: 0;\n  --ve-field-hover-input-background-color: var(--ani-white);\n  --ve-field-hover-input-transition: all 500ms;\n}\n\n";
-styleInject(css_248z$g);var css_248z$f = "\nfieldset[data-v-0c6dd59e] {\n  display: var(--ve-field-display);\n  flex-flow: var(--ve-field-flex-flow);\n  place-items: var(--ve-field-place-items);;\n  margin: var(--ve-field-margin);\n  border: var(--ve-field-border);\n  padding: var(--ve-field-padding);\n  max-width: var(--ve-field-max-width);\n  text-align: var(--ve-field-text-align);\n  transition: var(--ve-field-transition);\n}\nfieldset > *[data-v-0c6dd59e] {\n  box-sizing: var(--ve-field-child-box-sizing);\n  margin: var(--ve-field-child-margin);\n  padding: var(--ve-field-child-padding);\n}\nlegend[data-v-0c6dd59e] {\n  width: var(--ve-field-legend-width);\n  font-size: var(--ve-field-legend-font-size);\n  color: var(--ve-field-legend-color);\n}\nfieldset:hover legend[data-v-0c6dd59e] {\n  color: var(--ve-field-hover-legend-color);\n}\nlabel[data-v-0c6dd59e] {\n  width: var(--ve-field-label-width);\n  visibility: var(--ve-field-label-visibility);\n  font-size: var(--ve-field-label-font-size);\n  font-style: var(--ve-field-label-font-style);\n  color: var(--ve-field-label-color);\n}\nfieldset:hover > label[data-v-0c6dd59e],\ninput:focus + label[data-v-0c6dd59e],\nselect:focus + label[data-v-0c6dd59e],\ntextarea:focus + label[data-v-0c6dd59e] {\n  visibility: var(--ve-field-hover-label-visibility);\n  transform: var(--ve-field-hover-label-transform);\n  transition: var(--ve-field-hover-label-transition);\n}\ninput[data-v-0c6dd59e],\nselect[data-v-0c6dd59e],\ntextarea[data-v-0c6dd59e] {\n  border: var(--ve-field-input-border);\n  border-radius: var(--ve-field-input-border-radius);\n  outline: var(--ve-field-input-outline);\n  width: var(--ve-field-input-width);\n  line-height: var(--ve-field-input-line-height);\n  background-color: var(--ve-field-input-background-color);\n}\nfieldset:hover > input[data-v-0c6dd59e],\nfieldset:hover > select[data-v-0c6dd59e],\nfieldset:hover > textarea[data-v-0c6dd59e],\ninput[data-v-0c6dd59e]:focus,\nselect[data-v-0c6dd59e]:focus,\ntextarea[data-v-0c6dd59e]:focus {\n  border: var(--ve-field-hover-input-border);\n  border-radius: var(--ve-field-hover-input-border-radius);\n  background-color: var(--ve-field-hover-input-background-color);\n  transition: var(--ve-field-hover-input-transition);\n}\n";
+styleInject(css_248z$g);var css_248z$f = "\nfieldset[data-v-4440094d] {\n  display: var(--ve-field-display);\n  flex-flow: var(--ve-field-flex-flow);\n  place-items: var(--ve-field-place-items);;\n  margin: var(--ve-field-margin);\n  border: var(--ve-field-border);\n  padding: var(--ve-field-padding);\n  max-width: var(--ve-field-max-width);\n  text-align: var(--ve-field-text-align);\n  transition: var(--ve-field-transition);\n}\nfieldset > *[data-v-4440094d] {\n  box-sizing: var(--ve-field-child-box-sizing);\n  margin: var(--ve-field-child-margin);\n  padding: var(--ve-field-child-padding);\n}\nlegend[data-v-4440094d] {\n  width: var(--ve-field-legend-width);\n  font-size: var(--ve-field-legend-font-size);\n  color: var(--ve-field-legend-color);\n}\nfieldset:hover legend[data-v-4440094d] {\n  color: var(--ve-field-hover-legend-color);\n}\nlabel[data-v-4440094d] {\n  width: var(--ve-field-label-width);\n  visibility: var(--ve-field-label-visibility);\n  font-size: var(--ve-field-label-font-size);\n  font-style: var(--ve-field-label-font-style);\n  color: var(--ve-field-label-color);\n}\nfieldset:hover > label[data-v-4440094d],\ninput:focus + label[data-v-4440094d],\nselect:focus + label[data-v-4440094d],\ntextarea:focus + label[data-v-4440094d] {\n  visibility: var(--ve-field-hover-label-visibility);\n  transform: var(--ve-field-hover-label-transform);\n  transition: var(--ve-field-hover-label-transition);\n}\ninput[data-v-4440094d],\nselect[data-v-4440094d],\ntextarea[data-v-4440094d] {\n  border: var(--ve-field-input-border);\n  border-radius: var(--ve-field-input-border-radius);\n  outline: var(--ve-field-input-outline);\n  width: var(--ve-field-input-width);\n  line-height: var(--ve-field-input-line-height);\n  background-color: var(--ve-field-input-background-color);\n}\nfieldset:hover > input[data-v-4440094d],\nfieldset:hover > select[data-v-4440094d],\nfieldset:hover > textarea[data-v-4440094d],\ninput[data-v-4440094d]:focus,\nselect[data-v-4440094d]:focus,\ntextarea[data-v-4440094d]:focus {\n  border: var(--ve-field-hover-input-border);\n  border-radius: var(--ve-field-hover-input-border-radius);\n  background-color: var(--ve-field-hover-input-background-color);\n  transition: var(--ve-field-hover-input-transition);\n}\n";
 styleInject(css_248z$f);script$7.render = render$7;
-script$7.__scopeId = "data-v-0c6dd59e";var script$6 = {
+script$7.__scopeId = "data-v-4440094d";var script$6 = {
   name: "MediaElt",
   props: {
     type: {
