@@ -1,5 +1,8 @@
 <template>
-  <NavElt :items="[{ 'href': '/home', 'name': 'Home', 'type': 'solid', 'icon': 'home' }]">
+  <NavElt :items="[
+    { 'href': '/home', 'name': 'Home', 'type': 'solid', 'icon': 'home' },
+    { 'href': '/https://github.com/philippebeck/vue-elt', 'name': 'Code', 'type': 'solid', 'icon': 'code' }
+    ]">
     <template #brand>
       <i class="fa-brands fa-vuejs fa-3x"></i>
     </template>
@@ -250,16 +253,36 @@
               </template>
             </FieldElt>
 
-            <FieldElt id="select"
+            <FieldElt id="select-object"
               type="select"
-              :list="['Choice 1', 'Choice 2', 'Choice 3']"
-              info="Choose an Option">
+              value="object value chosen"
+              content="object content chosen"
+              :list="[
+                { value: 'object 1 value', content: 'object 1 content' },
+                { value: 'object 2 value', content: 'object 2 content' },
+                { value: 'object 3 value', content: 'object 3 content' }
+              ]"
+              info="Choose an object Option">
               <template #legend>
-                Select
+                Select (object)
               </template>
 
               <template #label>
-                Choose an Option
+                Choose an object Option
+              </template>
+            </FieldElt>
+
+            <FieldElt id="select-array"
+              type="select"
+              value="array value chosen"
+              :list="['array 1 value', 'array 2 value', 'array 3 value']"
+              info="Choose an array Option">
+              <template #legend>
+                Select (array)
+              </template>
+
+              <template #label>
+                Choose an array Option
               </template>
             </FieldElt>
 
@@ -297,7 +320,7 @@
               </template>
             </MediaElt>
 
-            <MediaElt src="https://philippebeck.net/img/logo.svg"
+            <MediaElt src="https://philippebeck.net/img/logo.png"
               width="300"
               height="300"/>
           </template>
@@ -321,32 +344,32 @@
           </template>
           
           <template #body>
-            <ListElt :items="['html', 'css', 'js', 'vue']">
+            <ListElt :items="['html5', 'css3', 'js', 'vuejs']">
 
-            <template #item-1>
-              HTML
-              <i class="fa-brands fa-html5 orange"></i>
-              Template
-            </template>
+              <template #item-1="slotProps">
+                HTML
+                <i :class="`fa-brands fa-${slotProps.item} orange`"></i>
+                Template
+              </template>
 
-            <template #item-2>
-              + CSS
-              <i class="fa-brands fa-css3 blue"></i>
-              Style
-            </template>
+              <template #item-2="slotProps">
+                + CSS
+                <i :class="`fa-brands fa-${slotProps.item} blue`"></i>
+                Style
+              </template>
 
-            <template #item-3>
-              + JS
-              <i class="fa-brands fa-square-js yellow"></i>
-              Script
-            </template>
+              <template #item-3="slotProps">
+                + JS
+                <i :class="`fa-brands fa-${slotProps.item} yellow`"></i>
+                Script
+              </template>
 
-            <template #item-4>
-              <hr class="width-sm">
-              Vue
-              <i class="fa-brands fa-vuejs green"></i>
-              Elt
-            </template>
+              <template #item-4="slotProps">
+                <hr class="width-sm">
+                Vue
+                <i :class="`fa-brands fa-${slotProps.item} green`"></i>
+                Elt
+              </template>
             </ListElt>
           </template>
         </CardElt>
@@ -418,31 +441,8 @@
     </CardElt>
   </main>
 
-  <FootElt>
+  <FootElt title1="Packages">
     <template #foot1>
-      <ListElt :items="['Asperger', 'Astronomy', 'Philippe Beck']">
-        <template #item-1>
-          <a href="https://asperger.philippebeck.net"
-            title="Tests for Asperger's Syndrome">
-            Asperger
-          </a>
-        </template>
-        <template #item-2>
-          <a href="https://astronomy.philippebeck.net"
-            title="NASA & CDS APIs">
-            Astronomy
-          </a>
-        </template>
-        <template #item-3>
-          <a href="https://philippebeck.net"
-            title="Portal">
-            Philippe Beck
-          </a>
-        </template>
-      </ListElt>
-    </template>
-
-    <template #foot2>
       <ListElt :items="['Vue-Elt', 'Servidio', 'Animadio', 'NemJS', 'Vesan']">
         <template #item-1>
           <a href="https://www.npmjs.com/package/vue-elt"

@@ -1,8 +1,6 @@
 <template>
-  <!-- SLIDER ELT -->
   <figure class="slider">
 
-    <!-- Controls Part -->
     <ul class="controls">
       <li>
         <button @click="goPrevious()"
@@ -46,7 +44,6 @@
       </li>
     </ul>
 
-    <!-- Slider Part -->
     <ul class="slides">
 
       <li v-for="(slide, index) in slides"
@@ -59,7 +56,6 @@
             :index="index">
           </slot>
 
-          <!-- Figcaption (option) -->
           <figcaption v-if="hasSlot('info')">
             <slot name="info"
               :slide="slide"
@@ -71,7 +67,6 @@
       </li>
     </ul>
 
-    <!-- Gallery Part -->
     <ul class="gallery">
 
       <li v-for="(slide, index) in slides"

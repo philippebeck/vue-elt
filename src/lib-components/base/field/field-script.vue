@@ -16,6 +16,10 @@ export default {
       Number, 
       Array
     ],
+    content: [
+      String,
+      Number
+    ],
     id: String,
     name: String,
     list: Array,

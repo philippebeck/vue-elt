@@ -1,11 +1,9 @@
 <template>
   <fieldset :title="info">
-    <!-- Legend (option) -->
     <legend v-if="hasSlot('legend')">
       <slot name="legend"></slot>
     </legend>
 
-    <!-- NUMBER, DATE, TIME, RANGE ELT -->
     <input v-if="getFieldType() === 'number'"
       :type="type"
       :id="id"
@@ -17,7 +15,6 @@
       :itemprop="itemprop"
       :required="required">
 
-    <!-- CHECKBOX, RADIO, COLOR ELT -->
     <input v-else-if="getFieldType() === 'special'"
       :type="type"
       :id="id"
@@ -26,7 +23,6 @@
       @input="onInput"
       :required="required">
 
-    <!-- SELECT, OPTION ELT -->
     <select v-else-if="getFieldType() === 'list'"
       :id="id"
       :name="name"
@@ -35,21 +31,35 @@
       :itemprop="itemprop"
       :required="required">
 
-      <option v-if="value"
+      <option v-if="content"
+        :value="value">
+        {{ content }}
+      </option>
+
+      <option v-else-if="value"
         :value="value">
         {{ value }}
       </option>
+
       <option v-else>
         {{ info }}
       </option>
-      <option v-for="(value, key) in list"
-        :key="key"
-        :value="value">
-        {{ value }}
+
+      <option v-if="list[0].value"
+        v-for="(item, index) in list"
+        :index="index"
+        :value="item.value">
+        {{ item.content }}
+      </option>
+
+      <option v-else
+        v-for="(item, index) in list"
+        :index="index"
+        :value="item">
+        {{ item }}
       </option>
     </select>
 
-    <!-- TEXTAREA ELT -->
     <textarea v-else-if="getFieldType() === 'area'"
       :id="id"
       :name="name"
@@ -63,7 +73,6 @@
       :itemprop="itemprop"
       :required="required"></textarea>
 
-    <!-- TEXT, OTHERS ELT -->
     <input v-else
       :type="type"
       :id="id"
@@ -76,7 +85,6 @@
       :itemprop="itemprop"
       :required="required">
 
-    <!-- Label (option) -->
     <label v-if="hasSlot('label')"
       :for="id">
       <slot name="label"></slot>
@@ -101,6 +109,10 @@ export default {
       String, 
       Number, 
       Array
+    ],
+    content: [
+      String,
+      Number
     ],
     id: String,
     name: String,

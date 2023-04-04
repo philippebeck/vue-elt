@@ -77,14 +77,6 @@
   place-self: var(--ve-nav-i-place-self);
 }
 
-.admin {
-  display: var(--ve-nav-hide-display) !important;
-}
-
-.nav {
-  display: var(--ve-nav-show-display);
-}
-
 .sidebar {
   display: var(--ve-side-display);
   flex-flow: var(--ve-side-flex-flow);
@@ -133,11 +125,5 @@
 
 .show {
   display: var(--ve-side-show-display);
-}
-
-@media (min-width: 768px) {
-  .navbar > button {
-    display: var(--ve-nav-button-display);
-  }
 }
 </style>
