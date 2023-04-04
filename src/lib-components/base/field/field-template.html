@@ -23,7 +23,7 @@
       @input="onInput"
       :required="required">
 
-    <select v-else-if="getFieldType() === 'list'"
+    <select v-else-if="getFieldType() === 'list' && list[0].value"
       :id="id"
       :name="name"
       @input="onInput"
@@ -36,7 +36,26 @@
         {{ content }}
       </option>
 
-      <option v-else-if="value"
+      <option v-else>
+        {{ info }}
+      </option>
+
+      <option v-for="(item, key) in list"
+        :key="key"
+        :value="item.value">
+        {{ item.content }}
+      </option>
+    </select>
+
+    <select v-else-if="getFieldType() === 'list'"
+      :id="id"
+      :name="name"
+      @input="onInput"
+      :placeholder="info"
+      :itemprop="itemprop"
+      :required="required">
+
+      <option v-if="value"
         :value="value">
         {{ value }}
       </option>
@@ -45,16 +64,8 @@
         {{ info }}
       </option>
 
-      <option v-if="list[0].value"
-        v-for="(item, index) in list"
-        :index="index"
-        :value="item.value">
-        {{ item.content }}
-      </option>
-
-      <option v-else
-        v-for="(item, index) in list"
-        :index="index"
+      <option v-for="(item, key) in list"
+        :key="key"
         :value="item">
         {{ item }}
       </option>
