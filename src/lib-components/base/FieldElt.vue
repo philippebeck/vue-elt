@@ -31,17 +31,32 @@
       :itemprop="itemprop"
       :required="required">
 
-      <option v-if="value"
+      <option v-if="content"
+        :value="value">
+        {{ content }}
+      </option>
+
+      <option v-else-if="value"
         :value="value">
         {{ value }}
       </option>
+
       <option v-else>
         {{ info }}
       </option>
-      <option v-for="(value, key) in list"
-        :key="key"
-        :value="value">
-        {{ value }}
+
+      <option v-if="list[0].value"
+        v-for="(item, index) in list"
+        :index="index"
+        :value="item.value">
+        {{ item.content }}
+      </option>
+
+      <option v-else
+        v-for="(item, index) in list"
+        :index="index"
+        :value="item">
+        {{ item }}
       </option>
     </select>
 
@@ -94,6 +109,10 @@ export default {
       String, 
       Number, 
       Array
+    ],
+    content: [
+      String,
+      Number
     ],
     id: String,
     name: String,
