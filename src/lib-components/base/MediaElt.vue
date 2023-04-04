@@ -1,7 +1,6 @@
 <template>
   <figure>
 
-    <!-- AUDIO ELT -->
     <audio v-if="type === 'audio'"
       controls
       :src="src"
@@ -11,7 +10,6 @@
       <slot name="audio"></slot>
     </audio>
 
-    <!-- VIDEO ELT (multiple sources) -->
     <video v-else-if="type === 'video'"
       controls
       :src="src"
@@ -28,7 +26,6 @@
       <slot name="video"></slot>
     </video>
 
-    <!-- QUOTE ELT -->
     <blockquote v-else-if="type === 'quote'"
       :cite="src"
       :title="title"
@@ -37,7 +34,6 @@
       <slot name="quote"></slot>
     </blockquote>
 
-    <!-- IMAGE ELT (multiple sources) -->
     <picture v-else-if="type === 'picture'">
 
       <source v-for="(picture, index) in medias"
@@ -52,7 +48,6 @@
         :itemprop="itemprop">
     </picture>
 
-    <!-- IMAGE ELT (single source) -->
     <img v-else
       :src="src"
       :alt="alt"
@@ -61,7 +56,6 @@
       :title="title"
       :itemprop="itemprop">
 
-    <!-- Figcaption (option) -->
     <figcaption v-if="hasSlot('figcaption')">
       <slot name="figcaption"></slot>
     </figcaption>

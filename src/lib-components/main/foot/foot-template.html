@@ -1,9 +1,7 @@
 <template>
-  <!-- FOOT ELT -->
   <footer>
     <ul v-if="hasSlot('foot1') || hasSlot('foot2') || hasSlot('foot3')">
 
-      <!-- Column 1 (option) -->
       <li v-if="hasSlot('foot1')">
         <section>
           <h3>{{ title1 }}</h3>
@@ -11,7 +9,6 @@
         </section>
       </li>
 
-      <!-- Column 2 (option) -->
       <li v-if="hasSlot('foot2')">
         <section>
           <h3>{{ title2 }}</h3>
@@ -19,7 +16,6 @@
         </section>
       </li>
 
-      <!-- Column 3 (option) -->
       <li v-if="hasSlot('foot3')">
         <section>
           <h3>{{ title3 }}</h3>
@@ -28,7 +24,6 @@
       </li>
     </ul>
 
-    <!-- Bottom Part (option) -->
     <aside v-if="hasSlot('foot')">
       <slot name="foot"></slot>
     </aside>

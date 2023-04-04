@@ -1,5 +1,4 @@
 <template>
-  <!-- BUTTON -->
   <button v-if="getBtnType() === 'button'"
     :type="type"
     :value="value"
@@ -9,7 +8,6 @@
     {{ content }}
   </button>
 
-  <!-- LINK -->
   <a v-else
     :href="href"
     :class="$attrs.class"
