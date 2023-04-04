@@ -24,17 +24,6 @@ export default {
       return this.$slots[name] !== undefined;
     },
 
-    toggleNav() {
-      const nav = document.getElementById("nav");
-      const admin = document.getElementById("admin");
-
-      nav.classList.toggle("nav");
-      nav.classList.toggle("admin");
-
-      admin.classList.toggle("nav");
-      admin.classList.toggle("admin");
-    },
-
     toggleSide() {
       const side = document.getElementById("side");
 

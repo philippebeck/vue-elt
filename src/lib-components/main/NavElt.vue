@@ -1,9 +1,7 @@
 <template>
-  <!-- SIDEBAR ELT (Anchor Only) -->
   <nav v-if="getNavClass() === 'sidebar'" 
     class="sidebar">
 
-    <!-- Hide Action (option) -->
     <button v-if="hasSlot('hide')"
       @click="toggleSide()">
       <slot name="hide"></slot>
@@ -11,12 +9,10 @@
 
     <ul id="side"
       class="show">
-        <!-- Top static Link (option) -->
         <li v-if="hasSlot('first')">
           <slot name="first"></slot>
         </li>
 
-        <!-- Main Links -->
         <li v-for="(item, index) in items"
           :key="index">
           <a :href="`#${item}`"
@@ -30,12 +26,10 @@
           </a>
         </li>
 
-        <!-- Bottom static Link (option) -->
         <li v-if="hasSlot('last')">
           <slot name="last"></slot>
         </li>
 
-        <!-- Bottom Link (option) -->
         <li>
           <a v-if="hasSlot('top')"
           href="#top">
@@ -44,22 +38,17 @@
       </li>
     </ul>
   </nav>
-  
-  <!-- NAVBAR ELT -->
+
   <nav v-else 
     class="navbar">
 
-    <!-- Brand Logo (option) -->
     <a v-if="hasSlot('brand')"
       href="/"
       title="Home">
       <slot name="brand"></slot>
     </a>
 
-    <!-- Main Links -->
-    <ul id="nav"
-      class="nav">
-
+    <ul>
       <li v-for="(item, index) in items"
         :key="index">
         <a :href="item.href"
@@ -76,19 +65,9 @@
       </li>
     </ul>
 
-    <!-- Admin Part (option) -->
-    <aside v-if="hasSlot('admin')"
-      id="admin"
-      class="admin">
+    <aside v-if="hasSlot('admin')">
       <slot name="admin"></slot>
     </aside>
-    
-    <!-- Responsive Toggle -->
-    <button type="button"
-      @click="toggleNav()"
-      title="Menu">
-      <i class="fa-solid fa-bars"></i>
-    </button>
   </nav>
 </template>
 
@@ -116,17 +95,6 @@ export default {
 
     hasSlot(name) {
       return this.$slots[name] !== undefined;
-    },
-
-    toggleNav() {
-      const nav = document.getElementById("nav");
-      const admin = document.getElementById("admin");
-
-      nav.classList.toggle("nav");
-      nav.classList.toggle("admin");
-
-      admin.classList.toggle("nav");
-      admin.classList.toggle("admin");
     },
 
     toggleSide() {
@@ -175,14 +143,6 @@ export default {
   --ve-nav-button-border: none;
   --ve-nav-button-cursor: pointer;
   --ve-nav-i-place-self: center;
-}
-
-.admin {
-  --ve-nav-hide-display: none;
-}
-
-.nav {
-  --ve-nav-show-display: flex;
 }
 
 .sidebar {
@@ -237,10 +197,6 @@ export default {
   .navbar {
     --ve-nav-button-display: none;
     --ve-nav-ul-a-not-i-display: flex;
-  }
-
-  .admin {
-    --ve-nav-hide-display: flex;
   }
 }
 
@@ -323,14 +279,6 @@ export default {
   place-self: var(--ve-nav-i-place-self);
 }
 
-.admin {
-  display: var(--ve-nav-hide-display) !important;
-}
-
-.nav {
-  display: var(--ve-nav-show-display);
-}
-
 .sidebar {
   display: var(--ve-side-display);
   flex-flow: var(--ve-side-flex-flow);
@@ -379,11 +327,5 @@ export default {
 
 .show {
   display: var(--ve-side-show-display);
-}
-
-@media (min-width: 768px) {
-  .navbar > button {
-    display: var(--ve-nav-button-display);
-  }
 }
 </style>

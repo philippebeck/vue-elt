@@ -1,9 +1,7 @@
 <template>
-  <!-- SIDEBAR ELT (Anchor Only) -->
   <nav v-if="getNavClass() === 'sidebar'" 
     class="sidebar">
 
-    <!-- Hide Action (option) -->
     <button v-if="hasSlot('hide')"
       @click="toggleSide()">
       <slot name="hide"></slot>
@@ -11,12 +9,10 @@
 
     <ul id="side"
       class="show">
-        <!-- Top static Link (option) -->
         <li v-if="hasSlot('first')">
           <slot name="first"></slot>
         </li>
 
-        <!-- Main Links -->
         <li v-for="(item, index) in items"
           :key="index">
           <a :href="`#${item}`"
@@ -30,12 +26,10 @@
           </a>
         </li>
 
-        <!-- Bottom static Link (option) -->
         <li v-if="hasSlot('last')">
           <slot name="last"></slot>
         </li>
 
-        <!-- Bottom Link (option) -->
         <li>
           <a v-if="hasSlot('top')"
           href="#top">
@@ -44,22 +38,17 @@
       </li>
     </ul>
   </nav>
-  
-  <!-- NAVBAR ELT -->
+
   <nav v-else 
     class="navbar">
 
-    <!-- Brand Logo (option) -->
     <a v-if="hasSlot('brand')"
       href="/"
       title="Home">
       <slot name="brand"></slot>
     </a>
 
-    <!-- Main Links -->
-    <ul id="nav"
-      class="nav">
-
+    <ul>
       <li v-for="(item, index) in items"
         :key="index">
         <a :href="item.href"
@@ -76,18 +65,8 @@
       </li>
     </ul>
 
-    <!-- Admin Part (option) -->
-    <aside v-if="hasSlot('admin')"
-      id="admin"
-      class="admin">
+    <aside v-if="hasSlot('admin')">
       <slot name="admin"></slot>
     </aside>
-    
-    <!-- Responsive Toggle -->
-    <button type="button"
-      @click="toggleNav()"
-      title="Menu">
-      <i class="fa-solid fa-bars"></i>
-    </button>
   </nav>
 </template>
