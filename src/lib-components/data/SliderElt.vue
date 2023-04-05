@@ -127,7 +127,10 @@ export default {
     this.randomElt  = document.getElementById("slider-random");
 
     document.addEventListener("keydown", this.setKeyboard);
-    document.getElementById("slide-1").classList.add("show");
+
+    if (document.getElementById("slide-1")) {
+      document.getElementById("slide-1").classList.add("show");
+    }
 
     this.runSlider();
   },
