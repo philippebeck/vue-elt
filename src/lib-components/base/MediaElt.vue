@@ -105,7 +105,7 @@ figure {
   --ve-media-figure-place-items: center;
   --ve-media-figure-border: 1px solid transparent;
   --ve-media-figure-border-radius: 20px;
-  --ve-media-figure-padding: 20px;
+  --ve-media-figure-padding: 10px;
   --ve-media-figure-background-color: transparent;
 }
 
@@ -140,7 +140,7 @@ figcaption {
   --ve-media-figcaption-display: flex;
   --ve-media-figcaption-flex-flow: column nowrap;
   --ve-media-figcaption-place-content: center center;
-  --ve-media-figcaption-width: 200px;
+  --ve-media-figcaption-width: 300px;
   --ve-media-figcaption-font-size: 1.6rem;
   --ve-media-figcaption-font-style: normal;
   --ve-media-figcaption-color: var(--ani-slate);
