@@ -447,14 +447,14 @@ function render$5(_ctx, _cache, $props, $setup, $data, $options) {
   }), 128))]));
 }
 
-var css_248z$c = "\n/********** LIST ELT **********/\nul {\n  --ve-list-margin: 20px 0;\n  --ve-list-padding: 0;\n  --ve-list-list-style: none;\n  --ve-list-text-align: center;\n  --ve-list-li-ul-display: flex;\n  --ve-list-li-ul-flex-flow: wrap;\n  --ve-list-li-ul-gap: 20px;\n  --ve-list-li-ul-place-content: center;\n  --ve-list-li-ul-place-items: end;\n  --ve-list-li-li-max-width: 300px;\n}\n\n";
+var css_248z$c = "\n/********** LIST ELT **********/\nul {\n  --ve-list-margin: 20px 0;\n  --ve-list-padding: 0;\n  --ve-list-list-style: none;\n  --ve-list-text-align: center;\n  --ve-list-li-ul-display: flex;\n  --ve-list-li-ul-flex-flow: wrap;\n  --ve-list-li-ul-gap: 20px;\n  --ve-list-li-ul-place-content: center;\n  --ve-list-li-ul-place-items: baseline;\n  --ve-list-li-li-max-width: 300px;\n}\n\n";
 styleInject(css_248z$c);
 
-var css_248z$b = "\nul[data-v-4299fcd3] {\n  margin: var(--ve-list-margin);\n  padding: var(--ve-list-padding);\n  list-style: var(--ve-list-list-style);\n  text-align: var(--ve-list-text-align);\n}\nli > ul[data-v-4299fcd3] {\n  display: var(--ve-list-li-ul-display);\n  flex-flow: var(--ve-list-li-ul-flex-flow);\n  gap: var(--ve-list-li-ul-gap);\n  place-content: var(--ve-list-li-ul-place-content);\n  place-items: var(--ve-list-li-ul-place-items);\n}\nli li[data-v-4299fcd3] {\n  max-width: var(--ve-list-li-li-max-width);\n}\n";
+var css_248z$b = "\nul[data-v-350e174e] {\n  margin: var(--ve-list-margin);\n  padding: var(--ve-list-padding);\n  list-style: var(--ve-list-list-style);\n  text-align: var(--ve-list-text-align);\n}\nli > ul[data-v-350e174e] {\n  display: var(--ve-list-li-ul-display);\n  flex-flow: var(--ve-list-li-ul-flex-flow);\n  gap: var(--ve-list-li-ul-gap);\n  place-content: var(--ve-list-li-ul-place-content);\n  place-items: var(--ve-list-li-ul-place-items);\n}\nli li[data-v-350e174e] {\n  max-width: var(--ve-list-li-li-max-width);\n}\n";
 styleInject(css_248z$b);
 
 script$5.render = render$5;
-script$5.__scopeId = "data-v-4299fcd3";
+script$5.__scopeId = "data-v-350e174e";
 
 var script$4 = {
   name: "SliderElt",
