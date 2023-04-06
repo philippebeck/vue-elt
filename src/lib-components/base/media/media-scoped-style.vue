@@ -2,6 +2,10 @@
 
 <style scoped>
 figure {
+  display: var(--ve-media-figure-display);
+  flex-flow: var(--ve-media-figure-flex-flow);
+  place-content: var(--ve-media-figure-place-content);
+  place-items: var(--ve-media-figure-place-items);
   border: var(--ve-media-figure-border);
   border-radius: var(--ve-media-figure-border-radius);
   padding: var(--ve-media-figure-padding);
@@ -39,6 +43,7 @@ figcaption {
   display: var(--ve-media-figcaption-display);
   flex-flow: var(--ve-media-figcaption-flex-flow);
   place-content: var(--ve-media-figcaption-place-content);
+  width: var(--ve-media-figcaption-width);
   font-size: var(--ve-media-figcaption-font-size);
   font-style: var(--ve-media-figcaption-font-style);
   color: var(--ve-media-figcaption-color);
