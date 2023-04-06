@@ -23,7 +23,7 @@
       @input="onInput"
       :required="required">
 
-    <select v-else-if="getFieldType() === 'list' && list[0].value"
+    <select v-else-if="getFieldType() === 'list' && content"
       :id="id"
       :name="name"
       @input="onInput"
@@ -31,7 +31,7 @@
       :itemprop="itemprop"
       :required="required">
 
-      <option v-if="content"
+      <option v-if="value"
         :value="value">
         {{ content }}
       </option>

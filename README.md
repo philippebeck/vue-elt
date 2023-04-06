@@ -42,8 +42,8 @@ Yarn : `yarn add vue-elt`
 
 ## CDN 
 
--   Development : [https://cdn.jsdelivr.net/npm/vue-elt@1.4.4/dist/vue-elt.esm.js](https://cdn.jsdelivr.net/npm/vue-elt@1.4.4/dist/vue-elt.esm.js)  
--   Production : [https://cdn.jsdelivr.net/npm/vue-elt@1.4.4/dist/vue-elt.min.js](https://cdn.jsdelivr.net/npm/vue-elt@1.4.4/dist/vue-elt.min.js)  
+-   Development : [https://cdn.jsdelivr.net/npm/vue-elt@1.4.5/dist/vue-elt.esm.js](https://cdn.jsdelivr.net/npm/vue-elt@1.4.5/dist/vue-elt.esm.js)  
+-   Production : [https://cdn.jsdelivr.net/npm/vue-elt@1.4.5/dist/vue-elt.min.js](https://cdn.jsdelivr.net/npm/vue-elt@1.4.5/dist/vue-elt.min.js)  
 
 ---
 
