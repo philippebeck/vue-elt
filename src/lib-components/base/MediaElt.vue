@@ -99,9 +99,13 @@ export default {
 <style>
 /********** MEDIA ELT **********/
 figure {
+  --ve-media-figure-display: flex;
+  --ve-media-figure-flex-flow: column;
+  --ve-media-figure-place-content: center;
+  --ve-media-figure-place-items: center;
   --ve-media-figure-border: 1px solid transparent;
   --ve-media-figure-border-radius: 20px;
-  --ve-media-figure-padding: 10px;
+  --ve-media-figure-padding: 20px;
   --ve-media-figure-background-color: transparent;
 }
 
@@ -136,6 +140,7 @@ figcaption {
   --ve-media-figcaption-display: flex;
   --ve-media-figcaption-flex-flow: column nowrap;
   --ve-media-figcaption-place-content: center center;
+  --ve-media-figcaption-width: 200px;
   --ve-media-figcaption-font-size: 1.6rem;
   --ve-media-figcaption-font-style: normal;
   --ve-media-figcaption-color: var(--ani-slate);
@@ -145,6 +150,10 @@ figcaption {
 
 <style scoped>
 figure {
+  display: var(--ve-media-figure-display);
+  flex-flow: var(--ve-media-figure-flex-flow);
+  place-content: var(--ve-media-figure-place-content);
+  place-items: var(--ve-media-figure-place-items);
   border: var(--ve-media-figure-border);
   border-radius: var(--ve-media-figure-border-radius);
   padding: var(--ve-media-figure-padding);
@@ -182,6 +191,7 @@ figcaption {
   display: var(--ve-media-figcaption-display);
   flex-flow: var(--ve-media-figcaption-flex-flow);
   place-content: var(--ve-media-figcaption-place-content);
+  width: var(--ve-media-figcaption-width);
   font-size: var(--ve-media-figcaption-font-size);
   font-style: var(--ve-media-figcaption-font-style);
   color: var(--ve-media-figcaption-color);
