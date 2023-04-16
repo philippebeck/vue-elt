@@ -36,15 +36,15 @@ export default {
   props: {
     title1: {
       type: String,
-      default: "Sites"
+      default: ""
     },
     title2: {
       type: String,
-      default: "Tools"
+      default: ""
     },
     title3: {
       type: String,
-      default: "Links"
+      default: ""
     }
   },
   methods: {
