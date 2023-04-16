@@ -879,15 +879,15 @@ var script$1 = {
   props: {
     title1: {
       type: String,
-      default: "Sites"
+      default: ""
     },
     title2: {
       type: String,
-      default: "Tools"
+      default: ""
     },
     title3: {
       type: String,
-      default: "Links"
+      default: ""
     }
   },
   methods: {
@@ -919,11 +919,11 @@ function render$1(_ctx, _cache, $props, $setup, $data, $options) {
 var css_248z$4 = "\n/********** FOOT ELT **********/\nfooter {\n  --ve-foot-text-align: center;\n  --ve-foot-child-margin: 0;\n  --ve-foot-child-padding: 0;\n  --ve-foot-li-list-style: none;\n  --ve-foot-a-text-decoration: none;\n  --ve-foot-a-cursor: pointer;\n  --ve-foot-ul-display: flex;\n  --ve-foot-ul-flex-flow: column;\n  --ve-foot-ul-gap: 20px;\n  --ve-foot-ul-place-content: center;\n  --ve-foot-ul-place-items: center;\n  --ve-foot-ul-padding: 20px;\n  --ve-foot-ul-background-color: var(--ani-sky-dark);\n  --ve-foot-title-margin-bottom: 5px;\n  --ve-foot-title-font-size: 2rem;\n  --ve-foot-title-font-family: var(--ani-monospace);\n  --ve-foot-title-color: var(--ani-yellow-light);\n  --ve-foot-section-a-color: var(--ani-white);\n  --ve-foot-section-a-hover-color: var(--ani-yellow-light);\n}\naside {\n  --ve-foot-aside-ul-display: flex;\n  --ve-foot-aside-ul-flex-flow: row;\n  --ve-foot-aside-ul-gap: 10px;\n  --ve-foot-aside-ul-place-content: center;\n  --ve-foot-aside-ul-place-items: center;\n  --ve-foot-aside-ul-padding: 10px;\n  --ve-foot-aside-ul-background-color: var(--ani-white);\n  --ve-foot-aside-a-color: var(--ani-blue);\n  --ve-foot-aside-i-hover-transform: scale(1.2);\n  --ve-foot-aside-i-hover-transition: transform 200ms;\n}\n@media (min-width: 576px) {\nfooter {\n    --ve-foot-ul-flex-flow: row;\n    --ve-foot-ul-place-content: space-around;\n}\n}\n@media (min-width: 768px) {\nfooter {\n    --ve-foot-ul-place-content: space-evenly;\n}\n}\n@media (min-width: 992px) {\nfooter {\n    --ve-foot-ul-place-content: center;\n    --ve-foot-ul-gap: 10%;\n}\n}\n\n";
 styleInject(css_248z$4);
 
-var css_248z$3 = "\nfooter[data-v-58e81362] {\n  text-align: var(--ve-foot-text-align);\n}\nh3[data-v-58e81362],\nh4[data-v-58e81362],[data-v-58e81362] ul {\n  margin: var(--ve-foot-child-margin);\n  padding: var(--ve-foot-child-padding);\n}\n[data-v-58e81362] li {\n  list-style: var(--ve-foot-li-list-style);\n}\n[data-v-58e81362] a {\n  text-decoration: var(--ve-foot-a-text-decoration);\n  cursor: var(--ve-foot-a-cursor);\n}\n\n/********************* MAIN PART *********************/\nfooter > ul[data-v-58e81362] { \n  display: var(--ve-foot-ul-display);\n  flex-flow: var(--ve-foot-ul-flex-flow);\n  gap: var(--ve-foot-ul-gap);\n  place-content: var(--ve-foot-ul-place-content);\n  place-items: var(--ve-foot-ul-place-items);\n  padding: var(--ve-foot-ul-padding);\n  background-color: var(--ve-foot-ul-background-color);\n}\nh3[data-v-58e81362],\nh4[data-v-58e81362] {\n  margin-bottom: var(--ve-foot-title-margin-bottom);\n  font-size: var(--ve-foot-title-font-size);\n  font-family: var(--ve-foot-title-font-family);\n  color: var(--ve-foot-title-color);\n}\nsection[data-v-58e81362] a {\n  color: var(--ve-foot-section-a-color);\n}\nsection[data-v-58e81362] a:hover,\nsection[data-v-58e81362] a:focus {\n  color: var(--ve-foot-section-a-hover-color);\n}\n\n/********************* SECOND PART *********************/\naside[data-v-58e81362] ul {\n  display: var(--ve-foot-aside-ul-display);\n  flex-flow: var(--ve-foot-aside-ul-flex-flow);\n  gap: var(--ve-foot-aside-ul-gap);\n  place-content: var(--ve-foot-aside-ul-place-content);\n  place-items: var(--ve-foot-aside-ul-place-items);\n  padding: var(--ve-foot-aside-ul-padding);\n  background-color: var(--ve-foot-aside-ul-background-color);\n}\naside[data-v-58e81362] a {\n  color: var(--ve-foot-aside-a-color);\n}\naside[data-v-58e81362] i:hover,\naside[data-v-58e81362] i:focus {\n  transform: var(--ve-foot-aside-i-hover-transform);\n  transition: var(--ve-foot-aside-i-hover-transition);\n}\n";
+var css_248z$3 = "\nfooter[data-v-3dd7b500] {\n  text-align: var(--ve-foot-text-align);\n}\nh3[data-v-3dd7b500],\nh4[data-v-3dd7b500],[data-v-3dd7b500] ul {\n  margin: var(--ve-foot-child-margin);\n  padding: var(--ve-foot-child-padding);\n}\n[data-v-3dd7b500] li {\n  list-style: var(--ve-foot-li-list-style);\n}\n[data-v-3dd7b500] a {\n  text-decoration: var(--ve-foot-a-text-decoration);\n  cursor: var(--ve-foot-a-cursor);\n}\n\n/********************* MAIN PART *********************/\nfooter > ul[data-v-3dd7b500] { \n  display: var(--ve-foot-ul-display);\n  flex-flow: var(--ve-foot-ul-flex-flow);\n  gap: var(--ve-foot-ul-gap);\n  place-content: var(--ve-foot-ul-place-content);\n  place-items: var(--ve-foot-ul-place-items);\n  padding: var(--ve-foot-ul-padding);\n  background-color: var(--ve-foot-ul-background-color);\n}\nh3[data-v-3dd7b500],\nh4[data-v-3dd7b500] {\n  margin-bottom: var(--ve-foot-title-margin-bottom);\n  font-size: var(--ve-foot-title-font-size);\n  font-family: var(--ve-foot-title-font-family);\n  color: var(--ve-foot-title-color);\n}\nsection[data-v-3dd7b500] a {\n  color: var(--ve-foot-section-a-color);\n}\nsection[data-v-3dd7b500] a:hover,\nsection[data-v-3dd7b500] a:focus {\n  color: var(--ve-foot-section-a-hover-color);\n}\n\n/********************* SECOND PART *********************/\naside[data-v-3dd7b500] ul {\n  display: var(--ve-foot-aside-ul-display);\n  flex-flow: var(--ve-foot-aside-ul-flex-flow);\n  gap: var(--ve-foot-aside-ul-gap);\n  place-content: var(--ve-foot-aside-ul-place-content);\n  place-items: var(--ve-foot-aside-ul-place-items);\n  padding: var(--ve-foot-aside-ul-padding);\n  background-color: var(--ve-foot-aside-ul-background-color);\n}\naside[data-v-3dd7b500] a {\n  color: var(--ve-foot-aside-a-color);\n}\naside[data-v-3dd7b500] i:hover,\naside[data-v-3dd7b500] i:focus {\n  transform: var(--ve-foot-aside-i-hover-transform);\n  transition: var(--ve-foot-aside-i-hover-transition);\n}\n";
 styleInject(css_248z$3);
 
 script$1.render = render$1;
-script$1.__scopeId = "data-v-58e81362";
+script$1.__scopeId = "data-v-3dd7b500";
 
 var script = {
   name: "NavElt",
