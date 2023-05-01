@@ -2,73 +2,123 @@ import { mount, enableAutoUnmount } from "@vue/test-utils"
 import FieldElt from "../../src/lib-components/base/FieldElt.vue"
 
 /**
+ * DEFAULT FIELD ELT
  * @jest-environment jsdom
  */
-let wrapper;
+describe("Default FieldElt", () => {
+  const wrapper = mount(FieldElt)
 
-beforeEach(() => {
-  wrapper = mount(FieldElt, {
-    props: {
-      type: "textarea",
-      min: 5,
-      max: 500,
-      rows: 10,
-    }
-  });
-});
-
-enableAutoUnmount(afterEach)
-
-describe("FieldElt", () => {
-  test("name", () => { 
-    expect(FieldElt.name).toBe("FieldElt") 
+  test("must create an input type text", () => {
+    expect(wrapper.find("input[type='text']").exists()).toBe(true)
   })
 
-  test("props", () => { 
-    expect(typeof FieldElt.props).toBe("object")
-    expect(FieldElt.props.model.prop).toBe("value")
-    expect(FieldElt.props.model.event).toBe("update")
-    expect(FieldElt.props.type.type).toBe(String)
-    expect(FieldElt.props.type.default).toBe("text")
-    expect(FieldElt.props.value).toEqual([String, Number, Array])
-    expect(FieldElt.props.content).toEqual([String, Number])
-    expect(FieldElt.props.id).toBe(String)
-    expect(FieldElt.props.name).toBe(String)
-    expect(FieldElt.props.list).toBe(Array)
-    expect(FieldElt.props.info).toBe(String)
-    expect(FieldElt.props.min.type).toBe(Number)
-    expect(FieldElt.props.min.default).toBe(2)
-    expect(FieldElt.props.max.type).toBe(Number)
-    expect(FieldElt.props.max.default).toBe(50)
-    expect(FieldElt.props.rows.type).toBe(Number)
-    expect(FieldElt.props.rows.default).toBe(5)
-    expect(FieldElt.props.itemprop).toBe(String)
-    expect(FieldElt.props.required.type).toBe(String)
-    expect(FieldElt.props.required.default).toBe("required")
+  test("must have a props 'type' with 'String as type & 'text' as default value", () => {
+    expect(typeof wrapper.props("type")).toBe("string")
+    expect(wrapper.props("type")).toBe("text")
   })
 
-  test("methods", () => { 
-    expect(typeof FieldElt.methods).toBe("object") 
+  test("must have a props 'min' with 'Number' as type & '2' as default value", () => {
+    expect(typeof wrapper.props("min")).toBe("number")
+    expect(wrapper.props("min")).toBe(2)
+  })
+
+  test("must have a props 'max' with 'Number' as type & '50' as default value", () => {
+    expect(typeof wrapper.props("max")).toBe("number")
+    expect(wrapper.props("max")).toBe(50)
+  })
+
+  test("must have a props 'rows' with 'Number' as type & '5' as default value", () => {
+    expect(typeof wrapper.props("rows")).toBe("number")
+    expect(wrapper.props("rows")).toBe(5)
+  })
+
+  test("must have a props 'required' with 'String' as type & 'required' as default value", () => {
+    expect(typeof wrapper.props("required")).toBe("string")
+    expect(wrapper.props("required")).toBe("required")
   })
 })
 
-describe("Mounted FieldElt", () => {
-  test("wrapper", () => {
-    expect(wrapper.exists()).toBe(true)
+/**
+ * FIELD ELT AS A TEXTAREA
+ * @jest-environment jsdom
+ */
+describe("FieldElt as a textarea", () => {
+  const wrapper = mount(FieldElt, {
+    props: {
+      type: "textarea"
+    }
   })
 
-  test("wrapper props", () => { 
+  test("must create a textarea", () => {
+    expect(wrapper.find("textarea").exists()).toBe(true)
+  })
+
+  test("must have a props 'type' with 'String' as type & 'textarea' as value", () => {
+    expect(typeof wrapper.props("type")).toBe("string")
     expect(wrapper.props("type")).toBe("textarea")
-    expect(wrapper.props("min")).toBe(5)
-    expect(wrapper.props("max")).toBe(500)
-    expect(wrapper.props("rows")).toBe(10)
-    expect(wrapper.props("required")).toBe("required")
+  })
+})
 
+/**
+ * FIELD ELT AS A NUMBER
+ * @jest-environment jsdom
+ */
+describe("FieldElt as a number", () => {
+  const wrapper = mount(FieldElt, {
+    props: {
+      type: "number"
+    }
   })
 
-  test("wrapper methods", () => {
-    expect(typeof wrapper.vm.hasSlot).toBe("function")
-    expect(typeof wrapper.vm.onInput).toBe("function")
-    expect(typeof wrapper.vm.getFieldType).toBe("function")
+  test("must create an input type number", () => {
+    expect(wrapper.find("input[type='number']").exists()).toBe(true)
+  })
+
+  test("must have a props 'type' with 'String' as type & 'number' as value", () => {
+    expect(typeof wrapper.props("type")).toBe("string")
+    expect(wrapper.props("type")).toBe("number")
+  })
+})
+
+/**
+ * FIELD ELT AS A SELECT
+ * @jest-environment jsdom
+ */
+describe("FieldElt as a select", () => {
+  const wrapper = mount(FieldElt, {
+    props: {
+      type: "select",
+      list: ["Test"]
+    }
+  })
+
+  test("must create a select", () => {
+    expect(wrapper.find("select").exists()).toBe(true)
+  })
+
+  test("must have a props 'type' with 'String' as type & 'select' as value", () => {
+    expect(typeof wrapper.props("type")).toBe("string")
+    expect(wrapper.props("type")).toBe("select")
+  })
+})
+
+/**
+ * FIELD ELT AS A CHECKBOX
+ * @jest-environment jsdom
+ */
+describe("FieldElt as a checkbox", () => {
+  const wrapper = mount(FieldElt, {
+    props: {
+      type: "checkbox"
+    }
+  })
+
+  test("must create an input type checkbox", () => {
+    expect(wrapper.find("input[type='checkbox']").exists()).toBe(true)
+  })
+
+  test("must have a props 'type' with 'String' as type & 'checkbox' as value", () => {
+    expect(typeof wrapper.props("type")).toBe("string")
+    expect(wrapper.props("type")).toBe("checkbox")
   })
 })
