@@ -1,52 +1,44 @@
-import { mount, enableAutoUnmount } from "@vue/test-utils"
+import { mount } from "@vue/test-utils"
 import TableElt from "../../src/lib-components/data/TableElt.vue"
 
 /**
  * @jest-environment jsdom
  */
-let wrapper;
-
-beforeEach(() => {
-  wrapper = mount(TableElt, {
+describe("Default TableElt", () => {
+  const wrapper = mount(TableElt, {
     props: {
       title: "Table Title",
       items: [
         { id: 1, name: "Item 1" },
         { id: 2, name: "Item 2" },
-        { id: 3, name: "Item 3" },
-        { id: 4, name: "Item 4" }
+        { id: 3, name: "Item 3" }
       ]
     }
   });
-});
 
-enableAutoUnmount(afterEach)
-
-describe("TableElt", () => {
-  test("name", () => { 
-    expect(TableElt.name).toBe("TableElt") 
+  test("must create a table element", () => {
+    expect(wrapper.find("table").exists()).toBe(true)
   })
 
-  test("props", () => { 
-    expect(typeof TableElt.props).toBe("object") 
-  })
-
-  test("methods", () => { 
-    expect(typeof TableElt.methods).toBe("object") 
-  })
-})
-
-describe("Mounted TableElt", () => {
-  test("wrapper", () => {
-    expect(wrapper.exists()).toBe(true)
-  })
-
-  test("wrapper props", () => { 
+  test("must have a props 'title' with 'String' as type & 'Table Title' as value", () => {
     expect(typeof wrapper.props("title")).toBe("string")
-    expect(typeof wrapper.props("items")).toBe("object")
+    expect(wrapper.props("title")).toBe("Table Title")
   })
 
-  test("wrapper methods", () => {
-    expect(typeof wrapper.vm.hasSlot).toBe("function")
+  test("must have a props 'items' with 'Array' as type & 3 as length", () => {
+    expect(Array.isArray(wrapper.props("items"))).toBe(true)
+    expect(wrapper.props("items").length).toBe(3)
+  })
+
+  test("must have a props 'items' with 'Item 1' as name of first item", () => {
+    expect(wrapper.props("items")[0].name).toBe("Item 1")
+  })
+
+  test("must have a props 'items' with 'Item 2' as name of second item", () => {
+    expect(wrapper.props("items")[1].name).toBe("Item 2")
+  })
+
+  test("must have a props 'items' with 'Item 3' as name of third item", () => {
+    expect(wrapper.props("items")[2].name).toBe("Item 3")
   })
 })
