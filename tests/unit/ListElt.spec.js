@@ -1,59 +1,138 @@
-import { mount, enableAutoUnmount } from "@vue/test-utils"
+import { mount } from "@vue/test-utils"
 import ListElt from "../../src/lib-components/data/ListElt.vue"
 
 /**
+ * DEFAULT LIST ELT
  * @jest-environment jsdom
  */
-let wrapper;
-
-beforeEach(() => {
-  wrapper = mount(ListElt, {
+describe("Default ListElt", () => {
+  const wrapper = mount(ListElt, {
     props: {
-      dynamic: true,
       items: [
         { id: 1, name: "Item 1" },
         { id: 2, name: "Item 2" },
         { id: 3, name: "Item 3" }
       ]
     }
-  });
-});
-
-enableAutoUnmount(afterEach)
-
-describe("ListElt", () => {
-  test("name", () => { 
-    expect(ListElt.name).toBe("ListElt") 
   })
 
-  test("props", () => { 
-    expect(typeof ListElt.props).toBe("object") 
+  test("must create an ul element", () => {
+    expect(wrapper.find("ul").exists()).toBe(true)
   })
 
-  test("methods", () => { 
-    expect(typeof ListElt.methods).toBe("object") 
+  test("must have a props 'items' with 'Object' as type", () => {
+    expect(typeof wrapper.props("items")).toBe("object")
+  })
+
+  test("must have a props 'items' with 'Item 1' as name of first item", () => {
+    expect(wrapper.props("items")[0].name).toBe("Item 1")
+  })
+
+  test("must have a props 'items' with 'Item 2' as name of second item", () => {
+    expect(wrapper.props("items")[1].name).toBe("Item 2")
+  })
+
+  test("must have a props 'items' with 'Item 3' as name of third item", () => {
+    expect(wrapper.props("items")[2].name).toBe("Item 3")
+  })
+
+  test("must have a props 'dynamic' with 'Boolean' as type & 'false' as default value", () => {
+    expect(typeof wrapper.props("dynamic")).toBe("boolean")
+    expect(wrapper.props("dynamic")).toBe(false)
   })
 })
 
-describe("Mounted ListElt", () => {
-  test("wrapper", () => {
-    expect(wrapper.exists()).toBe(true)
+
+/**
+ * NESTED LIST ELT
+ * @jest-environment jsdom
+ */
+describe("Nested ListElt", () => {
+  const wrapper = mount(ListElt, {
+    props: {
+      items: [
+        {
+          id: 1,
+          name: "Item 1",
+          children: [
+            { id: 2, name: "Item 2" },
+            { id: 3, name: "Item 3" }
+          ]
+        }
+      ]
+    }
   })
 
-  test("wrapper props", () => { 
+  test("must have a props 'items' with 'Object' as type", () => {
     expect(typeof wrapper.props("items")).toBe("object")
-    expect(wrapper.props("items").length).toBe(3)
-    expect(wrapper.props("items")[0].id).toBe(1)
-    expect(wrapper.props("items")[0].name).toBe("Item 1")
-    expect(wrapper.props("items")[1].id).toBe(2)
-    expect(wrapper.props("items")[1].name).toBe("Item 2")
-    expect(wrapper.props("items")[2].id).toBe(3)
-    expect(wrapper.props("items")[2].name).toBe("Item 3")
-    expect(typeof wrapper.props("dynamic")).toBe("boolean")
-    expect(wrapper.props("dynamic")).toEqual(true)
   })
 
-  test("wrapper methods", () => {
-    expect(typeof wrapper.vm.hasSlot).toBe("function")
+  test("must have a props 'items' with 'Item 1' as name of first item", () => {
+    expect(wrapper.props("items")[0].name).toBe("Item 1")
+  })
+
+  test("must have a props 'items' with 'Item 2' as name of second item", () => {
+    expect(wrapper.props("items")[0].children[0].name).toBe("Item 2")
+  })
+
+  test("must have a props 'items' with 'Item 3' as name of third item", () => {
+    expect(wrapper.props("items")[0].children[1].name).toBe("Item 3")
+  })
+})
+
+/**
+ * DYNAMIC LIST ELT
+ * @jest-environment jsdom
+ */
+describe("Dynamic ListElt", () => {
+  const wrapper = mount(ListElt, {
+    props: {
+      items: [
+        { id: 1, name: "Item 1" },
+        { id: 2, name: "Item 2" },
+        { id: 3, name: "Item 3" }
+      ],
+      dynamic: true
+    }
+  })
+
+  test("must have a props 'dynamic' with 'Boolean' as type & 'true' as default value", () => {
+    expect(typeof wrapper.props("dynamic")).toBe("boolean")
+    expect(wrapper.props("dynamic")).toBe(true)
+  })
+
+  test("must have a props 'dynamic' with 'true' as value", () => {
+    expect(wrapper.props("dynamic")).toBe(true)
+  })
+})
+
+/**
+ * DYNAMIC NESTED LIST ELT
+ * @jest-environment jsdom
+ */
+describe("Dynamic Nested ListElt", () => {
+  const wrapper = mount(ListElt, {
+    props: {
+      items: [
+        {
+          id: 1,
+          name: "Item 1",
+          children: [
+            { id: 2, name: "Item 2" },
+            { id: 3, name: "Item 3" }
+          ]
+        }
+      ],
+      dynamic: true
+    }
+  })
+
+  test("must have a props 'dynamic' with 'Boolean' as type & 'true' as default value", () => {
+    expect(typeof wrapper.props("dynamic")).toBe("boolean")
+    expect(wrapper.props("dynamic")).toBe(true)
+  })
+
+  test("must have a props 'dynamic' with 'true' as value", () => {
+    expect(wrapper.props("dynamic")).toBe(true)
   })
 })
