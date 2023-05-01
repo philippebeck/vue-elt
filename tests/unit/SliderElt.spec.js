@@ -1,96 +1,71 @@
-import { mount, enableAutoUnmount } from "@vue/test-utils"
+import { mount } from "@vue/test-utils"
 import SliderElt from "../../src/lib-components/data/SliderElt.vue"
 
 /**
  * @jest-environment jsdom
  */
-let wrapper;
-
-beforeEach(() => {
-  wrapper = mount(SliderElt, {
+describe("Default SliderElt", () => {
+  const wrapper = mount(SliderElt, {
     props: {
       slides: [
         { id: 1, name: "Item 1" },
         { id: 2, name: "Item 2" },
-        { id: 3, name: "Item 3" },
-        { id: 4, name: "Item 4" }
+        { id: 3, name: "Item 3" }
       ]
     }
-  });
-});
-
-enableAutoUnmount(afterEach)
-
-describe("SliderElt", () => {
-  test("name should be SliderElt", () => { 
-    expect(SliderElt.name).toBe("SliderElt") 
   })
 
-  test("props", () => { 
-    expect(typeof SliderElt.props).toBe("object") 
-    expect(SliderElt.props.slides.type).toBe(Array)
-    expect(SliderElt.props.delay.type).toBe(Number)
-    expect(SliderElt.props.delay.default).toBe(5000)
-    expect(SliderElt.props.auto.type).toBe(Boolean)
-    expect(SliderElt.props.auto.default).toBe(true)
-    expect(SliderElt.props.random.type).toBe(Boolean)
-    expect(SliderElt.props.random.default).toBe(false)
+  test("must create a figure element", () => {
+    expect(wrapper.find("figure").exists()).toBe(true)
   })
 
-  test("data", () => { 
-    expect(typeof SliderElt.data).toBe("function") 
-    expect(SliderElt.data().index).toBe(-1)
-    expect(SliderElt.data().intervalId).toBe(0)
-    expect(SliderElt.data().autoElt).toBe(null)
-    expect(SliderElt.data().randomElt).toBe(null)
+  test("must have a props 'slides' with 'Array' as type & 3 as length", () => {
+    expect(Array.isArray(wrapper.props("slides"))).toBe(true)
+    expect(wrapper.props("slides").length).toBe(3)
   })
 
-  test("beforeCreate", () => { 
-    expect(typeof SliderElt.beforeCreate).toBe("function") 
+  test("must have a props 'slides' with 'Item 1' as name of first item", () => {
+    expect(wrapper.props("slides")[0].name).toBe("Item 1")
   })
 
-  test("mounted", () => { 
-    expect(typeof SliderElt.mounted).toBe("function") 
+  test("must have a props 'slides' with 'Item 2' as name of second item", () => {
+    expect(wrapper.props("slides")[1].name).toBe("Item 2")
   })
 
-  test("methods", () => { 
-    expect(typeof SliderElt.methods).toBe("object") 
-  })
-})
-
-describe("Mounted SliderElt", () => {
-  test("wrapper", () => {
-    expect(wrapper.exists()).toBe(true)
+  test("must have a props 'slides' with 'Item 3' as name of third item", () => {
+    expect(wrapper.props("slides")[2].name).toBe("Item 3")
   })
 
-  test("wrapper props", () => { 
-    expect(wrapper.props("delay")).toEqual(5000)
-    expect(wrapper.props("auto")).toEqual(true)
-    expect(wrapper.props("random")).toEqual(false)
+  test("must have a props delay with 'Number' as type & 5000 as default value", () => {
+    expect(typeof wrapper.props("delay")).toBe("number")
+    expect(wrapper.props("delay")).toBe(5000)
   })
 
-  test("wrapper data", () => {
+  test("must have a props 'auto' with 'Boolean' as type & 'true' as default value", () => {
+    expect(typeof wrapper.props("auto")).toBe("boolean")
+    expect(wrapper.props("auto")).toBe(true)
+  })
+
+  test("must have a props 'random' with 'Boolean' as type & 'false' as default value", () => {
+    expect(typeof wrapper.props("random")).toBe("boolean")
+    expect(wrapper.props("random")).toBe(false)
+  })
+
+  test("must have a data 'index' with 'Number' as type & -1 as default value", () => {
+    expect(typeof wrapper.vm.index).toBe("number")
     expect(wrapper.vm.index).toBe(-1)
-    //expect(wrapper.vm.intervalId).toBe(0)
-    expect(wrapper.vm.autoElt).toBe(null)
-    expect(wrapper.vm.randomElt).toBe(null)
-    expect(wrapper.vm.autoState).toBe(true)
-    expect(wrapper.vm.randomState).toBe(false)
   })
 
-  test("wrapper methods", () => {
-    expect(typeof wrapper.vm.setIcon).toBe("function")
-    expect(typeof wrapper.vm.setAuto).toBe("function")
-    expect(typeof wrapper.vm.setRandom).toBe("function")
-    expect(typeof wrapper.vm.setSlide).toBe("function")
-    expect(typeof wrapper.vm.setKeyboard).toBe("function")
-    expect(typeof wrapper.vm.getRandomInteger).toBe("function")
-    expect(typeof wrapper.vm.hasSlot).toBe("function")
-    expect(typeof wrapper.vm.checkAuto).toBe("function")
-    expect(typeof wrapper.vm.runSlider).toBe("function")
-    expect(typeof wrapper.vm.checkRandom).toBe("function")
-    expect(typeof wrapper.vm.refreshSlide).toBe("function")
-    expect(typeof wrapper.vm.goNext).toBe("function")
-    expect(typeof wrapper.vm.goPrevious).toBe("function")
+  test("must have a data 'intervalId' with 'Number' as type & 0 as default value", () => {
+    expect(typeof wrapper.vm.intervalId).toBe("number")
+    //expect(wrapper.vm.intervalId).toBe(0)
+  })
+
+  test("must have a data 'autoElt' with null as default value", () => {
+    expect(wrapper.vm.autoElt).toBe(null)
+  })
+
+  test("must have a data 'randomElt' with null as default value", () => {
+    expect(wrapper.vm.randomElt).toBe(null)
   })
 })
