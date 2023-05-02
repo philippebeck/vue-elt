@@ -1,5 +1,5 @@
 import { mount, enableAutoUnmount } from "@vue/test-utils"
-import FieldElt from "../../src/lib-components/base/FieldElt.vue"
+import FieldElt from "../../src/lib-components/FieldElt.vue"
 
 /**
  * DEFAULT FIELD ELT

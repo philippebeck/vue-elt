@@ -1,5 +1,5 @@
 import { mount } from "@vue/test-utils"
-import MediaElt from "../../src/lib-components/base/MediaElt.vue"
+import MediaElt from "../../src/lib-components/MediaElt.vue"
 
 /**
  * DEFAULT MEDIA ELT AS AN IMAGE

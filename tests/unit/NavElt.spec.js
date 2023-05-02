@@ -1,5 +1,5 @@
 import { mount } from "@vue/test-utils"
-import NavElt from "../../src/lib-components/main/NavElt.vue"
+import NavElt from "../../src/lib-components/NavElt.vue"
 
 /**
  * DEFAULT NAV ELT

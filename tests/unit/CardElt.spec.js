@@ -1,5 +1,5 @@
 import { mount } from "@vue/test-utils"
-import CardElt from "../../src/lib-components/main/CardElt.vue"
+import CardElt from "../../src/lib-components/CardElt.vue"
 
 /**
  * DEFAULT CARD ELT AS A SECTION

@@ -1,5 +1,5 @@
 import { mount } from "@vue/test-utils"
-import ListElt from "../../src/lib-components/data/ListElt.vue"
+import ListElt from "../../src/lib-components/ListElt.vue"
 
 /**
  * DEFAULT LIST ELT

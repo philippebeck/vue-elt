@@ -1,5 +1,5 @@
 import { mount, enableAutoUnmount } from "@vue/test-utils"
-import BtnElt from "../../src/lib-components/base/BtnElt.vue"
+import BtnElt from "../../src/lib-components/BtnElt.vue"
 
 /**
  * DEFAULT BTN ELT AS A LINK

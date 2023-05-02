@@ -1,5 +1,5 @@
 import { mount } from "@vue/test-utils"
-import FootElt from "../../src/lib-components/main/FootElt.vue"
+import FootElt from "../../src/lib-components/FootElt.vue"
 
 /**
  * DEFAULT FOOT ELT
