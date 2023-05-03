@@ -1,19 +1,25 @@
-import { mount } from "@vue/test-utils"
-import ListElt from "../../src/lib-components/data/ListElt.vue"
+import { enableAutoUnmount, mount } from "@vue/test-utils"
+import ListElt from "../../src/lib-components/ListElt.vue"
+
+let wrapper;
+
+enableAutoUnmount(afterEach)
 
 /**
- * DEFAULT LIST ELT
+ * ! DEFAULT LIST
  * @jest-environment jsdom
  */
 describe("Default ListElt", () => {
-  const wrapper = mount(ListElt, {
-    props: {
-      items: [
-        { id: 1, name: "Item 1" },
-        { id: 2, name: "Item 2" },
-        { id: 3, name: "Item 3" }
-      ]
-    }
+  beforeEach(() => {
+    wrapper = mount(ListElt, {
+      props: {
+        items: [
+          { id: 1, name: "Item 1" },
+          { id: 2, name: "Item 2" },
+          { id: 3, name: "Item 3" }
+        ]
+      }
+    })
   })
 
   test("must create an ul element", () => {
@@ -44,23 +50,25 @@ describe("Default ListElt", () => {
 
 
 /**
- * NESTED LIST ELT
+ * ! NESTED LIST
  * @jest-environment jsdom
  */
 describe("Nested ListElt", () => {
-  const wrapper = mount(ListElt, {
-    props: {
-      items: [
-        {
-          id: 1,
-          name: "Item 1",
-          children: [
-            { id: 2, name: "Item 2" },
-            { id: 3, name: "Item 3" }
-          ]
-        }
-      ]
-    }
+  beforeEach(() => {
+    wrapper = mount(ListElt, {
+      props: {
+        items: [
+          {
+            id: 1,
+            name: "Item 1",
+            children: [
+              { id: 2, name: "Item 2" },
+              { id: 3, name: "Item 3" }
+            ]
+          }
+        ]
+      }
+    })
   })
 
   test("must have a props 'items' with 'Object' as type", () => {

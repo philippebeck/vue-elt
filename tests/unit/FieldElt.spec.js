@@ -1,12 +1,18 @@
 import { mount, enableAutoUnmount } from "@vue/test-utils"
-import FieldElt from "../../src/lib-components/base/FieldElt.vue"
+import FieldElt from "../../src/lib-components/FieldElt.vue"
+
+let wrapper;
+
+enableAutoUnmount(afterEach)
 
 /**
- * DEFAULT FIELD ELT
+ * ! DEFAULT INPUT TEXT
  * @jest-environment jsdom
  */
 describe("Default FieldElt", () => {
-  const wrapper = mount(FieldElt)
+  beforeEach(() => {
+    wrapper = mount(FieldElt)
+  })
 
   test("must create an input type text", () => {
     expect(wrapper.find("input[type='text']").exists()).toBe(true)
@@ -39,14 +45,16 @@ describe("Default FieldElt", () => {
 })
 
 /**
- * FIELD ELT AS A TEXTAREA
+ * ! TEXTAREA
  * @jest-environment jsdom
  */
 describe("FieldElt as a textarea", () => {
-  const wrapper = mount(FieldElt, {
-    props: {
-      type: "textarea"
-    }
+  beforeEach(() => {
+    wrapper = mount(FieldElt, {
+      props: {
+        type: "textarea"
+      }
+    })
   })
 
   test("must create a textarea", () => {
@@ -60,14 +68,16 @@ describe("FieldElt as a textarea", () => {
 })
 
 /**
- * FIELD ELT AS A NUMBER
+ * ! NUMBER
  * @jest-environment jsdom
  */
 describe("FieldElt as a number", () => {
-  const wrapper = mount(FieldElt, {
-    props: {
-      type: "number"
-    }
+  beforeEach(() => {
+    wrapper = mount(FieldElt, {
+      props: {
+        type: "number"
+      }
+    })
   })
 
   test("must create an input type number", () => {
@@ -81,15 +91,17 @@ describe("FieldElt as a number", () => {
 })
 
 /**
- * FIELD ELT AS A SELECT
+ * ! SELECT
  * @jest-environment jsdom
  */
 describe("FieldElt as a select", () => {
-  const wrapper = mount(FieldElt, {
-    props: {
-      type: "select",
-      list: ["Test"]
-    }
+  beforeEach(() => {
+    wrapper = mount(FieldElt, {
+      props: {
+        type: "select",
+        list: ["Test"]
+      }
+    })
   })
 
   test("must create a select", () => {
@@ -103,14 +115,16 @@ describe("FieldElt as a select", () => {
 })
 
 /**
- * FIELD ELT AS A CHECKBOX
+ * ! CHECKBOX
  * @jest-environment jsdom
  */
 describe("FieldElt as a checkbox", () => {
-  const wrapper = mount(FieldElt, {
-    props: {
-      type: "checkbox"
-    }
+  beforeEach(() => {
+    wrapper = mount(FieldElt, {
+      props: {
+        type: "checkbox"
+      }
+    })
   })
 
   test("must create an input type checkbox", () => {
