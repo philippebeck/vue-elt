@@ -12,17 +12,9 @@ Vue Single File Component Library
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/4734dc65c4a24319aef25e663ffd1a7e)](https://www.codacy.com/gh/philippebeck/vue-elt/dashboard)
 [![Maintainability](https://api.codeclimate.com/v1/badges/5f55590e709b455b7648/maintainability)](https://codeclimate.com/github/philippebeck/vue-elt/maintainability)
 
-## Overview
-
-Vue Elt is a Vue Single File Component Library, where you can find 3 families of components :
--  Base Components  
--  Data Components  
--  Main Components  
-
 ## Summary
 
 - [Vue Elt](#vue-elt)
-  - [Overview](#overview)
   - [Summary](#summary)
   - [Package](#package)
   - [CDN](#cdn)
@@ -58,18 +50,18 @@ Yarn : `yarn add vue-elt`
 ## Content
 
 Available SFC :  
--   **BtnElt** *(base)*  
--   **FieldElt** *(base)*  
--   **MediaElt** *(base)*  
--   **ListElt** *(data)*  
--   **SliderElt** *(data)*  
--   **TableElt** *(data)*  
--   **NavElt** *(main)*  
--   **CardElt** *(main)*  
--   **FootElt** *(main)*  
+-   **BtnElt**  
+-   **CardElt**  
+-   **FieldElt**  
+-   **FootElt**  
+-   **ListElt**  
+-   **MediaElt**  
+-   **NavElt**  
+-   **SliderElt**  
+-   **TableElt**  
 
 Overloading CSS vars :  
--   **style.css** *(dist)*  
+-   **style.css**  
 
 ---
 
