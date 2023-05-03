@@ -1,12 +1,18 @@
-import { mount } from "@vue/test-utils"
+import { enableAutoUnmount, mount } from "@vue/test-utils"
 import FootElt from "../../src/lib-components/FootElt.vue"
 
+let wrapper;
+
+enableAutoUnmount(afterEach)
+
 /**
- * DEFAULT FOOT ELT
+ * ! DEFAULT FOOTER
  * @jest-environment jsdom
  */
 describe("Default FootElt", () => {
-  const wrapper = mount(FootElt)
+  beforeEach(() => {
+    wrapper = mount(FootElt)
+  })
 
   test("must create a footer", () => {
     expect(wrapper.find("footer").exists()).toBe(true)
@@ -41,22 +47,24 @@ describe("Default FootElt", () => {
 })
 
 /**
- * FOOT ELT WITH SLOTS
+ * ! FOOTER WITH SLOTS
  * @jest-environment jsdom
  */
 describe("FootElt with slots", () => {
-  const wrapper = mount(FootElt, {
-    props: {
-      title1: "Test Title 1",
-      title2: "Test Title 2",
-      title3: "Test Title 3"
-    },
-    slots: {
-      foot1: "<p>Test List 1</p>",
-      foot2: "<p>Test List 2</p>",
-      foot3: "<p>Test List 3</p>",
-      foot: "<p>Test Aside</p>"
-    }
+  beforeEach(() => {
+    wrapper = mount(FootElt, {
+      props: {
+        title1: "Test Title 1",
+        title2: "Test Title 2",
+        title3: "Test Title 3"
+      },
+      slots: {
+        foot1: "<p>Test List 1</p>",
+        foot2: "<p>Test List 2</p>",
+        foot3: "<p>Test List 3</p>",
+        foot: "<p>Test Aside</p>"
+      }
+    })
   })
 
   test("must have a props 'title1' with 'Test Title 1' as value", () => {

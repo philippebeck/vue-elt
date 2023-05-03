@@ -1,12 +1,18 @@
-import { mount } from "@vue/test-utils"
+import { enableAutoUnmount, mount } from "@vue/test-utils"
 import CardElt from "../../src/lib-components/CardElt.vue"
 
+let wrapper;
+
+enableAutoUnmount(afterEach)
+
 /**
- * DEFAULT CARD ELT AS A SECTION
+ * ! DEFAULT SECTION
  * @jest-environment jsdom
  */
 describe("Default CardElt as a section", () => {
-  const wrapper = mount(CardElt)
+  beforeEach(() => {
+    wrapper = mount(CardElt)
+  })
 
   test("must create a section", () => {
     expect(wrapper.find("section").exists()).toBe(true)
@@ -30,21 +36,23 @@ describe("Default CardElt as a section", () => {
 })
 
 /**
- * CARD ELT AS AN ARTICLE WITH SLOTS
+ * ! ARTICLE WITH SLOTS
  * @jest-environment jsdom
  */
 describe("CardElt as an article with slots", () => {
-  const wrapper = mount(CardElt, {
-    props: {
-      isArticle: true,
-      id: "Test Id"
-      },
-      slots: {
-        header: "<h1>Test Header</h1>",
-        body: "<p>Test Body</p>",
-        aside: "<p>Test Aside</p>",
-        footer: "<p>Test Footer</p>"
-      }
+  beforeEach(() => {
+    wrapper = mount(CardElt, {
+      props: {
+        isArticle: true,
+        id: "Test Id"
+        },
+        slots: {
+          header: "<h1>Test Header</h1>",
+          body: "<p>Test Body</p>",
+          aside: "<p>Test Aside</p>",
+          footer: "<p>Test Footer</p>"
+        }
+      })
     })
     
     test("must create an article", () => {

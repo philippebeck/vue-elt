@@ -1,17 +1,23 @@
 import { mount, enableAutoUnmount } from "@vue/test-utils"
 import BtnElt from "../../src/lib-components/BtnElt.vue"
 
+let wrapper;
+
+enableAutoUnmount(afterEach)
+
 /**
- * DEFAULT BTN ELT AS A LINK
+ * ! DEFAULT LINK
  * @jest-environment jsdom
  */
 describe("Default BtnElt as a link", () => {
-  const wrapper = mount(BtnElt, {
-    props: {
-      href: "https://www.test.com",
-      title: "Test Title",
-      content: "Test Content"
-    }
+  beforeEach(() => {
+    wrapper = mount(BtnElt, {
+      props: {
+        href: "https://www.test.com",
+        title: "Test Title",
+        content: "Test Content"
+      }
+    })
   })
 
   test("must create a link", () => {
@@ -38,17 +44,19 @@ describe("Default BtnElt as a link", () => {
 })
 
 /**
- * BTN ELT AS A BUTTON
+ * ! BUTTON
  * @jest-environment jsdom
  */
 describe("BtnElt as a button", () => {
-  const wrapper = mount(BtnElt, {
-    props: {
-      type: "button",
-      value: "Test Value",
-      title: "Test Title",
-      content: "Test Content"
-    }
+  beforeEach(() => {
+    wrapper = mount(BtnElt, {
+      props: {
+        type: "button",
+        value: "Test Value",
+        title: "Test Title",
+        content: "Test Content"
+      }
+    })
   })
 
   test("must create a button", () => {
