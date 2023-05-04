@@ -35,6 +35,15 @@ describe("Default NavElt", () => {
   test("must have a slot 'admin' with 'Test Admin' as value", () => {
     expect(wrapper.find("aside").text()).toBe("Test Admin")
   })
+
+  test("must return true if the 2 slots exist", () => {
+    expect(wrapper.vm.hasSlot("brand")).toBe(true)
+    expect(wrapper.vm.hasSlot("admin")).toBe(true)
+  })
+
+  test("must return false if the test slot doesn't exist", () => {
+    expect(wrapper.vm.hasSlot("test")).toBe(false)
+  })
 })
 
 /**
@@ -76,6 +85,20 @@ describe("NavElt as a sidebar", () => {
     expect(wrapper.find("a").text()).toBe("Test Top")
     expect(wrapper.find("a").attributes("href")).toBe("#top")
   })
+
+  test('hasSlot("top") must return true', () => {
+    expect(wrapper.vm.hasSlot("top")).toBe(true)
+  })
+
+  test("must return true if the 3 slots exist", () => {
+    expect(wrapper.vm.hasSlot("hide")).toBe(true)
+    expect(wrapper.vm.hasSlot("first")).toBe(true)
+    expect(wrapper.vm.hasSlot("top")).toBe(true)
+  })
+
+  test("must return false if the test slot doesn't exist", () => {
+    expect(wrapper.vm.hasSlot("test")).toBe(false)
+  })
 })
 
 /**
@@ -103,29 +126,5 @@ describe("getNavClass() method", () => {
       }
     })
     expect(wrapper.vm.getNavClass()).toBe("sidebar")
-  })
-})
-
-/**
- * ! HAS SLOT METHOD
- * @jest-environment jsdom
- */
-describe("hasSlot(name) method", () => {
-  beforeEach(() => {
-    wrapper = mount(NavElt, {
-      slots: {
-        brand: "Test Brand",
-        admin: "Test Admin"
-      }
-    })
-  })
-
-  test("must return true if the 3 slots exist", () => {
-    expect(wrapper.vm.hasSlot("brand")).toBe(true)
-    expect(wrapper.vm.hasSlot("admin")).toBe(true)
-  })
-
-  test("must return false if the test slot doesn't exist", () => {
-    expect(wrapper.vm.hasSlot("test")).toBe(false)
   })
 })

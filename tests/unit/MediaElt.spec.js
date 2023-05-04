@@ -174,5 +174,10 @@ describe("MediaElt as a video with slots", () => {
 
   test("must have a slot figcaption", () => {
     expect(wrapper.find("figcaption").exists()).toBe(true)
+    expect(wrapper.vm.hasSlot("figcaption")).toBe(true)
+  })
+
+  test("must return false if the test slot doesn't exist", () => {
+    expect(wrapper.vm.hasSlot("test")).toBe(false)
   })
 })

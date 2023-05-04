@@ -16,6 +16,7 @@ describe("Default FieldElt", () => {
 
   test("must create an input type text", () => {
     expect(wrapper.find("input[type='text']").exists()).toBe(true)
+    expect(wrapper.vm.getFieldType()).toBe("text")
   })
 
   test("must have a props 'type' with 'String as type & 'text' as default value", () => {
@@ -61,6 +62,10 @@ describe("FieldElt as a textarea", () => {
     expect(wrapper.find("textarea").exists()).toBe(true)
   })
 
+  test('getFieldType() must return "area"', () => {
+    expect(wrapper.vm.getFieldType()).toBe("area")
+  })
+
   test("must have a props 'type' with 'String' as type & 'textarea' as value", () => {
     expect(typeof wrapper.props("type")).toBe("string")
     expect(wrapper.props("type")).toBe("textarea")
@@ -82,6 +87,11 @@ describe("FieldElt as a number", () => {
 
   test("must create an input type number", () => {
     expect(wrapper.find("input[type='number']").exists()).toBe(true)
+    expect(wrapper.vm.getFieldType()).toBe("number")
+  })
+
+  test('getFieldType() must return "number"', () => {
+    expect(wrapper.vm.getFieldType()).toBe("number")
   })
 
   test("must have a props 'type' with 'String' as type & 'number' as value", () => {
@@ -108,6 +118,10 @@ describe("FieldElt as a select", () => {
     expect(wrapper.find("select").exists()).toBe(true)
   })
 
+  test('getFieldType() must return "list"', () => {
+    expect(wrapper.vm.getFieldType()).toBe("list")
+  })
+
   test("must have a props 'type' with 'String' as type & 'select' as value", () => {
     expect(typeof wrapper.props("type")).toBe("string")
     expect(wrapper.props("type")).toBe("select")
@@ -129,6 +143,10 @@ describe("FieldElt as a checkbox", () => {
 
   test("must create an input type checkbox", () => {
     expect(wrapper.find("input[type='checkbox']").exists()).toBe(true)
+  })
+
+  test("getFieldType() must return 'special'", () => {
+    expect(wrapper.vm.getFieldType()).toBe("special")
   })
 
   test("must have a props 'type' with 'String' as type & 'checkbox' as value", () => {

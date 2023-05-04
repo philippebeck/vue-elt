@@ -18,20 +18,20 @@ describe("Default CardElt as a section", () => {
     expect(wrapper.find("section").exists()).toBe(true)
   })
 
-  test("must have a props 'isArticle' with 'false' as default value", () => {
-    expect(wrapper.props("isArticle")).toBe(false)
-  })
-
-  test("must have a slot header", () => {
+  test("must create a header", () => {
     expect(wrapper.find("header").exists()).toBe(true)
   })
 
-  test("must not have a slot aside", () => {
+  test("must not create an aside", () => {
     expect(wrapper.find("aside").exists()).toBe(false)
   })
 
-  test("must not have a slot footer", () => {
+  test("must not create a footer", () => {
     expect(wrapper.find("footer").exists()).toBe(false)
+  })
+
+  test("must have a props 'isArticle' with 'false' as default value", () => {
+    expect(wrapper.props("isArticle")).toBe(false)
   })
 })
 
@@ -87,4 +87,22 @@ describe("CardElt as an article with slots", () => {
       expect(wrapper.find("footer").exists()).toBe(true)
       expect(wrapper.find("footer").text()).toBe("Test Footer")
     })
+})
+
+/**
+ * ! HAS SLOT METHOD
+ * @jest-environment jsdom
+ */
+describe("hasSlot(name) method", () => {
+
+  test("must return true if the 4 slots exist", () => {
+    expect(wrapper.vm.hasSlot("header")).toBe(true)
+    expect(wrapper.vm.hasSlot("body")).toBe(true)
+    expect(wrapper.vm.hasSlot("aside")).toBe(true)
+    expect(wrapper.vm.hasSlot("footer")).toBe(true)
+  })
+
+  test("must return false if the test slot doesn't exist", () => {
+    expect(wrapper.vm.hasSlot("test")).toBe(false)
+  })
 })
