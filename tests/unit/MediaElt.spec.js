@@ -47,7 +47,7 @@ describe("MediaElt as an audio with slots", () => {
         loop: true,
       },
       slots: {
-        figcaption: "<p>Test Figcaption</p>"
+        figcaption: "Test Figcaption"
       }
     })
   })
@@ -64,8 +64,10 @@ describe("MediaElt as an audio with slots", () => {
     expect(wrapper.props("loop")).toBe(true)
   })
 
-  test("must have a slot figcaption", () => {
+  test("must have a slot figcaption with 'Test Figcaption' as value", () => {
     expect(wrapper.find("figcaption").exists()).toBe(true)
+    expect(wrapper.vm.hasSlot("figcaption")).toBe(true)
+    expect(wrapper.find("figcaption").text()).toBe("Test Figcaption")
   })
 })
 
@@ -77,11 +79,10 @@ describe("MediaElt as a blockquote with slots", () => {
   beforeEach(() => {
     wrapper = mount(MediaElt, {
       props: {
-        type: "quote",
-        loop: true,
+        type: "quote"
       },
       slots: {
-        figcaption: "<p>Test Figcaption</p>"
+        figcaption: "Test Figcaption"
       }
     })
   })
@@ -94,8 +95,8 @@ describe("MediaElt as a blockquote with slots", () => {
     expect(wrapper.props("type")).toBe("quote")
   })
 
-  test("must have a props 'loop' with 'true' as value", () => {
-    expect(wrapper.props("loop")).toBe(true)
+  test("must have a props 'loop' with 'false' as value", () => {
+    expect(wrapper.props("loop")).toBe(false)
   })
 
   test("must have a slot figcaption", () => {
@@ -111,11 +112,10 @@ describe("MediaElt as a picture with slots", () => {
   beforeEach(() => {
     wrapper = mount(MediaElt, {
       props: {
-        type: "picture",
-        loop: true,
+        type: "picture"
       },
       slots: {
-        figcaption: "<p>Test Figcaption</p>"
+        figcaption: "Test Figcaption"
       }
     })
   })
@@ -128,12 +128,14 @@ describe("MediaElt as a picture with slots", () => {
     expect(wrapper.props("type")).toBe("picture")
   })
 
-  test("must have a props 'loop' with 'true' as value", () => {
-    expect(wrapper.props("loop")).toBe(true)
+  test("must have a props 'loop' with 'false' as value", () => {
+    expect(wrapper.props("loop")).toBe(false)
   })
 
-  test("must have a slot figcaption", () => {
+  test("must have a slot figcaption with 'Test Figcaption' as value", () => {
     expect(wrapper.find("figcaption").exists()).toBe(true)
+    expect(wrapper.vm.hasSlot("figcaption")).toBe(true)
+    expect(wrapper.find("figcaption").text()).toBe("Test Figcaption")
   })
 })
 
@@ -150,7 +152,7 @@ describe("MediaElt as a video with slots", () => {
         loop: false,
       },
       slots: {
-        figcaption: "<p>Test Figcaption</p>"
+        figcaption: "Test Figcaption"
       }
     })
   })
@@ -172,7 +174,13 @@ describe("MediaElt as a video with slots", () => {
     expect(wrapper.props("loop")).toBe(false)
   })
 
-  test("must have a slot figcaption", () => {
+  test("must have a slot figcaption with 'Test Figcaption' as value", () => {
     expect(wrapper.find("figcaption").exists()).toBe(true)
+    expect(wrapper.vm.hasSlot("figcaption")).toBe(true)
+    expect(wrapper.find("figcaption").text()).toBe("Test Figcaption")
+  })
+
+  test("must return false if the test slot doesn't exist", () => {
+    expect(wrapper.vm.hasSlot("test")).toBe(false)
   })
 })

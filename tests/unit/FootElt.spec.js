@@ -41,8 +41,19 @@ describe("Default FootElt", () => {
     expect(wrapper.find("li").exists()).toBe(false)
   })
 
-  test("must not have a aside", () => {
+  test("must not have an aside", () => {
     expect(wrapper.find("aside").exists()).toBe(false)
+  })
+
+  test("must return false if no slot exists", () => {
+    expect(wrapper.vm.hasSlot("foot1")).toBe(false)
+    expect(wrapper.vm.hasSlot("foot2")).toBe(false)
+    expect(wrapper.vm.hasSlot("foot3")).toBe(false)
+    expect(wrapper.vm.hasSlot("foot")).toBe(false)
+  })
+
+  test("must return false if the test slot doesn't exist", () => {
+    expect(wrapper.vm.hasSlot("test")).toBe(false)
   })
 })
 
@@ -65,6 +76,10 @@ describe("FootElt with slots", () => {
         foot: "<p>Test Aside</p>"
       }
     })
+  })
+
+  test("must create a footer", () => {
+    expect(wrapper.find("footer").exists()).toBe(true)
   })
 
   test("must have a props 'title1' with 'Test Title 1' as value", () => {
@@ -91,5 +106,16 @@ describe("FootElt with slots", () => {
   test("must have an aside with 'Test Aside' as content", () => {
     expect(wrapper.find("aside").exists()).toBe(true)
     expect(wrapper.find("aside").text()).toBe("Test Aside")
+  })
+
+  test("must return true if all slots exist", () => {
+    expect(wrapper.vm.hasSlot("foot1")).toBe(true)
+    expect(wrapper.vm.hasSlot("foot2")).toBe(true)
+    expect(wrapper.vm.hasSlot("foot3")).toBe(true)
+    expect(wrapper.vm.hasSlot("foot")).toBe(true)
+  })
+
+  test("must return false if the test slot doesn't exist", () => {
+    expect(wrapper.vm.hasSlot("test")).toBe(false)
   })
 })

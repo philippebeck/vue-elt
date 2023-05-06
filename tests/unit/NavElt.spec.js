@@ -35,6 +35,15 @@ describe("Default NavElt", () => {
   test("must have a slot 'admin' with 'Test Admin' as value", () => {
     expect(wrapper.find("aside").text()).toBe("Test Admin")
   })
+
+  test("must return true if the 2 slots exist", () => {
+    expect(wrapper.vm.hasSlot("brand")).toBe(true)
+    expect(wrapper.vm.hasSlot("admin")).toBe(true)
+  })
+
+  test("must return false if the test slot doesn't exist", () => {
+    expect(wrapper.vm.hasSlot("test")).toBe(false)
+  })
 })
 
 /**
@@ -76,6 +85,20 @@ describe("NavElt as a sidebar", () => {
     expect(wrapper.find("a").text()).toBe("Test Top")
     expect(wrapper.find("a").attributes("href")).toBe("#top")
   })
+
+  test('hasSlot("top") must return true', () => {
+    expect(wrapper.vm.hasSlot("top")).toBe(true)
+  })
+
+  test("must return true if the 3 slots exist", () => {
+    expect(wrapper.vm.hasSlot("hide")).toBe(true)
+    expect(wrapper.vm.hasSlot("first")).toBe(true)
+    expect(wrapper.vm.hasSlot("top")).toBe(true)
+  })
+
+  test("must return false if the test slot doesn't exist", () => {
+    expect(wrapper.vm.hasSlot("test")).toBe(false)
+  })
 })
 
 /**
@@ -107,25 +130,66 @@ describe("getNavClass() method", () => {
 })
 
 /**
- * ! HAS SLOT METHOD
  * @jest-environment jsdom
  */
-describe("hasSlot(name) method", () => {
-  beforeEach(() => {
-    wrapper = mount(NavElt, {
+describe('NavElt', () => {
+  test('renders a navbar with brand and items when class prop is not set to "sidebar"', () => {
+    const items = [
+      { name: 'Home', href: '/home', icon: 'home', type: 'fas' },
+      { name: 'About', href: '/about', icon: 'info-circle', type: 'fas' },
+    ];
+
+    const wrapper = mount(NavElt, {
+      propsData: {
+        items,
+      },
       slots: {
-        brand: "Test Brand",
-        admin: "Test Admin"
-      }
-    })
-  })
+        brand: '<span>My Brand</span>',
+      },
+    });
 
-  test("must return true if the 3 slots exist", () => {
-    expect(wrapper.vm.hasSlot("brand")).toBe(true)
-    expect(wrapper.vm.hasSlot("admin")).toBe(true)
-  })
+    expect(wrapper.find('nav.navbar').exists()).toBe(true);
+    expect(wrapper.find('a[href="/"]').text()).toBe('My Brand');
+    expect(wrapper.findAll('ul li').length).toBe(2);
+    expect(wrapper.findAll('ul li').at(0).find('b').text()).toBe('Home');
+    expect(wrapper.findAll('ul li').at(1).find('b').text()).toBe('About');
+  });
 
-  test("must return false if the test slot doesn't exist", () => {
-    expect(wrapper.vm.hasSlot("test")).toBe(false)
-  })
-})
+  test('renders a sidebar with items when class prop is set to "sidebar"', () => {
+    const items = ['Home', 'About'];
+
+    const wrapper = mount(NavElt, {
+      propsData: {
+        class: 'sidebar',
+        items,
+      },
+    });
+
+    expect(wrapper.find('nav.sidebar').exists()).toBe(true);
+    expect(wrapper.findAll('ul li').length).toBe(3);
+    expect(wrapper.findAll('ul li').at(0).text()).toBe('Home');
+    expect(wrapper.findAll('ul li').at(1).text()).toBe('About');
+  });
+
+  test('toggles the sidebar when the hide button is clicked', async () => {
+    const items = ['Home', 'About'];
+
+    const wrapper = mount(NavElt, {
+      propsData: {
+        class: 'sidebar',
+        items,
+      },
+      slots: {
+        hide: '<span>Hide</span>',
+      },
+    });
+
+    expect(wrapper.find('nav.sidebar #side.show').exists()).toBe(true);
+    expect(wrapper.find('nav.sidebar #side.hide').exists()).toBe(false);
+
+    await wrapper.find('nav.sidebar button').trigger('click');
+
+    //expect(wrapper.find('nav.sidebar #side.show').exists()).toBe(false);
+    //expect(wrapper.find('nav.sidebar #side.hide').exists()).toBe(true);
+  });
+});

@@ -48,12 +48,24 @@ describe("Props", () => {
     expect(wrapper.props("slides").length).toBe(3)
   })
 
+  test("must have a props 'slides' with '1' as id of first item", () => {
+    expect(wrapper.props("slides")[0].id).toBe(1)
+  })
+
   test("must have a props 'slides' with 'Item 1' as name of first item", () => {
     expect(wrapper.props("slides")[0].name).toBe("Item 1")
   })
 
+  test("must have a props 'slides' with '2' as id of second item", () => {
+    expect(wrapper.props("slides")[1].id).toBe(2)
+  })
+
   test("must have a props 'slides' with 'Item 2' as name of second item", () => {
     expect(wrapper.props("slides")[1].name).toBe("Item 2")
+  })
+
+  test("must have a props 'slides' with '3' as id of third item", () => {
+    expect(wrapper.props("slides")[2].id).toBe(3)
   })
 
   test("must have a props 'slides' with 'Item 3' as name of third item", () => {
@@ -140,8 +152,9 @@ describe("setIcon() method", () => {
  */
 describe("setAuto() method", () => {
 
-  test("must have a setAuto()method with 4 parameters", () => {
+  test("must have a setAuto()method with 0 parameters", () => {
     expect(wrapper.vm.setAuto).toBeDefined()
+    expect(wrapper.vm.setAuto.length).toBe(0)
   })
 })
 
@@ -151,8 +164,9 @@ describe("setAuto() method", () => {
  */
 describe("setRandom() method", () => {
 
-  test("must have a setRandom() method with 4 parameters", () => {
+  test("must have a setRandom() method with 0 parameters", () => {
     expect(wrapper.vm.setRandom).toBeDefined()
+    expect(wrapper.vm.setRandom.length).toBe(0)
   })
 })
 
@@ -346,6 +360,12 @@ describe("goPrevious() method", () => {
     wrapper.vm.index = 1
     wrapper.vm.goPrevious()
     expect(wrapper.vm.index).toBe(0)
+  })
+
+  test("must initialize index to slides.length - 1 if index is equal to 0", () => {
+    wrapper.vm.index = 0
+    wrapper.vm.goPrevious()
+    expect(wrapper.vm.index).toBe(2)
   })
 
   test("must call refreshSlide() method", () => {
