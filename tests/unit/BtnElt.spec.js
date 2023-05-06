@@ -14,6 +14,7 @@ describe("Default BtnElt as a link", () => {
     wrapper = mount(BtnElt, {
       props: {
         href: "https://www.test.com",
+        class: "Test Class",
         title: "Test Title",
         content: "Test Content"
       }
@@ -24,19 +25,23 @@ describe("Default BtnElt as a link", () => {
     expect(wrapper.find("a").exists()).toBe(true)
   })
 
-  test("must have a props 'href' with 'String' as type & 'https://www.test.com' as default value", () => {
+  test("must have a props 'href' with 'String' as type & 'https://www.test.com' as value", () => {
     expect(typeof wrapper.props("href")).toBe("string")
     expect(wrapper.props("href")).toBe("https://www.test.com")
     expect(wrapper.find("a").attributes("href")).toBe("https://www.test.com")
   })
 
-  test("must have a props 'title' with 'String' as type & 'Test Title' as default value", () => {
+  test("must have a attrs 'class' with 'Test Class' as value", () => {
+    expect(wrapper.find("a").attributes("class")).toBe("Test Class")
+  })
+
+  test("must have a props 'title' with 'String' as type & 'Test Title' as value", () => {
     expect(typeof wrapper.props("title")).toBe("string")
     expect(wrapper.props("title")).toBe("Test Title")
     expect(wrapper.find("a").attributes("title")).toBe("Test Title")
   })
 
-  test("must have a props 'content' with 'String' as type & 'Test Content' as default value", () => {
+  test("must have a props 'content' with 'String' as type & 'Test Content' as value", () => {
     expect(typeof wrapper.props("content")).toBe("string")
     expect(wrapper.props("content")).toBe("Test Content")
     expect(wrapper.find("a").text()).toBe("Test Content")
@@ -53,6 +58,7 @@ describe("BtnElt as a button", () => {
       props: {
         type: "button",
         value: "Test Value",
+        class: "Test Class",
         title: "Test Title",
         content: "Test Content"
       }
@@ -75,6 +81,10 @@ describe("BtnElt as a button", () => {
     expect(wrapper.find("button").attributes("value")).toBe("Test Value")
   })
 
+  test("must have a attrs 'class' with 'Test Class' as value", () => {
+    expect(wrapper.find("button").attributes("class")).toBe("Test Class")
+  })
+
   test("must have a props 'title' with 'String' as type & 'Test Title' as value", () => {
     expect(typeof wrapper.props("title")).toBe("string")
     expect(wrapper.props("title")).toBe("Test Title")
@@ -85,5 +95,48 @@ describe("BtnElt as a button", () => {
     expect(typeof wrapper.props("content")).toBe("string")
     expect(wrapper.props("content")).toBe("Test Content")
     expect(wrapper.find("button").text()).toBe("Test Content")
+  })
+})
+
+/**
+ * ! GET BTN TYPE
+ * @jest-environment jsdom
+ */
+describe("getBtnType() method", () => {
+
+  test("must return 'button' if props 'type' is 'button'", () => {
+    wrapper = mount(BtnElt, {
+      props: {
+        type: "button"
+      }
+    })
+    expect(wrapper.vm.getBtnType()).toBe("button")
+  })
+
+  test("must return 'button' if props 'type' is 'submit'", () => {
+    wrapper = mount(BtnElt, {
+      props: {
+        type: "submit"
+      }
+    })
+    expect(wrapper.vm.getBtnType()).toBe("button")
+  })
+
+  test("must return 'button' if props 'type' is 'reset'", () => {
+    wrapper = mount(BtnElt, {
+      props: {
+        type: "reset"
+      }
+    })
+    expect(wrapper.vm.getBtnType()).toBe("button")
+  })
+
+  test("must return 'link' if props 'type' is everything else", () => {
+    wrapper = mount(BtnElt, {
+      props: {
+        type: "test"
+      }
+    })
+    expect(wrapper.vm.getBtnType()).toBe("link")
   })
 })
