@@ -69,10 +69,16 @@ export default {
       default: false
     }
   },
-  methods: {
+  methods: {    
+    /**
+     * Checks if a slot with the given name exists.
+     *
+     * @param {string} name - The name of the slot to check.
+     * @return {boolean} - True if a slot with the given name exists, false otherwise.
+     */
     hasSlot(name) {
-      return this.$slots[name] !== undefined;
-    }
+      return Object.prototype.hasOwnProperty.call(this.$slots, name);
+    },
   }
 }
 </script>

@@ -153,39 +153,40 @@ export default {
   },
 
   methods: {
+    /**
+     * Checks if a slot with the given name exists.
+     *
+     * @param {string} name - The name of the slot to check.
+     * @return {boolean} - True if a slot with the given name exists, false otherwise.
+     */
     hasSlot(name) {
-      return this.$slots[name] !== undefined;
+      return Object.prototype.hasOwnProperty.call(this.$slots, name);
     },
 
+    /**
+     * Handles input events and emits an update with the new value.
+     *
+     * @param {Event} event - The input event triggered by the user.
+     * @return {void} This function does not return a value.
+     */
     onInput(event) {
       this.$emit("update:value", event.target.value)
     },
 
+    /**
+     * Returns the type of the input field based on the 'type' property.
+     *
+     * @return {string} The type of the input field: 'number', 'special', 'list', 'area', or 'text'.
+     */
     getFieldType() {
-      let fieldType = "";
-      switch (this.type) {
-        case "number":
-        case "date":
-        case "time":
-        case "range":
-          fieldType = "number";
-          break;
-        case "checkbox":
-        case "radio":
-        case "color":
-          fieldType = "special";
-          break;
-        case "option":
-        case "select":
-          fieldType = "list";
-          break;
-        case "textarea":
-          fieldType = "area";
-          break;
-        default:
-          fieldType = "text";
+      const fieldTypes = {
+        "number": ["number", "date", "time", "range"],
+        "special": ["checkbox", "radio", "color"],
+        "list": ["option", "select"],
+        "area": ["textarea"]
       }
-      return fieldType;
+
+      return Object.keys(fieldTypes).find(key => fieldTypes[key].includes(this.type)) || "text";
     }
   }
 }
