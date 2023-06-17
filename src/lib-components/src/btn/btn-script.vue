@@ -14,15 +14,15 @@
     },
 
     methods: {
+      /**
+       * Determines the type of button based on the 'type' property of the current instance.
+       *
+       * @return {string} Returns 'button' if the 'type' property is set to 'button', 'submit' or 'reset', otherwise returns 'link'.
+       */
       getBtnType() {
-        if (
-          this.type === "button" || 
-          this.type === "submit" || 
-          this.type === "reset"
-          ) {
-          return "button";
-        }
-        return "link";
+        const validTypes = ["button", "submit", "reset"];
+
+        return validTypes.includes(this.type) ? "button" : "link";
       }
     }
   }

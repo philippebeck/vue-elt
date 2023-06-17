@@ -13,22 +13,33 @@ export default {
   },
 
   methods: {
+    /**
+     * Returns a string representing the navigation class based on the value of 'class'.
+     *
+     * @return {string} Either 'sidebar' or 'navbar'.
+     */
     getNavClass() {
-      if (this.class === "sidebar") {
-        return "sidebar";
-      }
-      return "navbar";
+      return this.class === "sidebar" ? "sidebar" : "navbar";
     },
 
+    /**
+     * Checks if a slot with the given name exists.
+     *
+     * @param {string} name - The name of the slot to check.
+     * @return {boolean} - True if a slot with the given name exists, false otherwise.
+     */
     hasSlot(name) {
-      return this.$slots[name] !== undefined;
+      return Object.prototype.hasOwnProperty.call(this.$slots, name);
     },
 
+    /**
+     * Toggles the visibility of the side element by toggling its show/hide classes.
+     *
+     * @return {void} This function does not return anything.
+     */
     toggleSide() {
       const side = document.getElementById("side");
-
-      side.classList.toggle("show");
-      side.classList.toggle("hide");
+      side.classList.replace("show", "hide") || side.classList.replace("hide", "show");
     }
   }
 }
