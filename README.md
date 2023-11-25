@@ -49,7 +49,7 @@ Yarn : `yarn add vue-elt`
 
 ## Content
 
-Available SFC :  
+Available Elements SFC :  
 -   **BtnElt**  
 -   **CardElt**  
 -   **FieldElt**  
@@ -59,6 +59,27 @@ Available SFC :
 -   **NavElt**  
 -   **SliderElt**  
 -   **TableElt**  
+
+Available Managers SFC :  
+-   **ArticleManager**  
+-   **GalleryManager**  
+-   **ImageManager**  
+-   **LinkManager**  
+-   **OrderManager**  
+-   **ProductManager**  
+-   **UserManager**  
+
+Available Creators SFC :  
+-   **ArticleCreator**  
+-   **GalleryCreator**  
+-   **ImageCreator**  
+-   **LinkCreator**  
+-   **ProductCreator**  
+
+Available Auth SFC :  
+-   **ForgotPass**  
+-   **SignIn**  
+-   **SignUp**  
 
 Overloading CSS vars :  
 -   **style.css**  
@@ -80,4 +101,4 @@ Overloading CSS vars :
 ## Tests
 
 Tests are "on the road" (incomplete for the moment), but you can launch them :
--  `npm test -- --coverage`
+-  `npm test`

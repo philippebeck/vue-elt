@@ -29,7 +29,7 @@
     "build:ssr": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format cjs",
     "build:es": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format es",
     "build:unpkg": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format iife",
-    "test": "jest --env=jsdom"
+    "test": "jest --env=jsdom --coverage"
   },
   "jest": {
     "moduleFileExtensions": [
