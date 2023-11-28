@@ -1,5 +1,5 @@
 import { enableAutoUnmount, mount } from "@vue/test-utils"
-import CardElt from "../../src/lib-components/CardElt.vue"
+import CardElt from "../../src/lib-components/elements/CardElt"
 
 let wrapper;
 

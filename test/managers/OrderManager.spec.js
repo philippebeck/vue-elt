@@ -1,5 +1,5 @@
 import { shallowMount, enableAutoUnmount } from "@vue/test-utils"
-import OrderManager from "../../../components/OrderManager"
+import OrderManager from "../../src/lib-components/managers/OrderManager"
 
 let wrapper;
 

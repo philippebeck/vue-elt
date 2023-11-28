@@ -1,5 +1,5 @@
 import { mount, enableAutoUnmount } from "@vue/test-utils"
-import SliderElt from "../../src/lib-components/SliderElt.vue"
+import SliderElt from "../../src/lib-components/elements/SliderElt"
 
 let wrapper;
 

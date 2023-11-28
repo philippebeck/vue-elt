@@ -1,13 +1,12 @@
 import { shallowMount, enableAutoUnmount } from "@vue/test-utils"
-import * as axios from "../../../assets/axios"
-import * as serve from "../../../assets/serve"
-import LinkManager from "../../../components/LinkManager"
+import * as serve from "servidio"
+import LinkManager from "../../src/lib-components/managers/LinkManager"
 
 let wrapper;
 
 beforeEach(() => {
-  jest.spyOn(axios, "deleteData").mockImplementation(() => {});
-  jest.spyOn(axios, "putData").mockImplementation(() => {});
+  jest.spyOn(serve, "deleteData").mockImplementation(() => {});
+  jest.spyOn(serve, "putData").mockImplementation(() => {});
 
   jest.spyOn(serve, "checkRange").mockImplementation(() => {});
   jest.spyOn(serve, "checkRegex").mockImplementation(() => {});

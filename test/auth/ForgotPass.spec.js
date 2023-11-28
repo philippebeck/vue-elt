@@ -1,5 +1,5 @@
 import { shallowMount, enableAutoUnmount } from "@vue/test-utils"
-import ForgotPass from "../../../components/ForgotPass"
+import ForgotPass from "../../src/lib-components/auth/ForgotPass"
 
 let wrapper;
 

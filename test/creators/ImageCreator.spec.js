@@ -1,5 +1,5 @@
 import { shallowMount, enableAutoUnmount } from "@vue/test-utils"
-import ImageCreator from "../../../components/ImageCreator"
+import ImageCreator from "../../src/lib-components/creators/ImageCreator"
 
 let wrapper;
 

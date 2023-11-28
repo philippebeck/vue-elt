@@ -1,5 +1,5 @@
 import { enableAutoUnmount, mount } from "@vue/test-utils"
-import NavElt from "../../src/lib-components/NavElt.vue"
+import NavElt from "../../src/lib-components/elements/NavElt"
 
 let wrapper;
 

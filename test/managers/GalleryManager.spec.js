@@ -1,5 +1,5 @@
 import { shallowMount, enableAutoUnmount } from "@vue/test-utils"
-import GalleryManager from "../../../components/GalleryManager"
+import GalleryManager from "../../src/lib-components/managers/GalleryManager"
 
 let wrapper;
 
