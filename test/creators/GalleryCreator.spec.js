@@ -1,5 +1,5 @@
 import { shallowMount, enableAutoUnmount } from "@vue/test-utils"
-import GalleryCreator from "../../src/lib-components/creators/GalleryCreator"
+import GalleryCreator from "../../components/creators/GalleryCreator"
 
 let wrapper;
 

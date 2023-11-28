@@ -1,5 +1,5 @@
 import { shallowMount, enableAutoUnmount } from "@vue/test-utils"
-import ArticleManager from "../../src/lib-components/managers/ArticleManager"
+import ArticleManager from "../../components/managers/ArticleManager"
 
 let wrapper;
 

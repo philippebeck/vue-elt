@@ -1,5 +1,5 @@
 import { shallowMount, enableAutoUnmount } from "@vue/test-utils"
-import ImageManager from "../../src/lib-components/managers/ImageManager"
+import ImageManager from "../../components/managers/ImageManager"
 
 let wrapper;
 

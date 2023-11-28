@@ -1,5 +1,5 @@
 import { enableAutoUnmount, mount } from "@vue/test-utils"
-import ListElt from "../../src/lib-components/elements/ListElt"
+import ListElt from "../../components/elements/ListElt"
 
 let wrapper;
 

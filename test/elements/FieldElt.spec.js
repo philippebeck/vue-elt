@@ -1,5 +1,5 @@
 import { mount, enableAutoUnmount } from "@vue/test-utils"
-import FieldElt from "../../src/lib-components/elements/FieldElt"
+import FieldElt from "../../components/elements/FieldElt"
 
 let wrapper;
 

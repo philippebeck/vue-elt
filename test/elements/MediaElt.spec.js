@@ -1,5 +1,5 @@
 import { enableAutoUnmount, mount } from "@vue/test-utils"
-import MediaElt from "../../src/lib-components/elements/MediaElt"
+import MediaElt from "../../components/elements/MediaElt"
 
 let wrapper;
 

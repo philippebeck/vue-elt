@@ -1,6 +1,6 @@
 import { shallowMount, enableAutoUnmount } from "@vue/test-utils"
 import * as serve from "servidio"
-import LinkManager from "../../src/lib-components/managers/LinkManager"
+import LinkManager from "../../components/managers/LinkManager"
 
 let wrapper;
 

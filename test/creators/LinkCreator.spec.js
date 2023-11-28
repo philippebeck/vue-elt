@@ -1,5 +1,5 @@
 import { shallowMount, enableAutoUnmount } from "@vue/test-utils"
-import LinkCreator from "../../src/lib-components/creators/LinkCreator"
+import LinkCreator from "../../components/creators/LinkCreator"
 
 let wrapper;
 

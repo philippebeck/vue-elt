@@ -1,5 +1,5 @@
 import { shallowMount, enableAutoUnmount } from "@vue/test-utils"
-import UserManager from "../../src/lib-components/managers/UserManager"
+import UserManager from "../../components/managers/UserManager"
 
 let wrapper;
 

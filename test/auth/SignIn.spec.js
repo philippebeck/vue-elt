@@ -1,5 +1,5 @@
 import { shallowMount, enableAutoUnmount } from "@vue/test-utils"
-import SignIn from "../../src/lib-components/auth/SignIn"
+import SignIn from "../../components/auth/SignIn"
 
 let wrapper;
 

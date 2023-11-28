@@ -1,5 +1,5 @@
 import { mount, enableAutoUnmount } from "@vue/test-utils"
-import BtnElt from "../../src/lib-components/elements/BtnElt"
+import BtnElt from "../../components/elements/BtnElt"
 
 let wrapper;
 
