@@ -103,7 +103,7 @@ export default {
           data.append("name", gallery.name);
           data.append("author", gallery.author);
 
-          putData("/galleries/" + id, data)
+          putData(this.constants.API_URL + "/galleries/" + id, data)
             .then(() => {
               alert(gallery.name + this.constants.ALERT_UPDATED);
             })
@@ -120,7 +120,7 @@ export default {
       let name = getItemName(id, this.galleries);
 
       if (confirm(`${this.constants.TITLE_DELETE} ${name} ?`) === true) {
-        deleteData("/galleries/" + id)
+        deleteData(this.constants.API_URL + "/galleries/" + id)
           .then(() => {
             alert(name + this.constants.ALERT_DELETED);
             this.$router.go();

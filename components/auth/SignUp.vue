@@ -106,7 +106,7 @@ export default {
           checkRegex(this.email, EMAIL_MSG, EMAIL_REGEX) && 
           checkRegex(this.pass, PASS_MSG, PASS_REGEX)) {
 
-        postData("/auth/recaptcha", { response: response })
+        postData(this.constants.API_URL + "/auth/recaptcha", { response: response })
           .then(result => {
             if (result.success) {
               this.createUser();
@@ -139,7 +139,7 @@ export default {
         user.append("created", Date.now());
         user.append("updated", Date.now());
 
-        postData("/users", user)
+        postData(this.constants.API_URL + "/users", user)
           .then(() => {
             alert(this.name + this.constants.ALERT_CREATED);
             this.$router.go();

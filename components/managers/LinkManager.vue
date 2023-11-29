@@ -141,7 +141,7 @@ export default {
       if (checkRange(link.name, NAME_MSG) && 
           checkRegex(`https://${link.url}`, URL_MSG, REGEX)) {
 
-        putData("/links/" + link._id, this.getLink(link))
+        putData(this.constants.API_URL + "/links/" + link._id, this.getLink(link))
           .then(() => {
             alert(link.name + this.constants.ALERT_UPDATED);
           })
@@ -167,7 +167,7 @@ export default {
       let name = getItemName(id, this.links);
 
       if (confirm(`${this.constants.TITLE_DELETE} ${name} ?`) === true) {
-        deleteData("/links/" + id)
+        deleteData(this.constants.API_URL + "/links/" + id)
           .then(() => {
             alert(name + this.constants.ALERT_DELETED);
             this.$router.go();

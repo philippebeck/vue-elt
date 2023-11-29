@@ -169,7 +169,7 @@ export default {
           data.append("description", image.description);
           data.append("gallery", image.gallery.split('-')[0]);
 
-          putData("/images/" + id, data)
+          putData(this.constants.API_URL + "/images/" + id, data)
             .then(() => {
               alert(this.constants.ALERT_IMAGE + id + this.constants.ALERT_UPDATED);
             })
@@ -185,7 +185,7 @@ export default {
     deleteImage(id) {
       if (confirm(`${this.constants.TITLE_DELETE_IMAGE}${id} ?`) === true) {
 
-        deleteData("/images/" + id)
+        deleteData(this.constants.API_URL + "/images/" + id)
           .then(() => {
             alert(this.constants.ALERT_IMAGE + id + this.constants.ALERT_DELETED);
             this.$router.go();

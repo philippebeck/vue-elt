@@ -166,7 +166,7 @@ export default {
           article.append("created", Date.now());
           article.append("updated", Date.now());
 
-          postData("/articles", article)
+          postData(this.constants.API_URL + "/articles", article)
             .then(() => {
               alert(this.name + this.constants.ALERT_CREATED);
               this.$router.go();

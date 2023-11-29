@@ -192,7 +192,7 @@ export default {
           checkRange(product.price, PRICE_MSG, PRICE_MIN, PRICE_MAX) && 
           checkRange(product.options, STRING_MSG, TEXT_MIN, TEXT_MAX)) {
 
-        putData("/products/" + id, this.getProduct(id, product))
+        putData(this.constants.API_URL + "/products/" + id, this.getProduct(id, product))
           .then(() => {
             alert(product.name + this.constants.ALERT_UPDATED);
           })
@@ -218,7 +218,7 @@ export default {
       let name = getItemName(id, this.products);
 
       if (confirm(`${this.constants.TITLE_DELETE} ${name} ?`) === true) {
-        deleteData("/products/" + id)
+        deleteData(this.constants.API_URL + "/products/" + id)
           .then(() => {
             alert(name + this.constants.ALERT_DELETED);
             this.$router.go();

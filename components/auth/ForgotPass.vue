@@ -61,7 +61,7 @@ export default {
 
       if (checkRegex(this.email, MSG, REGEX)) {
 
-        postData("/auth/recaptcha", { response: response })
+        postData(this.constants.API_URL + "/auth/recaptcha", { response: response })
           .then(result => {
             if (result.success) {
               this.forgotPass();
@@ -88,7 +88,7 @@ export default {
         message.append("subject", this.constants.FORGOT_SUBJECT);
         message.append("html", this.constants.FORGOT_TEXT);
 
-        postData("/auth/pass", message)
+        postData(this.constants.API_URL + "/auth/pass", message)
           .then(() => {
             alert(message.get("subject") + this.constants.ALERT_SENDED);
             this.$router.push("/login");

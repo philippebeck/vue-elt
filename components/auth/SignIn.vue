@@ -78,7 +78,7 @@ export default {
       if (checkRegex(this.email, EMAIL_MSG, EMAIL_REGEX) && 
           checkRegex(this.pass, PASS_MSG, PASS_REGEX)) {
 
-        postData("/auth/recaptcha", { response: response })
+        postData(this.constants.API_URL + "/auth/recaptcha", { response: response })
           .then(result => {
             if (result.success) {
               this.signIn();
@@ -102,7 +102,7 @@ export default {
       auth.append("email", this.email);
       auth.append("pass", this.pass);
 
-      postData("/auth", auth)
+      postData(this.constants.API_URL + "/auth", auth)
         .then((res) => {
 
           let token   = JSON.stringify(res.token);

@@ -122,7 +122,7 @@ export default {
         link.append("url", this.url);
         link.append("cat", this.cat);
 
-        postData("/links", link)
+        postData(this.constants.API_URL + "/links", link)
           .then(() => {
             alert(this.name + this.constants.ALERT_CREATED);
             this.$router.go();
