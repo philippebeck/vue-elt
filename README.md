@@ -1,6 +1,9 @@
 # Vue Elt
 
-Vue Single File Component Library
+Vue Single File Component Library  
+
+**_WARNING !_**  
+**The V2 in alpha mode is still in development & has no dist files available**  
 
 [![NPM Version](https://badgen.net/npm/v/vue-elt)](https://www.npmjs.com/package/vue-elt)
 [![GitHub Top Language](https://img.shields.io/github/languages/top/philippebeck/vue-elt)](https://github.com/philippebeck/vue-elt)
@@ -17,25 +20,14 @@ Vue Single File Component Library
 - [Vue Elt](#vue-elt)
   - [Summary](#summary)
   - [Package](#package)
-  - [CDN](#cdn)
   - [Download](#download)
   - [Content](#content)
-  - [Usage](#usage)
-  - [Tests](#tests)
 
 ---
 
 ## Package
 
-NPM : `npm i vue-elt`  
-Yarn : `yarn add vue-elt`  
-
----
-
-## CDN 
-
--   Development : [https://cdn.jsdelivr.net/npm/vue-elt@1.4.11/dist/vue-elt.esm.js](https://cdn.jsdelivr.net/npm/vue-elt@1.4.11/dist/vue-elt.esm.js)  
--   Production : [https://cdn.jsdelivr.net/npm/vue-elt@1.4.11/dist/vue-elt.min.js](https://cdn.jsdelivr.net/npm/vue-elt@1.4.11/dist/vue-elt.min.js)  
+`npm i vue-elt`  
 
 ---
 
@@ -49,7 +41,7 @@ Yarn : `yarn add vue-elt`
 
 ## Content
 
-Available SFC :  
+Available Elements SFC :  
 -   **BtnElt**  
 -   **CardElt**  
 -   **FieldElt**  
@@ -60,24 +52,26 @@ Available SFC :
 -   **SliderElt**  
 -   **TableElt**  
 
+Available Managers SFC :  
+-   **ArticleManager**  
+-   **GalleryManager**  
+-   **ImageManager**  
+-   **LinkManager**  
+-   **OrderManager**  
+-   **ProductManager**  
+-   **UserManager**  
+
+Available Creators SFC :  
+-   **ArticleCreator**  
+-   **GalleryCreator**  
+-   **ImageCreator**  
+-   **LinkCreator**  
+-   **ProductCreator**  
+
+Available Auth SFC :  
+-   **ForgotPass**  
+-   **SignIn**  
+-   **SignUp**  
+
 Overloading CSS vars :  
 -   **style.css**  
-
----
-
-## Usage
-
--  In `main.js` of Vue3, import `vue-elt` like this : `import element from "vue-elt"`  
--  Then, add this line after creating App but before mounting : `app.use(element)` ([example](https://github.com/philippebeck/vesan/blob/master/src/main.js))  
--  Vue-elt use the packages `animadio` for the colors & `font-awesome` for the icons, so you need to load them (*you can watch import example in the dev/serve.vue file*)  
--  After, use it in your components like in these examples : 
-    -  `<ListElt :items=items />` ([example](https://github.com/philippebeck/vesan/blob/master/src/views/HomeView.vue))  
-    -  `<FieldElt id="email" />` ([example](https://github.com/philippebeck/vesan/blob/master/src/views/ContactView.vue))  
--  Finally, you can find an overloading file for the style in the dist folder, you can copy the content to your own style file, then you can overload any css variable of the components  
-
----
-
-## Tests
-
-Tests are "on the road" (incomplete for the moment), but you can launch them :
--  `npm test -- --coverage`

@@ -4,97 +4,97 @@ module.exports = function(grunt) {
     concat: {
       btn: {
         src: [
-          "src/lib-components/src/btn/btn-template.html",
-          "src/lib-components/src/btn/btn-script.vue",
-          "src/lib-components/src/btn/btn-var-style.css",
-          "src/lib-components/src/btn/btn-scoped-style.vue",
+          "components/elements/src/btn/btn-template.html",
+          "components/elements/src/btn/btn-script.vue",
+          "components/elements/src/btn/btn-var-style.css",
+          "components/elements/src/btn/btn-scoped-style.vue",
         ], 
-        dest: "src/lib-components/BtnElt.vue"
+        dest: "components/elements/BtnElt.vue"
       },
       field: {
         src: [
-          "src/lib-components/src/field/field-template.html",
-          "src/lib-components/src/field/field-script.vue",
-          "src/lib-components/src/field/field-var-style.css",
-          "src/lib-components/src/field/field-scoped-style.vue",
+          "components/elements/src/field/field-template.html",
+          "components/elements/src/field/field-script.vue",
+          "components/elements/src/field/field-var-style.css",
+          "components/elements/src/field/field-scoped-style.vue",
         ], 
-        dest: "src/lib-components/FieldElt.vue"
+        dest: "components/elements/FieldElt.vue"
       },
       media: {
         src: [
-          "src/lib-components/src/media/media-template.html",
-          "src/lib-components/src/media/media-script.vue",
-          "src/lib-components/src/media/media-var-style.css",
-          "src/lib-components/src/media/media-scoped-style.vue",
+          "components/elements/src/media/media-template.html",
+          "components/elements/src/media/media-script.vue",
+          "components/elements/src/media/media-var-style.css",
+          "components/elements/src/media/media-scoped-style.vue",
         ], 
-        dest: "src/lib-components/MediaElt.vue"
+        dest: "components/elements/MediaElt.vue"
       },
       list: {
         src: [
-          "src/lib-components/src/list/list-template.html",
-          "src/lib-components/src/list/list-script.vue",
-          "src/lib-components/src/list/list-var-style.css",
-          "src/lib-components/src/list/list-scoped-style.vue",
+          "components/elements/src/list/list-template.html",
+          "components/elements/src/list/list-script.vue",
+          "components/elements/src/list/list-var-style.css",
+          "components/elements/src/list/list-scoped-style.vue",
         ], 
-        dest: "src/lib-components/ListElt.vue"
+        dest: "components/elements/ListElt.vue"
       },
       slider: {
         src: [
-          "src/lib-components/src/slider/slider-template.html",
-          "src/lib-components/src/slider/slider-script.vue",
-          "src/lib-components/src/slider/slider-var-style.css",
-          "src/lib-components/src/slider/slider-scoped-style.vue",
+          "components/elements/src/slider/slider-template.html",
+          "components/elements/src/slider/slider-script.vue",
+          "components/elements/src/slider/slider-var-style.css",
+          "components/elements/src/slider/slider-scoped-style.vue",
         ], 
-        dest: "src/lib-components/SliderElt.vue"
+        dest: "components/elements/SliderElt.vue"
       },
       table: {
         src: [
-          "src/lib-components/src/table/table-template.html",
-          "src/lib-components/src/table/table-script.vue",
-          "src/lib-components/src/table/table-var-style.css",
-          "src/lib-components/src/table/table-scoped-style.vue",
+          "components/elements/src/table/table-template.html",
+          "components/elements/src/table/table-script.vue",
+          "components/elements/src/table/table-var-style.css",
+          "components/elements/src/table/table-scoped-style.vue",
         ], 
-        dest: "src/lib-components/TableElt.vue"
+        dest: "components/elements/TableElt.vue"
       },
       card: {
         src: [
-          "src/lib-components/src/card/card-template.html",
-          "src/lib-components/src/card/card-script.vue",
-          "src/lib-components/src/card/card-var-style.css",
-          "src/lib-components/src/card/card-scoped-style.vue",
+          "components/elements/src/card/card-template.html",
+          "components/elements/src/card/card-script.vue",
+          "components/elements/src/card/card-var-style.css",
+          "components/elements/src/card/card-scoped-style.vue",
         ], 
-        dest: "src/lib-components/CardElt.vue"
+        dest: "components/elements/CardElt.vue"
       },
       foot: {
         src: [
-          "src/lib-components/src/foot/foot-template.html",
-          "src/lib-components/src/foot/foot-script.vue",
-          "src/lib-components/src/foot/foot-var-style.css",
-          "src/lib-components/src/foot/foot-scoped-style.vue",
+          "components/elements/src/foot/foot-template.html",
+          "components/elements/src/foot/foot-script.vue",
+          "components/elements/src/foot/foot-var-style.css",
+          "components/elements/src/foot/foot-scoped-style.vue",
         ], 
-        dest: "src/lib-components/FootElt.vue"
+        dest: "components/elements/FootElt.vue"
       },
       nav: {
         src: [
-          "src/lib-components/src/nav/nav-template.html",
-          "src/lib-components/src/nav/nav-script.vue",
-          "src/lib-components/src/nav/nav-var-style.css",
-          "src/lib-components/src/nav/nav-scoped-style.vue",
+          "components/elements/src/nav/nav-template.html",
+          "components/elements/src/nav/nav-script.vue",
+          "components/elements/src/nav/nav-var-style.css",
+          "components/elements/src/nav/nav-scoped-style.vue",
         ], 
-        dest: "src/lib-components/NavElt.vue"
+        dest: "components/elements/NavElt.vue"
       },
       style: {
         src: [
           "node_modules/animadio/dist/style.css",
-          "src/lib-components/src/btn/btn-var-style.css",
-          "src/lib-components/src/field/field-var-style.css",
-          "src/lib-components/src/media/media-var-style.css",
-          "src/lib-components/src/list/list-var-style.css",
-          "src/lib-components/src/slider/slider-var-style.css",
-          "src/lib-components/src/table/table-var-style.css",
-          "src/lib-components/src/card/card-var-style.css",
-          "src/lib-components/src/foot/foot-var-style.css",
-          "src/lib-components/src/nav/nav-var-style.css",
+          "components/elements/src/btn/btn-var-style.css",
+          "components/elements/src/field/field-var-style.css",
+          "components/elements/src/media/media-var-style.css",
+          "components/elements/src/list/list-var-style.css",
+          "components/elements/src/slider/slider-var-style.css",
+          "components/elements/src/table/table-var-style.css",
+          "components/elements/src/card/card-var-style.css",
+          "components/elements/src/foot/foot-var-style.css",
+          "components/elements/src/nav/nav-var-style.css",
         ], 
         dest: "dist/style.css"
       },
