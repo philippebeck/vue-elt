@@ -1,6 +1,9 @@
 # Vue Elt
 
-Vue Single File Component Library
+Vue Single File Component Library  
+
+**_WARNING !_**  
+**The V2 in alpha mode is still in development & has no dist files available**  
 
 [![NPM Version](https://badgen.net/npm/v/vue-elt)](https://www.npmjs.com/package/vue-elt)
 [![GitHub Top Language](https://img.shields.io/github/languages/top/philippebeck/vue-elt)](https://github.com/philippebeck/vue-elt)
