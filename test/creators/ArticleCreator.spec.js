@@ -1,5 +1,6 @@
 import { shallowMount, enableAutoUnmount } from "@vue/test-utils"
-import ArticleCreator from "../../components/ArticleCreator"
+import ArticleCreator from "../../components/creators/ArticleCreator"
+import servidio from "servidio"
 
 let wrapper;
 
