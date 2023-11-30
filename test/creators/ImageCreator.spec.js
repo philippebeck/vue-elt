@@ -3,6 +3,8 @@ import ImageCreator from "../../components/creators/ImageCreator"
 
 let wrapper;
 
+jest.mock("axios");
+
 beforeEach(() => {
   wrapper = shallowMount(ImageCreator, {
     props: {

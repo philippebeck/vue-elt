@@ -4,6 +4,8 @@ import LinkManager from "../../components/managers/LinkManager"
 
 let wrapper;
 
+jest.mock("axios");
+
 beforeEach(() => {
   jest.spyOn(serve, "deleteData").mockImplementation(() => {});
   jest.spyOn(serve, "putData").mockImplementation(() => {});

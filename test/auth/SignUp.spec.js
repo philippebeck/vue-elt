@@ -3,6 +3,8 @@ import SignUp from "../../components/auth/SignUp"
 
 let wrapper;
 
+jest.mock("axios");
+
 beforeEach(() => {
   wrapper = shallowMount(SignUp, {
     props: {

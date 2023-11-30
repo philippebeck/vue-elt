@@ -3,6 +3,8 @@ import ArticleManager from "../../components/managers/ArticleManager"
 
 let wrapper;
 
+jest.mock("axios");
+
 beforeEach(() => {
   wrapper = shallowMount(ArticleManager, {
     props: {

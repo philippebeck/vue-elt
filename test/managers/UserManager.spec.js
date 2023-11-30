@@ -3,6 +3,8 @@ import UserManager from "../../components/managers/UserManager"
 
 let wrapper;
 
+jest.mock("axios");
+
 beforeEach(() => {
   wrapper = shallowMount(UserManager, {
     props: {

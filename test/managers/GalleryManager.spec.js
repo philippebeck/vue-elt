@@ -3,6 +3,8 @@ import GalleryManager from "../../components/managers/GalleryManager"
 
 let wrapper;
 
+jest.mock("axios");
+
 beforeEach(() => {
   wrapper = shallowMount(GalleryManager, {
     props: {

@@ -3,6 +3,8 @@ import ProductManager from "../../components/managers/ProductManager"
 
 let wrapper;
 
+jest.mock("axios");
+
 beforeEach(() => {
   wrapper = shallowMount(ProductManager, {
     props: {

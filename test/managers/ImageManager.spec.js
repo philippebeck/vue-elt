@@ -3,6 +3,8 @@ import ImageManager from "../../components/managers/ImageManager"
 
 let wrapper;
 
+jest.mock("axios");
+
 beforeEach(() => {
   wrapper = shallowMount(ImageManager, {
     props: {

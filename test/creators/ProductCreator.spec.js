@@ -3,6 +3,8 @@ import ProductCreator from "../../components/creators/ProductCreator"
 
 let wrapper;
 
+jest.mock("axios");
+
 beforeEach(() => {
   wrapper = shallowMount(ProductCreator, {
     props: {

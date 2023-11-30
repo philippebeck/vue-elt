@@ -3,6 +3,8 @@ import ArticleCreator from "../../components/ArticleCreator"
 
 let wrapper;
 
+jest.mock("axios");
+
 beforeEach(() => {
   wrapper = shallowMount(ArticleCreator, {
     props: {

@@ -3,6 +3,8 @@ import ForgotPass from "../../components/auth/ForgotPass"
 
 let wrapper;
 
+jest.mock("axios");
+
 beforeEach(() => {
   wrapper = shallowMount(ForgotPass, {
     props: {

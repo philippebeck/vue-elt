@@ -3,6 +3,8 @@ import GalleryCreator from "../../components/creators/GalleryCreator"
 
 let wrapper;
 
+jest.mock("axios");
+
 beforeEach(() => {
   wrapper = shallowMount(GalleryCreator, {
     props: {

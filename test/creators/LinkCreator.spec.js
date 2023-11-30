@@ -3,6 +3,8 @@ import LinkCreator from "../../components/creators/LinkCreator"
 
 let wrapper;
 
+jest.mock("axios");
+
 beforeEach(() => {
   wrapper = shallowMount(LinkCreator, {
     props: {

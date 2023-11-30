@@ -3,6 +3,8 @@ import OrderManager from "../../components/managers/OrderManager"
 
 let wrapper;
 
+jest.mock("axios");
+
 beforeEach(() => {
   wrapper = shallowMount(OrderManager, {
     props: {
