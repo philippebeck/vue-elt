@@ -104,12 +104,8 @@ export default {
 
       postData(this.constants.API_URL + "/auth", auth)
         .then((res) => {
-
-          let token   = JSON.stringify(res.token);
-          let userId  = JSON.stringify(res.userId);
-
-          localStorage.setItem("userToken", token);
-          localStorage.setItem("userId", userId);
+          localStorage.setItem("userToken", JSON.stringify(res.token));
+          localStorage.setItem("userId", JSON.stringify(res.userId));
 
           this.$router.go();
         })
