@@ -14,18 +14,17 @@
         <TableElt v-for="table in getItemsByGallery(images)"
           :items="table"
           :key="table"
-          :title="table[0].gallery"
-          :id="table[0].gallery">
+          :title="table[0].gallery_id"
+          :id="table[0].gallery_id">
 
           <template #title>
-            <h3 class="sky">{{ table[0].gallery.split('-')[1] }}</h3>
+            <h3 class="sky">{{ table[0].gallery_id }}</h3>
           </template>
 
           <template #head>{{ constants.HEAD_UP }}</template>
 
-          <template #cell-_id="slotProps">
-            <b>#{{ slotProps.index + 1 }}</b>
-            ({{ table[slotProps.index]._id }})
+          <template #cell-id="slotProps">
+            <b>{{ table[slotProps.index].id }}</b>
           </template>
 
           <template #cell-name="slotProps">
@@ -33,31 +32,31 @@
               :alt="table[slotProps.index].description"
               :title="table[slotProps.index].name"/>
 
-            <FieldElt :id="table[slotProps.index]._id"
+            <FieldElt :id="table[slotProps.index].id"
               type="file"
               :info="constants.INFO_UP_IMAGE"/>
           </template>
 
           <template #cell-description="slotProps">
             <FieldElt v-model:value="table[slotProps.index].description"
-              @keyup.enter="updateImage(table[slotProps.index]._id)"
+              @keyup.enter="updateImage(table[slotProps.index].id)"
               :info="constants.INFO_UP_DESCRIPTION"/>
           </template>
 
           <template #cell-gallery="slotProps">
             <FieldElt type="select"
               :list="getGalleries"
-              v-model:value="table[slotProps.index].gallery"
-              :content="table[slotProps.index].gallery.split('-')[1]"
-              @keyup.enter="updateImage(table[slotProps.index]._id)"
+              v-model:value="table[slotProps.index].gallery_id"
+              :content="table[slotProps.index].gallery_id"
+              @keyup.enter="updateImage(table[slotProps.index].id)"
               :info="constants.INFO_UP_GALLERY"/>
           </template>
 
           <template #body="slotProps">
             <BtnElt type="button"
-              @click="updateImage(table[slotProps.index]._id)" 
+              @click="updateImage(table[slotProps.index].id)" 
               class="btn-sky"
-              :title="constants.TITLE_IMAGE_UPDATE + table[slotProps.index]._id">
+              :title="constants.TITLE_IMAGE_UPDATE + table[slotProps.index].id">
 
               <template #btn>
                 <i class="fa-solid fa-cloud-arrow-up fa-lg fa-fw"></i>
@@ -65,9 +64,9 @@
             </BtnElt>
 
             <BtnElt type="button"
-              @click="deleteImage(table[slotProps.index]._id)" 
+              @click="deleteImage(table[slotProps.index].id)" 
               class="btn-red"
-              :title="constants.TITLE_DELETE_IMAGE + table[slotProps.index]._id">
+              :title="constants.TITLE_DELETE_IMAGE + table[slotProps.index].id">
 
               <template #btn>
                 <i class="fa-solid fa-trash-arrow-up fa-lg fa-fw"></i>
@@ -116,7 +115,7 @@ export default {
       for (let i = 0; i < this.galleries.length; i++) {
         galleries.push({
           content: this.galleries[i].name,
-          value: this.galleries[i]._id
+          value: this.galleries[i].id
         })
       }
 
@@ -142,12 +141,12 @@ export default {
 
       for (let item of items) {
 
-        if (!itemsByGallery[item.gallery]) {
-          itemsByGallery[item.gallery] = [];
+        if (!itemsByGallery[item.gallery_id]) {
+          itemsByGallery[item.gallery_id] = [];
         }
 
-        itemsByGallery[item.gallery].push(item);
-        itemsByGallery[item.gallery].sort((a, b) => (a.name > b.name) ? 1 : -1);
+        itemsByGallery[item.gallery_id].push(item);
+        itemsByGallery[item.gallery_id].sort((a, b) => (a.name > b.name) ? 1 : -1);
       }
 
       return itemsByGallery;
@@ -159,7 +158,7 @@ export default {
      */
     updateImage(id) {
       for (let image of this.images) {
-        if (image._id === id) {
+        if (image.id === id) {
 
           let data = new FormData();
           let img = document.getElementById(id).files[0] ?? image.name;
@@ -167,7 +166,7 @@ export default {
           data.append("name", image.name);
           data.append("image", img);
           data.append("description", image.description);
-          data.append("gallery", image.gallery.split('-')[0]);
+          data.append("gallery_id", image.gallery_id);
 
           putData(this.constants.API_URL + "/images/" + id, data)
             .then(() => {
