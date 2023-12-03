@@ -23,21 +23,20 @@
 
           <template #head>{{ constants.HEAD_UP }}</template>
 
-          <template #cell-_id="slotProps">
-            #{{ slotProps.index + 1 }}
-            ({{ slotProps.item._id }})
+          <template #cell-id="slotProps">
+            <b>{{ slotProps.item.id }}</b>
           </template>
 
           <template #cell-name="slotProps">
             <FieldElt v-model:value="table[slotProps.index].name"
-              @keyup.enter="updateLink(table[slotProps.index]._id)"
+              @keyup.enter="updateLink(table[slotProps.index].id)"
               :info="constants.INFO_UP_NAME"/>
           </template>
 
           <template #cell-url="slotProps">
             <FieldElt type="url"
               v-model:value="table[slotProps.index].url"
-              @keyup.enter="updateLink(table[slotProps.index]._id)"
+              @keyup.enter="updateLink(table[slotProps.index].id)"
               :info="constants.INFO_UP_URL"
               :max="parseInt('100')"/>
           </template>
@@ -46,13 +45,13 @@
             <FieldElt type="select"
               :list="constants.CATS_LINK"
               v-model:value="table[slotProps.index].cat"
-              @keyup.enter="updateLink(table[slotProps.index]._id)"
+              @keyup.enter="updateLink(table[slotProps.index].id)"
               :info="constants.INFO_UP_CATEGORY"/>
           </template>
 
           <template #body="slotProps">
             <BtnElt type="button"
-              @click="updateLink(table[slotProps.index]._id)" 
+              @click="updateLink(table[slotProps.index].id)" 
               class="btn-sky"
               :title="'Update ' + table[slotProps.index].name">
               <template #btn>
@@ -61,7 +60,7 @@
             </BtnElt>
 
             <BtnElt type="button"
-              @click="deleteLink(table[slotProps.index]._id)" 
+              @click="deleteLink(table[slotProps.index].id)" 
               class="btn-red"
               :title="'Delete ' + table[slotProps.index].name">
               <template #btn>
@@ -141,7 +140,7 @@ export default {
       if (checkRange(link.name, NAME_MSG) && 
           checkRegex(`https://${link.url}`, URL_MSG, REGEX)) {
 
-        putData(this.constants.API_URL + "/links/" + link._id, this.getLink(link))
+        putData(this.constants.API_URL + "/links/" + link.id, this.getLink(link))
           .then(() => {
             alert(link.name + this.constants.ALERT_UPDATED);
           })
@@ -155,7 +154,7 @@ export default {
      */
     updateLink(id) {
       for (let link of this.links) {
-        if (link._id === id) { this.checkLink(link) }
+        if (link.id === id) { this.checkLink(link) }
       }
     },
 

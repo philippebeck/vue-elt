@@ -13,21 +13,20 @@
       <form enctype="multipart/form-data">
         <TableElt :items="articles">
 
-          <template #cell-_id="slotProps">
-            <a :href="`/article/${articles[slotProps.index]._id}`">
-              <b>#{{ slotProps.index + 1 }}</b>
-              ({{ articles[slotProps.index]._id }})
+          <template #cell-id="slotProps">
+            <a :href="`/article/${articles[slotProps.index].id}`">
+              <b>{{ articles[slotProps.index].id }}</b>
             </a>
           </template>
 
           <template #cell-name="slotProps">
             <FieldElt v-model:value="getArticles()[slotProps.index].name"
-              @keyup.enter="updateArticle(articles[slotProps.index]._id)"
+              @keyup.enter="updateArticle(articles[slotProps.index].id)"
               :info="constants.INFO_UP_NAME"/>
           </template>
 
           <template #cell-text="slotProps">
-            <BtnElt :href="`/article/edit/${articles[slotProps.index]._id}`"
+            <BtnElt :href="`/article/edit/${articles[slotProps.index].id}`"
               class="btn-cyan"
               :title="constants.TITLE_UPDATE + articles[slotProps.index].name">
 
@@ -42,7 +41,7 @@
               :alt="articles[slotProps.index].alt"
               :title="articles[slotProps.index].name"/>
 
-            <FieldElt :id="articles[slotProps.index]._id"
+            <FieldElt :id="articles[slotProps.index].id"
               type="file"
               :info="constants.INFO_UP_IMAGE"/>
           </template>
@@ -50,7 +49,7 @@
           <template #cell-alt="slotProps">
             <FieldElt type="textarea"
               v-model:value="getArticles()[slotProps.index].alt"
-              @keyup.enter="updateArticle(articles[slotProps.index]._id)"
+              @keyup.enter="updateArticle(articles[slotProps.index].id)"
               :info="constants.INFO_UP_ALT"/>
           </template>
 
@@ -58,7 +57,7 @@
             <FieldElt type="select"
               :list="constants.CATS_ARTICLE"
               v-model:value="getArticles()[slotProps.index].cat"
-              @keyup.enter="updateArticle(articles[slotProps.index]._id)"
+              @keyup.enter="updateArticle(articles[slotProps.index].id)"
               :info="constants.INFO_UP_CATEGORY"/>
           </template>
 
@@ -68,7 +67,7 @@
           </template>
 
           <template #cell-likes="slotProps">
-            <ListElt :id="'likes-' + articles[slotProps.index]._id"
+            <ListElt :id="'likes-' + articles[slotProps.index].id"
               :dynamic="true"
               :items="articles[slotProps.index].likes"/>
           </template>
@@ -79,7 +78,7 @@
             </p>
 
             <BtnElt type="button"
-              @click="deleteArticle(articles[slotProps.index]._id)" 
+              @click="deleteArticle(articles[slotProps.index].id)" 
               class="btn-red"
               :title="constants.TITLE_DELETE + articles[slotProps.index].name">
 
@@ -95,7 +94,7 @@
             </p>
 
             <BtnElt type="button"
-              @click="updateArticle(articles[slotProps.index]._id)" 
+              @click="updateArticle(articles[slotProps.index].id)" 
               class="btn-sky"
               :title="constants.TITLE_UPDATE + articles[slotProps.index].name">
 
@@ -194,7 +193,7 @@ export default {
      */
     updateArticle(id) {
       for (let article of this.articles) {
-        if (article._id === id) { this.checkArticle(id, article) }
+        if (article.id === id) { this.checkArticle(id, article) }
       }
     },
 

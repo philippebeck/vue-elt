@@ -13,13 +13,12 @@
       <form>
         <TableElt :items="orders">
 
-          <template #cell-_id="slotProps">
-            <b>#{{ slotProps.index + 1 }}</b>
-            ({{ orders[slotProps.index]._id }})
+          <template #cell-id="slotProps">
+            <b>{{ orders[slotProps.index].id }}</b>
           </template>
 
           <template #cell-products="slotProps">
-            <ul :id="'products-' + orders[slotProps.index]._id">
+            <ul :id="'products-' + orders[slotProps.index].id">
               <li v-for="(item, index) in orders[slotProps.index].products"
                 :key="index">
                 <a :href="`/product/${item.id}`">
@@ -51,7 +50,7 @@
             <FieldElt type="select"
               :list="constants.CATS_ORDER"
               v-model:value="getOrders()[slotProps.index].status"
-              @keyup.enter="updateStatus(orders[slotProps.index]._id)"
+              @keyup.enter="updateStatus(orders[slotProps.index].id)"
               :info="constants.INFO_UP_STATUS"/>
           </template>
 
@@ -66,9 +65,9 @@
             </p>
 
             <BtnElt type="button"
-              @click="deleteOrder(orders[slotProps.index]._id)" 
+              @click="deleteOrder(orders[slotProps.index].id)" 
               class="btn-red"
-              :title="constants.TITLE_DELETE_ORDER + orders[slotProps.index]._id">
+              :title="constants.TITLE_DELETE_ORDER + orders[slotProps.index].id">
               <template #btn>
                 <i class="fa-solid fa-trash-arrow-up fa-lg fa-fw"></i>
               </template>
@@ -81,9 +80,9 @@
             </p>
 
             <BtnElt type="button"
-              @click="updateStatus(orders[slotProps.index]._id)" 
+              @click="updateStatus(orders[slotProps.index].id)" 
               class="btn-green"
-              :title="constants.INFO_UP_ORDER + orders[slotProps.index]._id">
+              :title="constants.INFO_UP_ORDER + orders[slotProps.index].id">
               <template #btn>
                 <i class="fa-regular fa-calendar-check fa-lg fa-fw"></i>
               </template>
@@ -132,7 +131,7 @@ export default {
      */
     updateStatus(id) {
       for (let order of this.orders) {
-        if (order._id === id) {
+        if (order.id === id) {
 
           let data = new FormData();
           data.append("status", order.status);

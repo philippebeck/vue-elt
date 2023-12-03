@@ -13,21 +13,20 @@
       <form enctype="multipart/form-data">
         <TableElt :items="users">
 
-          <template #cell-_id="slotProps">
-            <b>#{{ slotProps.index + 1 }}</b>
-            ({{ users[slotProps.index]._id }})
+          <template #cell-id="slotProps">
+            <b>{{ users[slotProps.index].id }}</b>
           </template>
 
           <template #cell-name="slotProps">
             <FieldElt v-model:value="getUsers()[slotProps.index].name"
-              @keyup.enter="updateUser(users[slotProps.index]._id)"
+              @keyup.enter="updateUser(users[slotProps.index].id)"
               :info="constants.INFO_UP_NAME"/>
           </template>
 
           <template #cell-email="slotProps">
             <FieldElt type="email"
               v-model:value="getUsers()[slotProps.index].email"
-              @keyup.enter="updateUser(users[slotProps.index]._id)"
+              @keyup.enter="updateUser(users[slotProps.index].id)"
               :info="constants.INFO_UP_EMAIL"/>
           </template>
 
@@ -36,7 +35,7 @@
               :alt="users[slotProps.index].name"
               :title="users[slotProps.index].image"/>
 
-            <FieldElt :id="users[slotProps.index]._id"
+            <FieldElt :id="users[slotProps.index].id"
               type="file"
               :info="constants.INFO_UP_IMAGE"/>
           </template>
@@ -45,7 +44,7 @@
             <FieldElt type="select"
               :list="constants.ROLES_USER"
               v-model:value="getUsers()[slotProps.index].role"
-              @keyup.enter="updateUser(users[slotProps.index]._id)"
+              @keyup.enter="updateUser(users[slotProps.index].id)"
               :info="constants.INFO_UP_ROLE"/>
           </template>
 
@@ -55,7 +54,7 @@
             </p>
 
             <BtnElt type="button"
-              @click="deleteUser(users[slotProps.index]._id)" 
+              @click="deleteUser(users[slotProps.index].id)" 
               class="btn-red"
               :title="constants.TITLE_DELETE + users[slotProps.index].name">
 
@@ -71,7 +70,7 @@
             </p>
 
             <BtnElt type="button"
-              @click="updateUser(users[slotProps.index]._id)" 
+              @click="updateUser(users[slotProps.index].id)" 
               class="btn-sky"
               :title="constants.TITLE_UPDATE + users[slotProps.index].name">
 
@@ -164,7 +163,7 @@ export default {
      */
     updateUser(id) {
       for (let user of this.users) {
-        if (user._id === id) { this.checkUser(id, user) }
+        if (user.id === id) { this.checkUser(id, user) }
       }
     },
 

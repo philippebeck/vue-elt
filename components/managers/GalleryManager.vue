@@ -14,30 +14,29 @@
         <TableElt :items="galleries">
           <template #head>{{ constants.HEAD_UP }}</template>
 
-          <template #cell-_id="slotProps">
-            <a :href="`/gallery/${galleries[slotProps.index]._id}`">
-              <b>#{{ slotProps.index + 1 }}</b>
-              ({{ galleries[slotProps.index]._id }})
+          <template #cell-id="slotProps">
+            <a :href="`/gallery/${galleries[slotProps.index].id}`">
+              <b>{{ galleries[slotProps.index].id }}</b>
             </a>
           </template>
 
           <template #cell-name="slotProps">
             <FieldElt v-model:value="getGalleries()[slotProps.index].name"
-              @keyup.enter="updateGallery(galleries[slotProps.index]._id)"
+              @keyup.enter="updateGallery(galleries[slotProps.index].id)"
               :info="constants.INFO_UP_NAME"/>
           </template>
 
           <template #cell-author="slotProps">
             <FieldElt v-model:value="getGalleries()[slotProps.index].author"
-              @keyup.enter="updateGallery(galleries[slotProps.index]._id)"
+              @keyup.enter="updateGallery(galleries[slotProps.index].id)"
               :info="constants.INFO_UP_NAME"/>
           </template>
 
           <template #body="slotProps">
             <BtnElt type="button"
-              @click="updateGallery(galleries[slotProps.index]._id)" 
+              @click="updateGallery(galleries[slotProps.index].id)" 
               class="btn-sky"
-              :title="constants.TITLE_GALLERY_UPDATE + galleries[slotProps.index]._id">
+              :title="constants.TITLE_GALLERY_UPDATE + galleries[slotProps.index].id">
 
               <template #btn>
                 <i class="fa-solid fa-cloud-arrow-up fa-lg fa-fw"></i>
@@ -45,9 +44,9 @@
             </BtnElt>
 
             <BtnElt type="button"
-              @click="deleteGallery(galleries[slotProps.index]._id)" 
+              @click="deleteGallery(galleries[slotProps.index].id)" 
               class="btn-red"
-              :title="constants.TITLE_DELETE_GALLERY + galleries[slotProps.index]._id">
+              :title="constants.TITLE_DELETE_GALLERY + galleries[slotProps.index].id">
 
               <template #btn>
                 <i class="fa-solid fa-trash-arrow-up fa-lg fa-fw"></i>
@@ -97,7 +96,7 @@ export default {
      */
     updateGallery(id) {
       for (let gallery of this.galleries) {
-        if (gallery._id === id) {
+        if (gallery.id === id) {
 
           let data = new FormData();
           data.append("name", gallery.name);

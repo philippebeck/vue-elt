@@ -13,21 +13,20 @@
       <form enctype="multipart/form-data">
         <TableElt :items="products">
 
-          <template #cell-_id="slotProps">
-            <a :href="`/product/${products[slotProps.index]._id}`">
-              <b>#{{ slotProps.index + 1 }}</b>
-              ({{ products[slotProps.index]._id }})
+          <template #cell-id="slotProps">
+            <a :href="`/product/${products[slotProps.index].id}`">
+              <b>{{ products[slotProps.index].id }}</b>
             </a>
           </template>
 
           <template #cell-name="slotProps">
             <FieldElt v-model:value="getProducts()[slotProps.index].name"
-              @keyup.enter="updateProduct(products[slotProps.index]._id)"
+              @keyup.enter="updateProduct(products[slotProps.index].id)"
               :info="constants.INFO_UP_NAME"/>
           </template>
 
           <template #cell-description="slotProps">
-            <BtnElt :href="`/product/edit/${products[slotProps.index]._id}`"
+            <BtnElt :href="`/product/edit/${products[slotProps.index].id}`"
               class="btn-cyan"
               :title="constants.TITLE_UPDATE + products[slotProps.index].name">
 
@@ -43,7 +42,7 @@
               :title="products[slotProps.index].name">
             </MediaElt>
 
-            <FieldElt :id="products[slotProps.index]._id"
+            <FieldElt :id="products[slotProps.index].id"
               type="file"
               :info="constants.INFO_UP_IMAGE"/>
           </template>
@@ -51,14 +50,14 @@
           <template #cell-alt="slotProps">
             <FieldElt type="textarea"
               v-model:value="getProducts()[slotProps.index].alt"
-              @keyup.enter="updateProduct(products[slotProps.index]._id)"
+              @keyup.enter="updateProduct(products[slotProps.index].id)"
               :info="constants.INFO_UP_ALT"/>
           </template>
 
           <template #cell-price="slotProps">
             <FieldElt type="number"
               v-model:value="getProducts()[slotProps.index].price"
-              @keyup.enter="updateProduct(products[slotProps.index]._id)"
+              @keyup.enter="updateProduct(products[slotProps.index].id)"
               :info="constants.INFO_UP_PRICE"
               :min="constants.PRICE_MIN"
               :max="constants.PRICE_MAX"/>
@@ -67,7 +66,7 @@
           <template #cell-options="slotProps">
             <FieldElt type="textarea"
               v-model:value="getProducts()[slotProps.index].options"
-              @keyup.enter="updateProduct(products[slotProps.index]._id)"
+              @keyup.enter="updateProduct(products[slotProps.index].id)"
               :info="constants.INFO_UP_OPTIONS"
               :min="constants.TEXT_MIN"
               :max="constants.TEXT_MAX"/>
@@ -77,7 +76,7 @@
             <FieldElt type="select"
               :list="constants.CATS_PRODUCT"
               v-model:value="getProducts()[slotProps.index].cat"
-              @keyup.enter="updateProduct(products[slotProps.index]._id)"
+              @keyup.enter="updateProduct(products[slotProps.index].id)"
               :info="constants.INFO_UP_CATEGORY"/>
           </template>
 
@@ -87,7 +86,7 @@
             </p>
 
             <BtnElt type="button"
-              @click="deleteProduct(products[slotProps.index]._id)" 
+              @click="deleteProduct(products[slotProps.index].id)" 
               class="btn-red"
               :title="constants.TITLE_DELETE + products[slotProps.index].name">
 
@@ -103,7 +102,7 @@
             </p>
 
             <BtnElt type="button"
-              @click="updateProduct(products[slotProps.index]._id)" 
+              @click="updateProduct(products[slotProps.index].id)" 
               class="btn-sky"
               :title="constants.TITLE_UPDATE + products[slotProps.index].name">
 
@@ -206,7 +205,7 @@ export default {
      */
     updateProduct(id) {
       for (let product of this.products) {
-        if (product._id === id) { this.checkProduct(id, product) }
+        if (product.id === id) { this.checkProduct(id, product) }
       }
     },
 

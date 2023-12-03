@@ -11,7 +11,7 @@
         <th
           v-for="(value, key) in items[0]"
           :key="key">
-          {{ key === "_id" ? key = "id" : key }}
+          {{ key }}
         </th>
 
         <th v-if="hasSlot('head')">

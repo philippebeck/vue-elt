@@ -1,7 +1,6 @@
 {
   "name": "vue-elt",
-  "version": "2.0.0-alpha",
-  "type": "module",
+  "version": "2.0.1-alpha",
   "description": "Vue Single File Components Library",
   "keywords": [
     "javascript",
