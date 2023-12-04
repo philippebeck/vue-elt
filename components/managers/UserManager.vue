@@ -149,7 +149,9 @@ export default {
       if (checkRange(user.name, stringMsg) && 
           checkRegex(user.email, emailMsg, regex)) {
 
-        putData(this.constants.API_URL + "/users/" + id, this.getUser(id, user))
+        const URL = this.constants.API_URL + "/users/" + id;
+
+        putData(URL, this.getUser(id, user), this.constants.TOKEN)
           .then(() => {
             alert(user.name + this.constants.ALERT_UPDATED);
           })
@@ -175,7 +177,9 @@ export default {
       let name = getItemName(id, this.users);
 
       if (confirm(`${this.constants.TITLE_DELETE} ${name} ?`) === true) {
-        deleteData(this.constants.API_URL + "/users/" + id)
+        const URL = this.constants.API_URL + "/users/" + id;
+
+        deleteData(URL, this.constants.TOKEN)
           .then(() => {
             alert(name + this.constants.ALERT_DELETED);
             this.$router.go();

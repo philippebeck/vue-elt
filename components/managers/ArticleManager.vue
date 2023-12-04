@@ -179,7 +179,9 @@ export default {
           checkRange(article.text, MSG, MIN, MAX) && 
           checkRange(article.alt, MSG)) {
 
-        putData(this.constants.API_URL + "/articles/" + id, this.getArticle(id, article))
+        const URL = this.constants.API_URL + "/articles/" + id;
+
+        putData(URL, this.getArticle(id, article), this.constants.TOKEN)
           .then(() => {
             alert(article.name + this.constants.ALERT_UPDATED);
           })
@@ -205,7 +207,9 @@ export default {
       let name = getItemName(id, this.articles);
 
       if (confirm(`${this.constants.TITLE_DELETE} ${name} ?`) === true) {
-        deleteData(this.constants.API_URL + "/articles/" + id)
+        const URL = this.constants.API_URL + "/articles/" + id;
+
+        deleteData(URL, this.constants.TOKEN)
           .then(() => {
             alert(name + this.constants.ALERT_DELETED);
             this.$router.go();

@@ -137,7 +137,9 @@ export default {
           data.append("status", order.status);
           data.append("updated", Date.now());
 
-          putData(this.constants.API_URL + "/orders/" + id, data)
+          const URL = this.constants.API_URL + "/orders/" + id;
+
+          putData(URL, data, this.constants.TOKEN)
             .then(() => {
               alert(this.constants.ALERT_ORDER + id + this.constants.ALERT_UPDATED);
             })
@@ -152,8 +154,9 @@ export default {
      */
     deleteOrder(id) {
       if (confirm(`${this.constants.TITLE_DELETE_ORDER}${id} ?`) === true) {
+        const URL = this.constants.API_URL + "/orders/" + id;
 
-        deleteData(this.constants.API_URL + "/orders/" + id)
+        deleteData(URL, this.constants.TOKEN)
           .then(() => {
             alert(this.constants.ALERT_ORDER + id + this.constants.ALERT_DELETED);
             this.$router.go();
