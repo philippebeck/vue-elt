@@ -200,7 +200,7 @@ export default {
           product.append("created", Date.now());
           product.append("updated", Date.now());
 
-          postData(this.constants.API_URL + "/products", product)
+          postData(this.constants.API_URL + "/products", product, this.constants.TOKEN)
             .then(() => {
               alert(this.name + this.constants.ALERT_CREATED);
               this.$router.go();

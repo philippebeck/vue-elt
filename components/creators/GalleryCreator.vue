@@ -99,7 +99,7 @@ methods: {
       gallery.append("name", this.name);
       gallery.append("author", this.author);
 
-      postData(this.constants.API_URL + "/galleries", gallery)
+      postData(this.constants.API_URL + "/galleries", gallery, this.constants.TOKEN)
         .then(() => {
           alert(this.name + this.constants.ALERT_CREATED);
           this.$router.go();
