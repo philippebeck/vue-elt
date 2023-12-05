@@ -43,7 +43,7 @@
               :info="constants.INFO_UP_DESCRIPTION"/>
           </template>
 
-          <template #cell-Galleries="slotProps">
+          <template #cell-Gallery="slotProps">
             <FieldElt type="select"
               :list="getGalleries"
               v-model:value="table[slotProps.index].Gallery.name"
