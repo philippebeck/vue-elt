@@ -141,12 +141,14 @@ export default {
 
       for (let item of items) {
 
-        if (!itemsByGallery[item.gallery_id]) {
-          itemsByGallery[item.gallery_id] = [];
+        if (!itemsByGallery[item.Gallery.name]) {
+          itemsByGallery[item.Gallery.name] = [];
         }
 
-        itemsByGallery[item.gallery_id].push(item);
-        itemsByGallery[item.gallery_id].sort((a, b) => (a.name > b.name) ? 1 : -1);
+        itemsByGallery[item.Gallery.name]
+          .push(item)
+        itemsByGallery[item.Gallery.name]
+          .sort((a, b) => (a.name > b.name) ? 1 : -1);
       }
 
       return itemsByGallery;
