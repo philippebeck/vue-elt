@@ -18,7 +18,7 @@
           :id="table[0].gallery_id">
 
           <template #title>
-            <h3 class="sky">{{ table[0].gallery_id }}</h3>
+            <h3 class="sky">{{ table[0].Gallery.name }}</h3>
           </template>
 
           <template #head>{{ constants.HEAD_UP }}</template>
@@ -43,11 +43,11 @@
               :info="constants.INFO_UP_DESCRIPTION"/>
           </template>
 
-          <template #cell-gallery="slotProps">
+          <template #cell-Galleries="slotProps">
             <FieldElt type="select"
               :list="getGalleries"
-              v-model:value="table[slotProps.index].gallery_id"
-              :content="table[slotProps.index].gallery_id"
+              v-model:value="table[slotProps.index].Gallery.name"
+              :content="table[slotProps.index].Gallery.name"
               @keyup.enter="updateImage(table[slotProps.index].id)"
               :info="constants.INFO_UP_GALLERY"/>
           </template>
