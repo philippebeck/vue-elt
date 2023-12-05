@@ -12,6 +12,7 @@
     <template #body>
       <form enctype="multipart/form-data">
         <TableElt :items="products">
+          <template #head>{{ constants.HEAD_UP }}</template>
 
           <template #cell-id="slotProps">
             <a :href="`/product/${products[slotProps.index].id}`">
@@ -80,27 +81,7 @@
               :info="constants.INFO_UP_CATEGORY"/>
           </template>
 
-          <template #cell-created="slotProps">
-            <p>
-              {{ new Date(products[slotProps.index].created).toLocaleString() }}
-            </p>
-
-            <BtnElt type="button"
-              @click="deleteProduct(products[slotProps.index].id)" 
-              class="btn-red"
-              :title="constants.TITLE_DELETE + products[slotProps.index].name">
-
-              <template #btn>
-                <i class="fa-solid fa-trash-arrow-up fa-lg fa-fw"></i>
-              </template>
-            </BtnElt>
-          </template>
-
-          <template #cell-updated="slotProps">
-            <p>
-              {{ new Date(products[slotProps.index].updated).toLocaleString() }}
-            </p>
-
+          <template #body="slotProps">
             <BtnElt type="button"
               @click="updateProduct(products[slotProps.index].id)" 
               class="btn-sky"
@@ -108,6 +89,16 @@
 
               <template #btn>
                 <i class="fa-solid fa-cloud-arrow-up fa-lg fa-fw"></i>
+              </template>
+            </BtnElt>
+
+            <BtnElt type="button"
+              @click="deleteProduct(products[slotProps.index].id)" 
+              class="btn-red"
+              :title="constants.TITLE_UPDATE + products[slotProps.index].name">
+
+              <template #btn>
+                <i class="fa-solid fa-trash-arrow-up fa-lg fa-fw"></i>
               </template>
             </BtnElt>
           </template>
