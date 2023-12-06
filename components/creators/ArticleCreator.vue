@@ -160,7 +160,6 @@ export default {
           article.append("text", this.text);
           article.append("image", image);
           article.append("alt", this.alt);
-          article.append("user", this.constants.USER_ID);
           article.append("likes", []);
           article.append("cat", this.cat);
           article.append("created", Date.now());
