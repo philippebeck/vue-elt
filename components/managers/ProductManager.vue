@@ -157,8 +157,6 @@ export default {
       data.append("price", product.price);
       data.append("options", product.options);
       data.append("cat", product.cat);
-      data.append("created", product.created);
-      data.append("updated", Date.now());
 
       return data;
     },
