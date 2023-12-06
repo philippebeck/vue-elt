@@ -61,11 +61,6 @@
               :info="constants.INFO_UP_CATEGORY"/>
           </template>
 
-          <template #cell-user="slotProps">
-            <b>{{ articles[slotProps.index].user.split('-')[0] }}</b>
-            ({{ articles[slotProps.index].user.split('-')[1] }})
-          </template>
-
           <template #cell-likes="slotProps">
             <ListElt :id="'likes-' + articles[slotProps.index].id"
               :dynamic="true"

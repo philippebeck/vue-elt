@@ -197,8 +197,6 @@ export default {
           product.append("price", this.price);
           product.append("options", this.options);
           product.append("cat", this.cat);
-          product.append("created", Date.now());
-          product.append("updated", Date.now());
 
           postData(this.constants.API_URL + "/products", product, this.constants.TOKEN)
             .then(() => {
