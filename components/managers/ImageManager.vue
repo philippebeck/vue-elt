@@ -38,7 +38,8 @@
           </template>
 
           <template #cell-description="slotProps">
-            <FieldElt v-model:value="table[slotProps.index].description"
+            <FieldElt type="textarea"
+              v-model:value="table[slotProps.index].description"
               @keyup.enter="updateImage(table[slotProps.index].id)"
               :info="constants.INFO_UP_DESCRIPTION"/>
           </template>
