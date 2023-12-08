@@ -119,15 +119,20 @@ export default {
 
   methods: {
     /**
-     * GET ALL ORDERS
+     * ? GET ORDERS
+     * Get the list of orders.
+     *
+     * @return {Array} The list of orders.
      */
     getOrders() {
       return this.orders;
     },
 
     /**
-     * UPDATE ORDER STATUS
-     * @param {string} id 
+     * ? UPDATE STATUS
+     * Updates the status of an order.
+     *
+     * @param {number} id - The ID of the order to update.
      */
     updateStatus(id) {
       for (let order of this.orders) {
@@ -149,8 +154,10 @@ export default {
     },
 
     /**
-     * DELETE ORDER
-     * @param {string} id 
+     * ? DELETE ORDER
+     * Deletes an order from the API.
+     *
+     * @param {number} id - the ID of the order to delete
      */
     deleteOrder(id) {
       if (confirm(`${this.constants.TITLE_DELETE_ORDER}${id} ?`) === true) {

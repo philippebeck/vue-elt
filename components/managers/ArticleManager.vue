@@ -133,17 +133,22 @@ export default {
 
   methods: {
     /**
-     * GET ALL ARTICLES
-     * @returns
+     * ? GET ATICLES
+     * Get the articles.
+     *
+     * @return {Array} The articles.
      */
     getArticles() {
       return this.articles;
     },
 
     /**
-     * GET ARTICLE
-     * @param {string} id 
-     * @param {object} article 
+     * ? GET ARTICLE
+     * Generates a FormData object with the provided article information and optional image.
+     *
+     * @param {string} id - The ID of the file input element for the article image.
+     * @param {object} article - An object containing the article information.
+     * @return {FormData} - The FormData object with the article data.
      */
     getArticle(id, article) {
       let data  = new FormData();
@@ -161,9 +166,11 @@ export default {
     },
 
     /**
-     * CHECK ARTICLE
-     * @param {string} id 
-     * @param {object} article 
+     * ? CHECK ARTICLE
+     * Checks the validity of an article and updates it if valid.
+     *
+     * @param {number} id - The ID of the article.
+     * @param {object} article - The article object containing the name, text, and alt fields.
      */
     checkArticle(id, article) {
       const MSG = this.constants.CHECK_STRING;
@@ -185,8 +192,10 @@ export default {
     },
 
     /**
-     * UPDATE ARTICLE
-     * @param {string} id 
+     * ? UPDATE ARTICLE
+     * Update an article based on its ID.
+     *
+     * @param {number} id - The ID of the article.
      */
     updateArticle(id) {
       for (let article of this.articles) {
@@ -195,8 +204,10 @@ export default {
     },
 
     /**
-     * DELETE ARTICLE
-     * @param {string} id 
+     * ? DELETE ARTICLE
+     * Deletes an article with the given ID.
+     *
+     * @param {number} id - The ID of the article to be deleted.
      */
     deleteArticle(id) {
       let name = getItemName(id, this.articles);

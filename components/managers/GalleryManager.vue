@@ -83,16 +83,20 @@ export default {
 
   methods: {
     /**
-     * GET ALL GALLERYS
-     * @returns
+     * ? GET GALLERIES
+     * Retrieves the galleries.
+     *
+     * @return {Array} The list of galleries.
      */
     getGalleries() {
       return this.galleries;
     },
 
     /**
-     * UPDATE GALLERY
-     * @param {string} id 
+     * ? UPDATE GALLERY
+     * Update the gallery with the given ID.
+     *
+     * @param {number} id - The ID of the gallery to update.
      */
     updateGallery(id) {
       for (let gallery of this.galleries) {
@@ -114,8 +118,10 @@ export default {
     },
 
     /**
-     * DELETE GALLERY
-     * @param {string} id 
+     * ? DELETE GALLERY
+     * Deletes a gallery with the specified ID.
+     *
+     * @param {number} id - The ID of the gallery to be deleted.
      */
     deleteGallery(id) {
       let name = getItemName(id, this.galleries);

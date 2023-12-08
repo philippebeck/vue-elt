@@ -134,17 +134,22 @@ export default {
 
   methods: {
     /**
-     * GET ALL PRODUCTS
-     * @returns
+     * ? GET PRODUCTS
+     * Get the products.
+     *
+     * @return {Array} An array of products.
      */
     getProducts() {
       return this.products;
     },
 
     /**
-     * GET PRODUCT
-     * @param {string} id 
-     * @param {object} product 
+     * ? GET PRODUCT
+     * Returns a FormData object with the specified product data.
+     *
+     * @param {string} id - The ID of the input element for the product image.
+     * @param {object} product - The product object containing the data.
+     * @return {FormData} - A FormData object with the product data.
      */
     getProduct(id, product) {
       let data  = new FormData();
@@ -162,9 +167,11 @@ export default {
     },
 
     /**
-     * CHECK PRODUCT
-     * @param {string} id 
-     * @param {object} product 
+     * ? CHECK PRODUCT
+     * Checks the product details and updates the product if the details are valid.
+     *
+     * @param {number} id - The ID of the product.
+     * @param {Object} product - The product object containing the details of the product.
      */
     checkProduct(id, product) {
       const PRICE_MAX   = this.constants.PRICE_MAX;
@@ -191,8 +198,10 @@ export default {
     },
 
     /**
-     * UPDATE PRODUCT
-     * @param {string} id 
+     * ? UPDATE PRODUCT
+     * Updates a product based on the provided id.
+     *
+     * @param {number} id - The id of the product to be updated.
      */
     updateProduct(id) {
       for (let product of this.products) {
@@ -201,8 +210,10 @@ export default {
     },
 
     /**
-     * DELETE PRODUCT
-     * @param {string} id 
+     * ? DELETE PRODUCT
+     * Deletes a product from the system.
+     *
+     * @param {number} id - The ID of the product to delete.
      */
     deleteProduct(id) {
       let name = getItemName(id, this.products);
