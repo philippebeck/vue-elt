@@ -92,8 +92,11 @@ export default {
 
   methods: {
     /**
-     * ON VERIFY
-     * @param {object} response 
+     * ? ON VERIFY
+     * Checks the validity of the given response 
+     * and performs signup if successful
+     *
+     * @param {any} response - The response to verify.
      */
     onVerify(response) {
       const EMAIL_MSG    = this.constants.CHECK_EMAIL;
@@ -123,7 +126,8 @@ export default {
     },
 
     /**
-     * CREATE USER
+     * ? CREATE USER
+     * Creates a new user.
      */
     createUser() {
       let image = document.getElementById("image").files[0];

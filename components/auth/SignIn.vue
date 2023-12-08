@@ -66,8 +66,10 @@ export default {
 
   methods: {
     /**
-     * ON VERIFY
-     * @param {object} response 
+     * Checks the validity of the given response 
+     * and performs signin if successful
+     *
+     * @param {any} response - The response to verify.
      */
     onVerify(response) {
       const EMAIL_MSG   = this.constants.CHECK_EMAIL;
@@ -95,7 +97,8 @@ export default {
     },
 
     /**
-     * USER SIGN IN
+     * ? SIGN IN
+     * Signs in the user.
      */
     signIn() {
       let auth = new FormData();
