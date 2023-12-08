@@ -104,7 +104,9 @@ export default {
 
   methods: {
     /**
-     * CREATE LINK
+     * ? CREATE LINK
+     * Creates a link by sending a POST request 
+     * to the server with the provided data.
      */
     createLink() {
       const NAME_MSG = this.constants.CHECK_STRING;

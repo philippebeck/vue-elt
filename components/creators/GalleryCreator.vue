@@ -87,7 +87,9 @@ data() {
 
 methods: {
   /**
-   * CREATE GALLERY
+   * ? CREATE GALLERY
+   * Creates a galleryby sending a POST request 
+   * to the server with the provided data.
    */
   createGallery() {
     const MSG = this.constants.CHECK_STRING;
