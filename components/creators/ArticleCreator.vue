@@ -139,7 +139,9 @@ export default {
 
   methods: {
     /**
-     * CREATE ARTICLE
+     * ? CREATE ARTICLE
+     * Creates an article by sending a POST request 
+     * to the server with the provided data.
      */
     createArticle() {
       const MSG = this.constants.CHECK_STRING;

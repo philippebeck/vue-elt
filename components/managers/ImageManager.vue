@@ -38,7 +38,8 @@
           </template>
 
           <template #cell-description="slotProps">
-            <FieldElt v-model:value="table[slotProps.index].description"
+            <FieldElt type="textarea"
+              v-model:value="table[slotProps.index].description"
               @keyup.enter="updateImage(table[slotProps.index].id)"
               :info="constants.INFO_UP_DESCRIPTION"/>
           </template>
@@ -106,8 +107,12 @@ export default {
 
   computed: {
     /**
-     * GET GALLERIES
-     * @returns
+     * ? GET GALLERIES
+     * Retrieves the galleries from the state 
+     * and transforms them into an array of objects
+     * with the content and value properties.
+     *
+     * @return {Array} An array of objects with the content & value properties.
      */
     getGalleries() {
       const galleries = [];
@@ -125,16 +130,21 @@ export default {
 
   methods: {
     /**
-     * GET ALL IMAGES
-     * @returns
+     * ? GET IMAGES
+     * Retrieves the images.
+     *
+     * @return {Array} The array of images.
      */
     getImages() {
       return this.images;
     },
 
     /**
-     * SORT ITEMS BY GALLERY
-     * @param {array} items 
+     * ? GET ITEMS BY GALLERY
+     * Generates a dictionary of items grouped by their gallery name.
+     *
+     * @param {Array} items - The array of items to be grouped.
+     * @return {Object} - The dictionary of items grouped by gallery name.
      */
     getItemsByGallery(items) {
       const itemsByGallery = {};
@@ -155,8 +165,10 @@ export default {
     },
 
     /**
-     * UPDATE IMAGE
-     * @param {string} id 
+     * ? UPDATE IMAGE
+     * Updates an image.
+     *
+     * @param {number} id - The ID of the image to be updated.
      */
     updateImage(id) {
       for (let image of this.images) {
@@ -182,8 +194,10 @@ export default {
     },
 
     /**
-     * DELETE IMAGE
-     * @param {string} id 
+     * ? DELETE IMAGE
+     * Deletes an image from the server based on the provided ID.
+     *
+     * @param {number} id - The ID of the image to be deleted.
      */
     deleteImage(id) {
       if (confirm(`${this.constants.TITLE_DELETE_IMAGE}${id} ?`) === true) {

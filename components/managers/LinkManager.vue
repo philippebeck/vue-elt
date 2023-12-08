@@ -98,23 +98,32 @@ export default {
 
   methods: {
     /**
-     * GET LINKS
+     * ? GET LINKS
+     * Retrieves the links from the current instance.
+     *
+     * @return {Array} The array of links.
      */
     getLinks() {
       return this.links;
     },
 
     /**
-     * SORT ITEMS BY CATEGORY
-     * @param {array} items 
+     * ? GET ITEMS BY CATEGORY
+     * Retrieves items by category.
+     *
+     * @param {Array} items - The array of items.
+     * @return {Array} The filtered array of items.
      */
     getItemsByCategory(items) {
       return getItemsByCat(items);
     },
 
     /**
-     * GET LINK
-     * @param {object} link 
+     * ? GET LINK
+     * A function to get a link.
+     *
+     * @param {Object} link - The link object.
+     * @return {FormData} The FormData object containing the link data.
      */
     getLink(link) {
       let data = new FormData();
@@ -127,8 +136,10 @@ export default {
     },
 
     /**
-     * CHECK LINK
-     * @param {object} link 
+     * ? CHECK LINK
+     * Check the link and update it if it meets the required criteria.
+     *
+     * @param {object} link - The link object to be checked and updated.
      */
     checkLink(link) {
       if (link.url.startsWith("http")) { link.url = link.url.split('//')[1] }
@@ -151,8 +162,10 @@ export default {
     },
 
     /**
-     * UPDATE LINK
-     * @param {string} id
+     * ? UPDATE LINK
+     * Updates a link based on its ID.
+     *
+     * @param {number} id - The ID of the link to update.
      */
     updateLink(id) {
       for (let link of this.links) {
@@ -161,8 +174,10 @@ export default {
     },
 
     /**
-     * DELETE LINK
-     * @param {string} id 
+     * ? DELETE LINK
+     * Deletes a link based on its ID.
+     *
+     * @param {number} id - The ID of the link to be deleted.
      */
     deleteLink(id) {
       let name = getItemName(id, this.links);

@@ -52,8 +52,11 @@ export default {
 
   methods: {
     /**
-     * ON VERIFY
-     * @param {object} response 
+     * ? ON VERIFY
+     * Checks the validity of the given response 
+     * and sends new password if successful
+     *
+     * @param {any} response - The response to verify.
      */
     onVerify(response) {
       const MSG    = this.constants.CHECK_EMAIL;
@@ -78,7 +81,8 @@ export default {
     },
 
     /**
-     * FORGOT PASSWORD
+     * ? FORGOT PASS
+     * Executes the forgot password functionality.
      */
     forgotPass() {
       if (confirm(this.constants.CONFIRM_FORGOT) === true) {

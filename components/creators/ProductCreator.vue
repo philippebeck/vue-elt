@@ -173,7 +173,9 @@ export default {
 
   methods: {
     /**
-     * CREATE PRODUCT
+     * ? CREATE PRODUCT
+     * Create a product by sending a POST request 
+     * to the server with the provided data.
      */
     createProduct() {
       let msg = this.constants.CHECK_STRING;

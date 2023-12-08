@@ -111,8 +111,10 @@ export default {
 
   methods: {
     /**
-     * GET ALL USERS
-     * @returns
+     * ? GET USERS
+     * Get the users.
+     *
+     * @return {Array} An array of user objects.
      */
     getUsers() {
       return this.users;
@@ -120,8 +122,11 @@ export default {
 
     /**
      * GET USER
-     * @param {string} id 
-     * @param {object} user 
+     * Generates a FormData object with the user data.
+     *
+     * @param {string} id - The id of the image file input element.
+     * @param {object} user - The user object containing the user data.
+     * @return {FormData} - The FormData object with the user data.
      */
     getUser(id, user) {
       let data  = new FormData();
@@ -137,9 +142,11 @@ export default {
     },
 
     /**
-     * CHECK USER
-     * @param {string} id 
-     * @param {object} user 
+     * ? CHECK USER
+     * Check the user information and update it if it meets the requirements.
+     *
+     * @param {number} id - The user ID.
+     * @param {object} user - The user object containing the name and email.
      */
     checkUser(id, user) {
       let stringMsg = this.constants.CHECK_STRING;
@@ -160,8 +167,10 @@ export default {
     },
 
     /**
-     * UPDATE USER
-     * @param {string} id 
+     * ? UPDATE USER
+     * Update a user by their ID.
+     *
+     * @param {number} id - The ID of the user to update.
      */
     updateUser(id) {
       for (let user of this.users) {
@@ -170,8 +179,10 @@ export default {
     },
 
     /**
-     * DELETE USER
-     * @param {string} id 
+     * ? DELETE USER
+     * Delete a user by their ID.
+     *
+     * @param {number} id - The ID of the user to be deleted.
      */
     deleteUser(id) {
       let name = getItemName(id, this.users);

@@ -86,7 +86,9 @@ export default {
 
   methods: {
     /**
-     * CREATE IMAGE
+     * ? CREATE IMAGE
+     * Create an image by sending a POST request 
+     * to the server with the provided data.
      */
     createImage() {
       const MAX = this.constants.TEXT_MAX;
