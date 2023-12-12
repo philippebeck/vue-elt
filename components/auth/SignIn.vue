@@ -80,7 +80,9 @@ export default {
       if (checkRegex(this.email, EMAIL_MSG, EMAIL_REGEX) && 
           checkRegex(this.pass, PASS_MSG, PASS_REGEX)) {
 
-        postData(this.constants.API_URL + "/auth/recaptcha", { response: response })
+        const URL = this.constants.API_URL + "/auth/recaptcha";
+
+        postData(URL, { response: response })
           .then(result => {
             if (result.success) {
               this.signIn();
@@ -101,11 +103,13 @@ export default {
      * Signs in the user.
      */
     signIn() {
-      let auth = new FormData();
-      auth.append("email", this.email);
-      auth.append("pass", this.pass);
+      const URL   = this.constants.API_URL + "/auth";
+      const data  = new FormData();
 
-      postData(this.constants.API_URL + "/auth", auth)
+      data.append("email", this.email);
+      data.append("pass", this.pass);
+
+      postData(URL, data)
         .then((res) => {
           localStorage.setItem("userToken", JSON.stringify(res.token));
           localStorage.setItem("userId", JSON.stringify(res.userId));
