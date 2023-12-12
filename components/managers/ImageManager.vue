@@ -155,8 +155,7 @@ export default {
           itemsByGallery[item.Gallery.name] = [];
         }
 
-        itemsByGallery[item.Gallery.name]
-          .push(item)
+        itemsByGallery[item.Gallery.name].push(item)
         itemsByGallery[item.Gallery.name]
           .sort((a, b) => (a.name > b.name) ? 1 : -1);
       }
@@ -174,20 +173,17 @@ export default {
       for (let image of this.images) {
         if (image.id === id) {
 
-          let data = new FormData();
-          let img = document.getElementById(id).files[0] ?? image.name;
+          const URL   = this.constants.API_URL + "/images/" + id;
+          const img   = document.getElementById(id).files[0] ?? image.name;
+          const data  = new FormData();
 
           data.append("name", image.name);
           data.append("image", img);
           data.append("description", image.description);
           data.append("gallery_id", image.gallery_id);
 
-          const URL = this.constants.API_URL + "/images/" + id;
-
           putData(URL, data, this.constants.TOKEN)
-            .then(() => {
-              alert(this.constants.ALERT_IMAGE + id + this.constants.ALERT_UPDATED);
-            })
+            .then(() => { alert(this.constants.ALERT_IMAGE + id + this.constants.ALERT_UPDATED) })
             .catch(err => { setError(err) });
         }
       }

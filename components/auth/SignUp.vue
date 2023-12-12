@@ -109,7 +109,9 @@ export default {
           checkRegex(this.email, EMAIL_MSG, EMAIL_REGEX) && 
           checkRegex(this.pass, PASS_MSG, PASS_REGEX)) {
 
-        postData(this.constants.API_URL + "/auth/recaptcha", { response: response })
+        const URL = this.constants.API_URL + "/auth/recaptcha";
+
+        postData(URL, { response: response })
           .then(result => {
             if (result.success) {
               this.createUser();
@@ -133,17 +135,16 @@ export default {
       let image = document.getElementById("image").files[0];
 
       if (image !== undefined) {
-        let user = new FormData();
+        const URL = this.constants.API_URL + "/users";
+        const data = new FormData();
 
-        user.append("name", this.name);
-        user.append("email", this.email);
-        user.append("image", image);
-        user.append("pass", this.pass);
-        user.append("role", "user");
-        user.append("created", Date.now());
-        user.append("updated", Date.now());
+        data.append("name", this.name);
+        data.append("email", this.email);
+        data.append("image", image);
+        data.append("pass", this.pass);
+        data.append("role", "user");
 
-        postData(this.constants.API_URL + "/users", user)
+        postData(URL, data)
           .then(() => {
             alert(this.name + this.constants.ALERT_CREATED);
             this.$router.go();

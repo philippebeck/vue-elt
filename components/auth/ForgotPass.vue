@@ -63,8 +63,9 @@ export default {
       const REGEX  = this.constants.REGEX_EMAIL;
 
       if (checkRegex(this.email, MSG, REGEX)) {
+        const URL = this.constants.API_URL + "/auth/recaptcha";
 
-        postData(this.constants.API_URL + "/auth/recaptcha", { response: response })
+        postData(URL, { response: response })
           .then(result => {
             if (result.success) {
               this.forgotPass();
@@ -86,15 +87,16 @@ export default {
      */
     forgotPass() {
       if (confirm(this.constants.CONFIRM_FORGOT) === true) {
-        let message = new FormData();
+        const URL   = this.constants.API_URL + "/auth/pass";
+        const data  = new FormData();
 
-        message.append("email", this.email);
-        message.append("subject", this.constants.FORGOT_SUBJECT);
-        message.append("html", this.constants.FORGOT_TEXT);
+        data.append("email", this.email);
+        data.append("subject", this.constants.FORGOT_SUBJECT);
+        data.append("html", this.constants.FORGOT_TEXT);
 
-        postData(this.constants.API_URL + "/auth/pass", message)
+        postData(URL, data)
           .then(() => {
-            alert(message.get("subject") + this.constants.ALERT_SENDED);
+            alert(data.get("subject") + this.constants.ALERT_SENDED);
             this.$router.push("/login");
           })
           .catch(err => { setError(err) });

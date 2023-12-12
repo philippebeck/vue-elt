@@ -151,8 +151,8 @@ export default {
      * @return {FormData} - The FormData object with the article data.
      */
     getArticle(id, article) {
-      let data  = new FormData();
-      let image = document.getElementById(id).files[0] ?? article.image;
+      const data  = new FormData();
+      const image = document.getElementById(id).files[0] ?? article.image;
 
       data.append("name", article.name);
       data.append("text", article.text);
@@ -160,7 +160,6 @@ export default {
       data.append("alt", article.alt);
       data.append("likes", article.likes);
       data.append("cat", article.cat);
-      data.append("updated", Date.now());
 
       return data;
     },
@@ -184,9 +183,7 @@ export default {
         const URL = this.constants.API_URL + "/articles/" + id;
 
         putData(URL, this.getArticle(id, article), this.constants.TOKEN)
-          .then(() => {
-            alert(article.name + this.constants.ALERT_UPDATED);
-          })
+          .then(() => { alert(article.name + this.constants.ALERT_UPDATED) })
           .catch(err => { setError(err) });
       }
     },
@@ -199,7 +196,7 @@ export default {
      */
     updateArticle(id) {
       for (let article of this.articles) {
-        if (article.id === id) { this.checkArticle(id, article) }
+        if (article.id === id) this.checkArticle(id, article);
       }
     },
 
@@ -210,14 +207,14 @@ export default {
      * @param {number} id - The ID of the article to be deleted.
      */
     deleteArticle(id) {
-      let name = getItemName(id, this.articles);
+      const NAME = getItemName(id, this.articles);
 
-      if (confirm(`${this.constants.TITLE_DELETE} ${name} ?`) === true) {
+      if (confirm(`${this.constants.TITLE_DELETE} ${NAME} ?`) === true) {
         const URL = this.constants.API_URL + "/articles/" + id;
 
         deleteData(URL, this.constants.TOKEN)
           .then(() => {
-            alert(name + this.constants.ALERT_DELETED);
+            alert(NAME + this.constants.ALERT_DELETED);
             this.$router.go();
           })
           .catch(err => { setError(err) });

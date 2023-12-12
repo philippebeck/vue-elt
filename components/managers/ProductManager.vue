@@ -152,8 +152,8 @@ export default {
      * @return {FormData} - A FormData object with the product data.
      */
     getProduct(id, product) {
-      let data  = new FormData();
-      let image = document.getElementById(id).files[0] ?? product.image;
+      const data  = new FormData();
+      const image = document.getElementById(id).files[0] ?? product.image;
 
       data.append("name", product.name);
       data.append("description", product.description);
@@ -190,9 +190,7 @@ export default {
         const URL = this.constants.API_URL + "/products/" + id;
 
         putData(URL, this.getProduct(id, product), this.constants.TOKEN)
-          .then(() => {
-            alert(product.name + this.constants.ALERT_UPDATED);
-          })
+          .then(() => { alert(product.name + this.constants.ALERT_UPDATED) })
           .catch(err => { setError(err) });
       }
     },
@@ -205,7 +203,7 @@ export default {
      */
     updateProduct(id) {
       for (let product of this.products) {
-        if (product.id === id) { this.checkProduct(id, product) }
+        if (product.id === id) this.checkProduct(id, product);
       }
     },
 
@@ -216,14 +214,14 @@ export default {
      * @param {number} id - The ID of the product to delete.
      */
     deleteProduct(id) {
-      let name = getItemName(id, this.products);
+      const NAME = getItemName(id, this.products);
 
-      if (confirm(`${this.constants.TITLE_DELETE} ${name} ?`) === true) {
+      if (confirm(`${this.constants.TITLE_DELETE} ${NAME} ?`) === true) {
         const URL = this.constants.API_URL + "/products/" + id;
 
         deleteData(URL, this.constants.TOKEN)
           .then(() => {
-            alert(name + this.constants.ALERT_DELETED);
+            alert(NAME + this.constants.ALERT_DELETED);
             this.$router.go();
           })
           .catch(err => { setError(err) });
