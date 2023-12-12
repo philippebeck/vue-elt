@@ -26,7 +26,7 @@
           </template>
 
           <template #cell-text="slotProps">
-            <BtnElt :href="`/article/edit/${articles[slotProps.index].id}`"
+            <BtnElt :href="`/article/${articles[slotProps.index].id}`"
               class="btn-cyan"
               :title="constants.TITLE_UPDATE + articles[slotProps.index].name">
 
