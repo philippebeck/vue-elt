@@ -186,21 +186,22 @@ export default {
           checkRange(this.description, msg, min, max) && 
           checkRange(this.alt, msg)) {
 
-        if (this.cat === "") { this.cat = this.constants.CAT_PRODUCT }
+        if (this.cat === "") this.cat = this.constants.CAT_PRODUCT;
         let image = document.getElementById("image").files[0];
 
         if (image !== undefined) {
-          let product = new FormData();
+          const URL   = this.constants.API_URL + "/products";
+          const data  = new FormData();
 
-          product.append("name", this.name);
-          product.append("description", this.description);
-          product.append("image", image);
-          product.append("alt", this.alt);
-          product.append("price", this.price);
-          product.append("options", this.options);
-          product.append("cat", this.cat);
+          data.append("name", this.name);
+          data.append("description", this.description);
+          data.append("image", image);
+          data.append("alt", this.alt);
+          data.append("price", this.price);
+          data.append("options", this.options);
+          data.append("cat", this.cat);
 
-          postData(this.constants.API_URL + "/products", product, this.constants.TOKEN)
+          postData(URL, data, this.constants.TOKEN)
             .then(() => {
               alert(this.name + this.constants.ALERT_CREATED);
               this.$router.go();

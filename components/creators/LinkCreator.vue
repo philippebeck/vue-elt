@@ -113,18 +113,20 @@ export default {
       const URL_MSG  = this.constants.CHECK_URL;
       const REGEX    = this.constants.REGEX_URL;
 
-      if (this.url.startsWith("http")) { this.url = this.url.split('//')[1] }
-      if (this.cat === "") { this.cat = this.constants.CAT_LINK }
+      if (this.url.startsWith("http")) this.url = this.url.split('//')[1];
+      if (this.cat === "") this.cat = this.constants.CAT_LINK;
 
       if (checkRange(this.name, NAME_MSG) && 
           checkRegex(`https://${this.url}`, URL_MSG, REGEX)) {
 
-        let link = new FormData();
-        link.append("name", this.name);
-        link.append("url", this.url);
-        link.append("cat", this.cat);
+        const URL   = this.constants.API_URL + "/links";
+        const data  = new FormData();
 
-        postData(this.constants.API_URL + "/links", link, this.constants.TOKEN)
+        data.append("name", this.name);
+        data.append("url", this.url);
+        data.append("cat", this.cat);
+
+        postData(URL, data, this.constants.TOKEN)
           .then(() => {
             alert(this.name + this.constants.ALERT_CREATED);
             this.$router.go();

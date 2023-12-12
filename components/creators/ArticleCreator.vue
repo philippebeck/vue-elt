@@ -152,22 +152,20 @@ export default {
           checkRange(this.text, MSG, MIN, MAX) && 
           checkRange(this.alt, MSG)) {
 
-        if (this.cat === "") { this.cat = this.constants.CAT_ARTICLE }
+        if (this.cat === "") this.cat = this.constants.CAT_ARTICLE;
         let image = document.getElementById("image").files[0];
 
         if (image !== undefined) {
-          let article = new FormData();
+          const URL   = this.constants.API_URL + "/articles";
+          const data  = new FormData();
 
-          article.append("name", this.name);
-          article.append("text", this.text);
-          article.append("image", image);
-          article.append("alt", this.alt);
-          article.append("likes", []);
-          article.append("cat", this.cat);
-          article.append("created", Date.now());
-          article.append("updated", Date.now());
+          data.append("name", this.name);
+          data.append("text", this.text);
+          data.append("image", image);
+          data.append("alt", this.alt);
+          data.append("cat", this.cat);
 
-          postData(this.constants.API_URL + "/articles", article, this.constants.TOKEN)
+          postData(URL, data, this.constants.TOKEN)
             .then(() => {
               alert(this.name + this.constants.ALERT_CREATED);
               this.$router.go();

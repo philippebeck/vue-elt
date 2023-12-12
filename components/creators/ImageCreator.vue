@@ -99,13 +99,14 @@ export default {
         let image = document.getElementById("image").files[0];
 
         if (image !== undefined) {
+          const URL   = this.constants.API_URL + "/images";
+          const data  = new FormData();
 
-          let data = new FormData();
           data.append("image", image);
           data.append("description", this.description);
           data.append("gallery", this.$route.params.id);
 
-          postData(this.constants.API_URL + "/images", data, this.constants.TOKEN)
+          postData(URL, data, this.constants.TOKEN)
             .then(() => {
               alert(image + this.constants.ALERT_CREATED);
               this.$router.go();

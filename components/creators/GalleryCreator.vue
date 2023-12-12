@@ -97,11 +97,13 @@ methods: {
     if (checkRange(this.name, MSG) &&
         checkRange(this.author, MSG)) {
 
-      let gallery = new FormData();
-      gallery.append("name", this.name);
-      gallery.append("author", this.author);
+      const URL   = this.constants.API_URL + "/galleries";
+      const data  = new FormData();
 
-      postData(this.constants.API_URL + "/galleries", gallery, this.constants.TOKEN)
+      data.append("name", this.name);
+      data.append("author", this.author);
+
+      postData(URL, data, this.constants.TOKEN)
         .then(() => {
           alert(this.name + this.constants.ALERT_CREATED);
           this.$router.go();
