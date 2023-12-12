@@ -102,16 +102,14 @@ export default {
       for (let gallery of this.galleries) {
         if (gallery.id === id) {
 
-          let data = new FormData();
+          const URL   = this.constants.API_URL + "/galleries/" + id;
+          const data  = new FormData();
+
           data.append("name", gallery.name);
           data.append("author", gallery.author);
 
-          const URL = this.constants.API_URL + "/galleries/" + id;
-
           putData(URL, data, this.constants.TOKEN)
-            .then(() => {
-              alert(gallery.name + this.constants.ALERT_UPDATED);
-            })
+            .then(() => { alert(gallery.name + this.constants.ALERT_UPDATED) })
             .catch(err => { setError(err) });
         }
       }
@@ -124,14 +122,14 @@ export default {
      * @param {number} id - The ID of the gallery to be deleted.
      */
     deleteGallery(id) {
-      let name = getItemName(id, this.galleries);
+      const NAME = getItemName(id, this.galleries);
 
-      if (confirm(`${this.constants.TITLE_DELETE} ${name} ?`) === true) {
+      if (confirm(`${this.constants.TITLE_DELETE} ${NAME} ?`) === true) {
         const URL = this.constants.API_URL + "/galleries/" + id;
 
         deleteData(URL, this.constants.TOKEN)
           .then(() => {
-            alert(name + this.constants.ALERT_DELETED);
+            alert(NAME + this.constants.ALERT_DELETED);
             this.$router.go();
           })
           .catch(err => { setError(err) });

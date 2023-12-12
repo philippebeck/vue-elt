@@ -138,16 +138,13 @@ export default {
       for (let order of this.orders) {
         if (order.id === id) {
 
-          let data = new FormData();
-          data.append("status", order.status);
-          data.append("updated", Date.now());
+          const URL   = this.constants.API_URL + "/orders/" + id;
+          const data  = new FormData();
 
-          const URL = this.constants.API_URL + "/orders/" + id;
+          data.append("status", order.status);
 
           putData(URL, data, this.constants.TOKEN)
-            .then(() => {
-              alert(this.constants.ALERT_ORDER + id + this.constants.ALERT_UPDATED);
-            })
+            .then(() => { alert(this.constants.ALERT_ORDER + id + this.constants.ALERT_UPDATED) })
             .catch(err => { setError(err) });
         }
       }

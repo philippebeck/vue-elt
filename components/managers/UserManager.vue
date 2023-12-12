@@ -129,14 +129,13 @@ export default {
      * @return {FormData} - The FormData object with the user data.
      */
     getUser(id, user) {
-      let data  = new FormData();
-      let image = document.getElementById(id).files[0] ?? user.image;
+      const data  = new FormData();
+      const image = document.getElementById(id).files[0] ?? user.image;
 
       data.append("name", user.name);
       data.append("email", user.email);
       data.append("image", image);
       data.append("role", user.role);
-      data.append("updated", Date.now());
 
       return data;
     },
@@ -149,19 +148,17 @@ export default {
      * @param {object} user - The user object containing the name and email.
      */
     checkUser(id, user) {
-      let stringMsg = this.constants.CHECK_STRING;
-      let emailMsg  = this.constants.CHECK_EMAIL;
-      let regex     = this.constants.REGEX_EMAIL;
+      const STRING_MSG  = this.constants.CHECK_STRING;
+      const EMAIL_MSG   = this.constants.CHECK_EMAIL;
+      const REGEX       = this.constants.REGEX_EMAIL;
 
-      if (checkRange(user.name, stringMsg) && 
-          checkRegex(user.email, emailMsg, regex)) {
+      if (checkRange(user.name, STRING_MSG) && 
+          checkRegex(user.email, EMAIL_MSG, REGEX)) {
 
         const URL = this.constants.API_URL + "/users/" + id;
 
         putData(URL, this.getUser(id, user), this.constants.TOKEN)
-          .then(() => {
-            alert(user.name + this.constants.ALERT_UPDATED);
-          })
+          .then(() => { alert(user.name + this.constants.ALERT_UPDATED) })
           .catch(err => { setError(err) });
         }
     },
@@ -174,7 +171,7 @@ export default {
      */
     updateUser(id) {
       for (let user of this.users) {
-        if (user.id === id) { this.checkUser(id, user) }
+        if (user.id === id) this.checkUser(id, user);
       }
     },
 
@@ -185,14 +182,14 @@ export default {
      * @param {number} id - The ID of the user to be deleted.
      */
     deleteUser(id) {
-      let name = getItemName(id, this.users);
+      const NAME = getItemName(id, this.users);
 
-      if (confirm(`${this.constants.TITLE_DELETE} ${name} ?`) === true) {
+      if (confirm(`${this.constants.TITLE_DELETE} ${NAME} ?`) === true) {
         const URL = this.constants.API_URL + "/users/" + id;
 
         deleteData(URL, this.constants.TOKEN)
           .then(() => {
-            alert(name + this.constants.ALERT_DELETED);
+            alert(NAME + this.constants.ALERT_DELETED);
             this.$router.go();
           })
           .catch(err => { setError(err) });

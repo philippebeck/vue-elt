@@ -169,7 +169,7 @@ export default {
      */
     updateLink(id) {
       for (let link of this.links) {
-        if (link.id === id) { this.checkLink(link) }
+        if (link.id === id) this.checkLink(link);
       }
     },
 
@@ -180,14 +180,14 @@ export default {
      * @param {number} id - The ID of the link to be deleted.
      */
     deleteLink(id) {
-      let name = getItemName(id, this.links);
+      const NAME = getItemName(id, this.links);
 
-      if (confirm(`${this.constants.TITLE_DELETE} ${name} ?`) === true) {
+      if (confirm(`${this.constants.TITLE_DELETE} ${NAME} ?`) === true) {
         const URL = this.constants.API_URL + "/links/" + id;
 
         deleteData(URL, this.constants.TOKEN)
           .then(() => {
-            alert(name + this.constants.ALERT_DELETED);
+            alert(NAME + this.constants.ALERT_DELETED);
             this.$router.go();
           })
           .catch(err => { setError(err) });
