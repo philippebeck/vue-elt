@@ -67,9 +67,9 @@
               :items="articles[slotProps.index].likes"/>
           </template>
 
-          <template #cell-created="slotProps">
+          <template #cell-createdAt="slotProps">
             <p>
-              {{ new Date(articles[slotProps.index].created).toLocaleString() }}
+              {{ new Date(articles[slotProps.index].createdAt).toLocaleString() }}
             </p>
 
             <BtnElt type="button"
@@ -83,9 +83,9 @@
             </BtnElt>
           </template>
 
-          <template #cell-updated="slotProps">
+          <template #cell-updatedAt="slotProps">
             <p>
-              {{ new Date(articles[slotProps.index].updated).toLocaleString() }}
+              {{ new Date(articles[slotProps.index].updatedAt).toLocaleString() }}
             </p>
 
             <BtnElt type="button"
@@ -158,7 +158,7 @@ export default {
       data.append("text", article.text);
       data.append("image", image);
       data.append("alt", article.alt);
-      data.append("likes", article.likes);
+      data.append("likes", JSON.stringify(article.likes));
       data.append("cat", article.cat);
 
       return data;
