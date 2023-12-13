@@ -58,7 +58,7 @@ export default {
       if (checkRegex(this.email, CHECK_EMAIL, REGEX_EMAIL)) {
         const URL = `${API_URL}/auth/recaptcha`;
 
-        postData(URL, { response: response })
+        postData(URL, { response })
           .then(result => {
             if (result.success) {
               this.forgotPass();
