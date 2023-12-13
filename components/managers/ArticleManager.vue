@@ -5,7 +5,7 @@
         <i class="fa-regular fa-newspaper fa-lg"
           aria-hidden="true">
         </i>
-        {{ constants.ARTICLE_MANAGER }}
+        {{ val.ARTICLE_MANAGER }}
       </h2>
     </template>
 
@@ -22,13 +22,13 @@
           <template #cell-name="slotProps">
             <FieldElt v-model:value="getArticles()[slotProps.index].name"
               @keyup.enter="updateArticle(articles[slotProps.index].id)"
-              :info="constants.INFO_UP_NAME"/>
+              :info="val.INFO_UP_NAME"/>
           </template>
 
           <template #cell-text="slotProps">
             <BtnElt :href="`/article/${articles[slotProps.index].id}`"
               class="btn-cyan"
-              :title="constants.TITLE_UPDATE + articles[slotProps.index].name">
+              :title="val.TITLE_UPDATE + articles[slotProps.index].name">
 
               <template #btn>
                 <i class="fa-regular fa-edit fa-lg"></i>
@@ -43,22 +43,22 @@
 
             <FieldElt :id="articles[slotProps.index].id"
               type="file"
-              :info="constants.INFO_UP_IMAGE"/>
+              :info="val.INFO_UP_IMAGE"/>
           </template>
 
           <template #cell-alt="slotProps">
             <FieldElt type="textarea"
               v-model:value="getArticles()[slotProps.index].alt"
               @keyup.enter="updateArticle(articles[slotProps.index].id)"
-              :info="constants.INFO_UP_ALT"/>
+              :info="val.INFO_UP_ALT"/>
           </template>
 
           <template #cell-cat="slotProps">
             <FieldElt type="select"
-              :list="constants.CATS_ARTICLE"
+              :list="val.CATS_ARTICLE"
               v-model:value="getArticles()[slotProps.index].cat"
               @keyup.enter="updateArticle(articles[slotProps.index].id)"
-              :info="constants.INFO_UP_CATEGORY"/>
+              :info="val.INFO_UP_CATEGORY"/>
           </template>
 
           <template #cell-likes="slotProps">
@@ -75,7 +75,7 @@
             <BtnElt type="button"
               @click="deleteArticle(articles[slotProps.index].id)" 
               class="btn-red"
-              :title="constants.TITLE_DELETE + articles[slotProps.index].name">
+              :title="val.TITLE_DELETE + articles[slotProps.index].name">
 
               <template #btn>
                 <i class="fa-solid fa-trash-arrow-up fa-lg fa-fw"></i>
@@ -91,7 +91,7 @@
             <BtnElt type="button"
               @click="updateArticle(articles[slotProps.index].id)" 
               class="btn-sky"
-              :title="constants.TITLE_UPDATE + articles[slotProps.index].name">
+              :title="val.TITLE_UPDATE + articles[slotProps.index].name">
 
               <template #btn>
                 <i class="fa-solid fa-cloud-arrow-up fa-lg fa-fw"></i>
@@ -124,10 +124,9 @@ export default {
     MediaElt,
     TableElt
   },
-
   props: [
     "articles", 
-    "constants",
+    "val",
     "users"
   ],
 
@@ -143,60 +142,36 @@ export default {
     },
 
     /**
-     * ? GET ARTICLE
-     * Generates a FormData object with the provided article information and optional image.
-     *
-     * @param {string} id - The ID of the file input element for the article image.
-     * @param {object} article - An object containing the article information.
-     * @return {FormData} - The FormData object with the article data.
-     */
-    getArticle(id, article) {
-      const data  = new FormData();
-      const image = document.getElementById(id).files[0] ?? article.image;
-
-      data.append("name", article.name);
-      data.append("text", article.text);
-      data.append("image", image);
-      data.append("alt", article.alt);
-      data.append("likes", JSON.stringify(article.likes));
-      data.append("cat", article.cat);
-
-      return data;
-    },
-
-    /**
-     * ? CHECK ARTICLE
-     * Checks the validity of an article and updates it if valid.
-     *
-     * @param {number} id - The ID of the article.
-     * @param {object} article - The article object containing the name, text, and alt fields.
-     */
-    checkArticle(id, article) {
-      const MSG = this.constants.CHECK_STRING;
-      const MIN = this.constants.TEXT_MIN;
-      const MAX = this.constants.TEXT_MAX;
-
-      if (checkRange(article.name, MSG) && 
-          checkRange(article.text, MSG, MIN, MAX) && 
-          checkRange(article.alt, MSG)) {
-
-        const URL = this.constants.API_URL + "/articles/" + id;
-
-        putData(URL, this.getArticle(id, article), this.constants.TOKEN)
-          .then(() => { alert(article.name + this.constants.ALERT_UPDATED) })
-          .catch(err => { setError(err) });
-      }
-    },
-
-    /**
      * ? UPDATE ARTICLE
      * Update an article based on its ID.
      *
      * @param {number} id - The ID of the article.
      */
     updateArticle(id) {
-      for (let article of this.articles) {
-        if (article.id === id) this.checkArticle(id, article);
+      const article = this.articles.find(a => a.id === id);
+
+      const { CHECK_STRING, TEXT_MIN, TEXT_MAX, API_URL, TOKEN, ALERT_UPDATED } = this.val;
+      const { name, text, image, alt, likes, cat } = article;
+
+      if ( article &&
+        checkRange(name, CHECK_STRING) &&
+        checkRange(text, CHECK_STRING, TEXT_MIN, TEXT_MAX) &&
+        checkRange(alt, CHECK_STRING) ) {
+
+        const URL   = `${API_URL}/articles/${id}`
+        const img   = document.getElementById(id)?.files?.[0] ?? image;
+        const data  = new FormData();
+
+        data.append("name", name);
+        data.append("text", text);
+        data.append("image", img);
+        data.append("alt", alt);
+        data.append("likes", JSON.stringify(likes));
+        data.append("cat", cat);
+
+        putData(URL, data, TOKEN)
+          .then(() => { alert(name + ALERT_UPDATED) })
+          .catch(err => { setError(err) });
       }
     },
 
@@ -208,13 +183,14 @@ export default {
      */
     deleteArticle(id) {
       const NAME = getItemName(id, this.articles);
+      const { TITLE_DELETE, API_URL, TOKEN, ALERT_DELETED } = this.val;
 
-      if (confirm(`${this.constants.TITLE_DELETE} ${NAME} ?`) === true) {
-        const URL = this.constants.API_URL + "/articles/" + id;
+      if (confirm(`${TITLE_DELETE} ${NAME} ?`) === true) {
+        const URL = `${API_URL}/articles/${id}`
 
-        deleteData(URL, this.constants.TOKEN)
+        deleteData(URL, TOKEN)
           .then(() => {
-            alert(NAME + this.constants.ALERT_DELETED);
+            alert(NAME + ALERT_DELETED);
             this.$router.go();
           })
           .catch(err => { setError(err) });

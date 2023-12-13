@@ -5,14 +5,14 @@
         <i class="fa-regular fa-images fa-lg"
           aria-hidden="true">
         </i>
-        {{ constants.GALLERY_MANAGER }}
+        {{ val.GALLERY_MANAGER }}
       </h2>
     </template>
 
     <template #body>
       <form>
         <TableElt :items="galleries">
-          <template #head>{{ constants.HEAD_UP }}</template>
+          <template #head>{{ val.HEAD_UP }}</template>
 
           <template #cell-id="slotProps">
             <a :href="`/gallery/${galleries[slotProps.index].id}`">
@@ -23,20 +23,20 @@
           <template #cell-name="slotProps">
             <FieldElt v-model:value="getGalleries()[slotProps.index].name"
               @keyup.enter="updateGallery(galleries[slotProps.index].id)"
-              :info="constants.INFO_UP_NAME"/>
+              :info="val.INFO_UP_NAME"/>
           </template>
 
           <template #cell-author="slotProps">
             <FieldElt v-model:value="getGalleries()[slotProps.index].author"
               @keyup.enter="updateGallery(galleries[slotProps.index].id)"
-              :info="constants.INFO_UP_NAME"/>
+              :info="val.INFO_UP_NAME"/>
           </template>
 
           <template #body="slotProps">
             <BtnElt type="button"
               @click="updateGallery(galleries[slotProps.index].id)" 
               class="btn-sky"
-              :title="constants.TITLE_GALLERY_UPDATE + galleries[slotProps.index].id">
+              :title="val.TITLE_GALLERY_UPDATE + galleries[slotProps.index].id">
 
               <template #btn>
                 <i class="fa-solid fa-cloud-arrow-up fa-lg fa-fw"></i>
@@ -46,7 +46,7 @@
             <BtnElt type="button"
               @click="deleteGallery(galleries[slotProps.index].id)" 
               class="btn-red"
-              :title="constants.TITLE_DELETE_GALLERY + galleries[slotProps.index].id">
+              :title="val.TITLE_DELETE_GALLERY + galleries[slotProps.index].id">
 
               <template #btn>
                 <i class="fa-solid fa-trash-arrow-up fa-lg fa-fw"></i>
@@ -60,7 +60,7 @@
 </template>
 
 <script>
-import { deleteData, getItemName, putData, setError } from "servidio"
+import { checkRange, deleteData, getItemName, putData, setError } from "servidio"
 
 import BtnElt from "../elements/BtnElt"
 import CardElt from "../elements/CardElt"
@@ -75,11 +75,7 @@ export default {
     FieldElt,
     TableElt
   },
-
-  props: [
-    "galleries", 
-    "constants"
-  ],
+  props: ["galleries", "val"],
 
   methods: {
     /**
@@ -99,19 +95,23 @@ export default {
      * @param {number} id - The ID of the gallery to update.
      */
     updateGallery(id) {
-      for (let gallery of this.galleries) {
-        if (gallery.id === id) {
+      const { CHECK_STRING, API_URL, TOKEN, ALERT_UPDATED } = this.val;
+      const gallery = this.galleries.find(g => g.id === id);
+      let { name, author } = gallery;
 
-          const URL   = this.constants.API_URL + "/galleries/" + id;
-          const data  = new FormData();
+      if (gallery &&
+        checkRange(name, CHECK_STRING) &&
+        checkRange(author, CHECK_STRING)) {
 
-          data.append("name", gallery.name);
-          data.append("author", gallery.author);
+        const URL   = `${API_URL}/galleries/${id}`;
+        const data  = new FormData();
 
-          putData(URL, data, this.constants.TOKEN)
-            .then(() => { alert(gallery.name + this.constants.ALERT_UPDATED) })
-            .catch(err => { setError(err) });
-        }
+        data.append("name", name);
+        data.append("author", author);
+
+        putData(URL, data, TOKEN)
+          .then(() => { alert(name + ALERT_UPDATED) })
+          .catch(err => { setError(err) });
       }
     },
 
@@ -123,13 +123,14 @@ export default {
      */
     deleteGallery(id) {
       const NAME = getItemName(id, this.galleries);
+      const { TITLE_DELETE, API_URL, TOKEN, ALERT_DELETED } = this.val;
 
-      if (confirm(`${this.constants.TITLE_DELETE} ${NAME} ?`) === true) {
-        const URL = this.constants.API_URL + "/galleries/" + id;
+      if (confirm(`${TITLE_DELETE} ${NAME} ?`) === true) {
+        const URL = `${API_URL}/galleries/${id}`
 
-        deleteData(URL, this.constants.TOKEN)
+        deleteData(URL, TOKEN)
           .then(() => {
-            alert(NAME + this.constants.ALERT_DELETED);
+            alert(NAME + ALERT_DELETED);
             this.$router.go();
           })
           .catch(err => { setError(err) });
