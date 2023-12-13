@@ -47,12 +47,14 @@ export default {
       default: ""
     }
   },
+
   methods: {
     /**
-     * Checks if a slot with the given name exists.
+     * ? HAS SLOT
+     * Determines if the specified slot name is available in the component's slots.
      *
-     * @param {string} name - The name of the slot to check.
-     * @return {boolean} - True if a slot with the given name exists, false otherwise.
+     * @param {string} name - The name of the slot to check for.
+     * @return {boolean} Returns true if the component has the specified slot, false otherwise.
      */
     hasSlot(name) {
       return Object.prototype.hasOwnProperty.call(this.$slots, name);
@@ -62,7 +64,6 @@ export default {
 </script>
 
 <style>
-/********** FOOT ELT **********/
 footer {
   --ve-foot-text-align: center;
   --ve-foot-child-margin: 0;
@@ -118,7 +119,6 @@ aside {
     --ve-foot-ul-gap: 10%;
   }
 }
-
 </style>
 
 <style scoped>
@@ -141,8 +141,6 @@ h4,
   text-decoration: var(--ve-foot-a-text-decoration);
   cursor: var(--ve-foot-a-cursor);
 }
-
-/********************* MAIN PART *********************/
 
 footer > ul { 
   display: var(--ve-foot-ul-display);
@@ -170,8 +168,6 @@ section :deep(a):hover,
 section :deep(a):focus {
   color: var(--ve-foot-section-a-hover-color);
 }
-
-/********************* SECOND PART *********************/
 
 aside :deep(ul) {
   display: var(--ve-foot-aside-ul-display);

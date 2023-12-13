@@ -49,10 +49,11 @@ export default {
   
   methods: {
     /**
-     * Checks if a slot with the given name exists.
+     * ? HAS SLOT
+     * Determines if the specified slot name is available in the component's slots.
      *
-     * @param {string} name - The name of the slot to check.
-     * @return {boolean} - True if a slot with the given name exists, false otherwise.
+     * @param {string} name - The name of the slot to check for.
+     * @return {boolean} Returns true if the component has the specified slot, false otherwise.
      */
     hasSlot(name) {
       return Object.prototype.hasOwnProperty.call(this.$slots, name);
@@ -62,7 +63,6 @@ export default {
 </script>
 
 <style>
-/********** CARD ELT **********/
 article,
 section {
   --ve-card-box-sizing: border-box;
@@ -74,7 +74,6 @@ section {
   --ve-card-background-color: transparent;
   --ve-card-color: var(--ani-slate);
 }
-
 </style>
 
 <style scoped>

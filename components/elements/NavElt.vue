@@ -74,7 +74,6 @@
 <script>
 export default {
   name: "NavElt",
-
   props: {
     class: {
       type: String,
@@ -87,6 +86,7 @@ export default {
 
   methods: {
     /**
+     * ? GET NAV CLASS
      * Returns a string representing the navigation class based on the value of 'class'.
      *
      * @return {string} Either 'sidebar' or 'navbar'.
@@ -96,16 +96,18 @@ export default {
     },
 
     /**
-     * Checks if a slot with the given name exists.
+     * ? HAS SLOT
+     * Determines if the specified slot name is available in the component's slots.
      *
-     * @param {string} name - The name of the slot to check.
-     * @return {boolean} - True if a slot with the given name exists, false otherwise.
+     * @param {string} name - The name of the slot to check for.
+     * @return {boolean} Returns true if the component has the specified slot, false otherwise.
      */
     hasSlot(name) {
       return Object.prototype.hasOwnProperty.call(this.$slots, name);
     },
 
     /**
+     * ? TOGGLE SIDE
      * Toggles the visibility of the side element by toggling its show/hide classes.
      *
      * @return {void} This function does not return anything.
@@ -119,7 +121,6 @@ export default {
 </script>
 
 <style>
-/********** NAV ELT **********/
 :root {
   --ve-nav-margin: 20px;
   --ve-nav-height: 50px;
@@ -211,9 +212,6 @@ export default {
   }
 }
 
-</style>
-
-<style>
 [id="app"] {
   margin-top: calc(var(--ve-nav-height) + var(--ve-nav-margin));
 }
