@@ -155,9 +155,66 @@ export default {
   },
 
   methods: {
-    /******************** SETTERS ********************/
+    /**
+     * ? GET RANDOM INTEGER
+     * Generates a random integer.
+     *
+     * @param {number} min - The minimum value (inclusive) of the range.
+     * @param {number} max - The maximum value (inclusive) of the range.
+     * @return {number} - A random integer between the specified range.
+     */
+    getRandomInteger(min, max) {
+      const range = max - min + 1;
+
+      return Math.floor(Math.random() * range) + min;
+    },
 
     /**
+     * ? HAS SLOT
+     * Determines if the specified slot name is available in the component's slots.
+     *
+     * @param {string} name - The name of the slot to check for.
+     * @return {boolean} Returns true if the component has the specified slot, false otherwise.
+     */
+    hasSlot(name) {
+      return Object.prototype.hasOwnProperty.call(this.$slots, name);
+    },
+
+    /**
+     * ? REFRESH SLIDE
+     * Refreshes the slide display.
+     */
+    refreshSlide() {
+      if (this.randomState) this.index = this.getRandomInteger(0, this.slides.length - 1);
+
+      for (let i = 1; i <= this.slides.length; i++) {
+        document.getElementById(`slide-${i}`).classList.remove("show");
+      }
+
+      const currentSlide = document.getElementById(`slide-${this.index + 1}`);
+      if (currentSlide) currentSlide.classList.add("show");
+    },
+
+    /**
+     * ? SET KEYBOARD
+     * Sets the keyboard event listener and performs different actions based on the pressed key.
+     *
+     * @param {object} event - The event object containing information about the key pressed.
+     */
+    setKeyboard(event) {
+      const actions = {
+        ArrowLeft: this.goPrevious,
+        ArrowUp: this.checkRandom,
+        ArrowDown: this.checkAuto,
+        ArrowRight: this.goNext,
+      };
+
+      const action = actions[event.code];
+      if (action) action.call(this);
+    },
+
+    /**
+     * ? SET ICON
      * Updates the CSS classes of an icon element by adding a specified class & removing another.
      *
      * @param {HTMLElement} icon - The icon element to update.
@@ -170,8 +227,21 @@ export default {
       classes.add(add);
       classes.remove(remove);
     },
+    
+    /**
+     * ? SET SLIDE
+     * Sets the current slide index and refreshes the slide.
+     *
+     * @param {number} index - The index of the slide to set.
+     */
+    setSlide(index) {
+      this.index = index;
+
+      this.refreshSlide();
+    },
 
     /**
+     * ? SET AUTO
      * Sets the auto state, title & icon of the element.
      *
      * @param {any} state - The state to set.
@@ -189,7 +259,8 @@ export default {
     },
 
     /**
-     * Updates the state and title of the random element & its icon.
+     * ? SET RANDOM
+     * Updates the state & title of the random element & its icon.
      *
      * @param {any} state - New state of the random element.
      * @param {string} title - New title of the random element.
@@ -204,68 +275,10 @@ export default {
       
       this.setIcon(randomIcon, addIcon, removeIcon);
     },
-    
-    /**
-     * Sets the current slide index and refreshes the slide.
-     *
-     * @param {number} index - The index of the slide to set.
-     */
-    setSlide(index) {
-      this.index = index;
-
-      this.refreshSlide();
-    },
 
     /**
-     * Sets the keyboard event listener and performs different actions based on the pressed key.
-     *
-     * @param {object} event - The event object containing information about the key pressed.
-     */
-    setKeyboard(event) {
-      const actions = {
-        ArrowLeft: this.goPrevious,
-        ArrowUp: this.checkRandom,
-        ArrowDown: this.checkAuto,
-        ArrowRight: this.goNext,
-      };
-
-      const action = actions[event.code];
-
-      if (action) action.call(this);
-    },
-
-    /******************** GETTERS ********************/
-
-    /**
-     * Generates a random integer between the specified minimum (inclusive) and maximum (inclusive) values.
-     *
-     * @param {number} min - The minimum value (inclusive) of the range.
-     * @param {number} max - The maximum value (inclusive) of the range.
-     * @return {number} - A random integer between the specified range.
-     */
-    getRandomInteger(min, max) {
-      const range = max - min + 1;
-
-      return Math.floor(Math.random() * range) + min;
-    },
-
-    /******************** CHECKERS ********************/
-
-    /**
-     * Determines if the specified slot name is available in the component's slots.
-     *
-     * @param {string} name - The name of the slot to check for.
-     * @return {boolean} Returns true if the component has the specified slot, false otherwise.
-     */
-    hasSlot(name) {
-      return Object.prototype.hasOwnProperty.call(this.$slots, name);
-    },
-
-    /**
-     * Toggles the auto-advance feature of the slider. If auto-advance is on, it
-     * pauses it and changes the button label to "Play" and the icon to
-     * "fa-play". If auto-advance is off, it starts it and changes the button
-     * label to "Pause" and the icon to "fa-pause".
+     * ? CHECK AUTO
+     * Toggles the auto state of the slideshow.
      */
     checkAuto() {
       const { autoState, setAuto, intervalId, delay, goNext, refreshSlide } = this;
@@ -283,9 +296,8 @@ export default {
     },
 
     /**
-     * Toggles the state of randomness. If it is currently true, it sets it to false and
-     * sets the appropriate icon and message, otherwise it sets it to true and updates
-     * the icon and message. Finally, it refreshes the slide.
+     * ? CHECK RANDOM
+     * Toggles the random state and updates the slide.
      */
     checkRandom() {
       if (this.randomState) {
@@ -298,10 +310,27 @@ export default {
       this.refreshSlide();
     },
 
-    /******************** MAIN ********************/
+    /**
+     * ? GO PREVIOUS
+     * Go to the previous slide.
+     */
+    goPrevious() {
+      this.index = (this.index - 1 + this.slides.length) % this.slides.length;
+      this.refreshSlide();
+    },
 
     /**
-     * Runs the slider, either continuously if autoState is true or once if it is false.
+     * ? GO NEXT
+     * Go to the next slide.
+     */
+    goNext() {
+      this.index = (this.index + 1) % this.slides.length;
+      this.refreshSlide();
+    },
+
+    /**
+     * ? RUN SLIDER
+     * Runs the slider.
      */
     runSlider() {
       if (this.autoState) {
@@ -310,45 +339,7 @@ export default {
       } else {
         this.goNext();
       }
-    },
-
-    /**
-     * Refreshes the slide by removing the "show" class from all slides and adding it to the slide with the current index.
-     */
-    refreshSlide() {
-      for (let i = 1; i <= this.slides.length; i++) {
-        document.getElementById(`slide-${i}`).classList.remove("show");
-      }
-
-      document.getElementById(`slide-${this.index + 1}`).classList.add("show");
-    },
-
-
-    /**
-     * Advances to the next slide in the slideshow and refreshes the slide.
-     */
-    goNext() {
-      const lastIndex   = this.slides.length - 1;
-      const randomIndex = this.getRandomInteger(0, lastIndex);
-
-      this.index = this.randomState ? randomIndex : (this.index + 1) % lastIndex;
-
-      this.refreshSlide();
-    },
-
-    /**
-     * Decrements the index of the current slide and refreshes the slide accordingly.
-     * If randomState is truthy, sets the index to a random integer between 0 and the length
-     * of the slides array - 1.
-     */
-    goPrevious() {
-      const lastIndex   = this.slides.length - 1;
-      const randomIndex = this.getRandomInteger(0, lastIndex);
-
-      this.index = this.randomState ? randomIndex : this.index - 1 < 0 ? lastIndex : this.index - 1;
-
-      this.refreshSlide();
-    },
+    }
   }
 }
 </script>
