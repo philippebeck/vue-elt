@@ -1,10 +1,8 @@
 <template>
   <CardElt>
     <template #header>
-      <h2 id="product">
-        <i class="fa-regular fa-rectangle-list fa-lg"
-          aria-hidden="true">
-        </i>
+      <h2>
+        <i class="fa-regular fa-rectangle-list fa-lg"></i>
         {{ val.PRODUCT_MANAGER }}
       </h2>
     </template>
@@ -30,7 +28,6 @@
             <BtnElt :href="`/product/${products[slotProps.index].id}`"
               class="btn-cyan"
               :title="val.TITLE_UPDATE + products[slotProps.index].name">
-
               <template #btn>
                 <i class="fa-regular fa-edit fa-lg"></i>
               </template>
@@ -42,7 +39,6 @@
               :alt="products[slotProps.index].alt"
               :title="products[slotProps.index].name">
             </MediaElt>
-
             <FieldElt :id="products[slotProps.index].id"
               type="file"
               :info="val.INFO_UP_IMAGE"/>
@@ -86,7 +82,6 @@
               @click="updateProduct(products[slotProps.index].id)" 
               class="btn-sky"
               :title="val.TITLE_UPDATE + products[slotProps.index].name">
-
               <template #btn>
                 <i class="fa-solid fa-cloud-arrow-up fa-lg fa-fw"></i>
               </template>
@@ -96,7 +91,6 @@
               @click="deleteProduct(products[slotProps.index].id)" 
               class="btn-red"
               :title="val.TITLE_UPDATE + products[slotProps.index].name">
-
               <template #btn>
                 <i class="fa-solid fa-trash-arrow-up fa-lg fa-fw"></i>
               </template>

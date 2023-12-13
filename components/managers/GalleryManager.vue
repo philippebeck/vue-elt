@@ -1,10 +1,8 @@
 <template>
   <CardElt>
     <template #header>
-      <h2 id="gallery">
-        <i class="fa-regular fa-images fa-lg"
-          aria-hidden="true">
-        </i>
+      <h2>
+        <i class="fa-regular fa-images fa-lg"></i>
         {{ val.GALLERY_MANAGER }}
       </h2>
     </template>
@@ -37,17 +35,14 @@
               @click="updateGallery(galleries[slotProps.index].id)" 
               class="btn-sky"
               :title="val.TITLE_GALLERY_UPDATE + galleries[slotProps.index].id">
-
               <template #btn>
                 <i class="fa-solid fa-cloud-arrow-up fa-lg fa-fw"></i>
               </template>
             </BtnElt>
-
             <BtnElt type="button"
               @click="deleteGallery(galleries[slotProps.index].id)" 
               class="btn-red"
               :title="val.TITLE_DELETE_GALLERY + galleries[slotProps.index].id">
-
               <template #btn>
                 <i class="fa-solid fa-trash-arrow-up fa-lg fa-fw"></i>
               </template>

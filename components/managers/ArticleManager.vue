@@ -1,10 +1,8 @@
 <template>
   <CardElt>
     <template #header>
-      <h2 id="article">
-        <i class="fa-regular fa-newspaper fa-lg"
-          aria-hidden="true">
-        </i>
+      <h2>
+        <i class="fa-regular fa-newspaper fa-lg"></i>
         {{ val.ARTICLE_MANAGER }}
       </h2>
     </template>
@@ -29,7 +27,6 @@
             <BtnElt :href="`/article/${articles[slotProps.index].id}`"
               class="btn-cyan"
               :title="val.TITLE_UPDATE + articles[slotProps.index].name">
-
               <template #btn>
                 <i class="fa-regular fa-edit fa-lg"></i>
               </template>
@@ -40,7 +37,6 @@
             <MediaElt :src="'/img/thumbnails/articles/' + articles[slotProps.index].image"
               :alt="articles[slotProps.index].alt"
               :title="articles[slotProps.index].name"/>
-
             <FieldElt :id="articles[slotProps.index].id"
               type="file"
               :info="val.INFO_UP_IMAGE"/>
@@ -68,15 +64,11 @@
           </template>
 
           <template #cell-createdAt="slotProps">
-            <p>
-              {{ new Date(articles[slotProps.index].createdAt).toLocaleString() }}
-            </p>
-
+            <p>{{ new Date(articles[slotProps.index].createdAt).toLocaleString() }}</p>
             <BtnElt type="button"
               @click="deleteArticle(articles[slotProps.index].id)" 
               class="btn-red"
               :title="val.TITLE_DELETE + articles[slotProps.index].name">
-
               <template #btn>
                 <i class="fa-solid fa-trash-arrow-up fa-lg fa-fw"></i>
               </template>
@@ -84,15 +76,11 @@
           </template>
 
           <template #cell-updatedAt="slotProps">
-            <p>
-              {{ new Date(articles[slotProps.index].updatedAt).toLocaleString() }}
-            </p>
-
+            <p>{{ new Date(articles[slotProps.index].updatedAt).toLocaleString() }}</p>
             <BtnElt type="button"
               @click="updateArticle(articles[slotProps.index].id)" 
               class="btn-sky"
               :title="val.TITLE_UPDATE + articles[slotProps.index].name">
-
               <template #btn>
                 <i class="fa-solid fa-cloud-arrow-up fa-lg fa-fw"></i>
               </template>

@@ -1,10 +1,8 @@
 <template>
   <CardElt>
     <template #header>
-      <h2 id="create-link">
-        <i class="fa-solid fa-link fa-lg"
-          aria-hidden="true">
-        </i>
+      <h2>
+        <i class="fa-solid fa-link fa-lg"></i>
         {{ val.LINK_CREATOR }}
       </h2>
     </template>
@@ -17,13 +15,8 @@
             <FieldElt v-model:value="name"
               @keyup.enter="createLink()"
               :info="val.INFO_NAME">
-
-              <template #legend>
-                {{ val.LEGEND_NAME }}
-              </template>
-              <template #label>
-                {{ val.LABEL_NAME }}
-              </template>
+              <template #legend>{{ val.LEGEND_NAME }}</template>
+              <template #label>{{ val.LABEL_NAME }}</template>
             </FieldElt>
           </template>
 
@@ -34,13 +27,8 @@
               :info="val.INFO_URL"
               :min="val.URL_MIN"
               :max="val.URL_MAX">
-
-              <template #legend>
-                {{ val.LEGEND_URL }}
-              </template>
-              <template #label>
-                {{ val.LABEL_URL }}
-              </template>
+              <template #legend>{{ val.LEGEND_URL }}</template>
+              <template #label>{{ val.LABEL_URL }}</template>
             </FieldElt>
           </template>
           
@@ -50,13 +38,8 @@
               v-model:value="cat"
               @keyup.enter="createLink()"
               :info="val.INFO_CATEGORY">
-
-              <template #legend>
-                {{ val.LEGEND_CATEGORY }}
-              </template>
-              <template #label>
-                {{ val.LABEL_CATEGORY }}
-              </template>
+              <template #legend>{{ val.LEGEND_CATEGORY }}</template>
+              <template #label>{{ val.LABEL_CATEGORY }}</template>
             </FieldElt>
           </template>
         </ListElt>
@@ -66,7 +49,6 @@
           class="btn-green"
           :content="val.CONTENT_CREATE"
           :title="val.LINK_CREATOR">
-
           <template #btn>
             <i class="fa-solid fa-square-plus fa-lg"></i>
           </template>

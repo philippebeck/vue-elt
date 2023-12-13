@@ -1,10 +1,8 @@
 <template>
   <CardElt>
     <template #header>
-      <h2 id="image">
-        <i class="fa-regular fa-images fa-lg"
-          aria-hidden="true">
-        </i>
+      <h2>
+        <i class="fa-regular fa-images fa-lg"></i>
         {{ val.IMAGE_MANAGER }}
       </h2>
     </template>
@@ -31,7 +29,6 @@
             <MediaElt :src="'/img/thumbnails/galleries/' + table[slotProps.index].name"
               :alt="table[slotProps.index].description"
               :title="table[slotProps.index].name"/>
-
             <FieldElt :id="table[slotProps.index].id"
               type="file"
               :info="val.INFO_UP_IMAGE"/>
@@ -58,17 +55,14 @@
               @click="updateImage(table[slotProps.index].id)" 
               class="btn-sky"
               :title="val.TITLE_IMAGE_UPDATE + table[slotProps.index].id">
-
               <template #btn>
                 <i class="fa-solid fa-cloud-arrow-up fa-lg fa-fw"></i>
               </template>
             </BtnElt>
-
             <BtnElt type="button"
               @click="deleteImage(table[slotProps.index].id)" 
               class="btn-red"
               :title="val.TITLE_DELETE_IMAGE + table[slotProps.index].id">
-
               <template #btn>
                 <i class="fa-solid fa-trash-arrow-up fa-lg fa-fw"></i>
               </template>

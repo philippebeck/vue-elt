@@ -1,10 +1,8 @@
 <template>
   <CardElt>
   <template #header>
-    <h2 id="create-image">
-      <i class="fa-regular fa-image fa-lg"
-        aria-hidden="true">
-      </i>
+    <h2>
+      <i class="fa-regular fa-image fa-lg"></i>
       {{ val.IMAGE_CREATOR }}
     </h2>
   </template>
@@ -18,13 +16,8 @@
             type="file"
             v-model:value="image"
             :info="val.INFO_IMAGE">
-
-            <template #legend>
-              {{ val.LEGEND_IMAGE }}
-            </template>
-            <template #label>
-              {{ val.LABEL_IMAGE }}
-            </template>
+            <template #legend>{{ val.LEGEND_IMAGE }}</template>
+            <template #label>{{ val.LABEL_IMAGE }}</template>
           </FieldElt>
         </template>
 
@@ -33,23 +26,17 @@
             @keyup.enter="createImage()"
             :info="val.INFO_DESCRIPTION"
             :max="val.TEXT_MAX">
-
-            <template #legend>
-              {{ val.LEGEND_DESCRIPTION }}
-            </template>
-            <template #label>
-              {{ val.LABEL_DESCRIPTION }}
-            </template>
+            <template #legend>{{ val.LEGEND_DESCRIPTION }}</template>
+            <template #label>{{ val.LABEL_DESCRIPTION }}</template>
           </FieldElt>
         </template>
       </ListElt>
 
       <BtnElt type="button"
-        @click="createImage()" 
+        @click="createImage()"
         class="btn-green"
         :content="val.CONTENT_CREATE"
         :title="val.IMAGE_CREATOR">
-
         <template #btn>
           <i class="fa-solid fa-square-plus fa-lg"></i>
         </template>

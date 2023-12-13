@@ -4,50 +4,30 @@
     <FieldElt v-model:value="name"
       :info="val.INFO_NAME"
       :min="2">
-
-      <template #legend>
-        {{ val.LEGEND_NAME }}
-      </template>
-      <template #label>
-        {{ val.LABEL_NAME }}
-      </template>
+      <template #legend>{{ val.LEGEND_NAME }}</template>
+      <template #label>{{ val.LABEL_NAME }}</template>
     </FieldElt>
 
     <FieldElt type="email"
       v-model:value="email"
       :info="val.INFO_EMAIL">
-
-      <template #legend>
-        {{ val.LEGEND_EMAIL }}
-      </template>
-      <template #label>
-        {{ val.LABEL_EMAIL }}
-      </template>
+      <template #legend>{{ val.LEGEND_EMAIL }}</template>
+      <template #label>{{ val.LABEL_EMAIL }}</template>
     </FieldElt>
 
     <FieldElt id="image"
       type="file"
       v-model:value="image"
       :info="val.INFO_IMAGE">
-
-      <template #legend>
-        {{ val.LEGEND_IMAGE }}
-      </template>
-      <template #label>
-        {{ val.LABEL_IMAGE }}
-      </template>
+      <template #legend>{{ val.LEGEND_IMAGE }}</template>
+      <template #label>{{ val.LABEL_IMAGE }}</template>
     </FieldElt>
 
     <FieldElt type="password"
       v-model:value="pass"
       :info="val.INFO_PASSWORD">
-
-      <template #legend>
-        {{ val.LEGEND_PASSWORD }}
-      </template>
-      <template #label>
-        {{ val.LABEL_PASSWORD }}
-      </template>
+      <template #legend>{{ val.LEGEND_PASSWORD }}</template>
+      <template #label>{{ val.LABEL_PASSWORD }}</template>
     </FieldElt>
 
     <vue-recaptcha :sitekey="val.RECAPTCHA_KEY"
@@ -56,7 +36,6 @@
         class="btn-blue"
         :content="val.CONTENT_SIGNUP"
         :title="val.TITLE_SIGNUP">
-
         <template #btn>
           <i class="fa-solid fa-user-plus fa-lg"></i>
         </template>
@@ -79,8 +58,8 @@ export default {
     FieldElt,
     VueRecaptcha 
   },
-
   props: ["val"],
+
   data() {
     return {
       name: "",

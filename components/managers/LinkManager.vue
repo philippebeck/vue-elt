@@ -1,10 +1,8 @@
 <template>
     <CardElt>
     <template #header>
-      <h2 id="link">
-        <i class="fa-solid fa-link fa-lg"
-          aria-hidden="true">
-        </i>
+      <h2>
+        <i class="fa-solid fa-link fa-lg"></i>
         {{ val.LINK_MANAGER }}
       </h2>
     </template>
@@ -58,7 +56,6 @@
                 <i class="fa-solid fa-cloud-arrow-up fa-lg fa-fw"></i>
               </template>
             </BtnElt>
-
             <BtnElt type="button"
               @click="deleteLink(table[slotProps.index].id)" 
               class="btn-red"

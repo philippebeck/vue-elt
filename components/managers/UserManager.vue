@@ -1,10 +1,8 @@
 <template>
   <CardElt>
     <template #header>
-      <h2 id="user">
-        <i class="fa-solid fa-users-gear fa-lg"
-          aria-hidden="true">
-        </i>
+      <h2>
+        <i class="fa-solid fa-users-gear fa-lg"></i>
         {{ val.USER_MANAGER }}
       </h2>
     </template>
@@ -34,7 +32,6 @@
             <MediaElt :src="'/img/thumbnails/users/' + users[slotProps.index].image"
               :alt="users[slotProps.index].name"
               :title="users[slotProps.index].image"/>
-
             <FieldElt :id="users[slotProps.index].id"
               type="file"
               :info="val.INFO_UP_IMAGE"/>
@@ -49,15 +46,11 @@
           </template>
 
           <template #cell-created="slotProps">
-            <p>
-              {{ new Date(getUsers()[slotProps.index].created).toLocaleString() }}
-            </p>
-
+            <p>{{ new Date(getUsers()[slotProps.index].created).toLocaleString() }}</p>
             <BtnElt type="button"
               @click="deleteUser(users[slotProps.index].id)" 
               class="btn-red"
               :title="val.TITLE_DELETE + users[slotProps.index].name">
-
               <template #btn>
                 <i class="fa-solid fa-trash-arrow-up fa-lg fa-fw"></i>
               </template>
@@ -65,15 +58,11 @@
           </template>
 
           <template #cell-updated="slotProps">
-            <p>
-              {{ new Date(getUsers()[slotProps.index].updated).toLocaleString() }}
-            </p>
-
+            <p>{{ new Date(getUsers()[slotProps.index].updated).toLocaleString() }}</p>
             <BtnElt type="button"
               @click="updateUser(users[slotProps.index].id)" 
               class="btn-sky"
               :title="val.TITLE_UPDATE + users[slotProps.index].name">
-
               <template #btn>
                 <i class="fa-solid fa-cloud-arrow-up fa-lg fa-fw"></i>
               </template>

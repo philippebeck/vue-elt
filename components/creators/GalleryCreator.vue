@@ -1,63 +1,50 @@
 <template>
   <CardElt>
-  <template #header>
-    <h2 id="create-gallery">
-      <i class="fa-regular fa-images fa-lg"
-        aria-hidden="true">
-      </i>
-      {{ val.GALLERY_CREATOR }}
-    </h2>
-  </template>
+    <template #header>
+      <h2>
+        <i class="fa-regular fa-images fa-lg"></i>
+        {{ val.GALLERY_CREATOR }}
+      </h2>
+    </template>
 
-  <template #body>
-    <form>
-      <ListElt :items="val.GALLERY_FORM">
+    <template #body>
+      <form>
+        <ListElt :items="val.GALLERY_FORM">
 
-        <template #item-1>
-          <FieldElt v-model:value="name"
-            @keyup.enter="createGallery()"
-            :info="val.INFO_NAME">
+          <template #item-1>
+            <FieldElt v-model:value="name"
+              @keyup.enter="createGallery()"
+              :info="val.INFO_NAME">
+              <template #legend>{{ val.LEGEND_NAME }}</template>
+              <template #label>{{ val.LABEL_NAME }}</template>
+            </FieldElt>
+          </template>
 
-            <template #legend>
-              {{ val.LEGEND_NAME }}
-            </template>
-            <template #label>
-              {{ val.LABEL_NAME }}
-            </template>
-          </FieldElt>
-        </template>
+          <template #item-2>
+            <FieldElt type="author"
+              v-model:value="author"
+              @keyup.enter="createGallery()"
+              :info="val.INFO_AUTHOR"
+              :min="val.URL_MIN"
+              :max="val.URL_MAX">
+              <template #legend>{{ val.LEGEND_AUTHOR }}</template>
+              <template #label>{{ val.LABEL_AUTHOR }}</template>
+            </FieldElt>
+          </template>
+        </ListElt>
 
-        <template #item-2>
-          <FieldElt type="author"
-            v-model:value="author"
-            @keyup.enter="createGallery()"
-            :info="val.INFO_AUTHOR"
-            :min="val.URL_MIN"
-            :max="val.URL_MAX">
-
-            <template #legend>
-              {{ val.LEGEND_AUTHOR }}
-            </template>
-            <template #label>
-              {{ val.LABEL_AUTHOR }}
-            </template>
-          </FieldElt>
-        </template>
-      </ListElt>
-
-      <BtnElt type="button"
-        @click="createGallery()" 
-        class="btn-green"
-        :content="val.CONTENT_CREATE"
-        :title="val.GALLERY_CREATOR">
-
-        <template #btn>
-          <i class="fa-solid fa-square-plus fa-lg"></i>
-        </template>
-      </BtnElt>
-    </form>
-  </template>
-</CardElt>
+        <BtnElt type="button"
+          @click="createGallery()" 
+          class="btn-green"
+          :content="val.CONTENT_CREATE"
+          :title="val.GALLERY_CREATOR">
+          <template #btn>
+            <i class="fa-solid fa-square-plus fa-lg"></i>
+          </template>
+        </BtnElt>
+      </form>
+    </template>
+  </CardElt>
 </template>
 
 <script>
