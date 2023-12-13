@@ -69,22 +69,23 @@ export default {
       default: false
     }
   },
-  methods: {    
+
+  methods: {
     /**
-     * Checks if a slot with the given name exists.
+     * ? HAS SLOT
+     * Determines if the specified slot name is available in the component's slots.
      *
-     * @param {string} name - The name of the slot to check.
-     * @return {boolean} - True if a slot with the given name exists, false otherwise.
+     * @param {string} name - The name of the slot to check for.
+     * @return {boolean} Returns true if the component has the specified slot, false otherwise.
      */
     hasSlot(name) {
       return Object.prototype.hasOwnProperty.call(this.$slots, name);
-    },
+    }
   }
 }
 </script>
 
 <style>
-/********** LIST ELT **********/
 ul {
   --ve-list-margin: 20px 0;
   --ve-list-padding: 0;
@@ -97,7 +98,6 @@ ul {
   --ve-list-li-ul-place-items: baseline;
   --ve-list-li-li-max-width: 300px;
 }
-
 </style>
 
 <style scoped>

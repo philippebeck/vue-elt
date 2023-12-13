@@ -106,7 +106,6 @@
 <script>
 export default {
   name: "FieldElt",
-
   props: {
     model: {
       prop: "value",
@@ -154,16 +153,18 @@ export default {
 
   methods: {
     /**
-     * Checks if a slot with the given name exists.
+     * ? HAS SLOT
+     * Determines if the specified slot name is available in the component's slots.
      *
-     * @param {string} name - The name of the slot to check.
-     * @return {boolean} - True if a slot with the given name exists, false otherwise.
+     * @param {string} name - The name of the slot to check for.
+     * @return {boolean} Returns true if the component has the specified slot, false otherwise.
      */
     hasSlot(name) {
       return Object.prototype.hasOwnProperty.call(this.$slots, name);
     },
 
     /**
+     * ? ON INPUT
      * Handles input events and emits an update with the new value.
      *
      * @param {Event} event - The input event triggered by the user.
@@ -174,6 +175,7 @@ export default {
     },
 
     /**
+     * ? GET FIELD TYPE
      * Returns the type of the input field based on the 'type' property.
      *
      * @return {string} The type of the input field: 'number', 'special', 'list', 'area', or 'text'.
@@ -193,7 +195,6 @@ export default {
 </script>
 
 <style>
-/********** FIELD ELT **********/
 fieldset {
   --ve-field-display: flex;
   --ve-field-flex-flow: row wrap;
@@ -241,7 +242,6 @@ textarea {
   --ve-field-hover-input-background-color: var(--ani-white);
   --ve-field-hover-input-transition: all 500ms;
 }
-
 </style>
 
 <style scoped>

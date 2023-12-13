@@ -20,7 +20,6 @@
 <script>
   export default {
     name: "BtnElt",
-
     props: {
       type: {
         type: String,
@@ -34,6 +33,7 @@
 
     methods: {
       /**
+       * ? GET BTN TYPE
        * Determines the type of button based on the 'type' property of the current instance.
        *
        * @return {string} Returns 'button' if the 'type' property is set to 'button', 'submit' or 'reset', otherwise returns 'link'.
@@ -48,7 +48,6 @@
 </script>
 
 <style>
-/********** BTN ELT **********/
 a,
 button {
   --ve-btn-display: inline-block;
@@ -84,8 +83,6 @@ button {
   --ve-label-hover-color: var(--ani-white);
 }
 
-/* RED */
-
 .btn-red {
   --ve-btn-red-background-color: var(--ani-red-dark);
   --ve-btn-red-hover-background-color: var(--ani-red);
@@ -98,8 +95,6 @@ button {
   --ve-label-red-hover-border-color: var(--ani-red-light);
   --ve-label-red-hover-color: var(--ani-red-light);
 }
-
-/* ORANGE */
 
 .btn-orange {
   --ve-btn-orange-background-color: var(--ani-orange-dark);
@@ -114,8 +109,6 @@ button {
   --ve-label-orange-hover-color: var(--ani-orange-light);
 }
 
-/* YELLOW */
-
 .btn-yellow {
   --ve-btn-yellow-background-color: var(--ani-yellow-dark);
   --ve-btn-yellow-hover-background-color: var(--ani-yellow);
@@ -128,8 +121,6 @@ button {
   --ve-label-yellow-hover-border-color: var(--ani-yellow-light);
   --ve-label-yellow-hover-color: var(--ani-yellow-light);
 }
-
-/* LIME */
 
 .btn-lime {
   --ve-btn-lime-background-color: var(--ani-lime-dark);
@@ -144,8 +135,6 @@ button {
   --ve-label-lime-hover-color: var(--ani-lime-light);
 }
 
-/* GREEN */
-
 .btn-green {
   --ve-btn-green-background-color: var(--ani-green-dark);
   --ve-btn-green-hover-background-color: var(--ani-green);
@@ -158,8 +147,6 @@ button {
   --ve-label-green-hover-border-color: var(--ani-green-light);
   --ve-label-green-hover-color: var(--ani-green-light);
 }
-
-/* AQUA */
 
 .btn-aqua {
   --ve-btn-aqua-background-color: var(--ani-aqua-dark);
@@ -174,8 +161,6 @@ button {
   --ve-label-aqua-hover-color: var(--ani-aqua-light);
 }
 
-/* CYAN */
-
 .btn-cyan {
   --ve-btn-cyan-background-color: var(--ani-cyan-dark);
   --ve-btn-cyan-hover-background-color: var(--ani-cyan);
@@ -188,8 +173,6 @@ button {
   --ve-label-cyan-hover-border-color: var(--ani-cyan-light);
   --ve-label-cyan-hover-color: var(--ani-cyan-light);
 }
-
-/* SKY */
 
 .btn-sky {
   --ve-btn-sky-background-color: var(--ani-sky-dark);
@@ -204,8 +187,6 @@ button {
   --ve-label-sky-hover-color: var(--ani-sky-light);
 }
 
-/* BLUE */
-
 .btn-blue {
   --ve-btn-blue-background-color: var(--ani-blue-dark);
   --ve-btn-blue-hover-background-color: var(--ani-blue);
@@ -218,8 +199,6 @@ button {
   --ve-label-blue-hover-border-color: var(--ani-blue-light);
   --ve-label-blue-hover-color: var(--ani-blue-light);
 }
-
-/* VIOLET */
 
 .btn-violet {
   --ve-btn-violet-background-color: var(--ani-violet-dark);
@@ -234,8 +213,6 @@ button {
   --ve-label-violet-hover-color: var(--ani-violet-light);
 }
 
-/* MAGENTA */
-
 .btn-magenta {
   --ve-btn-magenta-background-color: var(--ani-magenta-dark);
   --ve-btn-magenta-hover-background-color: var(--ani-magenta);
@@ -249,8 +226,6 @@ button {
   --ve-label-magenta-hover-color: var(--ani-magenta-light);
 }
 
-/* PINK */
-
 .btn-pink {
   --ve-btn-pink-background-color: var(--ani-pink-dark);
   --ve-btn-pink-hover-background-color: var(--ani-pink);
@@ -263,7 +238,6 @@ button {
   --ve-label-pink-hover-border-color: var(--ani-pink-light);
   --ve-label-pink-hover-color: var(--ani-pink-light);
 }
-
 </style>
 
 <style scoped>
@@ -315,8 +289,6 @@ button > * {
   margin: var(--ve-btn-child-margin);
 }
 
-/* RED */
-
 .btn-red {
   background-color: var(--ve-btn-red-background-color);
 }
@@ -337,8 +309,6 @@ button > * {
   border-color: var(--ve-label-red-hover-border-color);
   color: var(--ve-label-red-hover-color);
 }
-
-/* ORANGE */
 
 .btn-orange {
   background-color: var(--ve-btn-orange-background-color);
@@ -361,8 +331,6 @@ button > * {
   color: var(--ve-label-orange-hover-color);
 }
 
-/* YELLOW */
-
 .btn-yellow {
   background-color: var(--ve-btn-yellow-background-color);
 }
@@ -383,8 +351,6 @@ button > * {
   border-color: var(--ve-label-yellow-hover-border-color);
   color: var(--ve-label-yellow-hover-color);
 }
-
-/* LIME */
 
 .btn-lime {
   background-color: var(--ve-btn-lime-background-color);
@@ -407,8 +373,6 @@ button > * {
   color: var(--ve-label-lime-hover-color);
 }
 
-/* GREEN */
-
 .btn-green {
   background-color: var(--ve-btn-green-background-color);
 }
@@ -429,8 +393,6 @@ button > * {
   border-color: var(--ve-label-green-hover-border-color);
   color: var(--ve-label-green-hover-color);
 }
-
-/* AQUA */
 
 .btn-aqua {
   background-color: var(--ve-btn-aqua-background-color);
@@ -453,8 +415,6 @@ button > * {
   color: var(--ve-label-aqua-hover-color);
 }
 
-/* CYAN */
-
 .btn-cyan {
   background-color: var(--ve-btn-cyan-background-color);
 }
@@ -475,8 +435,6 @@ button > * {
   border-color: var(--ve-label-cyan-hover-border-color);
   color: var(--ve-label-cyan-hover-color);
 }
-
-/* SKY */
 
 .btn-sky {
   background-color: var(--ve-btn-sky-background-color);
@@ -499,8 +457,6 @@ button > * {
   color: var(--ve-label-sky-hover-color);
 }
 
-/* BLUE */
-
 .btn-blue {
   background-color: var(--ve-btn-blue-background-color);
 }
@@ -521,8 +477,6 @@ button > * {
   border-color: var(--ve-label-blue-hover-border-color);
   color: var(--ve-label-blue-hover-color);
 }
-
-/* VIOLET */
 
 .btn-violet {
   background-color: var(--ve-btn-violet-background-color);
@@ -545,8 +499,6 @@ button > * {
   color: var(--ve-label-violet-hover-color);
 }
 
-/* MAGENTA */
-
 .btn-magenta {
   background-color: var(--ve-btn-magenta-background-color);
 }
@@ -567,8 +519,6 @@ button > * {
   border-color: var(--ve-label-magenta-hover-border-color);
   color: var(--ve-label-magenta-hover-color);
 }
-
-/* PINK */
 
 .btn-pink {
   background-color: var(--ve-btn-pink-background-color);

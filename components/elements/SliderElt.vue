@@ -86,7 +86,6 @@
 <script>
 export default {
   name: "SliderElt",
-
   props: {
     slides: {
       type: Array
@@ -105,17 +104,6 @@ export default {
     }
   },
 
-  /**
-   * Returns an object containing various data properties used by the component.
-   *
-   * @return {Object} An object containing the following properties:
-   *   - index: The current index.
-   *   - intervalId: The ID of the interval timer.
-   *   - autoElt: The auto element.
-   *   - randomElt: The random element.
-   *   - autoState: The state of auto.
-   *   - randomState: The state of random.
-   */
   data() {
     return {
       index: -1,
@@ -127,21 +115,12 @@ export default {
     }
   },
 
-  /**
-   * Runs before the component is created.
-   *
-   * @param None
-   * @return None
-   */
   beforeCreate() {
     for (let i = 0; i < 1000; i++) {
       clearTimeout(i);
     }
   },
 
-  /**
-   * Initializes the slider and mounts the component.
-   */
   mounted() {
     this.autoElt    = document.getElementById("slider-auto");
     this.randomElt  = document.getElementById("slider-random");
@@ -345,7 +324,6 @@ export default {
 </script>
 
 <style>
-/********** SLIDER ELT **********/
 .slider {
   --ve-slider-margin: var(--ve-slider-figcaption-height) auto -20px;
   --ve-slider-border: none;
@@ -406,7 +384,6 @@ button {
     --ve-slider-gallery-opacity: 0;
   }
 }
-
 </style>
 
 <style scoped>

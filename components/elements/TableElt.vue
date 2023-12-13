@@ -65,12 +65,14 @@ export default {
       required: true
     }
   },
+
   methods: {
     /**
-     * Checks if a slot with the given name exists.
+     * ? HAS SLOT
+     * Determines if the specified slot name is available in the component's slots.
      *
-     * @param {string} name - The name of the slot to check.
-     * @return {boolean} - True if a slot with the given name exists, false otherwise.
+     * @param {string} name - The name of the slot to check for.
+     * @return {boolean} Returns true if the component has the specified slot, false otherwise.
      */
     hasSlot(name) {
       return Object.prototype.hasOwnProperty.call(this.$slots, name);
@@ -80,7 +82,6 @@ export default {
 </script>
 
 <style>
-/********** TABLE ELT **********/
 table {
   --ve-table-display: table;
   --ve-table-overflow: hidden;
@@ -181,7 +182,6 @@ td {
     --ve-table-max-width: 95%;
   }
 }
-
 </style>
 
 <style scoped>
@@ -253,5 +253,4 @@ td {
   word-break: var(--ve-table-td-word-break);;
   cursor: var(--ve-table-td-cursor);
 }
-
 </style>
