@@ -72,6 +72,3 @@ Available Auth SFC :
 -   **ForgotPass**  
 -   **SignIn**  
 -   **SignUp**  
-
-Overloading CSS vars :  
--   **style.css**  
