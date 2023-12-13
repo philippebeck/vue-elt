@@ -18,7 +18,7 @@ beforeEach(() => {
 
   wrapper = shallowMount(LinkManager, {
     props: {
-      constants: {
+      val: {
         CHECK_STRING: 'Check String',
         REGEX_URL: /your-regex-pattern/,
         CHECK_URL: 'Check URL',
@@ -58,7 +58,7 @@ describe("LinkManager", () => {
   })
 
   test("props", () => {
-    expect(wrapper.props("constants")).toStrictEqual({
+    expect(wrapper.props("val")).toStrictEqual({
       CHECK_STRING: 'Check String',
       REGEX_URL: /your-regex-pattern/,
       CHECK_URL: 'Check URL',

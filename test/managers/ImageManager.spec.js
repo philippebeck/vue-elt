@@ -8,7 +8,7 @@ jest.mock("axios");
 beforeEach(() => {
   wrapper = shallowMount(ImageManager, {
     props: {
-      constants: {
+      val: {
         TEST: "test"
       },
       galleries: [{
@@ -43,7 +43,7 @@ describe("ImageManager", () => {
   })
 
   test("props", () => {
-    expect(wrapper.props("constants")).toStrictEqual({ TEST: "test" })
+    expect(wrapper.props("val")).toStrictEqual({ TEST: "test" })
     expect(wrapper.props("galleries")).toStrictEqual([{
       name: "Gallery name",
       author: "Gallery author"

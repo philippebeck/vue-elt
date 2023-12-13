@@ -8,7 +8,7 @@ jest.mock("axios");
 beforeEach(() => {
   wrapper = shallowMount(LinkCreator, {
     props: {
-      constants: {
+      val: {
         TEST: "test"
       }
     },
@@ -40,7 +40,7 @@ describe("LinkCreator", () => {
   })
 
   test("props", () => {
-    expect(wrapper.props("constants")).toStrictEqual({ TEST: "test" })
+    expect(wrapper.props("val")).toStrictEqual({ TEST: "test" })
   })
 
   test("data", () => {

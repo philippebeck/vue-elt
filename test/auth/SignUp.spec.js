@@ -8,7 +8,7 @@ jest.mock("axios");
 beforeEach(() => {
   wrapper = shallowMount(SignUp, {
     props: {
-      constants: {
+      val: {
         TEST: "test",
         RECAPTCHA_KEY: "test"
       }
@@ -41,8 +41,8 @@ describe("SignUp", () => {
   })
 
   test("props", () => { 
-    expect(wrapper.props().constants.TEST).toBe("test")
-    expect(wrapper.props().constants.RECAPTCHA_KEY).toBe("test")
+    expect(wrapper.props().val.TEST).toBe("test")
+    expect(wrapper.props().val.RECAPTCHA_KEY).toBe("test")
   })
 
   test("data", () => { 

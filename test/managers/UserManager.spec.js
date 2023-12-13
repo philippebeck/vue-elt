@@ -8,7 +8,7 @@ jest.mock("axios");
 beforeEach(() => {
   wrapper = shallowMount(UserManager, {
     props: {
-      constants: {
+      val: {
         TEST: "test"
       },
       users: [{
@@ -41,7 +41,7 @@ describe("UserManager", () => {
   })
 
   test("props", () => {
-    expect(wrapper.props("constants")).toStrictEqual({ TEST: "test" })
+    expect(wrapper.props("val")).toStrictEqual({ TEST: "test" })
     expect(wrapper.props("users")).toStrictEqual([{
       name: "User name",
       email: "User email",
