@@ -101,7 +101,7 @@ export default {
 
           data.append("image", img);
           data.append("description", this.description);
-          data.append("gallery", this.$route.params.id);
+          data.append("gallery_id", this.$route.params.id);
 
           postData(URL, data, TOKEN)
             .then(() => {
