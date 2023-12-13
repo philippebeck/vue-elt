@@ -5,7 +5,7 @@
         <i class="fa-solid fa-gifts fa-lg"
           aria-hidden="true">
         </i>
-        {{ constants.ORDER_MANAGER }}
+        {{ val.ORDER_MANAGER }}
       </h2>
     </template>
 
@@ -22,7 +22,7 @@
               <li v-for="(item, index) in orders[slotProps.index].products"
                 :key="index">
                 <a :href="`/product/${item.id}`">
-                  <ul :title="constants.TITLE_GO + item.name">
+                  <ul :title="val.TITLE_GO + item.name">
                     <li>
                       <b>{{ item.name }}</b>
                     </li>
@@ -48,10 +48,10 @@
 
           <template #cell-status="slotProps">
             <FieldElt type="select"
-              :list="constants.CATS_ORDER"
+              :list="val.CATS_ORDER"
               v-model:value="getOrders()[slotProps.index].status"
               @keyup.enter="updateStatus(orders[slotProps.index].id)"
-              :info="constants.INFO_UP_STATUS"/>
+              :info="val.INFO_UP_STATUS"/>
           </template>
 
           <template #cell-user="slotProps">
@@ -67,7 +67,7 @@
             <BtnElt type="button"
               @click="deleteOrder(orders[slotProps.index].id)" 
               class="btn-red"
-              :title="constants.TITLE_DELETE_ORDER + orders[slotProps.index].id">
+              :title="val.TITLE_DELETE_ORDER + orders[slotProps.index].id">
               <template #btn>
                 <i class="fa-solid fa-trash-arrow-up fa-lg fa-fw"></i>
               </template>
@@ -82,7 +82,7 @@
             <BtnElt type="button"
               @click="updateStatus(orders[slotProps.index].id)" 
               class="btn-green"
-              :title="constants.INFO_UP_ORDER + orders[slotProps.index].id">
+              :title="val.INFO_UP_ORDER + orders[slotProps.index].id">
               <template #btn>
                 <i class="fa-regular fa-calendar-check fa-lg fa-fw"></i>
               </template>
@@ -110,9 +110,8 @@ export default {
     FieldElt,
     TableElt
   },
-
   props: [
-    "constants", 
+    "val", 
     "orders", 
     "users"
   ],
@@ -135,18 +134,18 @@ export default {
      * @param {number} id - The ID of the order to update.
      */
     updateStatus(id) {
-      for (let order of this.orders) {
-        if (order.id === id) {
+      const { API_URL, TOKEN, ALERT_ORDER, ALERT_UPDATED } = this.val;
+      const order = this.orders.find(o => o.id === id);
 
-          const URL   = this.constants.API_URL + "/orders/" + id;
-          const data  = new FormData();
+      if (order) {
+        const URL   = `${API_URL}/orders/${id}`
+        const data  = new FormData();
 
-          data.append("status", order.status);
+        data.append("status", order.status);
 
-          putData(URL, data, this.constants.TOKEN)
-            .then(() => { alert(this.constants.ALERT_ORDER + id + this.constants.ALERT_UPDATED) })
-            .catch(err => { setError(err) });
-        }
+        putData(URL, data, TOKEN)
+          .then(() => alert(`${ALERT_ORDER} ${id} ${ALERT_UPDATED}`))
+          .catch(setError);
       }
     },
 
@@ -157,12 +156,14 @@ export default {
      * @param {number} id - the ID of the order to delete
      */
     deleteOrder(id) {
-      if (confirm(`${this.constants.TITLE_DELETE_ORDER}${id} ?`) === true) {
-        const URL = this.constants.API_URL + "/orders/" + id;
+      const { TITLE_DELETE_ORDER, API_URL, TOKEN, ALERT_ORDER, ALERT_DELETED } = this.val;
 
-        deleteData(URL, this.constants.TOKEN)
+      if (confirm(`${TITLE_DELETE_ORDER} ${id} ?`) === true) {
+        const URL = `${API_URL}/orders/${id}`
+
+        deleteData(URL, TOKEN)
           .then(() => {
-            alert(this.constants.ALERT_ORDER + id + this.constants.ALERT_DELETED);
+            alert(ALERT_ORDER + id + ALERT_DELETED);
             this.$router.go();
           })
           .catch(err => { setError(err) });

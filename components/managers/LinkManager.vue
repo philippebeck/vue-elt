@@ -5,7 +5,7 @@
         <i class="fa-solid fa-link fa-lg"
           aria-hidden="true">
         </i>
-        {{ constants.LINK_MANAGER }}
+        {{ val.LINK_MANAGER }}
       </h2>
     </template>
 
@@ -21,7 +21,7 @@
             <i :class="`fa-brands fa-${table[0].cat.toLowerCase()} fa-5x sky`"></i>
           </template>
 
-          <template #head>{{ constants.HEAD_UP }}</template>
+          <template #head>{{ val.HEAD_UP }}</template>
 
           <template #cell-id="slotProps">
             <b>{{ slotProps.item.id }}</b>
@@ -30,23 +30,23 @@
           <template #cell-name="slotProps">
             <FieldElt v-model:value="table[slotProps.index].name"
               @keyup.enter="updateLink(table[slotProps.index].id)"
-              :info="constants.INFO_UP_NAME"/>
+              :info="val.INFO_UP_NAME"/>
           </template>
 
           <template #cell-url="slotProps">
             <FieldElt type="url"
               v-model:value="table[slotProps.index].url"
               @keyup.enter="updateLink(table[slotProps.index].id)"
-              :info="constants.INFO_UP_URL"
+              :info="val.INFO_UP_URL"
               :max="parseInt('100')"/>
           </template>
 
           <template #cell-cat="slotProps">
             <FieldElt type="select"
-              :list="constants.CATS_LINK"
+              :list="val.CATS_LINK"
               v-model:value="table[slotProps.index].cat"
               @keyup.enter="updateLink(table[slotProps.index].id)"
-              :info="constants.INFO_UP_CATEGORY"/>
+              :info="val.INFO_UP_CATEGORY"/>
           </template>
 
           <template #body="slotProps">
@@ -90,11 +90,7 @@ export default {
     FieldElt,
     TableElt
   },
-
-  props: [
-    "constants", 
-    "links"
-  ],
+  props: ["val", "links"],
 
   methods: {
     /**
@@ -119,57 +115,32 @@ export default {
     },
 
     /**
-     * ? GET LINK
-     * A function to get a link.
-     *
-     * @param {Object} link - The link object.
-     * @return {FormData} The FormData object containing the link data.
-     */
-    getLink(link) {
-      let data = new FormData();
-
-      data.append("name", link.name);
-      data.append("url", link.url);
-      data.append("cat", link.cat);
-
-      return data;
-    },
-
-    /**
-     * ? CHECK LINK
-     * Check the link and update it if it meets the required criteria.
-     *
-     * @param {object} link - The link object to be checked and updated.
-     */
-    checkLink(link) {
-      if (link.url.startsWith("http")) { link.url = link.url.split('//')[1] }
-
-      const NAME_MSG  = this.constants.CHECK_STRING;
-      const REGEX     = this.constants.REGEX_URL;
-      const URL_MSG   = this.constants.CHECK_URL;
-
-      if (checkRange(link.name, NAME_MSG) && 
-          checkRegex(`https://${link.url}`, URL_MSG, REGEX)) {
-
-        const URL = this.constants.API_URL + "/links/" + link.id;
-
-        putData(URL, this.getLink(link), this.constants.TOKEN)
-          .then(() => {
-            alert(link.name + this.constants.ALERT_UPDATED);
-          })
-          .catch(err => { setError(err) });
-      }
-    },
-
-    /**
      * ? UPDATE LINK
      * Updates a link based on its ID.
      *
      * @param {number} id - The ID of the link to update.
      */
     updateLink(id) {
-      for (let link of this.links) {
-        if (link.id === id) this.checkLink(link);
+      const { CHECK_STRING, REGEX_URL, CHECK_URL, API_URL, TOKEN, ALERT_UPDATED } = this.val;
+      const link = this.links.find(l => l.id === id);
+      let { name, url, cat } = link;
+
+      if (link &&
+        checkRange(name, CHECK_STRING) &&
+        checkRegex(url, CHECK_URL, REGEX_URL)) {
+
+        const URL   = `${API_URL}/links/${id}`;
+        const data  = new FormData();
+
+        if (url.startsWith("http")) url = url.split('//')[1];
+
+        data.append("name", name);
+        data.append("url", url);
+        data.append("cat", cat);
+
+        putData(URL, data, TOKEN)
+          .then(() => { alert(`${name} ${ALERT_UPDATED}`) })
+          .catch(setError);
       }
     },
 
@@ -180,14 +151,15 @@ export default {
      * @param {number} id - The ID of the link to be deleted.
      */
     deleteLink(id) {
+      const { TITLE_DELETE, API_URL, TOKEN, ALERT_DELETED } = this.val;
       const NAME = getItemName(id, this.links);
 
-      if (confirm(`${this.constants.TITLE_DELETE} ${NAME} ?`) === true) {
-        const URL = this.constants.API_URL + "/links/" + id;
+      if (confirm(`${TITLE_DELETE} ${NAME} ?`) === true) {
+        const URL = `${API_URL}/links/${id}`;
 
-        deleteData(URL, this.constants.TOKEN)
+        deleteData(URL, TOKEN)
           .then(() => {
-            alert(NAME + this.constants.ALERT_DELETED);
+            alert(NAME + ALERT_DELETED);
             this.$router.go();
           })
           .catch(err => { setError(err) });

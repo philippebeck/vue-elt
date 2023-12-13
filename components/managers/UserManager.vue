@@ -5,7 +5,7 @@
         <i class="fa-solid fa-users-gear fa-lg"
           aria-hidden="true">
         </i>
-        {{ constants.USER_MANAGER }}
+        {{ val.USER_MANAGER }}
       </h2>
     </template>
 
@@ -20,14 +20,14 @@
           <template #cell-name="slotProps">
             <FieldElt v-model:value="getUsers()[slotProps.index].name"
               @keyup.enter="updateUser(users[slotProps.index].id)"
-              :info="constants.INFO_UP_NAME"/>
+              :info="val.INFO_UP_NAME"/>
           </template>
 
           <template #cell-email="slotProps">
             <FieldElt type="email"
               v-model:value="getUsers()[slotProps.index].email"
               @keyup.enter="updateUser(users[slotProps.index].id)"
-              :info="constants.INFO_UP_EMAIL"/>
+              :info="val.INFO_UP_EMAIL"/>
           </template>
 
           <template #cell-image="slotProps">
@@ -37,15 +37,15 @@
 
             <FieldElt :id="users[slotProps.index].id"
               type="file"
-              :info="constants.INFO_UP_IMAGE"/>
+              :info="val.INFO_UP_IMAGE"/>
           </template>
 
           <template #cell-role="slotProps">
             <FieldElt type="select"
-              :list="constants.ROLES_USER"
+              :list="val.ROLES_USER"
               v-model:value="getUsers()[slotProps.index].role"
               @keyup.enter="updateUser(users[slotProps.index].id)"
-              :info="constants.INFO_UP_ROLE"/>
+              :info="val.INFO_UP_ROLE"/>
           </template>
 
           <template #cell-created="slotProps">
@@ -56,7 +56,7 @@
             <BtnElt type="button"
               @click="deleteUser(users[slotProps.index].id)" 
               class="btn-red"
-              :title="constants.TITLE_DELETE + users[slotProps.index].name">
+              :title="val.TITLE_DELETE + users[slotProps.index].name">
 
               <template #btn>
                 <i class="fa-solid fa-trash-arrow-up fa-lg fa-fw"></i>
@@ -72,7 +72,7 @@
             <BtnElt type="button"
               @click="updateUser(users[slotProps.index].id)" 
               class="btn-sky"
-              :title="constants.TITLE_UPDATE + users[slotProps.index].name">
+              :title="val.TITLE_UPDATE + users[slotProps.index].name">
 
               <template #btn>
                 <i class="fa-solid fa-cloud-arrow-up fa-lg fa-fw"></i>
@@ -103,11 +103,7 @@ export default {
     MediaElt,
     TableElt
   },
-
-  props: [
-    "constants", 
-    "users"
-  ],
+  props: ["val", "users"],
 
   methods: {
     /**
@@ -121,57 +117,32 @@ export default {
     },
 
     /**
-     * GET USER
-     * Generates a FormData object with the user data.
-     *
-     * @param {string} id - The id of the image file input element.
-     * @param {object} user - The user object containing the user data.
-     * @return {FormData} - The FormData object with the user data.
-     */
-    getUser(id, user) {
-      const data  = new FormData();
-      const image = document.getElementById(id).files[0] ?? user.image;
-
-      data.append("name", user.name);
-      data.append("email", user.email);
-      data.append("image", image);
-      data.append("role", user.role);
-
-      return data;
-    },
-
-    /**
-     * ? CHECK USER
-     * Check the user information and update it if it meets the requirements.
-     *
-     * @param {number} id - The user ID.
-     * @param {object} user - The user object containing the name and email.
-     */
-    checkUser(id, user) {
-      const STRING_MSG  = this.constants.CHECK_STRING;
-      const EMAIL_MSG   = this.constants.CHECK_EMAIL;
-      const REGEX       = this.constants.REGEX_EMAIL;
-
-      if (checkRange(user.name, STRING_MSG) && 
-          checkRegex(user.email, EMAIL_MSG, REGEX)) {
-
-        const URL = this.constants.API_URL + "/users/" + id;
-
-        putData(URL, this.getUser(id, user), this.constants.TOKEN)
-          .then(() => { alert(user.name + this.constants.ALERT_UPDATED) })
-          .catch(err => { setError(err) });
-        }
-    },
-
-    /**
      * ? UPDATE USER
      * Update a user by their ID.
      *
      * @param {number} id - The ID of the user to update.
      */
     updateUser(id) {
-      for (let user of this.users) {
-        if (user.id === id) this.checkUser(id, user);
+      const { CHECK_STRING, CHECK_EMAIL, REGEX_EMAIL, API_URL, TOKEN, ALERT_UPDATED } = this.val;
+      const user = this.users.find(u => u.id === id);
+      let { name, email, image, role } = user;
+
+      if (user && 
+        checkRange(name, CHECK_STRING) && 
+        checkRegex(email, CHECK_EMAIL, REGEX_EMAIL)) {
+
+        const URL   = `${API_URL}/users/${id}`;
+        const img   = document.getElementById(id)?.files[0] ?? image;
+        const data  = new FormData();
+
+        data.append("name", name);
+        data.append("email", email);
+        data.append("image", img);
+        data.append("role", role);
+
+        putData(URL, data, TOKEN)
+          .then(() => alert(name + ALERT_UPDATED))
+          .catch(setError);
       }
     },
 
@@ -182,14 +153,15 @@ export default {
      * @param {number} id - The ID of the user to be deleted.
      */
     deleteUser(id) {
+      const { TITLE_DELETE, API_URL, TOKEN, ALERT_DELETED } = this.val;
       const NAME = getItemName(id, this.users);
 
-      if (confirm(`${this.constants.TITLE_DELETE} ${NAME} ?`) === true) {
-        const URL = this.constants.API_URL + "/users/" + id;
+      if (confirm(`${TITLE_DELETE} ${NAME} ?`) === true) {
+        const URL = `${API_URL}/users/${id}`;
 
-        deleteData(URL, this.constants.TOKEN)
+        deleteData(URL, TOKEN)
           .then(() => {
-            alert(NAME + this.constants.ALERT_DELETED);
+            alert(NAME + ALERT_DELETED);
             this.$router.go();
           })
           .catch(err => { setError(err) });

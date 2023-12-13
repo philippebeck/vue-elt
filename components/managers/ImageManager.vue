@@ -5,7 +5,7 @@
         <i class="fa-regular fa-images fa-lg"
           aria-hidden="true">
         </i>
-        {{ constants.IMAGE_MANAGER }}
+        {{ val.IMAGE_MANAGER }}
       </h2>
     </template>
 
@@ -21,7 +21,7 @@
             <h3 class="sky">{{ table[0].Gallery.name }}</h3>
           </template>
 
-          <template #head>{{ constants.HEAD_UP }}</template>
+          <template #head>{{ val.HEAD_UP }}</template>
 
           <template #cell-id="slotProps">
             <b>{{ table[slotProps.index].id }}</b>
@@ -34,14 +34,14 @@
 
             <FieldElt :id="table[slotProps.index].id"
               type="file"
-              :info="constants.INFO_UP_IMAGE"/>
+              :info="val.INFO_UP_IMAGE"/>
           </template>
 
           <template #cell-description="slotProps">
             <FieldElt type="textarea"
               v-model:value="table[slotProps.index].description"
               @keyup.enter="updateImage(table[slotProps.index].id)"
-              :info="constants.INFO_UP_DESCRIPTION"/>
+              :info="val.INFO_UP_DESCRIPTION"/>
           </template>
 
           <template #cell-Gallery="slotProps">
@@ -50,14 +50,14 @@
               v-model:value="table[slotProps.index].Gallery.name"
               :content="table[slotProps.index].Gallery.name"
               @keyup.enter="updateImage(table[slotProps.index].id)"
-              :info="constants.INFO_UP_GALLERY"/>
+              :info="val.INFO_UP_GALLERY"/>
           </template>
 
           <template #body="slotProps">
             <BtnElt type="button"
               @click="updateImage(table[slotProps.index].id)" 
               class="btn-sky"
-              :title="constants.TITLE_IMAGE_UPDATE + table[slotProps.index].id">
+              :title="val.TITLE_IMAGE_UPDATE + table[slotProps.index].id">
 
               <template #btn>
                 <i class="fa-solid fa-cloud-arrow-up fa-lg fa-fw"></i>
@@ -67,7 +67,7 @@
             <BtnElt type="button"
               @click="deleteImage(table[slotProps.index].id)" 
               class="btn-red"
-              :title="constants.TITLE_DELETE_IMAGE + table[slotProps.index].id">
+              :title="val.TITLE_DELETE_IMAGE + table[slotProps.index].id">
 
               <template #btn>
                 <i class="fa-solid fa-trash-arrow-up fa-lg fa-fw"></i>
@@ -81,7 +81,7 @@
 </template>
 
 <script>
-import { deleteData, putData, setError } from "servidio"
+import { checkRange, deleteData, putData, setError } from "servidio"
 
 import BtnElt from "../elements/BtnElt"
 import CardElt from "../elements/CardElt"
@@ -98,11 +98,10 @@ export default {
     MediaElt,
     TableElt
   },
-
   props: [
     "galleries", 
     "images", 
-    "constants"
+    "val"
   ],
 
   computed: {
@@ -149,15 +148,16 @@ export default {
     getItemsByGallery(items) {
       const itemsByGallery = {};
 
-      for (let item of items) {
+      for (const item of items) {
+        const galleryName = item.Gallery.name;
 
-        if (!itemsByGallery[item.Gallery.name]) {
-          itemsByGallery[item.Gallery.name] = [];
-        }
+        if (!itemsByGallery[galleryName]) itemsByGallery[galleryName] = [];
 
-        itemsByGallery[item.Gallery.name].push(item)
-        itemsByGallery[item.Gallery.name]
-          .sort((a, b) => (a.name > b.name) ? 1 : -1);
+        itemsByGallery[galleryName].push(item);
+      }
+
+      for (const gallery in itemsByGallery) {
+        itemsByGallery[gallery].sort((a, b) => (a.name > b.name) ? 1 : -1);
       }
 
       return itemsByGallery;
@@ -170,22 +170,27 @@ export default {
      * @param {number} id - The ID of the image to be updated.
      */
     updateImage(id) {
-      for (let image of this.images) {
-        if (image.id === id) {
+      const image = this.images.find(i => i.id === id);
 
-          const URL   = this.constants.API_URL + "/images/" + id;
-          const img   = document.getElementById(id).files[0] ?? image.name;
-          const data  = new FormData();
+      const { CHECK_STRING, TEXT_MIN, TEXT_MAX, API_URL, TOKEN, ALERT_IMAGE, ALERT_UPDATED } = this.val;
+      const { name, description, gallery_id } = image;
 
-          data.append("name", image.name);
-          data.append("image", img);
-          data.append("description", image.description);
-          data.append("gallery_id", image.gallery_id);
+      if (image &&
+        checkRange(name, CHECK_STRING) &&
+        checkRange(description, CHECK_STRING, TEXT_MIN, TEXT_MAX) ) {
 
-          putData(URL, data, this.constants.TOKEN)
-            .then(() => { alert(this.constants.ALERT_IMAGE + id + this.constants.ALERT_UPDATED) })
-            .catch(err => { setError(err) });
-        }
+        const URL   = `${API_URL}/images/${id}`
+        const img   = document.getElementById(id)?.files[0] ?? name;
+        const data  = new FormData();
+
+        data.append("name", name);
+        data.append("image", img);
+        data.append("description", description);
+        data.append("gallery_id", gallery_id);
+
+        putData(URL, data, TOKEN)
+          .then(() => { alert(ALERT_IMAGE + id + ALERT_UPDATED) })
+          .catch(err => { setError(err) });
       }
     },
 
@@ -196,12 +201,14 @@ export default {
      * @param {number} id - The ID of the image to be deleted.
      */
     deleteImage(id) {
-      if (confirm(`${this.constants.TITLE_DELETE_IMAGE}${id} ?`) === true) {
-        const URL = this.constants.API_URL + "/images/" + id;
+      const { TITLE_DELETE_IMAGE, API_URL, TOKEN, ALERT_IMAGE, ALERT_DELETED } = this.val;
 
-        deleteData(URL, this.constants.TOKEN)
+      if (confirm(`${TITLE_DELETE_IMAGE} ${id} ?`) === true) {
+        const URL = `${API_URL}/images/${id}`
+
+        deleteData(URL, TOKEN)
           .then(() => {
-            alert(this.constants.ALERT_IMAGE + id + this.constants.ALERT_DELETED);
+            alert(ALERT_IMAGE + id + ALERT_DELETED);
             this.$router.go();
           })
           .catch(err => { setError(err) });

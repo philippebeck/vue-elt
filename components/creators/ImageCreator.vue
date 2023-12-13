@@ -5,25 +5,25 @@
       <i class="fa-regular fa-image fa-lg"
         aria-hidden="true">
       </i>
-      {{ constants.IMAGE_CREATOR }}
+      {{ val.IMAGE_CREATOR }}
     </h2>
   </template>
 
   <template #body>
     <form enctype="multipart/form-data">
-      <ListElt :items="constants.IMAGE_FORM">
+      <ListElt :items="val.IMAGE_FORM">
 
         <template #item-1>
           <FieldElt id="image" 
             type="file"
             v-model:value="image"
-            :info="constants.INFO_IMAGE">
+            :info="val.INFO_IMAGE">
 
             <template #legend>
-              {{ constants.LEGEND_IMAGE }}
+              {{ val.LEGEND_IMAGE }}
             </template>
             <template #label>
-              {{ constants.LABEL_IMAGE }}
+              {{ val.LABEL_IMAGE }}
             </template>
           </FieldElt>
         </template>
@@ -31,14 +31,14 @@
         <template #item-2>
           <FieldElt v-model:value="description"
             @keyup.enter="createImage()"
-            :info="constants.INFO_DESCRIPTION"
-            :max="constants.TEXT_MAX">
+            :info="val.INFO_DESCRIPTION"
+            :max="val.TEXT_MAX">
 
             <template #legend>
-              {{ constants.LEGEND_DESCRIPTION }}
+              {{ val.LEGEND_DESCRIPTION }}
             </template>
             <template #label>
-              {{ constants.LABEL_DESCRIPTION }}
+              {{ val.LABEL_DESCRIPTION }}
             </template>
           </FieldElt>
         </template>
@@ -47,8 +47,8 @@
       <BtnElt type="button"
         @click="createImage()" 
         class="btn-green"
-        :content="constants.CONTENT_CREATE"
-        :title="constants.IMAGE_CREATOR">
+        :content="val.CONTENT_CREATE"
+        :title="val.IMAGE_CREATOR">
 
         <template #btn>
           <i class="fa-solid fa-square-plus fa-lg"></i>
@@ -75,8 +75,7 @@ export default {
     FieldElt,
     ListElt
   },
-
-  props: ["constants"],
+  props: ["val"],
   data() {
     return {
       description: "",
@@ -91,30 +90,28 @@ export default {
      * to the server with the provided data.
      */
     createImage() {
-      const MAX = this.constants.TEXT_MAX;
-      const MIN = this.constants.STRING_MIN;
-      const MSG = this.constants.CHECK_STRING;
+      const { CHECK_STRING, STRING_MIN, TEXT_MAX, API_URL, TOKEN, ALERT_CREATED, ALERT_IMG } = this.val;
 
-      if (checkRange(this.description, MSG, MIN, MAX)) {
-        let image = document.getElementById("image").files[0];
+      if (checkRange(this.description, CHECK_STRING, STRING_MIN, TEXT_MAX)) {
+        const img = document.getElementById("image")?.files[0];
 
-        if (image !== undefined) {
-          const URL   = this.constants.API_URL + "/images";
+        if (img !== undefined) {
+          const URL   = API_URL + "/images";
           const data  = new FormData();
 
-          data.append("image", image);
+          data.append("image", img);
           data.append("description", this.description);
           data.append("gallery", this.$route.params.id);
 
-          postData(URL, data, this.constants.TOKEN)
+          postData(URL, data, TOKEN)
             .then(() => {
-              alert(image + this.constants.ALERT_CREATED);
+              alert(img + ALERT_CREATED);
               this.$router.go();
             })
             .catch(err => { setError(err) });
 
         } else {
-          alert(this.constants.ALERT_IMG);
+          alert(ALERT_IMG);
         }
       }
     }
