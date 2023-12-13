@@ -153,7 +153,7 @@ export default {
       const { CHECK_STRING, TEXT_MIN, TEXT_MAX, API_URL, TOKEN, ALERT_UPDATED } = this.val;
       const { name, text, image, alt, likes, cat } = article;
 
-      if ( article &&
+      if (article &&
         checkRange(name, CHECK_STRING) &&
         checkRange(text, CHECK_STRING, TEXT_MIN, TEXT_MAX) &&
         checkRange(alt, CHECK_STRING) ) {
