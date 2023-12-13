@@ -125,7 +125,6 @@ export default {
     ListElt,
     Editor
   },
-
   props: ["val"],
   data() {
     return {
@@ -144,36 +143,34 @@ export default {
      * to the server with the provided data.
      */
     createArticle() {
-      const MSG = this.val.CHECK_STRING;
-      const MIN = this.val.TEXT_MIN;
-      const MAX = this.val.TEXT_MAX;
+      const { CHECK_STRING, TEXT_MIN, TEXT_MAX, CAT_ARTICLE, API_URL, TOKEN, ALERT_CREATED, ALERT_IMG } = this.val;
 
-      if (checkRange(this.name, MSG) && 
-          checkRange(this.text, MSG, MIN, MAX) && 
-          checkRange(this.alt, MSG)) {
+      if (checkRange(this.name, CHECK_STRING) && 
+          checkRange(this.text, CHECK_STRING, TEXT_MIN, TEXT_MAX) && 
+          checkRange(this.alt, CHECK_STRING)) {
 
-        if (this.cat === "") this.cat = this.val.CAT_ARTICLE;
-        let image = document.getElementById("image").files[0];
+        if (this.cat === "") this.cat = CAT_ARTICLE;
+        const img = document.getElementById("image")?.files[0];
 
-        if (image !== undefined) {
-          const URL   = this.val.API_URL + "/articles";
+        if (img !== undefined) {
+          const URL   = `${API_URL}/articles`;
           const data  = new FormData();
 
           data.append("name", this.name);
           data.append("text", this.text);
-          data.append("image", image);
+          data.append("image", img);
           data.append("alt", this.alt);
           data.append("cat", this.cat);
 
-          postData(URL, data, this.val.TOKEN)
+          postData(URL, data, TOKEN)
             .then(() => {
-              alert(this.name + this.val.ALERT_CREATED);
+              alert(this.name + ALERT_CREATED);
               this.$router.go();
             })
             .catch(err => { setError(err) });
 
         } else {
-          alert(this.val.ALERT_IMG);
+          alert(ALERT_IMG);
         }
       }
     }

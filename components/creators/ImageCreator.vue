@@ -75,7 +75,6 @@ export default {
     FieldElt,
     ListElt
   },
-
   props: ["val"],
   data() {
     return {
@@ -91,30 +90,28 @@ export default {
      * to the server with the provided data.
      */
     createImage() {
-      const MAX = this.val.TEXT_MAX;
-      const MIN = this.val.STRING_MIN;
-      const MSG = this.val.CHECK_STRING;
+      const { CHECK_STRING, STRING_MIN, TEXT_MAX, API_URL, TOKEN, ALERT_CREATED, ALERT_IMG } = this.val;
 
-      if (checkRange(this.description, MSG, MIN, MAX)) {
-        let image = document.getElementById("image").files[0];
+      if (checkRange(this.description, CHECK_STRING, STRING_MIN, TEXT_MAX)) {
+        const img = document.getElementById("image")?.files[0];
 
-        if (image !== undefined) {
-          const URL   = this.val.API_URL + "/images";
+        if (img !== undefined) {
+          const URL   = API_URL + "/images";
           const data  = new FormData();
 
-          data.append("image", image);
+          data.append("image", img);
           data.append("description", this.description);
           data.append("gallery", this.$route.params.id);
 
-          postData(URL, data, this.val.TOKEN)
+          postData(URL, data, TOKEN)
             .then(() => {
-              alert(image + this.val.ALERT_CREATED);
+              alert(img + ALERT_CREATED);
               this.$router.go();
             })
             .catch(err => { setError(err) });
 
         } else {
-          alert(this.val.ALERT_IMG);
+          alert(ALERT_IMG);
         }
       }
     }

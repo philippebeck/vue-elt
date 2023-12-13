@@ -76,7 +76,6 @@ components: {
   FieldElt,
   ListElt
 },
-
 props: ["val"],
 data() {
   return {
@@ -92,20 +91,20 @@ methods: {
    * to the server with the provided data.
    */
   createGallery() {
-    const MSG = this.val.CHECK_STRING;
+    const { CHECK_STRING, API_URL, TOKEN, ALERT_CREATED } = this.val;
 
-    if (checkRange(this.name, MSG) &&
-        checkRange(this.author, MSG)) {
+    if (checkRange(this.name, CHECK_STRING) &&
+        checkRange(this.author, CHECK_STRING)) {
 
-      const URL   = this.val.API_URL + "/galleries";
+      const URL   = `${API_URL}/galleries`;
       const data  = new FormData();
 
       data.append("name", this.name);
       data.append("author", this.author);
 
-      postData(URL, data, this.val.TOKEN)
+      postData(URL, data, TOKEN)
         .then(() => {
-          alert(this.name + this.val.ALERT_CREATED);
+          alert(this.name + ALERT_CREATED);
           this.$router.go();
         })
         .catch(err => { setError(err) });

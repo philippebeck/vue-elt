@@ -92,7 +92,6 @@ export default {
     FieldElt,
     ListElt
   },
-
   props: ["val"],
   data() {
     return {
@@ -109,26 +108,25 @@ export default {
      * to the server with the provided data.
      */
     createLink() {
-      const NAME_MSG = this.val.CHECK_STRING;
-      const URL_MSG  = this.val.CHECK_URL;
-      const REGEX    = this.val.REGEX_URL;
+      const { CHECK_STRING, CHECK_URL, REGEX_URL, CAT_LINK, API_URL, TOKEN, ALERT_CREATED } = this.val;
 
       if (this.url.startsWith("http")) this.url = this.url.split('//')[1];
-      if (this.cat === "") this.cat = this.val.CAT_LINK;
 
-      if (checkRange(this.name, NAME_MSG) && 
-          checkRegex(`https://${this.url}`, URL_MSG, REGEX)) {
+      if (checkRange(this.name, CHECK_STRING) && 
+          checkRegex(`https://${this.url}`, CHECK_URL, REGEX_URL)) {
 
-        const URL   = this.val.API_URL + "/links";
+        if (this.cat === "") this.cat = CAT_LINK;
+
+        const URL   = `${API_URL}/links`;
         const data  = new FormData();
 
         data.append("name", this.name);
         data.append("url", this.url);
         data.append("cat", this.cat);
 
-        postData(URL, data, this.val.TOKEN)
+        postData(URL, data, TOKEN)
           .then(() => {
-            alert(this.name + this.val.ALERT_CREATED);
+            alert(this.name + ALERT_CREATED);
             this.$router.go();
           })
           .catch(err => { setError(err) });
