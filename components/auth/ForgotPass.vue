@@ -59,11 +59,10 @@ export default {
      * @param {any} response - The response to verify.
      */
     onVerify(response) {
-      const MSG    = this.val.CHECK_EMAIL;
-      const REGEX  = this.val.REGEX_EMAIL;
+      const { CHECK_EMAIL, REGEX_EMAIL, API_URL } = this.val;
 
-      if (checkRegex(this.email, MSG, REGEX)) {
-        const URL = this.val.API_URL + "/auth/recaptcha";
+      if (checkRegex(this.email, CHECK_EMAIL, REGEX_EMAIL)) {
+        const URL = `${API_URL}/auth/recaptcha`;
 
         postData(URL, { response: response })
           .then(result => {
@@ -86,17 +85,19 @@ export default {
      * Executes the forgot password functionality.
      */
     forgotPass() {
-      if (confirm(this.val.CONFIRM_FORGOT) === true) {
-        const URL   = this.val.API_URL + "/auth/pass";
+      const { CONFIRM_FORGOT, API_URL, FORGOT_SUBJECT, FORGOT_TEXT, ALERT_SENDED } = this.val;
+
+      if (confirm(CONFIRM_FORGOT) === true) {
+        const URL   = `${API_URL}/auth/pass`;
         const data  = new FormData();
 
         data.append("email", this.email);
-        data.append("subject", this.val.FORGOT_SUBJECT);
-        data.append("html", this.val.FORGOT_TEXT);
+        data.append("subject", FORGOT_SUBJECT);
+        data.append("html", FORGOT_TEXT);
 
         postData(URL, data)
           .then(() => {
-            alert(data.get("subject") + this.val.ALERT_SENDED);
+            alert(FORGOT_SUBJECT + ALERT_SENDED);
             this.$router.push("/login");
           })
           .catch(err => { setError(err) });

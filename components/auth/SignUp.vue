@@ -99,17 +99,13 @@ export default {
      * @param {any} response - The response to verify.
      */
     onVerify(response) {
-      const EMAIL_MSG    = this.val.CHECK_EMAIL;
-      const EMAIL_REGEX  = this.val.REGEX_EMAIL;
-      const NAME_MSG     = this.val.CHECK_STRING;
-      const PASS_MSG     = this.val.CHECK_PASS;
-      const PASS_REGEX   = this.val.REGEX_PASS;
+      const { CHECK_STRING, CHECK_EMAIL, REGEX_EMAIL, CHECK_PASS, REGEX_PASS, API_URL } = this.val;
 
-      if (checkRange(this.name, NAME_MSG) && 
-          checkRegex(this.email, EMAIL_MSG, EMAIL_REGEX) && 
-          checkRegex(this.pass, PASS_MSG, PASS_REGEX)) {
+      if (checkRange(this.name, CHECK_STRING) && 
+          checkRegex(this.email, CHECK_EMAIL, REGEX_EMAIL) && 
+          checkRegex(this.pass, CHECK_PASS, REGEX_PASS)) {
 
-        const URL = this.val.API_URL + "/auth/recaptcha";
+        const URL = `${API_URL}/auth/recaptcha`;
 
         postData(URL, { response: response })
           .then(result => {
@@ -132,27 +128,28 @@ export default {
      * Creates a new user.
      */
     createUser() {
-      let image = document.getElementById("image").files[0];
+      const { API_URL, ALERT_CREATED, ALERT_IMG } = this.val;
+      const img = document.getElementById("image")?.files[0];
 
-      if (image !== undefined) {
-        const URL = this.val.API_URL + "/users";
-        const data = new FormData();
+      if (img !== undefined) {
+        const URL   = `${API_URL}/users`;
+        const data  = new FormData();
 
         data.append("name", this.name);
         data.append("email", this.email);
-        data.append("image", image);
+        data.append("image", img);
         data.append("pass", this.pass);
         data.append("role", "user");
 
         postData(URL, data)
           .then(() => {
-            alert(this.name + this.val.ALERT_CREATED);
+            alert(this.name + ALERT_CREATED);
             this.$router.go();
           })
           .catch(err => { setError(err) });
 
       } else {
-        alert(this.val.ALERT_IMG);
+        alert(ALERT_IMG);
       }
     }
   }

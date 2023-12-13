@@ -66,21 +66,19 @@ export default {
 
   methods: {
     /**
+     * ? ON VERIFY
      * Checks the validity of the given response 
      * and performs signin if successful
      *
      * @param {any} response - The response to verify.
      */
     onVerify(response) {
-      const EMAIL_MSG   = this.val.CHECK_EMAIL;
-      const EMAIL_REGEX = this.val.REGEX_EMAIL;
-      const PASS_MSG    = this.val.CHECK_PASS;
-      const PASS_REGEX  = this.val.REGEX_PASS;
+      const { CHECK_EMAIL, REGEX_EMAIL, CHECK_PASS, REGEX_PASS, API_URL } = this.val;
 
-      if (checkRegex(this.email, EMAIL_MSG, EMAIL_REGEX) && 
-          checkRegex(this.pass, PASS_MSG, PASS_REGEX)) {
+      if (checkRegex(this.email, CHECK_EMAIL, REGEX_EMAIL) && 
+          checkRegex(this.pass, CHECK_PASS, REGEX_PASS)) {
 
-        const URL = this.val.API_URL + "/auth/recaptcha";
+        const URL = `${API_URL}/auth/recaptcha`;
 
         postData(URL, { response: response })
           .then(result => {
@@ -103,7 +101,7 @@ export default {
      * Signs in the user.
      */
     signIn() {
-      const URL   = this.val.API_URL + "/auth";
+      const URL   = `${this.val.API_URL}/auth`;
       const data  = new FormData();
 
       data.append("email", this.email);
