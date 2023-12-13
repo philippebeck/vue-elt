@@ -2,60 +2,60 @@
   <form enctype="multipart/form-data">
 
     <FieldElt v-model:value="name"
-      :info="constants.INFO_NAME"
+      :info="val.INFO_NAME"
       :min="2">
 
       <template #legend>
-        {{ constants.LEGEND_NAME }}
+        {{ val.LEGEND_NAME }}
       </template>
       <template #label>
-        {{ constants.LABEL_NAME }}
+        {{ val.LABEL_NAME }}
       </template>
     </FieldElt>
 
     <FieldElt type="email"
       v-model:value="email"
-      :info="constants.INFO_EMAIL">
+      :info="val.INFO_EMAIL">
 
       <template #legend>
-        {{ constants.LEGEND_EMAIL }}
+        {{ val.LEGEND_EMAIL }}
       </template>
       <template #label>
-        {{ constants.LABEL_EMAIL }}
+        {{ val.LABEL_EMAIL }}
       </template>
     </FieldElt>
 
     <FieldElt id="image"
       type="file"
       v-model:value="image"
-      :info="constants.INFO_IMAGE">
+      :info="val.INFO_IMAGE">
 
       <template #legend>
-        {{ constants.LEGEND_IMAGE }}
+        {{ val.LEGEND_IMAGE }}
       </template>
       <template #label>
-        {{ constants.LABEL_IMAGE }}
+        {{ val.LABEL_IMAGE }}
       </template>
     </FieldElt>
 
     <FieldElt type="password"
       v-model:value="pass"
-      :info="constants.INFO_PASSWORD">
+      :info="val.INFO_PASSWORD">
 
       <template #legend>
-        {{ constants.LEGEND_PASSWORD }}
+        {{ val.LEGEND_PASSWORD }}
       </template>
       <template #label>
-        {{ constants.LABEL_PASSWORD }}
+        {{ val.LABEL_PASSWORD }}
       </template>
     </FieldElt>
 
-    <vue-recaptcha :sitekey="constants.RECAPTCHA_KEY"
+    <vue-recaptcha :sitekey="val.RECAPTCHA_KEY"
       @verify="onVerify">
       <BtnElt type="button"
         class="btn-blue"
-        :content="constants.CONTENT_SIGNUP"
-        :title="constants.TITLE_SIGNUP">
+        :content="val.CONTENT_SIGNUP"
+        :title="val.TITLE_SIGNUP">
 
         <template #btn>
           <i class="fa-solid fa-user-plus fa-lg"></i>
@@ -80,7 +80,7 @@ export default {
     VueRecaptcha 
   },
 
-  props: ["constants"],
+  props: ["val"],
   data() {
     return {
       name: "",
@@ -99,17 +99,17 @@ export default {
      * @param {any} response - The response to verify.
      */
     onVerify(response) {
-      const EMAIL_MSG    = this.constants.CHECK_EMAIL;
-      const EMAIL_REGEX  = this.constants.REGEX_EMAIL;
-      const NAME_MSG     = this.constants.CHECK_STRING;
-      const PASS_MSG     = this.constants.CHECK_PASS;
-      const PASS_REGEX   = this.constants.REGEX_PASS;
+      const EMAIL_MSG    = this.val.CHECK_EMAIL;
+      const EMAIL_REGEX  = this.val.REGEX_EMAIL;
+      const NAME_MSG     = this.val.CHECK_STRING;
+      const PASS_MSG     = this.val.CHECK_PASS;
+      const PASS_REGEX   = this.val.REGEX_PASS;
 
       if (checkRange(this.name, NAME_MSG) && 
           checkRegex(this.email, EMAIL_MSG, EMAIL_REGEX) && 
           checkRegex(this.pass, PASS_MSG, PASS_REGEX)) {
 
-        const URL = this.constants.API_URL + "/auth/recaptcha";
+        const URL = this.val.API_URL + "/auth/recaptcha";
 
         postData(URL, { response: response })
           .then(result => {
@@ -135,7 +135,7 @@ export default {
       let image = document.getElementById("image").files[0];
 
       if (image !== undefined) {
-        const URL = this.constants.API_URL + "/users";
+        const URL = this.val.API_URL + "/users";
         const data = new FormData();
 
         data.append("name", this.name);
@@ -146,13 +146,13 @@ export default {
 
         postData(URL, data)
           .then(() => {
-            alert(this.name + this.constants.ALERT_CREATED);
+            alert(this.name + this.val.ALERT_CREATED);
             this.$router.go();
           })
           .catch(err => { setError(err) });
 
       } else {
-        alert(this.constants.ALERT_IMG);
+        alert(this.val.ALERT_IMG);
       }
     }
   }

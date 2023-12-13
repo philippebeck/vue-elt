@@ -2,23 +2,23 @@
   <form>
     <FieldElt type="email"
       v-model:value="email"
-      :info="constants.INFO_EMAIL"
+      :info="val.INFO_EMAIL"
       required>
 
       <template #legend>
-        {{ constants.LEGEND_EMAIL }}
+        {{ val.LEGEND_EMAIL }}
       </template>
       <template #label>
-        {{ constants.LABEL_EMAIL }}
+        {{ val.LABEL_EMAIL }}
       </template>
     </FieldElt>
 
-    <vue-recaptcha :sitekey="constants.RECAPTCHA_KEY"
+    <vue-recaptcha :sitekey="val.RECAPTCHA_KEY"
       @verify="onVerify">
       <BtnElt type="button"
         class="btn-orange"
-        :content="constants.CONTENT_SEND"
-        :title="constants.TITLE_FORGOT">
+        :content="val.CONTENT_SEND"
+        :title="val.TITLE_FORGOT">
 
         <template #btn>
           <i class="fa-regular fa-paper-plane fa-lg"></i>
@@ -43,7 +43,7 @@ export default {
     VueRecaptcha 
   },
 
-  props: ["constants"],
+  props: ["val"],
   data() {
     return {
       email: ""
@@ -59,11 +59,11 @@ export default {
      * @param {any} response - The response to verify.
      */
     onVerify(response) {
-      const MSG    = this.constants.CHECK_EMAIL;
-      const REGEX  = this.constants.REGEX_EMAIL;
+      const MSG    = this.val.CHECK_EMAIL;
+      const REGEX  = this.val.REGEX_EMAIL;
 
       if (checkRegex(this.email, MSG, REGEX)) {
-        const URL = this.constants.API_URL + "/auth/recaptcha";
+        const URL = this.val.API_URL + "/auth/recaptcha";
 
         postData(URL, { response: response })
           .then(result => {
@@ -86,17 +86,17 @@ export default {
      * Executes the forgot password functionality.
      */
     forgotPass() {
-      if (confirm(this.constants.CONFIRM_FORGOT) === true) {
-        const URL   = this.constants.API_URL + "/auth/pass";
+      if (confirm(this.val.CONFIRM_FORGOT) === true) {
+        const URL   = this.val.API_URL + "/auth/pass";
         const data  = new FormData();
 
         data.append("email", this.email);
-        data.append("subject", this.constants.FORGOT_SUBJECT);
-        data.append("html", this.constants.FORGOT_TEXT);
+        data.append("subject", this.val.FORGOT_SUBJECT);
+        data.append("html", this.val.FORGOT_TEXT);
 
         postData(URL, data)
           .then(() => {
-            alert(data.get("subject") + this.constants.ALERT_SENDED);
+            alert(data.get("subject") + this.val.ALERT_SENDED);
             this.$router.push("/login");
           })
           .catch(err => { setError(err) });

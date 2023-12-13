@@ -5,24 +5,24 @@
         <i class="fa-solid fa-link fa-lg"
           aria-hidden="true">
         </i>
-        {{ constants.LINK_CREATOR }}
+        {{ val.LINK_CREATOR }}
       </h2>
     </template>
 
     <template #body>
       <form>
-        <ListElt :items="constants.LINK_FORM">
+        <ListElt :items="val.LINK_FORM">
 
           <template #item-1>
             <FieldElt v-model:value="name"
               @keyup.enter="createLink()"
-              :info="constants.INFO_NAME">
+              :info="val.INFO_NAME">
 
               <template #legend>
-                {{ constants.LEGEND_NAME }}
+                {{ val.LEGEND_NAME }}
               </template>
               <template #label>
-                {{ constants.LABEL_NAME }}
+                {{ val.LABEL_NAME }}
               </template>
             </FieldElt>
           </template>
@@ -31,31 +31,31 @@
             <FieldElt type="url"
               v-model:value="url"
               @keyup.enter="createLink()"
-              :info="constants.INFO_URL"
-              :min="constants.URL_MIN"
-              :max="constants.URL_MAX">
+              :info="val.INFO_URL"
+              :min="val.URL_MIN"
+              :max="val.URL_MAX">
 
               <template #legend>
-                {{ constants.LEGEND_URL }}
+                {{ val.LEGEND_URL }}
               </template>
               <template #label>
-                {{ constants.LABEL_URL }}
+                {{ val.LABEL_URL }}
               </template>
             </FieldElt>
           </template>
           
           <template #item-3>
             <FieldElt type="select"
-              :list="constants.CATS_LINK"
+              :list="val.CATS_LINK"
               v-model:value="cat"
               @keyup.enter="createLink()"
-              :info="constants.INFO_CATEGORY">
+              :info="val.INFO_CATEGORY">
 
               <template #legend>
-                {{ constants.LEGEND_CATEGORY }}
+                {{ val.LEGEND_CATEGORY }}
               </template>
               <template #label>
-                {{ constants.LABEL_CATEGORY }}
+                {{ val.LABEL_CATEGORY }}
               </template>
             </FieldElt>
           </template>
@@ -64,8 +64,8 @@
         <BtnElt type="button"
           @click="createLink()" 
           class="btn-green"
-          :content="constants.CONTENT_CREATE"
-          :title="constants.LINK_CREATOR">
+          :content="val.CONTENT_CREATE"
+          :title="val.LINK_CREATOR">
 
           <template #btn>
             <i class="fa-solid fa-square-plus fa-lg"></i>
@@ -93,7 +93,7 @@ export default {
     ListElt
   },
 
-  props: ["constants"],
+  props: ["val"],
   data() {
     return {
       name: "",
@@ -109,26 +109,26 @@ export default {
      * to the server with the provided data.
      */
     createLink() {
-      const NAME_MSG = this.constants.CHECK_STRING;
-      const URL_MSG  = this.constants.CHECK_URL;
-      const REGEX    = this.constants.REGEX_URL;
+      const NAME_MSG = this.val.CHECK_STRING;
+      const URL_MSG  = this.val.CHECK_URL;
+      const REGEX    = this.val.REGEX_URL;
 
       if (this.url.startsWith("http")) this.url = this.url.split('//')[1];
-      if (this.cat === "") this.cat = this.constants.CAT_LINK;
+      if (this.cat === "") this.cat = this.val.CAT_LINK;
 
       if (checkRange(this.name, NAME_MSG) && 
           checkRegex(`https://${this.url}`, URL_MSG, REGEX)) {
 
-        const URL   = this.constants.API_URL + "/links";
+        const URL   = this.val.API_URL + "/links";
         const data  = new FormData();
 
         data.append("name", this.name);
         data.append("url", this.url);
         data.append("cat", this.cat);
 
-        postData(URL, data, this.constants.TOKEN)
+        postData(URL, data, this.val.TOKEN)
           .then(() => {
-            alert(this.name + this.constants.ALERT_CREATED);
+            alert(this.name + this.val.ALERT_CREATED);
             this.$router.go();
           })
           .catch(err => { setError(err) });

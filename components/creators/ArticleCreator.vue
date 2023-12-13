@@ -5,35 +5,35 @@
         <i class="fa-regular fa-pen-to-square fa-lg"
           aria-hidden="true">
         </i>
-        {{ constants.ARTICLE_CREATOR }}
+        {{ val.ARTICLE_CREATOR }}
       </h2>
     </template>
 
     <template #body>
       <form enctype="multipart/form-data">
-        <ListElt :items="constants.ARTICLE_FORM">
+        <ListElt :items="val.ARTICLE_FORM">
 
           <template #item-1>
             <FieldElt v-model:value="name"
               @keyup.enter="createArticle()"
-              :info="constants.INFO_NAME">
+              :info="val.INFO_NAME">
 
               <template #legend>
-                {{ constants.LEGEND_NAME }}
+                {{ val.LEGEND_NAME }}
               </template>
               <template #label>
-                {{ constants.LABEL_NAME }}
+                {{ val.LABEL_NAME }}
               </template>
             </FieldElt>
           </template>
 
           <template #item-2>
             <label for="text">
-              {{ constants.LEGEND_TEXT }}
+              {{ val.LEGEND_TEXT }}
             </label>
 
             <Editor id="text"
-              :api-key="constants.TINY_KEY"
+              :api-key="val.TINY_KEY"
               v-model="text"
               @keyup.enter="createArticle()"
               :init="{
@@ -48,13 +48,13 @@
             <FieldElt id="image" 
               type="file"
               v-model:value="image"
-              :info="constants.INFO_IMAGE">
+              :info="val.INFO_IMAGE">
 
               <template #legend>
-                {{ constants.LEGEND_IMAGE }}
+                {{ val.LEGEND_IMAGE }}
               </template>
               <template #label>
-                {{ constants.LABEL_IMAGE }}
+                {{ val.LABEL_IMAGE }}
               </template>
             </FieldElt>
           </template>
@@ -63,29 +63,29 @@
             <FieldElt type="textarea"
               v-model:value="alt"
               @keyup.enter="createArticle()"
-              :info="constants.INFO_ALT">
+              :info="val.INFO_ALT">
 
               <template #legend>
-                {{ constants.LEGEND_ALT }}
+                {{ val.LEGEND_ALT }}
               </template>
               <template #label>
-                {{ constants.LABEL_ALT }}
+                {{ val.LABEL_ALT }}
               </template>
             </FieldElt>
           </template>
 
           <template #item-5>
             <FieldElt type="select"
-              :list="constants.CATS_ARTICLE"
+              :list="val.CATS_ARTICLE"
               v-model:value="cat"
               @keyup.enter="createArticle()"
-              :info="constants.INFO_CATEGORY">
+              :info="val.INFO_CATEGORY">
 
               <template #legend>
-                {{ constants.LEGEND_CATEGORY }}
+                {{ val.LEGEND_CATEGORY }}
               </template>
               <template #label>
-                {{ constants.LABEL_CATEGORY }}
+                {{ val.LABEL_CATEGORY }}
               </template>
             </FieldElt>
           </template>
@@ -95,8 +95,8 @@
         <BtnElt type="button"
           @click="createArticle()" 
           class="btn-green"
-          :content="constants.CONTENT_CREATE"
-          :title="constants.ARTICLE_CREATOR">
+          :content="val.CONTENT_CREATE"
+          :title="val.ARTICLE_CREATOR">
 
           <template #btn>
             <i class="fa-solid fa-square-plus fa-lg"></i>
@@ -126,7 +126,7 @@ export default {
     Editor
   },
 
-  props: ["constants"],
+  props: ["val"],
   data() {
     return {
       name: "",
@@ -144,19 +144,19 @@ export default {
      * to the server with the provided data.
      */
     createArticle() {
-      const MSG = this.constants.CHECK_STRING;
-      const MIN = this.constants.TEXT_MIN;
-      const MAX = this.constants.TEXT_MAX;
+      const MSG = this.val.CHECK_STRING;
+      const MIN = this.val.TEXT_MIN;
+      const MAX = this.val.TEXT_MAX;
 
       if (checkRange(this.name, MSG) && 
           checkRange(this.text, MSG, MIN, MAX) && 
           checkRange(this.alt, MSG)) {
 
-        if (this.cat === "") this.cat = this.constants.CAT_ARTICLE;
+        if (this.cat === "") this.cat = this.val.CAT_ARTICLE;
         let image = document.getElementById("image").files[0];
 
         if (image !== undefined) {
-          const URL   = this.constants.API_URL + "/articles";
+          const URL   = this.val.API_URL + "/articles";
           const data  = new FormData();
 
           data.append("name", this.name);
@@ -165,15 +165,15 @@ export default {
           data.append("alt", this.alt);
           data.append("cat", this.cat);
 
-          postData(URL, data, this.constants.TOKEN)
+          postData(URL, data, this.val.TOKEN)
             .then(() => {
-              alert(this.name + this.constants.ALERT_CREATED);
+              alert(this.name + this.val.ALERT_CREATED);
               this.$router.go();
             })
             .catch(err => { setError(err) });
 
         } else {
-          alert(this.constants.ALERT_IMG);
+          alert(this.val.ALERT_IMG);
         }
       }
     }

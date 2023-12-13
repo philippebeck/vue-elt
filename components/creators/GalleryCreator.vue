@@ -5,24 +5,24 @@
       <i class="fa-regular fa-images fa-lg"
         aria-hidden="true">
       </i>
-      {{ constants.GALLERY_CREATOR }}
+      {{ val.GALLERY_CREATOR }}
     </h2>
   </template>
 
   <template #body>
     <form>
-      <ListElt :items="constants.GALLERY_FORM">
+      <ListElt :items="val.GALLERY_FORM">
 
         <template #item-1>
           <FieldElt v-model:value="name"
             @keyup.enter="createGallery()"
-            :info="constants.INFO_NAME">
+            :info="val.INFO_NAME">
 
             <template #legend>
-              {{ constants.LEGEND_NAME }}
+              {{ val.LEGEND_NAME }}
             </template>
             <template #label>
-              {{ constants.LABEL_NAME }}
+              {{ val.LABEL_NAME }}
             </template>
           </FieldElt>
         </template>
@@ -31,15 +31,15 @@
           <FieldElt type="author"
             v-model:value="author"
             @keyup.enter="createGallery()"
-            :info="constants.INFO_AUTHOR"
-            :min="constants.URL_MIN"
-            :max="constants.URL_MAX">
+            :info="val.INFO_AUTHOR"
+            :min="val.URL_MIN"
+            :max="val.URL_MAX">
 
             <template #legend>
-              {{ constants.LEGEND_AUTHOR }}
+              {{ val.LEGEND_AUTHOR }}
             </template>
             <template #label>
-              {{ constants.LABEL_AUTHOR }}
+              {{ val.LABEL_AUTHOR }}
             </template>
           </FieldElt>
         </template>
@@ -48,8 +48,8 @@
       <BtnElt type="button"
         @click="createGallery()" 
         class="btn-green"
-        :content="constants.CONTENT_CREATE"
-        :title="constants.GALLERY_CREATOR">
+        :content="val.CONTENT_CREATE"
+        :title="val.GALLERY_CREATOR">
 
         <template #btn>
           <i class="fa-solid fa-square-plus fa-lg"></i>
@@ -77,7 +77,7 @@ components: {
   ListElt
 },
 
-props: ["constants"],
+props: ["val"],
 data() {
   return {
     name: "",
@@ -92,20 +92,20 @@ methods: {
    * to the server with the provided data.
    */
   createGallery() {
-    const MSG = this.constants.CHECK_STRING;
+    const MSG = this.val.CHECK_STRING;
 
     if (checkRange(this.name, MSG) &&
         checkRange(this.author, MSG)) {
 
-      const URL   = this.constants.API_URL + "/galleries";
+      const URL   = this.val.API_URL + "/galleries";
       const data  = new FormData();
 
       data.append("name", this.name);
       data.append("author", this.author);
 
-      postData(URL, data, this.constants.TOKEN)
+      postData(URL, data, this.val.TOKEN)
         .then(() => {
-          alert(this.name + this.constants.ALERT_CREATED);
+          alert(this.name + this.val.ALERT_CREATED);
           this.$router.go();
         })
         .catch(err => { setError(err) });

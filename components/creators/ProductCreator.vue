@@ -5,36 +5,36 @@
         <i class="fa-regular fa-lightbulb fa-lg"
           aria-hidden="true">
         </i>
-        {{ constants.PRODUCT_CREATOR }}
+        {{ val.PRODUCT_CREATOR }}
       </h2>
     </template>
 
     <template #body>
       <form method="post"
         enctype="multipart/form-data">
-        <ListElt :items="constants.PRODUCT_FORM">
+        <ListElt :items="val.PRODUCT_FORM">
 
           <template #item-1>
             <FieldElt v-model:value="name"
               @keyup.enter="createProduct()"
-              :info="constants.INFO_NAME">
+              :info="val.INFO_NAME">
 
               <template #legend>
-                {{ constants.LEGEND_NAME }}
+                {{ val.LEGEND_NAME }}
               </template>
               <template #label>
-                {{ constants.LABEL_NAME }}
+                {{ val.LABEL_NAME }}
               </template>
             </FieldElt>
           </template>
 
           <template #item-2>
             <label for="description">
-              {{ constants.LEGEND_DESCRIPTION }}
+              {{ val.LEGEND_DESCRIPTION }}
             </label>
 
             <Editor id="description"
-              :api-key="constants.TINY_KEY"
+              :api-key="val.TINY_KEY"
               v-model="description"
               @keyup.enter="createProduct()"
               :init="{
@@ -49,13 +49,13 @@
             <FieldElt id="image"
               type="file"
               v-model:value="image"
-              :info="constants.INFO_IMAGE">
+              :info="val.INFO_IMAGE">
 
               <template #legend>
-                {{ constants.LEGEND_IMAGE }}
+                {{ val.LEGEND_IMAGE }}
               </template>
               <template #label>
-                {{ constants.LABEL_IMAGE }}
+                {{ val.LABEL_IMAGE }}
               </template>
             </FieldElt>
           </template>
@@ -63,13 +63,13 @@
           <template #item-4>
             <FieldElt type="textarea"
               v-model:value="alt"
-              :info="constants.INFO_ALT">
+              :info="val.INFO_ALT">
 
               <template #legend>
-                {{ constants.LEGEND_ALT }}
+                {{ val.LEGEND_ALT }}
               </template>
               <template #label>
-                {{ constants.LABEL_ALT }}
+                {{ val.LABEL_ALT }}
               </template>
             </FieldElt>
           </template>
@@ -78,15 +78,15 @@
             <FieldElt type="number"
               v-model:value="price"
               @keyup.enter="createProduct()"
-              :info="constants.INFO_PRICE"
-              :min="constants.PRICE_MIN"
-              :max="constants.PRICE_MAX">
+              :info="val.INFO_PRICE"
+              :min="val.PRICE_MIN"
+              :max="val.PRICE_MAX">
 
               <template #legend>
-                {{ constants.LEGEND_PRICE }}
+                {{ val.LEGEND_PRICE }}
               </template>
               <template #label>
-                {{ constants.LABEL_PRICE }}
+                {{ val.LABEL_PRICE }}
               </template>
             </FieldElt>
           </template>
@@ -95,30 +95,30 @@
             <FieldElt type="textarea"
               v-model:value="options"
               @keyup.enter="createProduct()"
-              :info="constants.INFO_OPTIONS"
+              :info="val.INFO_OPTIONS"
               :max="100">
 
               <template #legend>
-                {{ constants.LEGEND_OPTIONS }}
+                {{ val.LEGEND_OPTIONS }}
               </template>
               <template #label>
-                {{ constants.LABEL_OPTIONS }}
+                {{ val.LABEL_OPTIONS }}
               </template>
             </FieldElt>
           </template>
 
           <template #item-7>
             <FieldElt type="select"
-              :list="constants.CATS_PRODUCT"
+              :list="val.CATS_PRODUCT"
               v-model:value="cat"
               @keyup.enter="createProduct()"
-              :info="constants.INFO_CATEGORY">
+              :info="val.INFO_CATEGORY">
 
               <template #legend>
-                {{ constants.LEGEND_CATEGORY }}
+                {{ val.LEGEND_CATEGORY }}
               </template>
               <template #label>
-                {{ constants.LABEL_CATEGORY }}
+                {{ val.LABEL_CATEGORY }}
               </template>
             </FieldElt>
           </template>
@@ -127,8 +127,8 @@
         <BtnElt type="button"
           @click="createProduct()" 
           class="btn-green"
-          :content="constants.CONTENT_CREATE"
-          :title="constants.PRODUCT_CREATOR">
+          :content="val.CONTENT_CREATE"
+          :title="val.PRODUCT_CREATOR">
 
           <template #btn>
             <i class="fa-solid fa-square-plus fa-lg"></i>
@@ -158,7 +158,7 @@ export default {
     Editor
   },
 
-  props: ["constants"],
+  props: ["val"],
   data() {
     return {
       name: "",
@@ -178,19 +178,19 @@ export default {
      * to the server with the provided data.
      */
     createProduct() {
-      let msg = this.constants.CHECK_STRING;
-      let min = this.constants.TEXT_MIN;
-      let max = this.constants.TEXT_MAX;
+      let msg = this.val.CHECK_STRING;
+      let min = this.val.TEXT_MIN;
+      let max = this.val.TEXT_MAX;
 
       if (checkRange(this.name, msg) && 
           checkRange(this.description, msg, min, max) && 
           checkRange(this.alt, msg)) {
 
-        if (this.cat === "") this.cat = this.constants.CAT_PRODUCT;
+        if (this.cat === "") this.cat = this.val.CAT_PRODUCT;
         let image = document.getElementById("image").files[0];
 
         if (image !== undefined) {
-          const URL   = this.constants.API_URL + "/products";
+          const URL   = this.val.API_URL + "/products";
           const data  = new FormData();
 
           data.append("name", this.name);
@@ -201,15 +201,15 @@ export default {
           data.append("options", this.options);
           data.append("cat", this.cat);
 
-          postData(URL, data, this.constants.TOKEN)
+          postData(URL, data, this.val.TOKEN)
             .then(() => {
-              alert(this.name + this.constants.ALERT_CREATED);
+              alert(this.name + this.val.ALERT_CREATED);
               this.$router.go();
             })
             .catch(err => { setError(err) });
 
         } else {
-          alert(this.constants.ALERT_IMG);
+          alert(this.val.ALERT_IMG);
         }
       }
     }

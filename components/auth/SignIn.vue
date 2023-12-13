@@ -3,35 +3,35 @@
     <FieldElt id="email"
       type="email"
       v-model:value="email"
-      :info="constants.INFO_EMAIL">
+      :info="val.INFO_EMAIL">
 
       <template #legend>
-        {{ constants.LEGEND_EMAIL }}
+        {{ val.LEGEND_EMAIL }}
       </template>
       <template #label>
-        {{ constants.LABEL_EMAIL }}
+        {{ val.LABEL_EMAIL }}
       </template>
     </FieldElt>
 
     <FieldElt id="pass"
       type="password"
       v-model:value="pass"
-      :info="constants.INFO_PASSWORD">
+      :info="val.INFO_PASSWORD">
 
       <template #legend>
-        {{ constants.LEGEND_PASSWORD }}
+        {{ val.LEGEND_PASSWORD }}
       </template>
       <template #label>
-        {{ constants.LABEL_PASSWORD }}
+        {{ val.LABEL_PASSWORD }}
       </template>
     </FieldElt>
 
-    <vue-recaptcha :sitekey="constants.RECAPTCHA_KEY"
+    <vue-recaptcha :sitekey="val.RECAPTCHA_KEY"
       @verify="onVerify">
       <BtnElt type="button"
         class="btn-green"
-        :content="constants.CONTENT_ENTER"
-        :title="constants.TITLE_SIGNIN">
+        :content="val.CONTENT_ENTER"
+        :title="val.TITLE_SIGNIN">
 
         <template #btn>
           <i class="fa-solid fa-door-open fa-lg"></i>
@@ -56,7 +56,7 @@ export default {
     VueRecaptcha 
   },
 
-  props: ["constants"],
+  props: ["val"],
   data() {
     return {
       email: "",
@@ -72,15 +72,15 @@ export default {
      * @param {any} response - The response to verify.
      */
     onVerify(response) {
-      const EMAIL_MSG   = this.constants.CHECK_EMAIL;
-      const EMAIL_REGEX = this.constants.REGEX_EMAIL;
-      const PASS_MSG    = this.constants.CHECK_PASS;
-      const PASS_REGEX  = this.constants.REGEX_PASS;
+      const EMAIL_MSG   = this.val.CHECK_EMAIL;
+      const EMAIL_REGEX = this.val.REGEX_EMAIL;
+      const PASS_MSG    = this.val.CHECK_PASS;
+      const PASS_REGEX  = this.val.REGEX_PASS;
 
       if (checkRegex(this.email, EMAIL_MSG, EMAIL_REGEX) && 
           checkRegex(this.pass, PASS_MSG, PASS_REGEX)) {
 
-        const URL = this.constants.API_URL + "/auth/recaptcha";
+        const URL = this.val.API_URL + "/auth/recaptcha";
 
         postData(URL, { response: response })
           .then(result => {
@@ -103,7 +103,7 @@ export default {
      * Signs in the user.
      */
     signIn() {
-      const URL   = this.constants.API_URL + "/auth";
+      const URL   = this.val.API_URL + "/auth";
       const data  = new FormData();
 
       data.append("email", this.email);
