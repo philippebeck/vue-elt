@@ -1,10 +1,8 @@
 <template>
   <CardElt>
     <template #header>
-      <h2 id="order">
-        <i class="fa-solid fa-gifts fa-lg"
-          aria-hidden="true">
-        </i>
+      <h2>
+        <i class="fa-solid fa-gifts fa-lg"></i>
         {{ val.ORDER_MANAGER }}
       </h2>
     </template>
@@ -60,10 +58,7 @@
           </template>
 
           <template #cell-created="slotProps">
-            <p>
-              {{ new Date(orders[slotProps.index].created).toLocaleString() }}
-            </p>
-
+            <p>{{ new Date(orders[slotProps.index].created).toLocaleString() }}</p>
             <BtnElt type="button"
               @click="deleteOrder(orders[slotProps.index].id)" 
               class="btn-red"
@@ -75,10 +70,7 @@
           </template>
 
           <template #cell-updated="slotProps">
-            <p>
-              {{ new Date(orders[slotProps.index].updated).toLocaleString() }}
-            </p>
-
+            <p>{{ new Date(orders[slotProps.index].updated).toLocaleString() }}</p>
             <BtnElt type="button"
               @click="updateStatus(orders[slotProps.index].id)" 
               class="btn-green"

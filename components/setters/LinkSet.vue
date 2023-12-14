@@ -1,17 +1,62 @@
 <template>
-    <CardElt>
+  <CardElt id="link-set">
     <template #header>
-      <h2 id="link">
-        <i class="fa-solid fa-link fa-lg"
-          aria-hidden="true">
-        </i>
+      <h2>
+        <i class="fa-solid fa-link fa-lg"></i>
         {{ val.LINK_MANAGER }}
       </h2>
     </template>
 
     <template #body>
       <form>
-        <TableElt :title="table[0].cat"
+        <ListElt :items="val.LINK_FORM">
+          <template #item-1>
+            <FieldElt v-model:value="name"
+              @keyup.enter="createLink()"
+              :info="val.INFO_NAME">
+              <template #legend>{{ val.LEGEND_NAME }}</template>
+              <template #label>{{ val.LABEL_NAME }}</template>
+            </FieldElt>
+          </template>
+
+          <template #item-2>
+            <FieldElt type="url"
+              v-model:value="url"
+              @keyup.enter="createLink()"
+              :info="val.INFO_URL"
+              :min="val.URL_MIN"
+              :max="val.URL_MAX">
+              <template #legend>{{ val.LEGEND_URL }}</template>
+              <template #label>{{ val.LABEL_URL }}</template>
+            </FieldElt>
+          </template>
+
+          <template #item-3>
+            <FieldElt type="select"
+              :list="val.CATS_LINK"
+              v-model:value="cat"
+              @keyup.enter="createLink()"
+              :info="val.INFO_CATEGORY">
+              <template #legend>{{ val.LEGEND_CATEGORY }}</template>
+              <template #label>{{ val.LABEL_CATEGORY }}</template>
+            </FieldElt>
+          </template>
+        </ListElt>
+
+        <BtnElt type="button"
+          @click="createLink()" 
+          class="btn-green"
+          :content="val.CONTENT_CREATE"
+          :title="val.LINK_CREATOR">
+          <template #btn>
+            <i class="fa-solid fa-square-plus fa-lg"></i>
+          </template>
+        </BtnElt>
+      </form>
+
+      <form v-if="links.length > 0">
+        <TableElt 
+          :title="table[0].cat"
           :items="table"
           v-for="table in getItemsByCategory(links)"
           :key="table"
@@ -58,7 +103,6 @@
                 <i class="fa-solid fa-cloud-arrow-up fa-lg fa-fw"></i>
               </template>
             </BtnElt>
-
             <BtnElt type="button"
               @click="deleteLink(table[slotProps.index].id)" 
               class="btn-red"
@@ -75,22 +119,32 @@
 </template>
 
 <script>
-import { checkRange, checkRegex, deleteData, getItemName, getItemsByCat, putData, setError } from "servidio"
+import { checkRange, checkRegex, deleteData, getItemName, getItemsByCat, postData, putData, setError } from "servidio"
 
 import BtnElt from "../elements/BtnElt"
 import CardElt from "../elements/CardElt"
 import FieldElt from "../elements/FieldElt"
+import ListElt from "../elements/ListElt"
 import TableElt from "../elements/TableElt"
 
 export default {
-  name: "LinkManager",
+  name: "LinkSet",
   components: {
     BtnElt,
     CardElt,
     FieldElt,
+    ListElt,
     TableElt
   },
   props: ["val", "links"],
+
+  data() {
+    return {
+      name: "",
+      url: "",
+      cat: ""
+    }
+  },
 
   methods: {
     /**
@@ -112,6 +166,37 @@ export default {
      */
     getItemsByCategory(items) {
       return getItemsByCat(items);
+    },
+
+    /**
+     * ? CREATE LINK
+     * Creates a link by sending a POST request 
+     * to the server with the provided data.
+     */
+    createLink() {
+      const { CHECK_STRING, CHECK_URL, REGEX_URL, CAT_LINK, API_URL, TOKEN, ALERT_CREATED } = this.val;
+
+      if (this.url.startsWith("http")) this.url = this.url.split('//')[1];
+
+      if (checkRange(this.name, CHECK_STRING) && 
+          checkRegex(`https://${this.url}`, CHECK_URL, REGEX_URL)) {
+
+        if (this.cat === "") this.cat = CAT_LINK;
+
+        const URL   = `${API_URL}/links`;
+        const data  = new FormData();
+
+        data.append("name", this.name);
+        data.append("url", this.url);
+        data.append("cat", this.cat);
+
+        postData(URL, data, TOKEN)
+          .then(() => {
+            alert(this.name + ALERT_CREATED);
+            this.$router.go();
+          })
+          .catch(err => { setError(err) });
+      }
     },
 
     /**

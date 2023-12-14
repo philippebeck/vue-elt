@@ -1,47 +1,35 @@
 <template>
-  <CardElt>
+  <CardElt id="product-set">
     <template #header>
-      <h2 id="create-product">
-        <i class="fa-regular fa-lightbulb fa-lg"
-          aria-hidden="true">
-        </i>
-        {{ val.PRODUCT_CREATOR }}
+      <h2>
+        <i class="fa-regular fa-rectangle-list fa-lg"></i>
+        {{ val.PRODUCT_MANAGER }}
       </h2>
     </template>
 
     <template #body>
-      <form method="post"
-        enctype="multipart/form-data">
+      <form enctype="multipart/form-data">
         <ListElt :items="val.PRODUCT_FORM">
 
           <template #item-1>
             <FieldElt v-model:value="name"
               @keyup.enter="createProduct()"
               :info="val.INFO_NAME">
-
-              <template #legend>
-                {{ val.LEGEND_NAME }}
-              </template>
-              <template #label>
-                {{ val.LABEL_NAME }}
-              </template>
+              <template #legend>{{ val.LEGEND_NAME }}</template>
+              <template #label>{{ val.LABEL_NAME }}</template>
             </FieldElt>
           </template>
 
           <template #item-2>
-            <label for="description">
-              {{ val.LEGEND_DESCRIPTION }}
-            </label>
-
+            <label for="description">{{ val.LEGEND_DESCRIPTION }}</label>
             <Editor id="description"
               :api-key="val.TINY_KEY"
               v-model="description"
               @keyup.enter="createProduct()"
-              :init="{
-                toolbar:
-                  'undo redo outdent indent align lineheight | \
-                  bold italic underline strikethrough backcolor | \
-                  blocks fontfamily fontsize'
+              :init="{ toolbar:
+                'undo redo outdent indent align lineheight | \
+                bold italic underline strikethrough backcolor | \
+                blocks fontfamily fontsize'
               }"/>
           </template>
 
@@ -50,13 +38,8 @@
               type="file"
               v-model:value="image"
               :info="val.INFO_IMAGE">
-
-              <template #legend>
-                {{ val.LEGEND_IMAGE }}
-              </template>
-              <template #label>
-                {{ val.LABEL_IMAGE }}
-              </template>
+              <template #legend>{{ val.LEGEND_IMAGE }}</template>
+              <template #label>{{ val.LABEL_IMAGE }}</template>
             </FieldElt>
           </template>
 
@@ -64,13 +47,8 @@
             <FieldElt type="textarea"
               v-model:value="alt"
               :info="val.INFO_ALT">
-
-              <template #legend>
-                {{ val.LEGEND_ALT }}
-              </template>
-              <template #label>
-                {{ val.LABEL_ALT }}
-              </template>
+              <template #legend>{{ val.LEGEND_ALT }}</template>
+              <template #label>{{ val.LABEL_ALT }}</template>
             </FieldElt>
           </template>
 
@@ -81,13 +59,8 @@
               :info="val.INFO_PRICE"
               :min="val.PRICE_MIN"
               :max="val.PRICE_MAX">
-
-              <template #legend>
-                {{ val.LEGEND_PRICE }}
-              </template>
-              <template #label>
-                {{ val.LABEL_PRICE }}
-              </template>
+              <template #legend>{{ val.LEGEND_PRICE }}</template>
+              <template #label>{{ val.LABEL_PRICE }}</template>
             </FieldElt>
           </template>
 
@@ -97,13 +70,8 @@
               @keyup.enter="createProduct()"
               :info="val.INFO_OPTIONS"
               :max="100">
-
-              <template #legend>
-                {{ val.LEGEND_OPTIONS }}
-              </template>
-              <template #label>
-                {{ val.LABEL_OPTIONS }}
-              </template>
+              <template #legend>{{ val.LEGEND_OPTIONS }}</template>
+              <template #label>{{ val.LABEL_OPTIONS }}</template>
             </FieldElt>
           </template>
 
@@ -113,13 +81,8 @@
               v-model:value="cat"
               @keyup.enter="createProduct()"
               :info="val.INFO_CATEGORY">
-
-              <template #legend>
-                {{ val.LEGEND_CATEGORY }}
-              </template>
-              <template #label>
-                {{ val.LABEL_CATEGORY }}
-              </template>
+              <template #legend>{{ val.LEGEND_CATEGORY }}</template>
+              <template #label>{{ val.LABEL_CATEGORY }}</template>
             </FieldElt>
           </template>
         </ListElt>
@@ -129,7 +92,6 @@
           class="btn-green"
           :content="val.CONTENT_CREATE"
           :title="val.PRODUCT_CREATOR">
-
           <template #btn>
             <i class="fa-solid fa-square-plus fa-lg"></i>
           </template>
@@ -140,16 +102,17 @@
 </template>
 
 <script>
-import { checkRange, postData, setError } from "servidio"
+import { checkRange, deleteData, getItemName, postData, putData, setError } from "servidio"
 
 import BtnElt from "../elements/BtnElt"
 import CardElt from "../elements/CardElt"
 import FieldElt from "../elements/FieldElt"
 import ListElt from "../elements/ListElt"
+
 import Editor from "@tinymce/tinymce-vue"
 
 export default {
-  name: "ProductCreator",
+  name: "ProductSet",
   components: {
     BtnElt,
     CardElt,
@@ -157,7 +120,8 @@ export default {
     ListElt,
     Editor
   },
-  props: ["val"],
+  props: ["val", "products"],
+
   data() {
     return {
       name: "",
@@ -171,6 +135,16 @@ export default {
   },
 
   methods: {
+    /**
+     * ? GET PRODUCTS
+     * Get the products.
+     *
+     * @return {Array} An array of products.
+     */
+    getProducts() {
+      return this.products;
+    },
+
     /**
      * ? CREATE PRODUCT
      * Create a product by sending a POST request 
@@ -208,6 +182,64 @@ export default {
         } else {
           alert(ALERT_IMG);
         }
+      }
+    },
+
+    /**
+     * ? UPDATE PRODUCT
+     * Updates a product based on the provided id.
+     *
+     * @param {number} id - The id of the product to be updated.
+     */
+    updateProduct(id) {
+      const { CHECK_STRING, TEXT_MAX, TEXT_MIN, CHECK_NUMBER, PRICE_MIN, PRICE_MAX, ALERT_UPDATED, API_URL, TOKEN } = this.val;
+      const product = this.products.find(p => p.id === id);
+      let { name, description, image, alt, price, options, cat } = product;
+
+      if (product &&
+        checkRange(name, CHECK_STRING) &&
+        checkRange(description, CHECK_STRING, TEXT_MIN, TEXT_MAX) &&
+        checkRange(alt, CHECK_STRING) &&
+        checkRange(price, CHECK_NUMBER, PRICE_MIN, PRICE_MAX) &&
+        checkRange(options, CHECK_STRING, TEXT_MIN, TEXT_MAX) ) {
+
+        const URL   = `${API_URL}/products/${id}`;
+        const img   = document.getElementById(id)?.files[0] ?? image;
+        const data  = new FormData();
+
+        data.append("name", name);
+        data.append("description", description);
+        data.append("image", img);
+        data.append("alt", alt);
+        data.append("price", price);
+        data.append("options", options);
+        data.append("cat", cat);
+
+        putData(URL, data, TOKEN)
+          .then(() => { alert(name + ALERT_UPDATED) })
+          .catch(setError);
+      }
+    },
+
+    /**
+     * ? DELETE PRODUCT
+     * Deletes a product from the system.
+     *
+     * @param {number} id - The ID of the product to delete.
+     */
+    deleteProduct(id) {
+      const { TITLE_DELETE, API_URL, TOKEN, ALERT_DELETED } = this.val;
+      const NAME = getItemName(id, this.products);
+
+      if (confirm(`${TITLE_DELETE} ${NAME} ?`) === true) {
+        const URL = `${API_URL}/products/${id}`;
+
+        deleteData(URL, TOKEN)
+          .then(() => {
+            alert(NAME + ALERT_DELETED);
+            this.$router.go();
+          })
+          .catch(err => { setError(err) });
       }
     }
   }

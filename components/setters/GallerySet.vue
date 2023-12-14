@@ -1,16 +1,50 @@
 <template>
-  <CardElt>
+  <CardElt id="gallery-set">
     <template #header>
-      <h2 id="gallery">
-        <i class="fa-regular fa-images fa-lg"
-          aria-hidden="true">
-        </i>
+      <h2>
+        <i class="fa-regular fa-images fa-lg"></i>
         {{ val.GALLERY_MANAGER }}
       </h2>
     </template>
 
     <template #body>
       <form>
+        <ListElt :items="val.GALLERY_FORM">
+
+          <template #item-1>
+            <FieldElt v-model:value="name"
+              @keyup.enter="createGallery()"
+              :info="val.INFO_NAME">
+              <template #legend>{{ val.LEGEND_NAME }}</template>
+              <template #label>{{ val.LABEL_NAME }}</template>
+            </FieldElt>
+          </template>
+
+          <template #item-2>
+            <FieldElt type="author"
+              v-model:value="author"
+              @keyup.enter="createGallery()"
+              :info="val.INFO_AUTHOR"
+              :min="val.URL_MIN"
+              :max="val.URL_MAX">
+              <template #legend>{{ val.LEGEND_AUTHOR }}</template>
+              <template #label>{{ val.LABEL_AUTHOR }}</template>
+            </FieldElt>
+          </template>
+        </ListElt>
+
+        <BtnElt type="button"
+          @click="createGallery()" 
+          class="btn-green"
+          :content="val.CONTENT_CREATE"
+          :title="val.GALLERY_CREATOR">
+          <template #btn>
+            <i class="fa-solid fa-square-plus fa-lg"></i>
+          </template>
+        </BtnElt>
+      </form>
+
+      <form v-if="galleries.length > 0">
         <TableElt :items="galleries">
           <template #head>{{ val.HEAD_UP }}</template>
 
@@ -37,17 +71,14 @@
               @click="updateGallery(galleries[slotProps.index].id)" 
               class="btn-sky"
               :title="val.TITLE_GALLERY_UPDATE + galleries[slotProps.index].id">
-
               <template #btn>
                 <i class="fa-solid fa-cloud-arrow-up fa-lg fa-fw"></i>
               </template>
             </BtnElt>
-
             <BtnElt type="button"
               @click="deleteGallery(galleries[slotProps.index].id)" 
               class="btn-red"
               :title="val.TITLE_DELETE_GALLERY + galleries[slotProps.index].id">
-
               <template #btn>
                 <i class="fa-solid fa-trash-arrow-up fa-lg fa-fw"></i>
               </template>
@@ -60,22 +91,31 @@
 </template>
 
 <script>
-import { checkRange, deleteData, getItemName, putData, setError } from "servidio"
+import { checkRange, deleteData, getItemName, postData, putData, setError } from "servidio"
 
 import BtnElt from "../elements/BtnElt"
 import CardElt from "../elements/CardElt"
 import FieldElt from "../elements/FieldElt"
+import ListElt from "../elements/ListElt"
 import TableElt from "../elements/TableElt"
 
 export default {
-  name: "GalleryManager",
+  name: "GallerySet",
   components: {
     BtnElt,
     CardElt,
     FieldElt,
+    ListElt,
     TableElt
   },
   props: ["galleries", "val"],
+
+  data() {
+    return {
+      name: "",
+      author: ""
+    }
+  },
 
   methods: {
     /**
@@ -86,6 +126,32 @@ export default {
      */
     getGalleries() {
       return this.galleries;
+    },
+
+    /**
+     * ? CREATE GALLERY
+     * Creates a galleryby sending a POST request 
+     * to the server with the provided data.
+     */
+    createGallery() {
+      const { CHECK_STRING, API_URL, TOKEN, ALERT_CREATED } = this.val;
+
+      if (checkRange(this.name, CHECK_STRING) &&
+          checkRange(this.author, CHECK_STRING)) {
+
+        const URL   = `${API_URL}/galleries`;
+        const data  = new FormData();
+
+        data.append("name", this.name);
+        data.append("author", this.author);
+
+        postData(URL, data, TOKEN)
+          .then(() => {
+            alert(this.name + ALERT_CREATED);
+            this.$router.go();
+          })
+          .catch(err => { setError(err) });
+      }
     },
 
     /**
