@@ -1,5 +1,5 @@
 <template>
-  <CardElt>
+  <CardElt id="gallery-set">
     <template #header>
       <h2>
         <i class="fa-regular fa-images fa-lg"></i>
@@ -100,7 +100,7 @@ import ListElt from "../elements/ListElt"
 import TableElt from "../elements/TableElt"
 
 export default {
-  name: "GalleryManager",
+  name: "GallerySet",
   components: {
     BtnElt,
     CardElt,
