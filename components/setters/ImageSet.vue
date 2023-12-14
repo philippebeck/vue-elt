@@ -1,5 +1,5 @@
 <template>
-  <CardElt>
+  <CardElt id="image-set">
     <template #header>
       <h2>
         <i class="fa-regular fa-images fa-lg"></i>
@@ -8,61 +8,87 @@
     </template>
 
     <template #body>
-      <form>
-        <TableElt v-for="table in getItemsByGallery(images)"
-          :items="table"
-          :key="table"
-          :title="table[0].gallery_id"
-          :id="table[0].gallery_id">
+      <form enctype="multipart/form-data">
+        <ListElt :items="val.IMAGE_FORM">
 
-          <template #title>
-            <h3 class="sky">{{ table[0].Gallery.name }}</h3>
+          <template #item-1>
+            <FieldElt id="image" 
+              type="file"
+              v-model:value="image"
+              :info="val.INFO_IMAGE">
+              <template #legend>{{ val.LEGEND_IMAGE }}</template>
+              <template #label>{{ val.LABEL_IMAGE }}</template>
+            </FieldElt>
           </template>
 
+          <template #item-2>
+            <FieldElt v-model:value="description"
+              @keyup.enter="createImage()"
+              :info="val.INFO_DESCRIPTION"
+              :max="val.TEXT_MAX">
+              <template #legend>{{ val.LEGEND_DESCRIPTION }}</template>
+              <template #label>{{ val.LABEL_DESCRIPTION }}</template>
+            </FieldElt>
+          </template>
+        </ListElt>
+
+        <BtnElt type="button"
+          @click="createImage()"
+          class="btn-green"
+          :content="val.CONTENT_CREATE"
+          :title="val.IMAGE_CREATOR">
+          <template #btn>
+            <i class="fa-solid fa-square-plus fa-lg"></i>
+          </template>
+        </BtnElt>
+      </form>
+
+      <form v-if="images.length > 0">
+        <TableElt :items="images">
           <template #head>{{ val.HEAD_UP }}</template>
 
           <template #cell-id="slotProps">
-            <b>{{ table[slotProps.index].id }}</b>
+            <b>{{ images[slotProps.index].id }}</b>
           </template>
 
           <template #cell-name="slotProps">
-            <MediaElt :src="'/img/thumbnails/galleries/' + table[slotProps.index].name"
-              :alt="table[slotProps.index].description"
-              :title="table[slotProps.index].name"/>
-            <FieldElt :id="table[slotProps.index].id"
+            <MediaElt :src="'/img/thumbnails/galleries/' + images[slotProps.index].name"
+              :alt="images[slotProps.index].description"
+              :title="images[slotProps.index].name"/>
+            <FieldElt :id="images[slotProps.index].id"
               type="file"
               :info="val.INFO_UP_IMAGE"/>
           </template>
 
           <template #cell-description="slotProps">
             <FieldElt type="textarea"
-              v-model:value="table[slotProps.index].description"
-              @keyup.enter="updateImage(table[slotProps.index].id)"
+              v-model:value="getImages()[slotProps.index].description"
+              @keyup.enter="updateImage(images[slotProps.index].id)"
               :info="val.INFO_UP_DESCRIPTION"/>
           </template>
 
           <template #cell-Gallery="slotProps">
             <FieldElt type="select"
               :list="getGalleries"
-              v-model:value="table[slotProps.index].Gallery.name"
-              :content="table[slotProps.index].Gallery.name"
-              @keyup.enter="updateImage(table[slotProps.index].id)"
+              v-model:value="getImages()[slotProps.index].Gallery.name"
+              :content="images[slotProps.index].Gallery.name"
+              @keyup.enter="updateImage(images[slotProps.index].id)"
               :info="val.INFO_UP_GALLERY"/>
           </template>
 
           <template #body="slotProps">
             <BtnElt type="button"
-              @click="updateImage(table[slotProps.index].id)" 
+              @click="updateImage(images[slotProps.index].id)" 
               class="btn-sky"
-              :title="val.TITLE_IMAGE_UPDATE + table[slotProps.index].id">
+              :title="val.TITLE_IMAGE_UPDATE + images[slotProps.index].id">
               <template #btn>
                 <i class="fa-solid fa-cloud-arrow-up fa-lg fa-fw"></i>
               </template>
             </BtnElt>
             <BtnElt type="button"
-              @click="deleteImage(table[slotProps.index].id)" 
+              @click="deleteImage(images[slotProps.index].id)" 
               class="btn-red"
-              :title="val.TITLE_DELETE_IMAGE + table[slotProps.index].id">
+              :title="val.TITLE_DELETE_IMAGE + images[slotProps.index].id">
               <template #btn>
                 <i class="fa-solid fa-trash-arrow-up fa-lg fa-fw"></i>
               </template>
@@ -75,28 +101,33 @@
 </template>
 
 <script>
-import { checkRange, deleteData, putData, setError } from "servidio"
+import { checkRange, deleteData, putData, postData, setError } from "servidio"
 
 import BtnElt from "../elements/BtnElt"
 import CardElt from "../elements/CardElt"
 import FieldElt from "../elements/FieldElt"
+import ListElt from "../elements/ListElt"
 import MediaElt from "../elements/MediaElt"
 import TableElt from "../elements/TableElt"
 
 export default {
-  name: "ImageManager",
+  name: "ImageSet",
   components: {
     BtnElt,
     CardElt,
     FieldElt,
+    ListElt,
     MediaElt,
     TableElt
   },
-  props: [
-    "galleries", 
-    "images", 
-    "val"
-  ],
+  props: ["galleries", "images", "val"],
+
+  data() {
+    return {
+      description: "",
+      gallery: ""
+    }
+  },
 
   computed: {
     /**
@@ -133,28 +164,35 @@ export default {
     },
 
     /**
-     * ? GET ITEMS BY GALLERY
-     * Generates a dictionary of items grouped by their gallery name.
-     *
-     * @param {Array} items - The array of items to be grouped.
-     * @return {Object} - The dictionary of items grouped by gallery name.
+     * ? CREATE IMAGE
+     * Create an image by sending a POST request 
+     * to the server with the provided data.
      */
-    getItemsByGallery(items) {
-      const itemsByGallery = {};
+    createImage() {
+      const { CHECK_STRING, STRING_MIN, TEXT_MAX, API_URL, TOKEN, ALERT_CREATED, ALERT_IMG } = this.val;
 
-      for (const item of items) {
-        const galleryName = item.Gallery.name;
+      if (checkRange(this.description, CHECK_STRING, STRING_MIN, TEXT_MAX)) {
+        const img = document.getElementById("image")?.files[0];
 
-        if (!itemsByGallery[galleryName]) itemsByGallery[galleryName] = [];
+        if (img !== undefined) {
+          const URL   = API_URL + "/images";
+          const data  = new FormData();
 
-        itemsByGallery[galleryName].push(item);
+          data.append("image", img);
+          data.append("description", this.description);
+          data.append("gallery_id", this.$route.params.id);
+
+          postData(URL, data, TOKEN)
+            .then(() => {
+              alert(img + ALERT_CREATED);
+              this.$router.go();
+            })
+            .catch(err => { setError(err) });
+
+        } else {
+          alert(ALERT_IMG);
+        }
       }
-
-      for (const gallery in itemsByGallery) {
-        itemsByGallery[gallery].sort((a, b) => (a.name > b.name) ? 1 : -1);
-      }
-
-      return itemsByGallery;
     },
 
     /**
