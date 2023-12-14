@@ -8,7 +8,7 @@
     </template>
 
     <template #body>
-      <form v-if="type === 'signup'" enctype="multipart/form-data">
+      <form enctype="multipart/form-data">
 
         <FieldElt v-model:value="name"
           :info="val.INFO_NAME"
