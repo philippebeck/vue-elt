@@ -1,119 +1,121 @@
 <template>
-  <CardElt>
-  <template #header>
-    <h2>
-      <i class="fa-solid fa-link fa-lg"></i>
-      {{ val.LINK_MANAGER }}
-    </h2>
-  </template>
+  <CardElt id="link-set">
+    <template #header>
+      <h2>
+        <i class="fa-solid fa-link fa-lg"></i>
+        {{ val.LINK_MANAGER }}
+      </h2>
+    </template>
 
-  <template #body>
-    <form>
-      <ListElt :items="val.LINK_FORM">
+    <template #body>
+      <form>
+        <ListElt :items="val.LINK_FORM">
+          <template #item-1>
+            <FieldElt v-model:value="name"
+              @keyup.enter="createLink()"
+              :info="val.INFO_NAME">
+              <template #legend>{{ val.LEGEND_NAME }}</template>
+              <template #label>{{ val.LABEL_NAME }}</template>
+            </FieldElt>
+          </template>
 
-        <template #item-1>
-          <FieldElt v-model:value="name"
-            @keyup.enter="createLink()"
-            :info="val.INFO_NAME">
-            <template #legend>{{ val.LEGEND_NAME }}</template>
-            <template #label>{{ val.LABEL_NAME }}</template>
-          </FieldElt>
-        </template>
+          <template #item-2>
+            <FieldElt type="url"
+              v-model:value="url"
+              @keyup.enter="createLink()"
+              :info="val.INFO_URL"
+              :min="val.URL_MIN"
+              :max="val.URL_MAX">
+              <template #legend>{{ val.LEGEND_URL }}</template>
+              <template #label>{{ val.LABEL_URL }}</template>
+            </FieldElt>
+          </template>
 
-        <template #item-2>
-          <FieldElt type="url"
-            v-model:value="url"
-            @keyup.enter="createLink()"
-            :info="val.INFO_URL"
-            :min="val.URL_MIN"
-            :max="val.URL_MAX">
-            <template #legend>{{ val.LEGEND_URL }}</template>
-            <template #label>{{ val.LABEL_URL }}</template>
-          </FieldElt>
-        </template>
-
-        <template #item-3>
-          <FieldElt type="select"
-            :list="val.CATS_LINK"
-            v-model:value="cat"
-            @keyup.enter="createLink()"
-            :info="val.INFO_CATEGORY">
-            <template #legend>{{ val.LEGEND_CATEGORY }}</template>
-            <template #label>{{ val.LABEL_CATEGORY }}</template>
-          </FieldElt>
-        </template>
+          <template #item-3>
+            <FieldElt type="select"
+              :list="val.CATS_LINK"
+              v-model:value="cat"
+              @keyup.enter="createLink()"
+              :info="val.INFO_CATEGORY">
+              <template #legend>{{ val.LEGEND_CATEGORY }}</template>
+              <template #label>{{ val.LABEL_CATEGORY }}</template>
+            </FieldElt>
+          </template>
         </ListElt>
 
         <BtnElt type="button"
-        @click="createLink()" 
-        class="btn-green"
-        :content="val.CONTENT_CREATE"
-        :title="val.LINK_CREATOR">
-        <template #btn>
-          <i class="fa-solid fa-square-plus fa-lg"></i>
-        </template>
+          @click="createLink()" 
+          class="btn-green"
+          :content="val.CONTENT_CREATE"
+          :title="val.LINK_CREATOR">
+          <template #btn>
+            <i class="fa-solid fa-square-plus fa-lg"></i>
+          </template>
         </BtnElt>
+      </form>
 
-      <TableElt :title="table[0].cat"
-        :items="table"
-        v-for="table in getItemsByCategory(links)"
-        :key="table"
-        :id="table[0].cat">
+      <form v-if="links.length > 0">
+        <TableElt 
+          :title="table[0].cat"
+          :items="table"
+          v-for="table in getItemsByCategory(links)"
+          :key="table"
+          :id="table[0].cat">
 
-        <template #title>
-          <i :class="`fa-brands fa-${table[0].cat.toLowerCase()} fa-5x sky`"></i>
-        </template>
+          <template #title>
+            <i :class="`fa-brands fa-${table[0].cat.toLowerCase()} fa-5x sky`"></i>
+          </template>
 
-        <template #head>{{ val.HEAD_UP }}</template>
+          <template #head>{{ val.HEAD_UP }}</template>
 
-        <template #cell-id="slotProps">
-          <b>{{ slotProps.item.id }}</b>
-        </template>
+          <template #cell-id="slotProps">
+            <b>{{ slotProps.item.id }}</b>
+          </template>
 
-        <template #cell-name="slotProps">
-          <FieldElt v-model:value="table[slotProps.index].name"
-            @keyup.enter="updateLink(table[slotProps.index].id)"
-            :info="val.INFO_UP_NAME"/>
-        </template>
+          <template #cell-name="slotProps">
+            <FieldElt v-model:value="table[slotProps.index].name"
+              @keyup.enter="updateLink(table[slotProps.index].id)"
+              :info="val.INFO_UP_NAME"/>
+          </template>
 
-        <template #cell-url="slotProps">
-          <FieldElt type="url"
-            v-model:value="table[slotProps.index].url"
-            @keyup.enter="updateLink(table[slotProps.index].id)"
-            :info="val.INFO_UP_URL"
-            :max="parseInt('100')"/>
-        </template>
+          <template #cell-url="slotProps">
+            <FieldElt type="url"
+              v-model:value="table[slotProps.index].url"
+              @keyup.enter="updateLink(table[slotProps.index].id)"
+              :info="val.INFO_UP_URL"
+              :max="parseInt('100')"/>
+          </template>
 
-        <template #cell-cat="slotProps">
-          <FieldElt type="select"
-            :list="val.CATS_LINK"
-            v-model:value="table[slotProps.index].cat"
-            @keyup.enter="updateLink(table[slotProps.index].id)"
-            :info="val.INFO_UP_CATEGORY"/>
-        </template>
+          <template #cell-cat="slotProps">
+            <FieldElt type="select"
+              :list="val.CATS_LINK"
+              v-model:value="table[slotProps.index].cat"
+              @keyup.enter="updateLink(table[slotProps.index].id)"
+              :info="val.INFO_UP_CATEGORY"/>
+          </template>
 
-        <template #body="slotProps">
-          <BtnElt type="button"
-            @click="updateLink(table[slotProps.index].id)" 
-            class="btn-sky"
-            :title="'Update ' + table[slotProps.index].name">
-            <template #btn>
-              <i class="fa-solid fa-cloud-arrow-up fa-lg fa-fw"></i>
-            </template>
-          </BtnElt>
-          <BtnElt type="button"
-            @click="deleteLink(table[slotProps.index].id)" 
-            class="btn-red"
-            :title="'Delete ' + table[slotProps.index].name">
-            <template #btn>
-              <i class="fa-solid fa-trash-arrow-up fa-lg fa-fw"></i>
-            </template>
-          </BtnElt>
-        </template>
-      </TableElt>
-    </form>
-  </template>
-</CardElt>
+          <template #body="slotProps">
+            <BtnElt type="button"
+              @click="updateLink(table[slotProps.index].id)" 
+              class="btn-sky"
+              :title="'Update ' + table[slotProps.index].name">
+              <template #btn>
+                <i class="fa-solid fa-cloud-arrow-up fa-lg fa-fw"></i>
+              </template>
+            </BtnElt>
+            <BtnElt type="button"
+              @click="deleteLink(table[slotProps.index].id)" 
+              class="btn-red"
+              :title="'Delete ' + table[slotProps.index].name">
+              <template #btn>
+                <i class="fa-solid fa-trash-arrow-up fa-lg fa-fw"></i>
+              </template>
+            </BtnElt>
+          </template>
+        </TableElt>
+      </form>
+    </template>
+  </CardElt>
 </template>
 
 <script>
