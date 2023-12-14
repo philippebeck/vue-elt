@@ -1,15 +1,3 @@
-// ******************** AUTH ********************
-import ForgotPass from "./auth/ForgotPass";
-import SignIn from "./auth/SignIn";
-import SignUp from "./auth/SignUp";
-
-// ******************** CREATORS ********************
-import ArticleCreator from "./creators/ArticleCreator";
-import GalleryCreator from "./creators/GalleryCreator";
-import ImageCreator from "./creators/ImageCreator";
-import LinkCreator from "./creators/LinkCreator";
-import ProductCreator from "./creators/ProductCreator";
-
 // ******************** ELEMENTS ********************
 import BtnElt from "./elements/BtnElt";
 import CardElt from "./elements/CardElt";
@@ -21,39 +9,33 @@ import NavElt from "./elements/NavElt";
 import SliderElt from "./elements/SliderElt";
 import TableElt from "./elements/TableElt";
 
-// ******************** MANAGERS ********************
-import ArticleManager from "./managers/ArticleManager";
-import GalleryManager from "./managers/GalleryManager";
-import ImageManager from "./managers/ImageManager";
-import LinkManager from "./managers/LinkManager";
-import OrderManager from "./managers/OrderManager";
-import ProductManager from "./managers/ProductManager";
-import UserManager from "./managers/UserManager";
+// ******************** SETTERS ********************
+import ArticleSet from "./setters/ArticleSet";
+import AuthSet from "./setters/AuthSet";
+import GallerySet from "./setters/GallerySet";
+import ImageSet from "./setters/ImageSet";
+import LinkSet from "./setters/LinkSet";
+import OrderSet from "./setters/OrderSet";
+import ProductSet from "./setters/ProductSet";
+import UserSet from "./setters/UserSet";
 
 // ******************** EXPORT ********************
 export {
-  ArticleCreator,
-  ArticleManager,
   BtnElt,
   CardElt,
   FieldElt,
-  ForgotPass,
   FootElt,
-  GalleryCreator,
-  GalleryManager,
-  ImageCreator,
-  ImageManager,
-  LinkCreator,
-  LinkManager,
   ListElt,
   MediaElt,
   NavElt,
-  OrderManager,
-  ProductCreator,
-  ProductManager,
-  SignIn,
-  SignUp,
   SliderElt,
   TableElt,
-  UserManager
+  ArticleSet,
+  AuthSet,
+  GallerySet,
+  ImageSet,
+  LinkSet,
+  OrderSet,
+  ProductSet,
+  UserSet
 };
