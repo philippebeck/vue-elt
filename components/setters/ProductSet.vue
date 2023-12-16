@@ -128,7 +128,7 @@ export default {
       image: "",
       alt: "",
       price: null,
-      options: "",
+      options: [],
       cat: ""
     }
   },
@@ -158,7 +158,7 @@ export default {
           data.append("image", img);
           data.append("alt", this.alt);
           data.append("price", this.price);
-          data.append("options", this.options);
+          data.append("options", JSON.stringify(this.options));
           data.append("cat", this.cat);
 
           postData(URL, data, TOKEN)
