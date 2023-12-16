@@ -81,7 +81,7 @@
 </template>
 
 <script>
-import { checkRange, deleteData, getItemName, postData, putData, setError } from "servidio"
+import { checkRange, postData, setError } from "servidio"
 
 import BtnElt from "../elements/BtnElt"
 import CardElt from "../elements/CardElt"
@@ -99,7 +99,7 @@ export default {
     ListElt,
     Editor
   },
-  props: ["articles", "val", "users"],
+  props: ["val"],
 
   data() {
     return {
@@ -112,16 +112,6 @@ export default {
   },
 
   methods: {
-    /**
-     * ? GET ATICLES
-     * Get the articles.
-     *
-     * @return {Array} The articles.
-     */
-    getArticles() {
-      return this.articles;
-    },
-
     /**
      * ? CREATE ARTICLE
      * Creates an article by sending a POST request 
@@ -152,67 +142,11 @@ export default {
               alert(this.name + ALERT_CREATED);
               this.$router.go();
             })
-            .catch(err => { setError(err) });
+            .catch(setError);
 
         } else {
           alert(ALERT_IMG);
         }
-      }
-    },
-
-    /**
-     * ? UPDATE ARTICLE
-     * Update an article based on its ID.
-     *
-     * @param {number} id - The ID of the article.
-     */
-    updateArticle(id) {
-      const article = this.articles.find(a => a.id === id);
-
-      const { CHECK_STRING, TEXT_MIN, TEXT_MAX, API_URL, TOKEN, ALERT_UPDATED } = this.val;
-      const { name, text, image, alt, likes, cat } = article;
-
-      if (article &&
-        checkRange(name, CHECK_STRING) &&
-        checkRange(text, CHECK_STRING, TEXT_MIN, TEXT_MAX) &&
-        checkRange(alt, CHECK_STRING) ) {
-
-        const URL   = `${API_URL}/articles/${id}`
-        const img   = document.getElementById(id)?.files?.[0] ?? image;
-        const data  = new FormData();
-
-        data.append("name", name);
-        data.append("text", text);
-        data.append("image", img);
-        data.append("alt", alt);
-        data.append("likes", JSON.stringify(likes));
-        data.append("cat", cat);
-
-        putData(URL, data, TOKEN)
-          .then(() => { alert(name + ALERT_UPDATED) })
-          .catch(err => { setError(err) });
-      }
-    },
-
-    /**
-     * ? DELETE ARTICLE
-     * Deletes an article with the given ID.
-     *
-     * @param {number} id - The ID of the article to be deleted.
-     */
-    deleteArticle(id) {
-      const NAME = getItemName(id, this.articles);
-      const { TITLE_DELETE, API_URL, TOKEN, ALERT_DELETED } = this.val;
-
-      if (confirm(`${TITLE_DELETE} ${NAME} ?`) === true) {
-        const URL = `${API_URL}/articles/${id}`
-
-        deleteData(URL, TOKEN)
-          .then(() => {
-            alert(NAME + ALERT_DELETED);
-            this.$router.go();
-          })
-          .catch(err => { setError(err) });
       }
     }
   }

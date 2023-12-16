@@ -180,7 +180,7 @@ export default {
 
           data.append("image", img);
           data.append("description", this.description);
-          data.append("gallery_id", this.$route.params.id);
+          data.append("galleryId", this.$route.params.id);
 
           postData(URL, data, TOKEN)
             .then(() => {
@@ -205,7 +205,7 @@ export default {
       const image = this.images.find(i => i.id === id);
 
       const { CHECK_STRING, TEXT_MIN, TEXT_MAX, API_URL, TOKEN, ALERT_IMAGE, ALERT_UPDATED } = this.val;
-      const { name, description, gallery_id } = image;
+      const { name, description, galleryId } = image;
 
       if (image &&
         checkRange(name, CHECK_STRING) &&
@@ -218,7 +218,7 @@ export default {
         data.append("name", name);
         data.append("image", img);
         data.append("description", description);
-        data.append("gallery_id", gallery_id);
+        data.append("galleryId", galleryId);
 
         putData(URL, data, TOKEN)
           .then(() => { alert(ALERT_IMAGE + id + ALERT_UPDATED) })
