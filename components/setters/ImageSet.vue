@@ -80,7 +80,7 @@
             <BtnElt type="button"
               @click="updateImage(images[slotProps.index].id)" 
               class="btn-sky"
-              :title="val.TITLE_IMAGE_UPDATE + images[slotProps.index].id">
+              :title="val.TITLE_IMAGE_UPDATE + images[slotProps.index].description">
               <template #btn>
                 <i class="fa-solid fa-cloud-arrow-up fa-lg fa-fw"></i>
               </template>
@@ -88,7 +88,7 @@
             <BtnElt type="button"
               @click="deleteImage(images[slotProps.index].id)" 
               class="btn-red"
-              :title="val.TITLE_DELETE_IMAGE + images[slotProps.index].id">
+              :title="val.TITLE_DELETE_IMAGE + images[slotProps.index].description">
               <template #btn>
                 <i class="fa-solid fa-trash-arrow-up fa-lg fa-fw"></i>
               </template>
@@ -121,7 +121,6 @@ export default {
     TableElt
   },
   props: ["galleries", "images", "val"],
-
   data() {
     return {
       description: "",
@@ -132,10 +131,8 @@ export default {
   computed: {
     /**
      * ? GET GALLERIES
-     * Retrieves the galleries from the state 
-     * and transforms them into an array of objects
-     * with the content and value properties.
-     *
+     * Retrieves the galleries from the state & transforms them into 
+     * an array of objects with the content and value properties.
      * @return {Array} An array of objects with the content & value properties.
      */
     getGalleries() {
@@ -156,7 +153,6 @@ export default {
     /**
      * ? GET IMAGES
      * Retrieves the images.
-     *
      * @return {Array} The array of images.
      */
     getImages() {
@@ -169,9 +165,9 @@ export default {
      * to the server with the provided data.
      */
     createImage() {
-      const { CHECK_STRING, STRING_MIN, TEXT_MAX, API_URL, TOKEN, ALERT_CREATED, ALERT_IMG } = this.val;
+      const { CHECK_STRING, API_URL, TOKEN, ALERT_CREATED, ALERT_IMG } = this.val;
 
-      if (checkRange(this.description, CHECK_STRING, STRING_MIN, TEXT_MAX)) {
+      if (checkRange(this.description, CHECK_STRING)) {
         const img = document.getElementById("image")?.files[0];
 
         if (img !== undefined) {
@@ -184,7 +180,7 @@ export default {
 
           postData(URL, data, TOKEN)
             .then(() => {
-              alert(img + ALERT_CREATED);
+              alert(this.description + ALERT_CREATED);
               this.$router.go();
             })
             .catch(err => { setError(err) });
@@ -198,19 +194,14 @@ export default {
     /**
      * ? UPDATE IMAGE
      * Updates an image.
-     *
      * @param {number} id - The ID of the image to be updated.
      */
     updateImage(id) {
+      const { CHECK_STRING, API_URL, TOKEN, ALERT_IMAGE, ALERT_UPDATED } = this.val;
       const image = this.images.find(i => i.id === id);
+      let { name, description, galleryId } = image;
 
-      const { CHECK_STRING, TEXT_MIN, TEXT_MAX, API_URL, TOKEN, ALERT_IMAGE, ALERT_UPDATED } = this.val;
-      const { name, description, galleryId } = image;
-
-      if (image &&
-        checkRange(name, CHECK_STRING) &&
-        checkRange(description, CHECK_STRING, TEXT_MIN, TEXT_MAX) ) {
-
+      if (image && checkRange(name, CHECK_STRING) && checkRange(description, CHECK_STRING) ) {
         const URL   = `${API_URL}/images/${id}`
         const img   = document.getElementById(id)?.files[0] ?? name;
         const data  = new FormData();
@@ -229,7 +220,6 @@ export default {
     /**
      * ? DELETE IMAGE
      * Deletes an image from the server based on the provided ID.
-     *
      * @param {number} id - The ID of the image to be deleted.
      */
     deleteImage(id) {
