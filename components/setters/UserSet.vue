@@ -139,7 +139,6 @@ export default {
     VueRecaptcha 
   },
   props: ["type", "val", "users"],
-
   data() {
     return {
       name: "",
@@ -153,7 +152,6 @@ export default {
     /**
      * ? GET USERS
      * Get the users.
-     *
      * @return {Array} An array of user objects.
      */
     getUsers() {
@@ -162,9 +160,7 @@ export default {
 
     /**
      * ? ON VERIFY
-     * Checks the validity of the given response 
-     * and performs signup if successful
-     *
+     * Checks the validity of the given response & performs signup if successful
      * @param {any} response - The response to verify.
      */
     onVerify(response) {
@@ -178,12 +174,8 @@ export default {
 
         postData(URL, { response })
           .then(result => {
-            if (result.success) {
-              this.createUser();
-
-            } else {
-              alert("Failed captcha verification");
-            }
+            if (result.success) this.createUser();
+            else alert("Failed captcha verification");
           })
           .catch(err => { 
             setError(err);
@@ -225,7 +217,6 @@ export default {
     /**
      * ? UPDATE USER
      * Update a user by their ID.
-     *
      * @param {number} id - The ID of the user to update.
      */
     updateUser(id) {
@@ -233,10 +224,7 @@ export default {
       const user = this.users.find(u => u.id === id);
       let { name, email, image, role } = user;
 
-      if (user && 
-        checkRange(name, CHECK_STRING) && 
-        checkRegex(email, CHECK_EMAIL, REGEX_EMAIL)) {
-
+      if (user && checkRange(name, CHECK_STRING) && checkRegex(email, CHECK_EMAIL, REGEX_EMAIL)) {
         const URL   = `${API_URL}/users/${id}`;
         const img   = document.getElementById(id)?.files[0] ?? image;
         const data  = new FormData();
@@ -255,7 +243,6 @@ export default {
     /**
      * ? DELETE USER
      * Delete a user by their ID.
-     *
      * @param {number} id - The ID of the user to be deleted.
      */
     deleteUser(id) {
