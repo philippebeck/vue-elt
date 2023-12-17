@@ -120,7 +120,6 @@ export default {
     Editor
   },
   props: ["val"],
-
   data() {
     return {
       name: "",

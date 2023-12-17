@@ -112,7 +112,6 @@ export default {
     /**
      * ? GET ORDERS
      * Get the list of orders.
-     *
      * @return {Array} The list of orders.
      */
     getOrders() {
@@ -122,7 +121,6 @@ export default {
     /**
      * ? UPDATE STATUS
      * Updates the status of an order.
-     *
      * @param {number} id - The ID of the order to update.
      */
     updateStatus(id) {
@@ -144,7 +142,6 @@ export default {
     /**
      * ? DELETE ORDER
      * Deletes an order from the API.
-     *
      * @param {number} id - the ID of the order to delete
      */
     deleteOrder(id) {

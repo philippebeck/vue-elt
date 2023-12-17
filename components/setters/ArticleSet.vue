@@ -87,7 +87,6 @@ import BtnElt from "../elements/BtnElt"
 import CardElt from "../elements/CardElt"
 import FieldElt from "../elements/FieldElt"
 import ListElt from "../elements/ListElt"
-
 import Editor from "@tinymce/tinymce-vue"
 
 export default {
@@ -100,7 +99,6 @@ export default {
     Editor
   },
   props: ["val"],
-
   data() {
     return {
       name: "",
