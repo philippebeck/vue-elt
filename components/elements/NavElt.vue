@@ -65,8 +65,8 @@
       </li>
     </ul>
 
-    <aside v-if="hasSlot('admin')">
-      <slot name="admin"></slot>
+    <aside v-if="hasSlot('profile')">
+      <slot name="profile"></slot>
     </aside>
   </nav>
 </template>
