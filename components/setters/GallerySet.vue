@@ -109,7 +109,6 @@ export default {
     TableElt
   },
   props: ["galleries", "val"],
-
   data() {
     return {
       name: "",
@@ -121,7 +120,6 @@ export default {
     /**
      * ? GET GALLERIES
      * Retrieves the galleries.
-     *
      * @return {Array} The list of galleries.
      */
     getGalleries() {
@@ -136,9 +134,7 @@ export default {
     createGallery() {
       const { CHECK_STRING, API_URL, TOKEN, ALERT_CREATED } = this.val;
 
-      if (checkRange(this.name, CHECK_STRING) &&
-          checkRange(this.author, CHECK_STRING)) {
-
+      if (checkRange(this.name, CHECK_STRING) && checkRange(this.author, CHECK_STRING)) {
         const URL   = `${API_URL}/galleries`;
         const data  = new FormData();
 
@@ -157,7 +153,6 @@ export default {
     /**
      * ? UPDATE GALLERY
      * Update the gallery with the given ID.
-     *
      * @param {number} id - The ID of the gallery to update.
      */
     updateGallery(id) {
@@ -165,10 +160,7 @@ export default {
       const gallery = this.galleries.find(g => g.id === id);
       let { name, author } = gallery;
 
-      if (gallery &&
-        checkRange(name, CHECK_STRING) &&
-        checkRange(author, CHECK_STRING)) {
-
+      if (gallery && checkRange(name, CHECK_STRING) && checkRange(author, CHECK_STRING)) {
         const URL   = `${API_URL}/galleries/${id}`;
         const data  = new FormData();
 
@@ -184,12 +176,11 @@ export default {
     /**
      * ? DELETE GALLERY
      * Deletes a gallery with the specified ID.
-     *
      * @param {number} id - The ID of the gallery to be deleted.
      */
     deleteGallery(id) {
-      const NAME = getItemName(id, this.galleries);
       const { TITLE_DELETE, API_URL, TOKEN, ALERT_DELETED } = this.val;
+      const NAME = getItemName(id, this.galleries);
 
       if (confirm(`${TITLE_DELETE} ${NAME} ?`) === true) {
         const URL = `${API_URL}/galleries/${id}`

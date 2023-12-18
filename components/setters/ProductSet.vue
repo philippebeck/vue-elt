@@ -120,7 +120,6 @@ export default {
     Editor
   },
   props: ["val"],
-
   data() {
     return {
       name: "",
@@ -158,7 +157,7 @@ export default {
           data.append("image", img);
           data.append("alt", this.alt);
           data.append("price", this.price);
-          data.append("options", JSON.stringify(this.options));
+          data.append("options", this.options);
           data.append("cat", this.cat);
 
           postData(URL, data, TOKEN)
@@ -166,7 +165,7 @@ export default {
               alert(this.name + ALERT_CREATED);
               this.$router.go();
             })
-            .catch(err => { setError(err) });
+            .catch(setError);
 
         } else {
           alert(ALERT_IMG);

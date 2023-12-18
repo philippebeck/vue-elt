@@ -137,7 +137,6 @@ export default {
     TableElt
   },
   props: ["val", "links"],
-
   data() {
     return {
       name: "",
@@ -150,7 +149,6 @@ export default {
     /**
      * ? GET LINKS
      * Retrieves the links from the current instance.
-     *
      * @return {Array} The array of links.
      */
     getLinks() {
@@ -160,7 +158,6 @@ export default {
     /**
      * ? GET ITEMS BY CATEGORY
      * Retrieves items by category.
-     *
      * @param {Array} items - The array of items.
      * @return {Array} The filtered array of items.
      */
@@ -170,19 +167,15 @@ export default {
 
     /**
      * ? CREATE LINK
-     * Creates a link by sending a POST request 
-     * to the server with the provided data.
+     * Creates a link by sending a POST request to the server with the provided data.
      */
     createLink() {
       const { CHECK_STRING, CHECK_URL, REGEX_URL, CAT_LINK, API_URL, TOKEN, ALERT_CREATED } = this.val;
 
       if (this.url.startsWith("http")) this.url = this.url.split('//')[1];
+      if (this.cat === "") this.cat = CAT_LINK;
 
-      if (checkRange(this.name, CHECK_STRING) && 
-          checkRegex(`https://${this.url}`, CHECK_URL, REGEX_URL)) {
-
-        if (this.cat === "") this.cat = CAT_LINK;
-
+      if (checkRange(this.name, CHECK_STRING) && checkRegex(`https://${this.url}`, CHECK_URL, REGEX_URL)) {
         const URL   = `${API_URL}/links`;
         const data  = new FormData();
 
@@ -202,7 +195,6 @@ export default {
     /**
      * ? UPDATE LINK
      * Updates a link based on its ID.
-     *
      * @param {number} id - The ID of the link to update.
      */
     updateLink(id) {
@@ -210,10 +202,7 @@ export default {
       const link = this.links.find(l => l.id === id);
       let { name, url, cat } = link;
 
-      if (link &&
-        checkRange(name, CHECK_STRING) &&
-        checkRegex(url, CHECK_URL, REGEX_URL)) {
-
+      if (link && checkRange(name, CHECK_STRING) && checkRegex(url, CHECK_URL, REGEX_URL)) {
         const URL   = `${API_URL}/links/${id}`;
         const data  = new FormData();
 
@@ -232,7 +221,6 @@ export default {
     /**
      * ? DELETE LINK
      * Deletes a link based on its ID.
-     *
      * @param {number} id - The ID of the link to be deleted.
      */
     deleteLink(id) {
