@@ -1,6 +1,5 @@
 <template>
   <figure>
-
     <audio v-if="type === 'audio'"
       controls
       :src="src"
@@ -66,18 +65,9 @@
 export default {
   name: "MediaElt",
   props: {
-    type: {
-      type: String,
-      default: "img"
-    },
-    width: {
-      type: Number,
-      default: 300
-    },
-    loop: {
-      type: Boolean,
-      default: false
-    },
+    type: { type: String, default: "img" },
+    width: { type: Number, default: 300 },
+    loop: { type: Boolean, default: false },
     content: String,
     src: String,
     medias: Array,
@@ -90,8 +80,7 @@ export default {
   methods: {
     /**
      * ? HAS SLOT
-     * Determines if the specified slot name is available in the component's slots.
-     *
+     * * Determines if the specified slot name is available in the component's slots.
      * @param {string} name - The name of the slot to check for.
      * @return {boolean} Returns true if the component has the specified slot, false otherwise.
      */
@@ -103,7 +92,6 @@ export default {
 </script>
 
 <style>
-/********** MEDIA ELT **********/
 figure {
   --ve-media-figure-display: flex;
   --ve-media-figure-flex-flow: column;

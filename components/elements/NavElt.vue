@@ -1,26 +1,18 @@
 <template>
-  <nav v-if="getNavClass() === 'sidebar'" 
-    class="sidebar">
+  <nav v-if="getNavClass() === 'sidebar'" class="sidebar">
 
-    <button v-if="hasSlot('hide')"
-      @click="toggleSide()">
+    <button v-if="hasSlot('hide')" @click="toggleSide()">
       <slot name="hide"></slot>
     </button>
 
-    <ul id="side"
-      class="show">
+    <ul id="side" class="show">
         <li v-if="hasSlot('first')">
           <slot name="first"></slot>
         </li>
 
-        <li v-for="(item, index) in items"
-          :key="index">
-          <a :href="`#${item}`"
-            :title="item">
-
-            <slot name="items"
-              :item="item"
-              :index="index">
+        <li v-for="(item, index) in items" :key="index">
+          <a :href="`#${item}`" :title="item">
+            <slot name="items" :item="item" :index="index">
               {{ item }}
             </slot>
           </a>
@@ -31,35 +23,25 @@
         </li>
 
         <li>
-          <a v-if="hasSlot('top')"
-          href="#top">
+          <a v-if="hasSlot('top')" href="#top">
           <slot name="top"></slot>
           </a>
       </li>
     </ul>
   </nav>
 
-  <nav v-else 
-    class="navbar">
-
-    <a v-if="hasSlot('brand')"
-      href="/"
-      title="Home">
+  <nav v-else class="navbar">
+    <a v-if="hasSlot('brand')" href="/" title="Home">
       <slot name="brand"></slot>
     </a>
 
     <ul>
-      <li v-for="(item, index) in items"
-        :key="index">
-        <a :href="item.href"
-          :title="item.name">
-
-          <slot name="items"
-            :item="item"
-            :index="index">
-            <i :class="`fa-${item.type} fa-${item.icon} fa-fw`"></i>
+      <li v-for="(item, index) in items" :key="index">
+        <a :href="item.href">
+          <slot name="items" :item="item" :index="index">
+            <i :class="`fa-${item.type} fa-${item.icon} fa-fw`" 
+              :aria-label="item.name"></i>
           </slot>
-
           <b>{{ item.name }}</b>
         </a>
       </li>
@@ -75,20 +57,14 @@
 export default {
   name: "NavElt",
   props: {
-    class: {
-      type: String,
-      default: "navbar"
-    },
-    items: {
-      type: Array
-    }
+    class: { type: String, default: "navbar" },
+    items: { type: Array }
   },
 
   methods: {
     /**
      * ? GET NAV CLASS
-     * Returns a string representing the navigation class based on the value of 'class'.
-     *
+     * * Returns a string representing the navigation class based on the value of 'class'.
      * @return {string} Either 'sidebar' or 'navbar'.
      */
     getNavClass() {
@@ -97,8 +73,7 @@ export default {
 
     /**
      * ? HAS SLOT
-     * Determines if the specified slot name is available in the component's slots.
-     *
+     * * Determines if the specified slot name is available in the component's slots.
      * @param {string} name - The name of the slot to check for.
      * @return {boolean} Returns true if the component has the specified slot, false otherwise.
      */
@@ -108,8 +83,7 @@ export default {
 
     /**
      * ? TOGGLE SIDE
-     * Toggles the visibility of the side element by toggling its show/hide classes.
-     *
+     * * Toggles the visibility of the side element by toggling its show/hide classes.
      * @return {void} This function does not return anything.
      */
     toggleSide() {

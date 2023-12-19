@@ -1,7 +1,5 @@
 <template>
-  <article v-if="isArticle === true"
-    :class="$attrs.class"
-    :id="id">
+  <article v-if="isArticle === true" :class="$attrs.class" :id="id">
     <header>
       <slot name="header"></slot>
     </header>
@@ -17,9 +15,7 @@
     </footer>
   </article>
 
-  <section v-else
-    :class="$attrs.class"
-    :id="id">
+  <section v-else :class="$attrs.class" :id="id">
     <header>
       <slot name="header"></slot>
     </header>
@@ -40,18 +36,14 @@
 export default {
   name: "CardElt",
   props: {
-    isArticle: {
-      type: Boolean,
-      default: false
-    },
+    isArticle: { type: Boolean, default: false },
     id: String
   },
   
   methods: {
     /**
      * ? HAS SLOT
-     * Determines if the specified slot name is available in the component's slots.
-     *
+     * * Determines if the specified slot name is available in the component's slots.
      * @param {string} name - The name of the slot to check for.
      * @return {boolean} Returns true if the component has the specified slot, false otherwise.
      */
@@ -70,7 +62,7 @@ section {
   --ve-card-border: 1px solid transparent;
   --ve-card-border-radius: 10px;
   --ve-card-padding: 10px;
-  --ve-card-width: 95%;
+  --ve-card-width: 100%;
   --ve-card-background-color: transparent;
   --ve-card-color: var(--ani-slate);
 }

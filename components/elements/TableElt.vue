@@ -1,34 +1,23 @@
 <template>
   <table>
     <caption v-if="hasSlot('title')">
-      <slot name="title">
-        {{ title }}
-      </slot>
+      <slot name="title">{{ title }}</slot>
     </caption>
 
     <thead>
       <tr>
-        <th
-          v-for="(value, key) in items[0]"
-          :key="key">
-          {{ key }}
-        </th>
+        <th v-for="(value, key) in items[0]" :key="key">{{ key }}</th>
 
         <th v-if="hasSlot('head')">
           <slot name="head"></slot>
         </th>
       </tr>
     </thead>
-
     <tbody>
-      <tr
-        v-for="(item, index) in items"
-        :key="index">
-        <td
-          v-for="(value, key) in item"
-          :key="key">
-          <slot
-            :name="`cell-${key}`"
+      <tr v-for="(item, index) in items" :key="index">
+
+        <td v-for="(value, key) in item" :key="key">
+          <slot :name="`cell-${key}`"
             :index="index"
             :item="item"
             :key="key"
@@ -38,11 +27,7 @@
         </td>
 
         <td v-if="hasSlot('body')">
-          <slot
-            name="body"
-            :index="index"
-            :item="item">
-          </slot>
+          <slot name="body" :index="index" :item="item"></slot>
         </td>
       </tr>
     </tbody>
@@ -57,20 +42,14 @@
 export default {
   name: "TableElt",
   props: {
-    title: {
-      type: String
-    },
-    items: {
-      type: Array,
-      required: true
-    }
+    title: { type: String },
+    items: { type: Array, required: true }
   },
 
   methods: {
     /**
      * ? HAS SLOT
-     * Determines if the specified slot name is available in the component's slots.
-     *
+     * * Determines if the specified slot name is available in the component's slots.
      * @param {string} name - The name of the slot to check for.
      * @return {boolean} Returns true if the component has the specified slot, false otherwise.
      */
@@ -141,29 +120,7 @@ td {
   --ve-table-td-cursor: cell;
 }
 
-@media (min-width: 576px) {
-  table {
-    --ve-table-max-width: 99%;
-  }
-}
-
-@media (min-width: 768px) {
-  table {
-    --ve-table-max-width: 98%;
-  }
-}
-
-@media (min-width: 992px) {
-  table {
-    --ve-table-max-width: 97%;
-  }
-}
-
 @media (min-width: 1200px) {
-  table {
-    --ve-table-max-width: 96%;
-  }
-
   tr {
     --ve-table-tr-display: table-row;
   }
@@ -174,12 +131,6 @@ td {
 
   td {
     --ve-table-td-display: table-cell;
-  }
-}
-
-@media (min-width: 1600px) {
-  table {
-    --ve-table-max-width: 95%;
   }
 }
 </style>

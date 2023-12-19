@@ -1,6 +1,5 @@
 <template>
   <figure class="slider">
-
     <ul class="controls">
       <li>
         <button @click="goPrevious()"
@@ -8,6 +7,7 @@
           <i class="fas fa-step-backward fa-2x"></i>
         </button>
       </li>
+
       <li>
         <button v-if="random === true"
           @click="checkRandom()"
@@ -15,6 +15,7 @@
           title="Normal">
           <i class="fas fa-long-arrow-alt-right fa-2x"></i>
         </button>
+
         <button v-else 
           @click="checkRandom()"
           id="slider-random" 
@@ -22,6 +23,7 @@
           <i class="fas fa-random fa-2x"></i>
         </button>
       </li>
+
       <li>
         <button v-if="auto === true" 
           @click="checkAuto()"
@@ -29,6 +31,7 @@
           title="Pause">
           <i class="fas fa-pause fa-2x"></i>
         </button>
+
         <button v-else 
           @click="checkAuto()"
           id="slider-auto" 
@@ -36,6 +39,7 @@
           <i class="fas fa-play fa-2x"></i>
         </button>
       </li>
+
       <li>
         <button @click="goNext()"
           title="Next">
@@ -45,7 +49,6 @@
     </ul>
 
     <ul class="slides">
-
       <li v-for="(slide, index) in slides"
         :key="index"
         :id="'slide-' + (index + 1)">
@@ -62,13 +65,11 @@
               :index="index">
             </slot>
           </figcaption>
-
         </figure>
       </li>
     </ul>
 
     <ul class="gallery">
-
       <li v-for="(slide, index) in slides"
         :key="index"
         @click="setSlide(index)">
@@ -77,7 +78,6 @@
           :slide="slide"
           :index="index">
         </slot>
-
       </li>
     </ul>
   </figure>
@@ -87,23 +87,11 @@
 export default {
   name: "SliderElt",
   props: {
-    slides: {
-      type: Array
-    },
-    delay: {
-      type: Number,
-      default: 5000
-    },
-    auto: {
-      type: Boolean,
-      default: true
-    },
-    random: {
-      type: Boolean,
-      default: false
-    }
+    slides: { type: Array },
+    delay: { type: Number, default: 5000 },
+    auto: { type: Boolean, default: true },
+    random: { type: Boolean, default: false }
   },
-
   data() {
     return {
       index: -1,
@@ -136,8 +124,7 @@ export default {
   methods: {
     /**
      * ? GET RANDOM INTEGER
-     * Generates a random integer.
-     *
+     * * Generates a random integer.
      * @param {number} min - The minimum value (inclusive) of the range.
      * @param {number} max - The maximum value (inclusive) of the range.
      * @return {number} - A random integer between the specified range.
@@ -150,8 +137,7 @@ export default {
 
     /**
      * ? HAS SLOT
-     * Determines if the specified slot name is available in the component's slots.
-     *
+     * * Determines if the slot name is available in the component's slots.
      * @param {string} name - The name of the slot to check for.
      * @return {boolean} Returns true if the component has the specified slot, false otherwise.
      */
@@ -161,7 +147,7 @@ export default {
 
     /**
      * ? REFRESH SLIDE
-     * Refreshes the slide display.
+     * * Refreshes the slide display.
      */
     refreshSlide() {
       if (this.randomState) this.index = this.getRandomInteger(0, this.slides.length - 1);
@@ -176,8 +162,7 @@ export default {
 
     /**
      * ? SET KEYBOARD
-     * Sets the keyboard event listener and performs different actions based on the pressed key.
-     *
+     * * Sets the keyboard event listener & performs actions based on the pressed key.
      * @param {object} event - The event object containing information about the key pressed.
      */
     setKeyboard(event) {
@@ -194,8 +179,7 @@ export default {
 
     /**
      * ? SET ICON
-     * Updates the CSS classes of an icon element by adding a specified class & removing another.
-     *
+     * * Updates the CSS classes of an icon by adding a class & removing another.
      * @param {HTMLElement} icon - The icon element to update.
      * @param {string} add - The name of the class to add to the icon element.
      * @param {string} remove - The name of the class to remove from the icon element.
@@ -209,8 +193,7 @@ export default {
     
     /**
      * ? SET SLIDE
-     * Sets the current slide index and refreshes the slide.
-     *
+     * * Sets the current slide index and refreshes the slide.
      * @param {number} index - The index of the slide to set.
      */
     setSlide(index) {
@@ -221,8 +204,7 @@ export default {
 
     /**
      * ? SET AUTO
-     * Sets the auto state, title & icon of the element.
-     *
+     * * Sets the auto state, title & icon of the element.
      * @param {any} state - The state to set.
      * @param {string} title - The title to set.
      * @param {string} add - The icon to add.
@@ -239,8 +221,7 @@ export default {
 
     /**
      * ? SET RANDOM
-     * Updates the state & title of the random element & its icon.
-     *
+     * * Updates the state & title of the random element & its icon.
      * @param {any} state - New state of the random element.
      * @param {string} title - New title of the random element.
      * @param {string} addIcon - Icon when adding.
@@ -257,7 +238,7 @@ export default {
 
     /**
      * ? CHECK AUTO
-     * Toggles the auto state of the slideshow.
+     * * Toggles the auto state of the slideshow.
      */
     checkAuto() {
       const { autoState, setAuto, intervalId, delay, goNext, refreshSlide } = this;
@@ -276,22 +257,19 @@ export default {
 
     /**
      * ? CHECK RANDOM
-     * Toggles the random state and updates the slide.
+     * * Toggles the random state and updates the slide.
      */
     checkRandom() {
-      if (this.randomState) {
-        this.setRandom(false, "Random", "fa-random", "fa-long-arrow-alt-right");
-
-      } else {
-        this.setRandom(true, "Normal", "fa-long-arrow-alt-right", "fa-random");
-      }
+      this.randomState ?
+      this.setRandom(false, "Random", "fa-random", "fa-long-arrow-alt-right") :
+      this.setRandom(true, "Normal", "fa-long-arrow-alt-right", "fa-random");
 
       this.refreshSlide();
     },
 
     /**
      * ? GO PREVIOUS
-     * Go to the previous slide.
+     * * Go to the previous slide.
      */
     goPrevious() {
       this.index = (this.index - 1 + this.slides.length) % this.slides.length;
@@ -300,7 +278,7 @@ export default {
 
     /**
      * ? GO NEXT
-     * Go to the next slide.
+     * * Go to the next slide.
      */
     goNext() {
       this.index = (this.index + 1) % this.slides.length;
@@ -309,15 +287,12 @@ export default {
 
     /**
      * ? RUN SLIDER
-     * Runs the slider.
+     * * Runs the slider.
      */
     runSlider() {
-      if (this.autoState) {
-        this.intervalId = window.setInterval(this.goNext, this.delay);
-
-      } else {
-        this.goNext();
-      }
+      this.autoState ?
+      this.intervalId = window.setInterval(this.goNext, this.delay) :
+      this.goNext();
     }
   }
 }
