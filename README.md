@@ -52,23 +52,11 @@ Available Elements SFC :
 -   **SliderElt**  
 -   **TableElt**  
 
-Available Managers SFC :  
--   **ArticleManager**  
--   **GalleryManager**  
--   **ImageManager**  
--   **LinkManager**  
--   **OrderManager**  
--   **ProductManager**  
--   **UserManager**  
-
-Available Creators SFC :  
--   **ArticleCreator**  
--   **GalleryCreator**  
--   **ImageCreator**  
--   **LinkCreator**  
--   **ProductCreator**  
-
-Available Auth SFC :  
--   **ForgotPass**  
--   **SignIn**  
--   **SignUp**  
+Available Setters SFC :  
+-   **ArticleSet**  
+-   **GallerySet**  
+-   **ImageSet**  
+-   **LinkSet**  
+-   **OrderSet**  
+-   **ProductSet**  
+-   **UserSet**  
