@@ -11,7 +11,8 @@
       <form>
         <ListElt :items="val.LINK_FORM">
           <template #item-1>
-            <FieldElt v-model:value="name"
+            <FieldElt id="name"
+              v-model:value="name"
               @keyup.enter="createLink()"
               :info="val.INFO_NAME">
               <template #legend>{{ val.LEGEND_NAME }}</template>
@@ -20,7 +21,8 @@
           </template>
 
           <template #item-2>
-            <FieldElt type="url"
+            <FieldElt id="url"
+              type="url"
               v-model:value="url"
               @keyup.enter="createLink()"
               :info="val.INFO_URL"
@@ -32,13 +34,14 @@
           </template>
 
           <template #item-3>
-            <FieldElt type="select"
+            <FieldElt id="cat"
+              type="select"
               :list="val.CATS_LINK"
               v-model:value="cat"
               @keyup.enter="createLink()"
-              :info="val.INFO_CATEGORY">
-              <template #legend>{{ val.LEGEND_CATEGORY }}</template>
-              <template #label>{{ val.LABEL_CATEGORY }}</template>
+              :info="val.INFO_CAT">
+              <template #legend>{{ val.LEGEND_CAT }}</template>
+              <template #label>{{ val.LABEL_CAT }}</template>
             </FieldElt>
           </template>
         </ListElt>
@@ -73,25 +76,37 @@
           </template>
 
           <template #cell-name="slotProps">
-            <FieldElt v-model:value="table[slotProps.index].name"
+            <FieldElt :id="`name-${table[slotProps.index].id}`"
+              v-model:value="table[slotProps.index].name"
               @keyup.enter="updateLink(table[slotProps.index].id)"
-              :info="val.INFO_UP_NAME"/>
+              :info="val.INFO_UP_NAME">
+              <template #legend>{{ val.LEGEND_NAME }}</template>
+              <template #label>{{ val.LABEL_NAME }}</template>
+            </FieldElt>
           </template>
 
           <template #cell-url="slotProps">
-            <FieldElt type="url"
+            <FieldElt :id="`url-${table[slotProps.index].id}`"
+              type="url"
               v-model:value="table[slotProps.index].url"
               @keyup.enter="updateLink(table[slotProps.index].id)"
               :info="val.INFO_UP_URL"
-              :max="parseInt('100')"/>
+              :max="parseInt('100')">
+              <template #legend>{{ val.LEGEND_URL }}</template>
+              <template #label>{{ val.LABEL_URL }}</template>
+            </FieldElt>
           </template>
 
           <template #cell-cat="slotProps">
-            <FieldElt type="select"
+            <FieldElt :id="`cat-${table[slotProps.index].id}`"
+              type="select"
               :list="val.CATS_LINK"
               v-model:value="table[slotProps.index].cat"
               @keyup.enter="updateLink(table[slotProps.index].id)"
-              :info="val.INFO_UP_CATEGORY"/>
+              :info="val.INFO_UP_CATEGORY">
+              <template #legend>{{ val.LEGEND_CAT }}</template>
+              <template #label>{{ val.LABEL_CAT }}</template>
+            </FieldElt>
           </template>
 
           <template #body="slotProps">
@@ -148,7 +163,7 @@ export default {
   methods: {
     /**
      * ? GET LINKS
-     * Retrieves the links from the current instance.
+     * * Retrieves the links from the current instance.
      * @return {Array} The array of links.
      */
     getLinks() {
@@ -157,7 +172,7 @@ export default {
 
     /**
      * ? GET ITEMS BY CATEGORY
-     * Retrieves items by category.
+     * * Retrieves items by category.
      * @param {Array} items - The array of items.
      * @return {Array} The filtered array of items.
      */
@@ -167,7 +182,7 @@ export default {
 
     /**
      * ? CREATE LINK
-     * Creates a link by sending a POST request to the server with the provided data.
+     * * Creates a link by sending a POST request to the server with the provided data.
      */
     createLink() {
       const { CHECK_STRING, CHECK_URL, REGEX_URL, CAT_LINK, API_URL, TOKEN, ALERT_CREATED } = this.val;
@@ -194,7 +209,7 @@ export default {
 
     /**
      * ? UPDATE LINK
-     * Updates a link based on its ID.
+     * * Updates a link based on its ID.
      * @param {number} id - The ID of the link to update.
      */
     updateLink(id) {
@@ -220,7 +235,7 @@ export default {
 
     /**
      * ? DELETE LINK
-     * Deletes a link based on its ID.
+     * * Deletes a link based on its ID.
      * @param {number} id - The ID of the link to be deleted.
      */
     deleteLink(id) {

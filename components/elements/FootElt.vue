@@ -34,25 +34,15 @@
 export default {
   name: "FootElt",
   props: {
-    title1: {
-      type: String,
-      default: ""
-    },
-    title2: {
-      type: String,
-      default: ""
-    },
-    title3: {
-      type: String,
-      default: ""
-    }
+    title1: { type: String, default: "" },
+    title2: { type: String, default: "" },
+    title3: { type: String, default: "" }
   },
 
   methods: {
     /**
      * ? HAS SLOT
-     * Determines if the specified slot name is available in the component's slots.
-     *
+     * * Determines if the specified slot name is available in the component's slots.
      * @param {string} name - The name of the slot to check for.
      * @return {boolean} Returns true if the component has the specified slot, false otherwise.
      */

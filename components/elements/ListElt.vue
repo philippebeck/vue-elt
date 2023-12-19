@@ -1,7 +1,6 @@
 <template>
   <ul v-if="dynamic === true">
-    <li v-for="(item, index) in items"
-      :key="index">
+    <li v-for="(item, index) in items" :key="index">
 
       <slot name="items"
         :index="index"
@@ -10,9 +9,7 @@
       </slot>
       
       <ul v-if="hasSlot('nested')">
-
-        <li v-for="(value, key) in item"
-          :key="key">
+        <li v-for="(value, key) in item" :key="key">
 
           <slot name="nested"
             :index="index"
@@ -21,15 +18,13 @@
             :value="value">
             {{ value }}
           </slot>
-
         </li>
       </ul>
     </li>
   </ul>
 
   <ul v-else>
-    <li v-for="(item, index) in items"
-      :key="index">
+    <li v-for="(item, index) in items" :key="index">
 
       <slot :name="`item-${index + 1}`"
         :index="index"
@@ -38,9 +33,7 @@
       </slot>
       
       <ul v-if="hasSlot('nested')">
-
-        <li v-for="(value, key) in item"
-          :key="key">
+        <li v-for="(value, key) in item" :key="key">
 
           <slot :name="`nested-${key + 1}`"
             :index="index"
@@ -49,7 +42,6 @@
             :value="value">
             {{ value }}
           </slot>
-
         </li>
       </ul>
     </li>
@@ -60,21 +52,14 @@
 export default {
   name: "ListElt",
   props: {
-    items: {
-      type: Object,
-      required: true
-    },
-    dynamic: {
-      type: Boolean,
-      default: false
-    }
+    items: { type: Object, required: true },
+    dynamic: { type: Boolean, default: false }
   },
 
   methods: {
     /**
      * ? HAS SLOT
-     * Determines if the specified slot name is available in the component's slots.
-     *
+     * * Determines if the specified slot name is available in the component's slots.
      * @param {string} name - The name of the slot to check for.
      * @return {boolean} Returns true if the component has the specified slot, false otherwise.
      */

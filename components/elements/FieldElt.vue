@@ -4,7 +4,7 @@
       <slot name="legend"></slot>
     </legend>
 
-    <input v-if="getFieldType() === 'number'"
+    <input v-if="getFieldType() === 'number'" 
       :type="type"
       :id="id"
       :name="name"
@@ -31,18 +31,9 @@
       :itemprop="itemprop"
       :required="required">
 
-      <option v-if="value"
-        :value="value">
-        {{ content }}
-      </option>
-
-      <option v-else>
-        {{ info }}
-      </option>
-
-      <option v-for="(item, key) in list"
-        :key="key"
-        :value="item.value">
+      <option v-if="value" :value="value">{{ content }}</option>
+      <option v-else>{{ info }}</option>
+      <option v-for="(item, key) in list" :key="key" :value="item.value">
         {{ item.content }}
       </option>
     </select>
@@ -55,18 +46,9 @@
       :itemprop="itemprop"
       :required="required">
 
-      <option v-if="value"
-        :value="value">
-        {{ value }}
-      </option>
-
-      <option v-else>
-        {{ info }}
-      </option>
-
-      <option v-for="(item, key) in list"
-        :key="key"
-        :value="item">
+      <option v-if="value" :value="value">{{ value }}</option>
+      <option v-else>{{ info }}</option>
+      <option v-for="(item, key) in list" :key="key" :value="item">
         {{ item }}
       </option>
     </select>
@@ -96,8 +78,7 @@
       :itemprop="itemprop"
       :required="required">
 
-    <label v-if="hasSlot('label')"
-      :for="id">
+    <label v-if="hasSlot('label')" :for="id">
       <slot name="label"></slot>
     </label>
   </fieldset>
@@ -107,57 +88,28 @@
 export default {
   name: "FieldElt",
   props: {
-    model: {
-      prop: "value",
-      event: "update"
-    },
-    type: {
-      type: String,
-      default: "text"
-    },
-    value: [
-      String, 
-      Number, 
-      Array
-    ],
-    content: [
-      String,
-      Number
-    ],
+    model: { prop: "value", event: "update" },
+    type: { type: String, default: "text" },
+    value: [String, Number, Array],
+    content: [String, Number],
     id: String,
     name: String,
     list: Array,
     info: String,
-    min: {
-      type: Number,
-      default: 2
-    },
-    max: {
-      type: Number,
-      default: 50
-    },
-    cols: {
-      type: Number,
-      default: 20
-    },
-    rows: {
-      type: Number,
-      default: 5
-    },
+    min: { type: Number, default: 2 },
+    max: { type: Number, default: 50 },
+    cols: { type: Number, default: 20 },
+    rows: { type: Number, default: 5 },
     itemprop: String,
-    required: {
-      type: String,
-      default: "required"
-    }
+    required: { type: String, default: "required" }
   },
 
   methods: {
     /**
      * ? HAS SLOT
-     * Determines if the specified slot name is available in the component's slots.
-     *
+     * * Determines if the specified slot name is available in the component's slots.
      * @param {string} name - The name of the slot to check for.
-     * @return {boolean} Returns true if the component has the specified slot, false otherwise.
+     * @return {boolean} Returns true if the component has the slot, false otherwise.
      */
     hasSlot(name) {
       return Object.prototype.hasOwnProperty.call(this.$slots, name);
@@ -165,8 +117,7 @@ export default {
 
     /**
      * ? ON INPUT
-     * Handles input events and emits an update with the new value.
-     *
+     * * Handles input events and emits an update with the new value.
      * @param {Event} event - The input event triggered by the user.
      * @return {void} This function does not return a value.
      */
@@ -176,9 +127,8 @@ export default {
 
     /**
      * ? GET FIELD TYPE
-     * Returns the type of the input field based on the 'type' property.
-     *
-     * @return {string} The type of the input field: 'number', 'special', 'list', 'area', or 'text'.
+     * * Returns the type of the input field based on the 'type' property.
+     * @return {string} The type of the input field.
      */
     getFieldType() {
       const fieldTypes = {
@@ -241,6 +191,13 @@ textarea {
   --ve-field-hover-input-border-radius: 0;
   --ve-field-hover-input-background-color: var(--ani-white);
   --ve-field-hover-input-transition: all 500ms;
+}
+
+@media (min-width: 1200px) {
+  table legend,
+  table label {
+    display: none;
+  }
 }
 </style>
 
