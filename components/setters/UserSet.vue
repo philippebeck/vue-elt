@@ -105,7 +105,7 @@ export default {
   methods: {
     /**
      * ? GET USERS
-     * Get the users.
+     * * Get the users.
      * @return {Array} An array of user objects.
      */
     getUsers() {
@@ -114,7 +114,7 @@ export default {
 
     /**
      * ? UPDATE USER
-     * Update a user by their ID.
+     * * Update a user by their ID.
      * @param {number} id - The ID of the user to update.
      */
     updateUser(id) {
@@ -140,7 +140,7 @@ export default {
 
     /**
      * ? DELETE USER
-     * Delete a user by their ID.
+     * * Delete a user by their ID.
      * @param {number} id - The ID of the user to be deleted.
      */
     deleteUser(id) {

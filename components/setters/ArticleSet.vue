@@ -12,7 +12,8 @@
         <ListElt :items="val.ARTICLE_FORM">
 
           <template #item-1>
-            <FieldElt v-model:value="name" 
+            <FieldElt id="name"
+              v-model:value="name" 
               @keyup.enter="createArticle()"
               :info="val.INFO_NAME">
               <template #legend>{{ val.LEGEND_NAME }}</template>
@@ -44,7 +45,8 @@
           </template>
 
           <template #item-4>
-            <FieldElt type="textarea"
+            <FieldElt id="alt"
+              type="textarea"
               v-model:value="alt"
               @keyup.enter="createArticle()"
               :info="val.INFO_ALT">
@@ -54,13 +56,14 @@
           </template>
 
           <template #item-5>
-            <FieldElt type="select"
+            <FieldElt id="cat"
+              type="select"
               :list="val.CATS_ARTICLE"
               v-model:value="cat"
               @keyup.enter="createArticle()"
               :info="val.INFO_CATEGORY">
-              <template #legend>{{ val.LEGEND_CATEGORY }}</template>
-              <template #label>{{ val.LABEL_CATEGORY }}</template>
+              <template #legend>{{ val.LEGEND_CAT }}</template>
+              <template #label>{{ val.LABEL_CAT }}</template>
             </FieldElt>
           </template>
         </ListElt>
@@ -112,8 +115,7 @@ export default {
   methods: {
     /**
      * ? CREATE ARTICLE
-     * Creates an article by sending a POST request 
-     * to the server with the provided data.
+     * * Creates an article by sending a POST request to the server with the provided data.
      */
     createArticle() {
       const { CHECK_STRING, TEXT_MIN, TEXT_MAX, CAT_ARTICLE, API_URL, TOKEN, ALERT_CREATED, ALERT_IMG } = this.val;

@@ -12,7 +12,8 @@
         <ListElt :items="val.GALLERY_FORM">
 
           <template #item-1>
-            <FieldElt v-model:value="name"
+            <FieldElt id="name"
+              v-model:value="name"
               @keyup.enter="createGallery()"
               :info="val.INFO_NAME">
               <template #legend>{{ val.LEGEND_NAME }}</template>
@@ -21,7 +22,8 @@
           </template>
 
           <template #item-2>
-            <FieldElt type="author"
+            <FieldElt id="author"
+              type="author"
               v-model:value="author"
               @keyup.enter="createGallery()"
               :info="val.INFO_AUTHOR"
@@ -55,15 +57,23 @@
           </template>
 
           <template #cell-name="slotProps">
-            <FieldElt v-model:value="getGalleries()[slotProps.index].name"
+            <FieldElt :id="`name-${galleries[slotProps.index].id}`"
+              v-model:value="getGalleries()[slotProps.index].name"
               @keyup.enter="updateGallery(galleries[slotProps.index].id)"
-              :info="val.INFO_UP_NAME"/>
+              :info="val.INFO_UP_NAME">
+              <template #legend>{{ val.LEGEND_NAME }}</template>
+              <template #label>{{ val.LABEL_NAME }}</template>
+            </FieldElt>
           </template>
 
           <template #cell-author="slotProps">
-            <FieldElt v-model:value="getGalleries()[slotProps.index].author"
+            <FieldElt :id="`author-${galleries[slotProps.index].id}`"
+              v-model:value="getGalleries()[slotProps.index].author"
               @keyup.enter="updateGallery(galleries[slotProps.index].id)"
-              :info="val.INFO_UP_NAME"/>
+              :info="val.INFO_UP_NAME">
+              <template #legend>{{ val.LEGEND_AUTHOR }}</template>
+              <template #label>{{ val.LABEL_AUTHOR }}</template>
+            </FieldElt>
           </template>
 
           <template #body="slotProps">
@@ -119,7 +129,7 @@ export default {
   methods: {
     /**
      * ? GET GALLERIES
-     * Retrieves the galleries.
+     * * Retrieves the galleries.
      * @return {Array} The list of galleries.
      */
     getGalleries() {
@@ -128,8 +138,7 @@ export default {
 
     /**
      * ? CREATE GALLERY
-     * Creates a galleryby sending a POST request 
-     * to the server with the provided data.
+     * * Creates a galleryby sending a POST request to the server.
      */
     createGallery() {
       const { CHECK_STRING, API_URL, TOKEN, ALERT_CREATED } = this.val;
@@ -152,7 +161,7 @@ export default {
 
     /**
      * ? UPDATE GALLERY
-     * Update the gallery with the given ID.
+     * * Update the gallery with the given ID.
      * @param {number} id - The ID of the gallery to update.
      */
     updateGallery(id) {
@@ -175,7 +184,7 @@ export default {
 
     /**
      * ? DELETE GALLERY
-     * Deletes a gallery with the specified ID.
+     * * Deletes a gallery with the specified ID.
      * @param {number} id - The ID of the gallery to be deleted.
      */
     deleteGallery(id) {

@@ -12,7 +12,8 @@
         <ListElt :items="val.PRODUCT_FORM">
 
           <template #item-1>
-            <FieldElt v-model:value="name"
+            <FieldElt id="name"
+              v-model:value="name"
               @keyup.enter="createProduct()"
               :info="val.INFO_NAME">
               <template #legend>{{ val.LEGEND_NAME }}</template>
@@ -44,7 +45,8 @@
           </template>
 
           <template #item-4>
-            <FieldElt type="textarea"
+            <FieldElt id="alt"
+              type="textarea"
               v-model:value="alt"
               :info="val.INFO_ALT">
               <template #legend>{{ val.LEGEND_ALT }}</template>
@@ -53,7 +55,8 @@
           </template>
 
           <template #item-5>
-            <FieldElt type="number"
+            <FieldElt id="price"
+              type="number"
               v-model:value="price"
               @keyup.enter="createProduct()"
               :info="val.INFO_PRICE"
@@ -65,7 +68,8 @@
           </template>
 
           <template #item-6>
-            <FieldElt type="textarea"
+            <FieldElt id="options"
+              type="textarea"
               v-model:value="options"
               @keyup.enter="createProduct()"
               :info="val.INFO_OPTIONS"
@@ -76,13 +80,14 @@
           </template>
 
           <template #item-7>
-            <FieldElt type="select"
+            <FieldElt id="cat"
+              type="select"
               :list="val.CATS_PRODUCT"
               v-model:value="cat"
               @keyup.enter="createProduct()"
-              :info="val.INFO_CATEGORY">
-              <template #legend>{{ val.LEGEND_CATEGORY }}</template>
-              <template #label>{{ val.LABEL_CATEGORY }}</template>
+              :info="val.INFO_CAT">
+              <template #legend>{{ val.LEGEND_CAT }}</template>
+              <template #label>{{ val.LABEL_CAT }}</template>
             </FieldElt>
           </template>
         </ListElt>
@@ -135,8 +140,7 @@ export default {
   methods: {
     /**
      * ? CREATE PRODUCT
-     * Create a product by sending a POST request 
-     * to the server with the provided data.
+     * * Create a product by sending a POST request to the server.
      */
     createProduct() {
       const { CHECK_STRING, TEXT_MIN, TEXT_MAX, CAT_PRODUCT, API_URL, TOKEN, ALERT_CREATED, ALERT_IMG } = this.val;
