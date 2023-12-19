@@ -16,13 +16,15 @@
           </template>
 
           <template #cell-name="slotProps">
-            <FieldElt v-model:value="getUsers()[slotProps.index].name"
+            <FieldElt :id="`name-${users[slotProps.index].id}`"
+              v-model:value="getUsers()[slotProps.index].name"
               @keyup.enter="updateUser(users[slotProps.index].id)"
               :info="val.INFO_UP_NAME"/>
           </template>
 
           <template #cell-email="slotProps">
-            <FieldElt type="email"
+            <FieldElt :id="`email-${users[slotProps.index].id}`"
+              type="email"
               v-model:value="getUsers()[slotProps.index].email"
               @keyup.enter="updateUser(users[slotProps.index].id)"
               :info="val.INFO_UP_EMAIL"/>
@@ -32,13 +34,15 @@
             <MediaElt :src="'/img/thumbnails/users/' + users[slotProps.index].image"
               :alt="users[slotProps.index].name"
               :title="users[slotProps.index].image"/>
-            <FieldElt :id="users[slotProps.index].id"
+
+            <FieldElt :id="`image-${users[slotProps.index].id}`"
               type="file"
               :info="val.INFO_UP_IMAGE"/>
           </template>
 
           <template #cell-role="slotProps">
-            <FieldElt type="select"
+            <FieldElt :id="`role-${users[slotProps.index].id}`"
+              type="select"
               :list="val.ROLES_USER"
               v-model:value="getUsers()[slotProps.index].role"
               @keyup.enter="updateUser(users[slotProps.index].id)"
@@ -47,6 +51,7 @@
 
           <template #cell-createdAt="slotProps">
             <p>{{ new Date(getUsers()[slotProps.index].createdAt).toLocaleString() }}</p>
+
             <BtnElt type="button"
               @click="deleteUser(users[slotProps.index].id)" 
               class="btn-red"
@@ -59,6 +64,7 @@
 
           <template #cell-updatedAt="slotProps">
             <p>{{ new Date(getUsers()[slotProps.index].updatedAt).toLocaleString() }}</p>
+
             <BtnElt type="button"
               @click="updateUser(users[slotProps.index].id)" 
               class="btn-sky"
@@ -124,7 +130,7 @@ export default {
 
       if (user && checkRange(name, CHECK_STRING) && checkRegex(email, CHECK_EMAIL, REGEX_EMAIL)) {
         const URL   = `${API_URL}/users/${id}`;
-        const img   = document.getElementById(id)?.files[0] ?? image;
+        const img   = document.getElementById(`image-${id}`)?.files[0] ?? image;
         const data  = new FormData();
 
         data.append("name", name);

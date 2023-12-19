@@ -57,7 +57,7 @@
               :alt="images[slotProps.index].description"
               :title="images[slotProps.index].name"/>
 
-            <FieldElt :id="images[slotProps.index].id"
+            <FieldElt :id="`image-${images[slotProps.index].id}`"
               type="file"
               :info="val.INFO_UP_IMAGE">
               <template #legend>{{ val.LEGEND_IMAGE }}</template>
@@ -77,7 +77,7 @@
           </template>
 
           <template #cell-Gallery="slotProps">
-            <FieldElt :id="`Gallery-${images[slotProps.index].id}`"
+            <FieldElt :id="`gallery-${images[slotProps.index].id}`"
               type="select"
               :list="getGalleries"
               v-model:value="getImages()[slotProps.index].Gallery.name"
@@ -215,7 +215,7 @@ export default {
 
       if (image && checkRange(name, CHECK_STRING) && checkRange(description, CHECK_STRING) ) {
         const URL   = `${API_URL}/images/${id}`
-        const img   = document.getElementById(id)?.files[0] ?? name;
+        const img   = document.getElementById(`image-${id}`)?.files[0] ?? name;
         const data  = new FormData();
 
         data.append("name", name);
