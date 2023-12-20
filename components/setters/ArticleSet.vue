@@ -61,7 +61,7 @@
               :list="val.CATS_ARTICLE"
               v-model:value="cat"
               @keyup.enter="createArticle()"
-              :info="val.INFO_CATEGORY">
+              :info="val.INFO_CAT">
               <template #legend>{{ val.LEGEND_CAT }}</template>
               <template #label>{{ val.LABEL_CAT }}</template>
             </FieldElt>

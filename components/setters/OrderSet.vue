@@ -74,7 +74,7 @@
             <BtnElt type="button"
               @click="updateStatus(orders[slotProps.index].id)" 
               class="btn-green"
-              :title="val.INFO_UP_ORDER + orders[slotProps.index].id">
+              :title="val.TITLE_UPDATE_ORDER + orders[slotProps.index].id">
               <template #btn>
                 <i class="fa-regular fa-calendar-check fa-lg fa-fw"></i>
               </template>

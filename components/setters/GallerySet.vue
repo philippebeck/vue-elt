@@ -80,7 +80,7 @@
             <BtnElt type="button"
               @click="updateGallery(galleries[slotProps.index].id)" 
               class="btn-sky"
-              :title="val.TITLE_GALLERY_UPDATE + galleries[slotProps.index].id">
+              :title="val.TITLE_UPDATE + galleries[slotProps.index].name">
               <template #btn>
                 <i class="fa-solid fa-cloud-arrow-up fa-lg fa-fw"></i>
               </template>
@@ -88,7 +88,7 @@
             <BtnElt type="button"
               @click="deleteGallery(galleries[slotProps.index].id)" 
               class="btn-red"
-              :title="val.TITLE_DELETE_GALLERY + galleries[slotProps.index].id">
+              :title="val.TITLE_DELETE + galleries[slotProps.index].name">
               <template #btn>
                 <i class="fa-solid fa-trash-arrow-up fa-lg fa-fw"></i>
               </template>
