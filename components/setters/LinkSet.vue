@@ -179,7 +179,7 @@ export default {
      * * Creates a link by sending a POST request to the server with the provided data.
      */
     createLink() {
-      const { CHECK_STRING, CHECK_URL, REGEX_URL, CAT_LINK, API_URL, TOKEN, ALERT_CREATED } = this.val;
+      const { ALERT_CREATED, API_URL, CAT_LINK, CHECK_STRING, CHECK_URL, REGEX_URL, TOKEN } = this.val;
 
       if (this.url.startsWith("http")) this.url = this.url.split('//')[1];
       if (this.cat === "") this.cat = CAT_LINK;

@@ -118,7 +118,8 @@ export default {
      * @param {number} id - The ID of the user to update.
      */
     updateUser(id) {
-      const { CHECK_STRING, CHECK_EMAIL, REGEX_EMAIL, API_URL, TOKEN, ALERT_UPDATED } = this.val;
+      const { ALERT_UPDATED, API_URL, CHECK_EMAIL, CHECK_STRING, REGEX_EMAIL, TOKEN } = this.val;
+
       const user = this.users.find(u => u.id === id);
       let { name, email, image, role } = user;
 

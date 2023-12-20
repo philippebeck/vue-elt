@@ -115,7 +115,8 @@ export default {
      * @param {number} id - The ID of the order to update.
      */
     updateStatus(id) {
-      const { API_URL, TOKEN, ALERT_ORDER, ALERT_UPDATED } = this.val;
+      const { ALERT_ORDER, ALERT_UPDATED, API_URL, TOKEN } = this.val;
+
       const order = this.orders.find(o => o.id === id);
 
       if (order) {

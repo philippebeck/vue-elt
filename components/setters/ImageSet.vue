@@ -202,7 +202,8 @@ export default {
      * @param {number} id - The ID of the image to be updated.
      */
     updateImage(id) {
-      const { CHECK_STRING, API_URL, TOKEN, ALERT_IMAGE, ALERT_UPDATED } = this.val;
+      const { ALERT_IMAGE, ALERT_UPDATED, API_URL, CHECK_STRING, TOKEN } = this.val;
+
       const image = this.images.find(i => i.id === id);
       let { name, description, galleryId } = image;
 

@@ -135,7 +135,7 @@ export default {
      * * Creates a galleryby sending a POST request to the server.
      */
     createGallery() {
-      const { CHECK_STRING, API_URL, TOKEN, ALERT_CREATED } = this.val;
+      const { ALERT_CREATED, API_URL, CHECK_STRING, TOKEN } = this.val;
 
       if (checkRange(this.name, CHECK_STRING) && checkRange(this.author, CHECK_STRING)) {
         const URL   = `${API_URL}/galleries`;

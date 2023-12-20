@@ -112,7 +112,7 @@ export default {
      * * Creates an article by sending a POST request to the server with the provided data.
      */
     createArticle() {
-      const { CHECK_STRING, TEXT_MIN, TEXT_MAX, CAT_ARTICLE, API_URL, TOKEN, ALERT_CREATED, ALERT_IMG } = this.val;
+      const { ALERT_CREATED, ALERT_IMG, API_URL, CAT_ARTICLE, CHECK_STRING, TEXT_MIN, TEXT_MAX, TOKEN } = this.val;
 
       if (checkRange(this.name, CHECK_STRING) && 
           checkRange(this.text, CHECK_STRING, TEXT_MIN, TEXT_MAX) && 
