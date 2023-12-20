@@ -50,7 +50,7 @@
           @click="createLink()" 
           class="btn-green"
           :content="val.CONTENT_CREATE"
-          :title="val.LINK_CREATOR">
+          :title="val.TITLE_LINK">
           <template #btn>
             <i class="fa-solid fa-square-plus fa-lg"></i>
           </template>

@@ -37,7 +37,7 @@
           @click="createImage()"
           class="btn-green"
           :content="val.CONTENT_CREATE"
-          :title="val.IMAGE_CREATOR">
+          :title="val.TITLE_IMAGE">
           <template #btn>
             <i class="fa-solid fa-square-plus fa-lg"></i>
           </template>

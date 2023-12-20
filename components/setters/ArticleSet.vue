@@ -73,7 +73,7 @@
           @click="createArticle()" 
           class="btn-green"
           :content="val.CONTENT_CREATE"
-          :title="val.ARTICLE_CREATOR">
+          :title="val.TITLE_ARTICLE">
           <template #btn>
             <i class="fa-solid fa-square-plus fa-lg"></i>
           </template>

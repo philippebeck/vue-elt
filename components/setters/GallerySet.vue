@@ -39,7 +39,7 @@
           @click="createGallery()" 
           class="btn-green"
           :content="val.CONTENT_CREATE"
-          :title="val.GALLERY_CREATOR">
+          :title="val.TITLE_GALLERY">
           <template #btn>
             <i class="fa-solid fa-square-plus fa-lg"></i>
           </template>
