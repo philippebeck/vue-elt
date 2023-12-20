@@ -1,33 +1,21 @@
 "use strict";
 
-/* ******************** VUE ELT ******************** */
+// ! ******************** VUE ELT ********************
 
 /* eslint-disable */
 
 export default {
-  /* ********** CONFIG ********** */
 
-  API_URL : "http://localhost:3000",
+  // ? ********** ALERT **********
 
-  CAT_ARTICLE : "Technology",
-  CAT_LINK : "Technology",
-  CAT_PRODUCT : "Technology",
-
-  PRICE_MAX : 5000,
-  PRICE_MIN : 1,
-
-  REGEX_EMAIL : /^[a-zA-Z0-9.-_]+[@]{1}[a-zA-Z0-9.-_]+[.]{1}[a-z]{2,10}$/,
-  REGEX_URL : /((https?|ftp|ssh|mailto):\/\/)?[a-z0-9\/:%_+.,#?!@&=-]+$/,
-
-  TEXT_MAX : 5000,
-  TEXT_MIN : 8,
-
-  TINY_KEY : "{your-tinymce-key}",
-
-  URL_MAX : 100,
-  URL_MIN : 5,
-
-  /* ********** CATEGORIES ********** */
+  ALERT_CREATED : " created !",
+  ALERT_DELETED : " deleted !",
+  ALERT_IMAGE : "Image #",
+  ALERT_IMG : "An image must be uploaded !",
+  ALERT_ORDER : "Order #",
+  ALERT_UPDATED : " updated !",
+  
+  // ? ********** CATEGORY **********
 
   CATS_ARTICLE : [
     "Culture",
@@ -66,7 +54,36 @@ export default {
     "Travel"
   ],
 
-  /* ********** FORMS ********** */
+  // ? ********** CHECK **********
+  
+  CHECK_EMAIL : "Your Email is not a valid address.",
+  CHECK_PASS : "Your Password must have 8 to 50 characters, with uppercase, lowercase, 1 number minimum & no space.",
+  CHECK_STRING : "The number of characters must be between ",
+  CHECK_URL : "This URL is not a valid path.",
+
+  // ? ********** CONFIG **********
+
+  API_URL : "http://localhost:3000",
+
+  CAT_ARTICLE : "Technology",
+  CAT_LINK : "Technology",
+  CAT_PRODUCT : "Technology",
+
+  PRICE_MAX : 5000,
+  PRICE_MIN : 1,
+
+  REGEX_EMAIL : /^[a-zA-Z0-9.-_]+[@]{1}[a-zA-Z0-9.-_]+[.]{1}[a-z]{2,10}$/,
+  REGEX_URL : /((https?|ftp|ssh|mailto):\/\/)?[a-z0-9\/:%_+.,#?!@&=-]+$/,
+
+  TEXT_MAX : 5000,
+  TEXT_MIN : 8,
+
+  TINY_KEY : "{your-tinymce-key}",
+
+  URL_MAX : 100,
+  URL_MIN : 5,
+
+  // ? ********** FORM **********
 
   ARTICLE_FORM : [
     "name", 
@@ -102,15 +119,7 @@ export default {
     "cat"
   ],
 
-  /* ********** LIST ********** */
-
-  ROLES_USER : [
-    "admin",
-    "editor",
-    "user"
-  ],
-
-  /* ********** HEADER ********** */
+  // ? ********** HEADER **********
 
   ARTICLE_MANAGER : "Article manager",
   GALLERY_MANAGER : "Gallery manager",
@@ -120,23 +129,7 @@ export default {
   PRODUCT_MANAGER : "Product manager",
   USER_MANAGER : "User manager",
 
-  /* ********** ALERT ********** */
-
-  ALERT_CREATED : " created !",
-  ALERT_DELETED : " deleted !",
-  ALERT_IMAGE : "Image #",
-  ALERT_IMG : "An image must be uploaded !",
-  ALERT_ORDER : "Order #",
-  ALERT_UPDATED : " updated !",
-  
-  /* ********** CHECK ********** */
-  
-  CHECK_EMAIL : "Your Email is not a valid address.",
-  CHECK_PASS : "Your Password must have 8 to 50 characters, with uppercase, lowercase, 1 number minimum & no space.",
-  CHECK_STRING : "The number of characters must be between ",
-  CHECK_URL : "This URL is not a valid path.",
-
-  /* ********** INFO ********** */
+  // ? ********** INFO **********
 
   INFO_ALT : "Alternative text",
   INFO_CATEGORY : "Choose a category",
@@ -155,7 +148,7 @@ export default {
   INFO_UP_STATUS : "Update the status",
   INFO_UP_URL : "Update the URL",
 
-  /* ********** LABEL ********** */
+  // ? ********** LABEL **********
   
   LABEL_ALT : "Write the alternative text",
   LABEL_AUTHOR : "Provide the author name",
@@ -166,7 +159,7 @@ export default {
   LABEL_PRICE : "Write the price",
   LABEL_URL : "Write the URL",
 
-  /* ********** LEGEND ********** */
+  // ? ********** LEGEND **********
 
   LEGEND_ALT : "Alt",
   LEGEND_AUTHOR : "Author",
@@ -178,12 +171,20 @@ export default {
   LEGEND_TEXT : "Text",
   LEGEND_URL : "Url",
 
-  /* ********** OTHER ********** */
+  // ? ********** LIST **********
+
+  ROLES_USER : [
+    "admin",
+    "editor",
+    "user"
+  ],
+
+  // ? ********** OTHER **********
 
   CONTENT_CREATE : "Create ",
   HEAD_UP : "up/del",
 
-  /* ********** TITLE ********** */
+  // ? ********** TITLE **********
 
   TITLE_ARTICLE : "Create article",
   TITLE_DELETE : "Delete ",
