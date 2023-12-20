@@ -19,7 +19,10 @@
             <FieldElt :id="`name-${users[slotProps.index].id}`"
               v-model:value="getUsers()[slotProps.index].name"
               @keyup.enter="updateUser(users[slotProps.index].id)"
-              :info="val.INFO_UP_NAME"/>
+              :info="val.INFO_UP_NAME">
+              <template #legend>{{ val.LEGEND_NAME }}</template>
+              <template #label>{{ val.LABEL_NAME }}</template>
+            </FieldElt>
           </template>
 
           <template #cell-email="slotProps">
@@ -27,7 +30,10 @@
               type="email"
               v-model:value="getUsers()[slotProps.index].email"
               @keyup.enter="updateUser(users[slotProps.index].id)"
-              :info="val.INFO_UP_EMAIL"/>
+              :info="val.INFO_UP_EMAIL">
+              <template #legend>{{ val.LEGEND_EMAIL }}</template>
+              <template #label>{{ val.LABEL_EMAIL }}</template>
+            </FieldElt>
           </template>
 
           <template #cell-image="slotProps">
@@ -37,7 +43,10 @@
 
             <FieldElt :id="`image-${users[slotProps.index].id}`"
               type="file"
-              :info="val.INFO_UP_IMAGE"/>
+              :info="val.INFO_UP_IMAGE">
+              <template #legend>{{ val.LEGEND_IMAGE }}</template>
+              <template #label>{{ val.LABEL_IMAGE }}</template>
+            </FieldElt>
           </template>
 
           <template #cell-role="slotProps">
@@ -46,7 +55,10 @@
               :list="val.ROLES_USER"
               v-model:value="getUsers()[slotProps.index].role"
               @keyup.enter="updateUser(users[slotProps.index].id)"
-              :info="val.INFO_UP_ROLE"/>
+              :info="val.INFO_UP_ROLE">
+              <template #legend>{{ val.LEGEND_ROLE }}</template>
+              <template #label>{{ val.LABEL_ROLE }}</template>
+            </FieldElt>
           </template>
 
           <template #cell-createdAt="slotProps">
