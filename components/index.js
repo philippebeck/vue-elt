@@ -11,7 +11,6 @@ import TableElt from "./elements/TableElt";
 
 // ******************** SETTERS ********************
 import ArticleSet from "./setters/ArticleSet";
-import AuthSet from "./setters/AuthSet";
 import GallerySet from "./setters/GallerySet";
 import ImageSet from "./setters/ImageSet";
 import LinkSet from "./setters/LinkSet";
@@ -31,7 +30,6 @@ export {
   SliderElt,
   TableElt,
   ArticleSet,
-  AuthSet,
   GallerySet,
   ImageSet,
   LinkSet,
