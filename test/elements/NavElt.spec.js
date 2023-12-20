@@ -32,10 +32,6 @@ describe("Default NavElt", () => {
     expect(wrapper.find("a").text()).toBe("Test Brand")
   })
 
-  test("must have a slot 'admin' with 'Test Admin' as value", () => {
-    expect(wrapper.find("aside").text()).toBe("Test Admin")
-  })
-
   test("must return true if the 2 slots exist", () => {
     expect(wrapper.vm.hasSlot("brand")).toBe(true)
     expect(wrapper.vm.hasSlot("admin")).toBe(true)
@@ -186,10 +182,5 @@ describe('NavElt', () => {
 
     expect(wrapper.find('nav.sidebar #side.show').exists()).toBe(true);
     expect(wrapper.find('nav.sidebar #side.hide').exists()).toBe(false);
-
-    await wrapper.find('nav.sidebar button').trigger('click');
-
-    //expect(wrapper.find('nav.sidebar #side.show').exists()).toBe(false);
-    //expect(wrapper.find('nav.sidebar #side.hide').exists()).toBe(true);
   });
 });

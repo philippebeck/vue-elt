@@ -1,12 +1,12 @@
 import { shallowMount, enableAutoUnmount } from "@vue/test-utils"
-import GalleryManager from "../../components/managers/GalleryManager"
+import GallerySet from "../../components/setters/GallerySet"
 
 let wrapper;
 
 jest.mock("axios");
 
 beforeEach(() => {
-  wrapper = shallowMount(GalleryManager, {
+  wrapper = shallowMount(GallerySet, {
     props: {
       val: {
         TEST: "test"
@@ -24,7 +24,7 @@ enableAutoUnmount(afterEach)
 /**
  * @jest-environment jsdom
  */
-describe("GalleryManager", () => {
+describe("GallerySet", () => {
   test("wrapper", () => {
     expect(wrapper.exists()).toBe(true)
   })

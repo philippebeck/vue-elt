@@ -1,6 +1,6 @@
 import { shallowMount, enableAutoUnmount } from "@vue/test-utils"
 import * as serve from "servidio"
-import LinkManager from "../../components/managers/LinkManager"
+import LinkSet from "../../components/setters/LinkSet"
 
 let wrapper;
 
@@ -16,7 +16,7 @@ beforeEach(() => {
   jest.spyOn(serve, "getItemsByCat").mockImplementation(() => {});
   jest.spyOn(serve, "setError").mockImplementation(() => {});
 
-  wrapper = shallowMount(LinkManager, {
+  wrapper = shallowMount(LinkSet, {
     props: {
       val: {
         CHECK_STRING: 'Check String',
@@ -45,7 +45,7 @@ enableAutoUnmount(afterEach)
 /**
  * @jest-environment jsdom
  */
-describe("LinkManager", () => {
+describe("LinkSet", () => {
   test("wrapper", () => {
     expect(wrapper.exists()).toBe(true)
   })

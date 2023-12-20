@@ -96,7 +96,7 @@
           @click="createProduct()" 
           class="btn-green"
           :content="val.CONTENT_CREATE"
-          :title="val.PRODUCT_CREATOR">
+          :title="val.TITLE_PRODUCT">
           <template #btn>
             <i class="fa-solid fa-square-plus fa-lg"></i>
           </template>
