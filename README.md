@@ -21,6 +21,7 @@ Vue Single File Component Library
   - [Summary](#summary)
   - [Package](#package)
   - [Download](#download)
+  - [Configuration](#configuration)
   - [Content](#content)
 
 ---
@@ -36,7 +37,14 @@ Vue Single File Component Library
 [Latest Release](https://github.com/philippebeck/vue-elt/releases)  
 
 `git clone https://github.com/philippebeck/vue-elt.git`  
-  
+
+---
+
+## Configuration
+
+To configure the constants, replace values :  
+`values.example.js` *(then rename it values.js)*  
+
 ---
 
 ## Content
@@ -60,3 +68,6 @@ Available Setters SFC :
 -   **OrderSet**  
 -   **ProductSet**  
 -   **UserSet**  
+
+Available Constants Values :  
+-   **values.js** *(needs only for setters components)*  
