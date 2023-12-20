@@ -103,7 +103,7 @@
               :list="val.CATS_LINK"
               v-model:value="table[slotProps.index].cat"
               @keyup.enter="updateLink(table[slotProps.index].id)"
-              :info="val.INFO_UP_CATEGORY">
+              :info="val.INFO_UP_CAT">
               <template #legend>{{ val.LEGEND_CAT }}</template>
               <template #label>{{ val.LABEL_CAT }}</template>
             </FieldElt>
@@ -113,7 +113,7 @@
             <BtnElt type="button"
               @click="updateLink(table[slotProps.index].id)" 
               class="btn-sky"
-              :title="'Update ' + table[slotProps.index].name">
+              :title="val.TITLE_UPDATE + table[slotProps.index].name">
               <template #btn>
                 <i class="fa-solid fa-cloud-arrow-up fa-lg fa-fw"></i>
               </template>
@@ -121,7 +121,7 @@
             <BtnElt type="button"
               @click="deleteLink(table[slotProps.index].id)" 
               class="btn-red"
-              :title="'Delete ' + table[slotProps.index].name">
+              :title="val.TITLE_DELETE + table[slotProps.index].name">
               <template #btn>
                 <i class="fa-solid fa-trash-arrow-up fa-lg fa-fw"></i>
               </template>
@@ -144,13 +144,7 @@ import TableElt from "../elements/TableElt"
 
 export default {
   name: "LinkSet",
-  components: {
-    BtnElt,
-    CardElt,
-    FieldElt,
-    ListElt,
-    TableElt
-  },
+  components: { BtnElt, CardElt, FieldElt, ListElt, TableElt },
   props: ["val", "links"],
   data() {
     return {
@@ -185,7 +179,7 @@ export default {
      * * Creates a link by sending a POST request to the server with the provided data.
      */
     createLink() {
-      const { CHECK_STRING, CHECK_URL, REGEX_URL, CAT_LINK, API_URL, TOKEN, ALERT_CREATED } = this.val;
+      const { ALERT_CREATED, API_URL, CAT_LINK, CHECK_STRING, CHECK_URL, REGEX_URL, TOKEN } = this.val;
 
       if (this.url.startsWith("http")) this.url = this.url.split('//')[1];
       if (this.cat === "") this.cat = CAT_LINK;

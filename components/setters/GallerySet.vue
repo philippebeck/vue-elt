@@ -80,7 +80,7 @@
             <BtnElt type="button"
               @click="updateGallery(galleries[slotProps.index].id)" 
               class="btn-sky"
-              :title="val.TITLE_GALLERY_UPDATE + galleries[slotProps.index].id">
+              :title="val.TITLE_UPDATE + galleries[slotProps.index].name">
               <template #btn>
                 <i class="fa-solid fa-cloud-arrow-up fa-lg fa-fw"></i>
               </template>
@@ -88,7 +88,7 @@
             <BtnElt type="button"
               @click="deleteGallery(galleries[slotProps.index].id)" 
               class="btn-red"
-              :title="val.TITLE_DELETE_GALLERY + galleries[slotProps.index].id">
+              :title="val.TITLE_DELETE + galleries[slotProps.index].name">
               <template #btn>
                 <i class="fa-solid fa-trash-arrow-up fa-lg fa-fw"></i>
               </template>
@@ -111,13 +111,7 @@ import TableElt from "../elements/TableElt"
 
 export default {
   name: "GallerySet",
-  components: {
-    BtnElt,
-    CardElt,
-    FieldElt,
-    ListElt,
-    TableElt
-  },
+  components: { BtnElt, CardElt, FieldElt, ListElt, TableElt },
   props: ["galleries", "val"],
   data() {
     return {
@@ -141,7 +135,7 @@ export default {
      * * Creates a galleryby sending a POST request to the server.
      */
     createGallery() {
-      const { CHECK_STRING, API_URL, TOKEN, ALERT_CREATED } = this.val;
+      const { ALERT_CREATED, API_URL, CHECK_STRING, TOKEN } = this.val;
 
       if (checkRange(this.name, CHECK_STRING) && checkRange(this.author, CHECK_STRING)) {
         const URL   = `${API_URL}/galleries`;

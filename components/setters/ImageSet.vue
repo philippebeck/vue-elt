@@ -93,7 +93,7 @@
             <BtnElt type="button"
               @click="updateImage(images[slotProps.index].id)" 
               class="btn-sky"
-              :title="val.TITLE_IMAGE_UPDATE + images[slotProps.index].description">
+              :title="val.TITLE_UPDATE + images[slotProps.index].description">
               <template #btn>
                 <i class="fa-solid fa-cloud-arrow-up fa-lg fa-fw"></i>
               </template>
@@ -102,7 +102,7 @@
             <BtnElt type="button"
               @click="deleteImage(images[slotProps.index].id)" 
               class="btn-red"
-              :title="val.TITLE_DELETE_IMAGE + images[slotProps.index].description">
+              :title="val.TITLE_DELETE + images[slotProps.index].description">
               <template #btn>
                 <i class="fa-solid fa-trash-arrow-up fa-lg fa-fw"></i>
               </template>
@@ -126,14 +126,7 @@ import TableElt from "../elements/TableElt"
 
 export default {
   name: "ImageSet",
-  components: {
-    BtnElt,
-    CardElt,
-    FieldElt,
-    ListElt,
-    MediaElt,
-    TableElt
-  },
+  components: { BtnElt, CardElt, FieldElt, ListElt, MediaElt, TableElt },
   props: ["galleries", "images", "val"],
   data() {
     return {
@@ -209,7 +202,8 @@ export default {
      * @param {number} id - The ID of the image to be updated.
      */
     updateImage(id) {
-      const { CHECK_STRING, API_URL, TOKEN, ALERT_IMAGE, ALERT_UPDATED } = this.val;
+      const { ALERT_IMAGE, ALERT_UPDATED, API_URL, CHECK_STRING, TOKEN } = this.val;
+
       const image = this.images.find(i => i.id === id);
       let { name, description, galleryId } = image;
 

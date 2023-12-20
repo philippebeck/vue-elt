@@ -57,7 +57,7 @@
             ({{ orders[slotProps.index].user.split('-')[1] }})
           </template>
 
-          <template #cell-created="slotProps">
+          <template #cell-createdAt="slotProps">
             <p>{{ new Date(orders[slotProps.index].created).toLocaleString() }}</p>
             <BtnElt type="button"
               @click="deleteOrder(orders[slotProps.index].id)" 
@@ -69,12 +69,12 @@
             </BtnElt>
           </template>
 
-          <template #cell-updated="slotProps">
+          <template #cell-updatedAt="slotProps">
             <p>{{ new Date(orders[slotProps.index].updated).toLocaleString() }}</p>
             <BtnElt type="button"
               @click="updateStatus(orders[slotProps.index].id)" 
               class="btn-green"
-              :title="val.INFO_UP_ORDER + orders[slotProps.index].id">
+              :title="val.TITLE_UPDATE_ORDER + orders[slotProps.index].id">
               <template #btn>
                 <i class="fa-regular fa-calendar-check fa-lg fa-fw"></i>
               </template>
@@ -96,17 +96,8 @@ import TableElt from "../elements/TableElt"
 
 export default {
   name: "OrderManager",
-  components: {
-    BtnElt,
-    CardElt,
-    FieldElt,
-    TableElt
-  },
-  props: [
-    "val", 
-    "orders", 
-    "users"
-  ],
+  components: { BtnElt, CardElt, FieldElt, TableElt },
+  props: ["orders", "users", "val"],
 
   methods: {
     /**
@@ -124,7 +115,8 @@ export default {
      * @param {number} id - The ID of the order to update.
      */
     updateStatus(id) {
-      const { API_URL, TOKEN, ALERT_ORDER, ALERT_UPDATED } = this.val;
+      const { ALERT_ORDER, ALERT_UPDATED, API_URL, TOKEN } = this.val;
+
       const order = this.orders.find(o => o.id === id);
 
       if (order) {
@@ -134,7 +126,7 @@ export default {
         data.append("status", order.status);
 
         putData(URL, data, TOKEN)
-          .then(() => alert(`${ALERT_ORDER} ${id} ${ALERT_UPDATED}`))
+          .then(() => alert(ALERT_ORDER + id + ALERT_UPDATED))
           .catch(setError);
       }
     },

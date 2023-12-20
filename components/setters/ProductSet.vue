@@ -117,13 +117,7 @@ import Editor from "@tinymce/tinymce-vue"
 
 export default {
   name: "ProductSet",
-  components: {
-    BtnElt,
-    CardElt,
-    FieldElt,
-    ListElt,
-    Editor
-  },
+  components: { BtnElt, CardElt, FieldElt, ListElt, Editor },
   props: ["val"],
   data() {
     return {
@@ -143,7 +137,7 @@ export default {
      * * Create a product by sending a POST request to the server.
      */
     createProduct() {
-      const { CHECK_STRING, TEXT_MIN, TEXT_MAX, CAT_PRODUCT, API_URL, TOKEN, ALERT_CREATED, ALERT_IMG } = this.val;
+      const { ALERT_CREATED, ALERT_IMG, API_URL, CAT_PRODUCT, CHECK_STRING, TEXT_MAX, TEXT_MIN, TOKEN } = this.val;
 
       if (checkRange(this.name, CHECK_STRING) && 
           checkRange(this.description, CHECK_STRING, TEXT_MIN, TEXT_MAX) && 

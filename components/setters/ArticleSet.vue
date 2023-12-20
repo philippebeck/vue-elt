@@ -61,7 +61,7 @@
               :list="val.CATS_ARTICLE"
               v-model:value="cat"
               @keyup.enter="createArticle()"
-              :info="val.INFO_CATEGORY">
+              :info="val.INFO_CAT">
               <template #legend>{{ val.LEGEND_CAT }}</template>
               <template #label>{{ val.LABEL_CAT }}</template>
             </FieldElt>
@@ -94,13 +94,7 @@ import Editor from "@tinymce/tinymce-vue"
 
 export default {
   name: "ArticleSet",
-  components: {
-    BtnElt,
-    CardElt,
-    FieldElt,
-    ListElt,
-    Editor
-  },
+  components: { BtnElt, CardElt, FieldElt, ListElt, Editor },
   props: ["val"],
   data() {
     return {
@@ -118,7 +112,7 @@ export default {
      * * Creates an article by sending a POST request to the server with the provided data.
      */
     createArticle() {
-      const { CHECK_STRING, TEXT_MIN, TEXT_MAX, CAT_ARTICLE, API_URL, TOKEN, ALERT_CREATED, ALERT_IMG } = this.val;
+      const { ALERT_CREATED, ALERT_IMG, API_URL, CAT_ARTICLE, CHECK_STRING, TEXT_MIN, TEXT_MAX, TOKEN } = this.val;
 
       if (checkRange(this.name, CHECK_STRING) && 
           checkRange(this.text, CHECK_STRING, TEXT_MIN, TEXT_MAX) && 
