@@ -57,7 +57,7 @@
             ({{ orders[slotProps.index].user.split('-')[1] }})
           </template>
 
-          <template #cell-created="slotProps">
+          <template #cell-createdAt="slotProps">
             <p>{{ new Date(orders[slotProps.index].created).toLocaleString() }}</p>
             <BtnElt type="button"
               @click="deleteOrder(orders[slotProps.index].id)" 
@@ -69,7 +69,7 @@
             </BtnElt>
           </template>
 
-          <template #cell-updated="slotProps">
+          <template #cell-updatedAt="slotProps">
             <p>{{ new Date(orders[slotProps.index].updated).toLocaleString() }}</p>
             <BtnElt type="button"
               @click="updateStatus(orders[slotProps.index].id)" 
@@ -126,7 +126,7 @@ export default {
         data.append("status", order.status);
 
         putData(URL, data, TOKEN)
-          .then(() => alert(`${ALERT_ORDER} ${id} ${ALERT_UPDATED}`))
+          .then(() => alert(ALERT_ORDER + id + ALERT_UPDATED))
           .catch(setError);
       }
     },
