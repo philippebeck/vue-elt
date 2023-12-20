@@ -126,14 +126,7 @@ import TableElt from "../elements/TableElt"
 
 export default {
   name: "ImageSet",
-  components: {
-    BtnElt,
-    CardElt,
-    FieldElt,
-    ListElt,
-    MediaElt,
-    TableElt
-  },
+  components: { BtnElt, CardElt, FieldElt, ListElt, MediaElt, TableElt },
   props: ["galleries", "images", "val"],
   data() {
     return {

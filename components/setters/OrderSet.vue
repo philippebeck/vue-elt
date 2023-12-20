@@ -96,17 +96,8 @@ import TableElt from "../elements/TableElt"
 
 export default {
   name: "OrderManager",
-  components: {
-    BtnElt,
-    CardElt,
-    FieldElt,
-    TableElt
-  },
-  props: [
-    "val", 
-    "orders", 
-    "users"
-  ],
+  components: { BtnElt, CardElt, FieldElt, TableElt },
+  props: ["orders", "users", "val"],
 
   methods: {
     /**
