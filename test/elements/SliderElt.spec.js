@@ -207,17 +207,44 @@ describe("setKeyboard() method", () => {
  */
 describe("getRandomInteger() method", () => {
 
-  test("must return a random integer between 0 & 5", () => {
-    const result = wrapper.vm.getRandomInteger(0, 5)
-    expect(result).toBeGreaterThanOrEqual(0)
-    expect(result).toBeLessThanOrEqual(5)
-  })
-
-  test("must return a random integer between 0 & 100", () => {
-    const result = wrapper.vm.getRandomInteger(0, 100)
-    expect(result).toBeGreaterThanOrEqual(0)
-    expect(result).toBeLessThanOrEqual(100)
-  })
+  test('should generate a random integer when min and max are both 0', () => {
+    const min = 0;
+    const max = 0;
+  
+    const result = wrapper.vm.getRandomInteger(min, max);
+  
+    expect(result).toBe(0);
+  });
+  
+  test('should generate a random integer when min and max are both positive integers', () => {
+    const min = 1;
+    const max = 10;
+  
+    const result = wrapper.vm.getRandomInteger(min, max);
+  
+    expect(result).toBeGreaterThanOrEqual(min);
+    expect(result).toBeLessThanOrEqual(max);
+  });
+  
+  test('should generate a random integer when min is negative and max is positive', () => {
+    const min = -10;
+    const max = 10;
+  
+    const result = wrapper.vm.getRandomInteger(min, max);
+  
+    expect(result).toBeGreaterThanOrEqual(min);
+    expect(result).toBeLessThanOrEqual(max);
+  });
+  
+  test('should generate a random integer when min and max are both negative integers', () => {
+    const min = -10;
+    const max = -1;
+  
+    const result = wrapper.vm.getRandomInteger(min, max);
+  
+    expect(result).toBeGreaterThanOrEqual(min);
+    expect(result).toBeLessThanOrEqual(max);
+  });
 })
 
 /**
