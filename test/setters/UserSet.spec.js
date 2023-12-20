@@ -1,24 +1,22 @@
 import { shallowMount, enableAutoUnmount } from "@vue/test-utils"
-import ImageManager from "../../components/managers/ImageManager"
+import UserSet from "../../components/setters/UserSet"
 
 let wrapper;
 
 jest.mock("axios");
 
 beforeEach(() => {
-  wrapper = shallowMount(ImageManager, {
+  wrapper = shallowMount(UserSet, {
     props: {
       val: {
         TEST: "test"
       },
-      galleries: [{
-        name: "Gallery name",
-        author: "Gallery author"
-      }],
-      images: [{
-        name: "Image name",
-        description: "Image description",
-        gallery: "Gallery name"
+      users: [{
+        name: "User name",
+        email: "User email",
+        image: "User image",
+        password: "User password",
+        role: "User role"
       }]
     }
   });
@@ -29,7 +27,7 @@ enableAutoUnmount(afterEach)
 /**
  * @jest-environment jsdom
  */
-describe("ImageManager", () => {
+describe("UserSet", () => {
   test("wrapper", () => {
     expect(wrapper.exists()).toBe(true)
   })
@@ -44,21 +42,20 @@ describe("ImageManager", () => {
 
   test("props", () => {
     expect(wrapper.props("val")).toStrictEqual({ TEST: "test" })
-    expect(wrapper.props("galleries")).toStrictEqual([{
-      name: "Gallery name",
-      author: "Gallery author"
-    }])
-    expect(wrapper.props("images")).toStrictEqual([{
-      name: "Image name",
-      description: "Image description",
-      gallery: "Gallery name"
+    expect(wrapper.props("users")).toStrictEqual([{
+      name: "User name",
+      email: "User email",
+      image: "User image",
+      password: "User password",
+      role: "User role"
     }])
   })
 
   test("methods", () => {
-    expect(typeof wrapper.vm.getImages).toBe("function")
-    expect(typeof wrapper.vm.getItemsByGallery).toBe("function")
-    expect(typeof wrapper.vm.updateImage).toBe("function")
-    expect(typeof wrapper.vm.deleteImage).toBe("function")
+    expect(typeof wrapper.vm.getUsers).toBe("function")
+    expect(typeof wrapper.vm.getUser).toBe("function")
+    expect(typeof wrapper.vm.checkUser).toBe("function")
+    expect(typeof wrapper.vm.updateUser).toBe("function")
+    expect(typeof wrapper.vm.deleteUser).toBe("function")
   })
 })

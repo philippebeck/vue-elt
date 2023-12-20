@@ -1,12 +1,12 @@
 import { shallowMount, enableAutoUnmount } from "@vue/test-utils"
-import ArticleManager from "../../components/managers/ArticleManager"
+import ArticleSet from "../../components/setters/ArticleSet"
 
 let wrapper;
 
 jest.mock("axios");
 
 beforeEach(() => {
-  wrapper = shallowMount(ArticleManager, {
+  wrapper = shallowMount(ArticleSet, {
     props: {
       val: {
         TEST: "test"
@@ -52,7 +52,7 @@ enableAutoUnmount(afterEach)
 /**
  * @jest-environment jsdom
  */
-describe("ArticleManager", () => {
+describe("ArticleSet", () => {
   test("wrapper", () => {
     expect(wrapper.exists()).toBe(true)
   })

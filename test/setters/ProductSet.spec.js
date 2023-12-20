@@ -1,12 +1,12 @@
 import { shallowMount, enableAutoUnmount } from "@vue/test-utils"
-import ProductManager from "../../components/managers/ProductManager"
+import ProductSet from "../../components/setters/ProductSet"
 
 let wrapper;
 
 jest.mock("axios");
 
 beforeEach(() => {
-  wrapper = shallowMount(ProductManager, {
+  wrapper = shallowMount(ProductSet, {
     props: {
       val: {
         TEST: "test"
@@ -29,7 +29,7 @@ enableAutoUnmount(afterEach)
 /**
  * @jest-environment jsdom
  */
-describe("ProductManager", () => {
+describe("ProductSet", () => {
   test("wrapper", () => {
     expect(wrapper.exists()).toBe(true)
   })
