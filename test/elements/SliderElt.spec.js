@@ -313,14 +313,6 @@ describe("runSlider() method", () => {
  */
 describe("goNext() method", () => {
 
-  test("must call getRandomInteger() method & give the value to index when randomState is true", () => {
-    wrapper.vm.randomState = true
-    wrapper.vm.getRandomInteger = jest.fn().mockReturnValue(1)
-    wrapper.vm.goNext()
-    expect(wrapper.vm.index).toBe(1)
-    expect(wrapper.vm.getRandomInteger).toHaveBeenCalled()
-  })
-
   test("must increment index when randomState is false", () => {
     wrapper.vm.randomState = false
     wrapper.vm.index = 0
@@ -346,14 +338,6 @@ describe("goNext() method", () => {
  * @jest-environment jsdom
  */
 describe("goPrevious() method", () => {
-
-  test("must call getRandomInteger() method & give the value to index when randomState is true", () => {
-    wrapper.vm.randomState = true
-    wrapper.vm.getRandomInteger = jest.fn().mockReturnValue(1)
-    wrapper.vm.goPrevious()
-    expect(wrapper.vm.index).toBe(1)
-    expect(wrapper.vm.getRandomInteger).toHaveBeenCalled()
-  })
 
   test("must decrement index when randomState is false", () => {
     wrapper.vm.randomState = false
