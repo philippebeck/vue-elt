@@ -179,7 +179,7 @@ export default {
      * * Creates a link by sending a POST request to the server with the provided data.
      */
     createLink() {
-      const { ALERT_CREATED, API_URL, CAT_LINK, CHECK_STRING, CHECK_URL, REGEX_URL, TOKEN } = this.val;
+      const { ALERT_CREATED, API_URL, CAT_LINK, CHECK_STRING, CHECK_URL, REGEX_URL } = this.val;
 
       if (this.url.startsWith("http")) this.url = this.url.split('//')[1];
       if (this.cat === "") this.cat = CAT_LINK;
@@ -192,7 +192,7 @@ export default {
         data.append("url", this.url);
         data.append("cat", this.cat);
 
-        postData(URL, data, TOKEN)
+        postData(URL, data, this.token)
           .then(() => {
             alert(this.name + ALERT_CREATED);
             this.$router.go();
@@ -207,7 +207,7 @@ export default {
      * @param {number} id - The ID of the link to update.
      */
     updateLink(id) {
-      const { CHECK_STRING, REGEX_URL, CHECK_URL, API_URL, TOKEN, ALERT_UPDATED } = this.val;
+      const { CHECK_STRING, REGEX_URL, CHECK_URL, API_URL, ALERT_UPDATED } = this.val;
       const link = this.links.find(l => l.id === id);
       let { name, url, cat } = link;
 
@@ -221,7 +221,7 @@ export default {
         data.append("url", url);
         data.append("cat", cat);
 
-        putData(URL, data, TOKEN)
+        putData(URL, data, this.token)
           .then(() => { alert(`${name} ${ALERT_UPDATED}`) })
           .catch(setError);
       }
@@ -233,13 +233,13 @@ export default {
      * @param {number} id - The ID of the link to be deleted.
      */
     deleteLink(id) {
-      const { TITLE_DELETE, API_URL, TOKEN, ALERT_DELETED } = this.val;
+      const { TITLE_DELETE, API_URL, ALERT_DELETED } = this.val;
       const NAME = getItemName(id, this.links);
 
       if (confirm(`${TITLE_DELETE} ${NAME} ?`) === true) {
         const URL = `${API_URL}/links/${id}`;
 
-        deleteData(URL, TOKEN)
+        deleteData(URL, this.token)
           .then(() => {
             alert(NAME + ALERT_DELETED);
             this.$router.go();

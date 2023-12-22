@@ -135,7 +135,7 @@ export default {
      * * Creates a galleryby sending a POST request to the server.
      */
     createGallery() {
-      const { ALERT_CREATED, API_URL, CHECK_STRING, TOKEN } = this.val;
+      const { ALERT_CREATED, API_URL, CHECK_STRING } = this.val;
 
       if (checkRange(this.name, CHECK_STRING) && checkRange(this.author, CHECK_STRING)) {
         const URL   = `${API_URL}/galleries`;
@@ -144,7 +144,7 @@ export default {
         data.append("name", this.name);
         data.append("author", this.author);
 
-        postData(URL, data, TOKEN)
+        postData(URL, data, this.token)
           .then(() => {
             alert(this.name + ALERT_CREATED);
             this.$router.go();
@@ -159,7 +159,7 @@ export default {
      * @param {number} id - The ID of the gallery to update.
      */
     updateGallery(id) {
-      const { CHECK_STRING, API_URL, TOKEN, ALERT_UPDATED } = this.val;
+      const { CHECK_STRING, API_URL, ALERT_UPDATED } = this.val;
       const gallery = this.galleries.find(g => g.id === id);
       let { name, author } = gallery;
 
@@ -170,7 +170,7 @@ export default {
         data.append("name", name);
         data.append("author", author);
 
-        putData(URL, data, TOKEN)
+        putData(URL, data, this.token)
           .then(() => { alert(name + ALERT_UPDATED) })
           .catch(err => { setError(err) });
       }
@@ -182,13 +182,13 @@ export default {
      * @param {number} id - The ID of the gallery to be deleted.
      */
     deleteGallery(id) {
-      const { TITLE_DELETE, API_URL, TOKEN, ALERT_DELETED } = this.val;
+      const { TITLE_DELETE, API_URL, ALERT_DELETED } = this.val;
       const NAME = getItemName(id, this.galleries);
 
       if (confirm(`${TITLE_DELETE} ${NAME} ?`) === true) {
         const URL = `${API_URL}/galleries/${id}`
 
-        deleteData(URL, TOKEN)
+        deleteData(URL, this.token)
           .then(() => {
             alert(NAME + ALERT_DELETED);
             this.$router.go();

@@ -137,7 +137,7 @@ export default {
      * * Create a product by sending a POST request to the server.
      */
     createProduct() {
-      const { ALERT_CREATED, ALERT_IMG, API_URL, CAT_PRODUCT, CHECK_STRING, TEXT_MAX, TEXT_MIN, TOKEN } = this.val;
+      const { ALERT_CREATED, ALERT_IMG, API_URL, CAT_PRODUCT, CHECK_STRING, TEXT_MAX, TEXT_MIN } = this.val;
 
       if (checkRange(this.name, CHECK_STRING) && 
           checkRange(this.description, CHECK_STRING, TEXT_MIN, TEXT_MAX) && 
@@ -158,7 +158,7 @@ export default {
           data.append("options", this.options);
           data.append("cat", this.cat);
 
-          postData(URL, data, TOKEN)
+          postData(URL, data, this.token)
             .then(() => {
               alert(this.name + ALERT_CREATED);
               this.$router.go();

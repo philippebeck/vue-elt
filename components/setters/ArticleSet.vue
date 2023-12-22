@@ -112,7 +112,7 @@ export default {
      * * Creates an article by sending a POST request to the server with the provided data.
      */
     createArticle() {
-      const { ALERT_CREATED, ALERT_IMG, API_URL, CAT_ARTICLE, CHECK_STRING, TEXT_MIN, TEXT_MAX, TOKEN } = this.val;
+      const { ALERT_CREATED, ALERT_IMG, API_URL, CAT_ARTICLE, CHECK_STRING, TEXT_MIN, TEXT_MAX } = this.val;
 
       if (checkRange(this.name, CHECK_STRING) && 
           checkRange(this.text, CHECK_STRING, TEXT_MIN, TEXT_MAX) && 
@@ -131,7 +131,7 @@ export default {
           data.append("alt", this.alt);
           data.append("cat", this.cat);
 
-          postData(URL, data, TOKEN)
+          postData(URL, data, this.token)
             .then(() => {
               alert(this.name + ALERT_CREATED);
               this.$router.go();
