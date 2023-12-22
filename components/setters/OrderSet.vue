@@ -115,7 +115,7 @@ export default {
      * @param {number} id - The ID of the order to update.
      */
     updateStatus(id) {
-      const { ALERT_ORDER, ALERT_UPDATED, API_URL, TOKEN } = this.val;
+      const { ALERT_ORDER, ALERT_UPDATED, API_URL } = this.val;
 
       const order = this.orders.find(o => o.id === id);
 
@@ -125,7 +125,7 @@ export default {
 
         data.append("status", order.status);
 
-        putData(URL, data, TOKEN)
+        putData(URL, data, this.token)
           .then(() => alert(ALERT_ORDER + id + ALERT_UPDATED))
           .catch(setError);
       }
@@ -137,12 +137,12 @@ export default {
      * @param {number} id - the ID of the order to delete
      */
     deleteOrder(id) {
-      const { TITLE_DELETE_ORDER, API_URL, TOKEN, ALERT_ORDER, ALERT_DELETED } = this.val;
+      const { TITLE_DELETE_ORDER, API_URL, ALERT_ORDER, ALERT_DELETED } = this.val;
 
       if (confirm(`${TITLE_DELETE_ORDER} ${id} ?`) === true) {
         const URL = `${API_URL}/orders/${id}`
 
-        deleteData(URL, TOKEN)
+        deleteData(URL, this.token)
           .then(() => {
             alert(ALERT_ORDER + id + ALERT_DELETED);
             this.$router.go();

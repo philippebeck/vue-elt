@@ -170,7 +170,7 @@ export default {
      * * Create an image by sending a POST request to the server.
      */
     createImage() {
-      const { CHECK_STRING, API_URL, TOKEN, ALERT_CREATED, ALERT_IMG } = this.val;
+      const { CHECK_STRING, API_URL, ALERT_CREATED, ALERT_IMG } = this.val;
 
       if (checkRange(this.description, CHECK_STRING)) {
         const img = document.getElementById("image")?.files[0];
@@ -183,7 +183,7 @@ export default {
           data.append("description", this.description);
           data.append("galleryId", this.$route.params.id);
 
-          postData(URL, data, TOKEN)
+          postData(URL, data, this.token)
             .then(() => {
               alert(this.description + ALERT_CREATED);
               this.$router.go();
@@ -202,7 +202,7 @@ export default {
      * @param {number} id - The ID of the image to be updated.
      */
     updateImage(id) {
-      const { ALERT_IMAGE, ALERT_UPDATED, API_URL, CHECK_STRING, TOKEN } = this.val;
+      const { ALERT_IMAGE, ALERT_UPDATED, API_URL, CHECK_STRING } = this.val;
 
       const image = this.images.find(i => i.id === id);
       let { name, description, galleryId } = image;
@@ -217,7 +217,7 @@ export default {
         data.append("description", description);
         data.append("galleryId", galleryId);
 
-        putData(URL, data, TOKEN)
+        putData(URL, data, this.token)
           .then(() => { alert(ALERT_IMAGE + id + ALERT_UPDATED) })
           .catch(err => { setError(err) });
       }
@@ -229,12 +229,12 @@ export default {
      * @param {number} id - The ID of the image to be deleted.
      */
     deleteImage(id) {
-      const { TITLE_DELETE_IMAGE, API_URL, TOKEN, ALERT_IMAGE, ALERT_DELETED } = this.val;
+      const { TITLE_DELETE_IMAGE, API_URL, ALERT_IMAGE, ALERT_DELETED } = this.val;
 
       if (confirm(`${TITLE_DELETE_IMAGE} ${id} ?`) === true) {
         const URL = `${API_URL}/images/${id}`
 
-        deleteData(URL, TOKEN)
+        deleteData(URL, this.token)
           .then(() => {
             alert(ALERT_IMAGE + id + ALERT_DELETED);
             this.$router.go();

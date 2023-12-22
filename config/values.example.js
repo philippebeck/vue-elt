@@ -1,12 +1,10 @@
 "use strict";
 
-// ! ******************** VUE ELT ********************
-
 /* eslint-disable */
 
 export default {
 
-  // ? ********** ALERT **********
+  // ! ********** ALERT **********
 
   ALERT_CREATED : " created !",
   ALERT_DELETED : " deleted !",
@@ -15,7 +13,7 @@ export default {
   ALERT_ORDER : "Order #",
   ALERT_UPDATED : " updated !",
   
-  // ? ********** CATEGORY **********
+  // ! ********** CATEGORY **********
 
   CATS_ARTICLE : [
     "Culture",
@@ -54,14 +52,14 @@ export default {
     "Travel"
   ],
 
-  // ? ********** CHECK **********
+  // ! ********** CHECK **********
   
   CHECK_EMAIL : "Your Email is not a valid address.",
   CHECK_PASS : "Your Password must have 8 to 50 characters, with uppercase, lowercase, 1 number minimum & no space.",
   CHECK_STRING : "The number of characters must be between ",
   CHECK_URL : "This URL is not a valid path.",
 
-  // ? ********** CONFIG **********
+  // ! ********** CONFIG **********
 
   API_URL : "http://localhost:3000",
 
@@ -80,12 +78,10 @@ export default {
 
   TINY_KEY : "{your-tinymce-key}",
 
-  TOKEN : JSON.parse(localStorage.getItem("userToken")),
-
   URL_MAX : 100,
   URL_MIN : 5,
 
-  // ? ********** FORM **********
+  // ! ********** FORM **********
 
   ARTICLE_FORM : [
     "name", 
@@ -121,7 +117,7 @@ export default {
     "cat"
   ],
 
-  // ? ********** HEADER **********
+  // ! ********** HEADER **********
 
   ARTICLE_MANAGER : "Article manager",
   GALLERY_MANAGER : "Gallery manager",
@@ -131,7 +127,7 @@ export default {
   PRODUCT_MANAGER : "Product manager",
   USER_MANAGER : "User manager",
 
-  // ? ********** INFO **********
+  // ! ********** INFO **********
 
   INFO_ALT : "Alternative text",
   INFO_AUTHOR : "Write the author's name",
@@ -152,7 +148,7 @@ export default {
   INFO_UP_STATUS : "Update the status",
   INFO_UP_URL : "Update the URL",
 
-  // ? ********** LABEL **********
+  // ! ********** LABEL **********
   
   LABEL_ALT : "Indicate the alternative text",
   LABEL_AUTHOR : "Indicate the author name",
@@ -166,7 +162,7 @@ export default {
   LABEL_ROLE : "Indicate the role",
   LABEL_URL : "Indicate the URL",
 
-  // ? ********** LEGEND **********
+  // ! ********** LEGEND **********
 
   LEGEND_ALT : "Alt",
   LEGEND_AUTHOR : "Author",
@@ -181,7 +177,7 @@ export default {
   LEGEND_TEXT : "Text",
   LEGEND_URL : "Url",
 
-  // ? ********** LIST **********
+  // ! ********** LIST **********
 
   ROLES_USER : [
     "admin",
@@ -189,12 +185,12 @@ export default {
     "user"
   ],
 
-  // ? ********** OTHER **********
+  // ! ********** OTHER **********
 
   CONTENT_CREATE : "Create ",
   HEAD_UP : "up/del",
 
-  // ? ********** TITLE **********
+  // ! ********** TITLE **********
 
   TITLE_ARTICLE : "Create article",
   TITLE_DELETE : "Delete ",

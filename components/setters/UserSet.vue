@@ -130,7 +130,7 @@ export default {
      * @param {number} id - The ID of the user to update.
      */
     updateUser(id) {
-      const { ALERT_UPDATED, API_URL, CHECK_EMAIL, CHECK_STRING, REGEX_EMAIL, TOKEN } = this.val;
+      const { ALERT_UPDATED, API_URL, CHECK_EMAIL, CHECK_STRING, REGEX_EMAIL } = this.val;
 
       const user = this.users.find(u => u.id === id);
       let { name, email, image, role } = user;
@@ -145,7 +145,7 @@ export default {
         data.append("image", img);
         data.append("role", role);
 
-        putData(URL, data, TOKEN)
+        putData(URL, data, this.token)
           .then(() => alert(name + ALERT_UPDATED))
           .catch(setError);
       }
@@ -157,13 +157,13 @@ export default {
      * @param {number} id - The ID of the user to be deleted.
      */
     deleteUser(id) {
-      const { TITLE_DELETE, API_URL, TOKEN, ALERT_DELETED } = this.val;
+      const { TITLE_DELETE, API_URL, ALERT_DELETED } = this.val;
       const NAME = getItemName(id, this.users);
 
       if (confirm(`${TITLE_DELETE} ${NAME} ?`) === true) {
         const URL = `${API_URL}/users/${id}`;
 
-        deleteData(URL, TOKEN)
+        deleteData(URL, this.token)
           .then(() => {
             alert(NAME + ALERT_DELETED);
             this.$router.go();
