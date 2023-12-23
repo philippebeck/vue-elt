@@ -118,7 +118,7 @@ import Editor from "@tinymce/tinymce-vue"
 export default {
   name: "ProductSet",
   components: { BtnElt, CardElt, FieldElt, ListElt, Editor },
-  props: ["val"],
+  props: ["token", "val"],
   data() {
     return {
       name: "",
