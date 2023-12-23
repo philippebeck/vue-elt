@@ -134,8 +134,8 @@ figcaption {
   --ve-media-figcaption-display: flex;
   --ve-media-figcaption-flex-flow: column nowrap;
   --ve-media-figcaption-place-content: center center;
-  --ve-media-figcaption-width: 300px;
-  --ve-media-figcaption-font-size: 1.6rem;
+  --ve-media-figcaption-max-width: 1000px;
+  --ve-media-figcaption-font-size: 2.5rem;
   --ve-media-figcaption-font-style: normal;
   --ve-media-figcaption-color: var(--ani-slate);
 }
@@ -184,7 +184,7 @@ figcaption {
   display: var(--ve-media-figcaption-display);
   flex-flow: var(--ve-media-figcaption-flex-flow);
   place-content: var(--ve-media-figcaption-place-content);
-  width: var(--ve-media-figcaption-width);
+  max-width: var(--ve-media-figcaption-width);
   font-size: var(--ve-media-figcaption-font-size);
   font-style: var(--ve-media-figcaption-font-style);
   color: var(--ve-media-figcaption-color);
