@@ -171,7 +171,7 @@ export default {
      * @return {Array} The filtered array of items.
      */
     getItemsByCategory(items) {
-      return getItemsByCat(items);
+      return getItemsByCat(items, "name");
     },
 
     /**
