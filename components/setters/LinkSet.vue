@@ -145,7 +145,7 @@ import TableElt from "../elements/TableElt"
 export default {
   name: "LinkSet",
   components: { BtnElt, CardElt, FieldElt, ListElt, TableElt },
-  props: ["val", "links"],
+  props: ["val", "links", "token"],
   data() {
     return {
       name: "",

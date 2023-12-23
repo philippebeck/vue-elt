@@ -112,7 +112,7 @@ import TableElt from "../elements/TableElt"
 export default {
   name: "GallerySet",
   components: { BtnElt, CardElt, FieldElt, ListElt, TableElt },
-  props: ["galleries", "val"],
+  props: ["galleries", "token", "val"],
   data() {
     return {
       name: "",

@@ -104,7 +104,7 @@ import TableElt from "../elements/TableElt"
 export default {
   name: "UserSet",
   components: { BtnElt, CardElt, FieldElt, MediaElt, TableElt },
-  props: ["users" ,"val"],
+  props: ["token", "users", "val"],
   data() {
     return {
       name: "",
