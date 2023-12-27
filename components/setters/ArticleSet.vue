@@ -132,11 +132,8 @@ export default {
           data.append("cat", this.cat);
 
           postData(URL, data, this.token)
-            .then(() => {
-              alert(this.name + ALERT_CREATED);
-              this.$router.go();
-            })
-            .catch(setError);
+            .then(() => alert(this.name + ALERT_CREATED))
+            .catch(err => setError(err));
 
         } else {
           alert(ALERT_IMG);
