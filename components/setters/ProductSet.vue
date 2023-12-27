@@ -163,7 +163,7 @@ export default {
               alert(this.name + ALERT_CREATED);
               this.$router.go();
             })
-            .catch(setError);
+            .catch(err => setError(err));
 
         } else {
           alert(ALERT_IMG);
