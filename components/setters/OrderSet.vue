@@ -126,8 +126,11 @@ export default {
         data.append("status", order.status);
 
         putData(URL, data, this.token)
-          .then(() => alert(ALERT_ORDER + id + ALERT_UPDATED))
-          .catch(setError);
+          .then(() => {
+            alert(ALERT_ORDER + id + ALERT_UPDATED);
+            this.$router.go();
+          })
+          .catch(err => setError(err));
       }
     },
 
@@ -139,7 +142,7 @@ export default {
     deleteOrder(id) {
       const { TITLE_DELETE_ORDER, API_URL, ALERT_ORDER, ALERT_DELETED } = this.val;
 
-      if (confirm(`${TITLE_DELETE_ORDER} ${id} ?`) === true) {
+      if (confirm(`${TITLE_DELETE_ORDER} ${id} ?`)) {
         const URL = `${API_URL}/orders/${id}`
 
         deleteData(URL, this.token)
@@ -147,7 +150,7 @@ export default {
             alert(ALERT_ORDER + id + ALERT_DELETED);
             this.$router.go();
           })
-          .catch(err => { setError(err) });
+          .catch(err => setError(err));
       }
     }
   }
