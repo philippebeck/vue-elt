@@ -149,7 +149,7 @@ export default {
             alert(this.name + ALERT_CREATED);
             this.$router.go();
           })
-          .catch(err => { setError(err) });
+          .catch(err => setError(err));
       }
     },
 
@@ -171,8 +171,8 @@ export default {
         data.append("author", author);
 
         putData(URL, data, this.token)
-          .then(() => { alert(name + ALERT_UPDATED) })
-          .catch(err => { setError(err) });
+          .then(() => alert(name + ALERT_UPDATED))
+          .catch(err => setError(err));
       }
     },
 
@@ -185,7 +185,7 @@ export default {
       const { TITLE_DELETE, API_URL, ALERT_DELETED } = this.val;
       const NAME = getItemName(id, this.galleries);
 
-      if (confirm(`${TITLE_DELETE} ${NAME} ?`) === true) {
+      if (confirm(`${TITLE_DELETE} ${NAME} ?`)) {
         const URL = `${API_URL}/galleries/${id}`
 
         deleteData(URL, this.token)
@@ -193,7 +193,7 @@ export default {
             alert(NAME + ALERT_DELETED);
             this.$router.go();
           })
-          .catch(err => { setError(err) });
+          .catch(err => setError(err));
       }
     }
   }
