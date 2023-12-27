@@ -134,7 +134,7 @@ figcaption {
   --ve-media-figcaption-display: flex;
   --ve-media-figcaption-flex-flow: column nowrap;
   --ve-media-figcaption-place-content: center;
-  --ve-media-figcaption-max-width: 1000px;
+  --ve-media-figcaption-max-width: 200px;
   --ve-media-figcaption-font-size: 2rem;
   --ve-media-figcaption-font-style: normal;
   --ve-media-figcaption-color: var(--ani-slate);
