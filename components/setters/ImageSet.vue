@@ -188,7 +188,7 @@ export default {
               alert(this.description + ALERT_CREATED);
               this.$router.go();
             })
-            .catch(err => { setError(err) });
+            .catch(err => setError(err));
 
         } else {
           alert(ALERT_IMG);
@@ -218,8 +218,11 @@ export default {
         data.append("galleryId", galleryId);
 
         putData(URL, data, this.token)
-          .then(() => { alert(ALERT_IMAGE + id + ALERT_UPDATED) })
-          .catch(err => { setError(err) });
+          .then(() => {
+            alert(ALERT_IMAGE + id + ALERT_UPDATED);
+            this.$router.go();
+          })
+          .catch(err => setError(err));
       }
     },
 
@@ -231,7 +234,7 @@ export default {
     deleteImage(id) {
       const { TITLE_DELETE_IMAGE, API_URL, ALERT_IMAGE, ALERT_DELETED } = this.val;
 
-      if (confirm(`${TITLE_DELETE_IMAGE} ${id} ?`) === true) {
+      if (confirm(`${TITLE_DELETE_IMAGE} ${id} ?`)) {
         const URL = `${API_URL}/images/${id}`
 
         deleteData(URL, this.token)
@@ -239,7 +242,7 @@ export default {
             alert(ALERT_IMAGE + id + ALERT_DELETED);
             this.$router.go();
           })
-          .catch(err => { setError(err) });
+          .catch(err => setError(err));
       }
     }
   }
