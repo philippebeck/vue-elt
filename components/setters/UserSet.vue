@@ -146,8 +146,11 @@ export default {
         data.append("role", role);
 
         putData(URL, data, this.token)
-          .then(() => alert(name + ALERT_UPDATED))
-          .catch(setError);
+          .then(() => {
+            alert(name + ALERT_UPDATED);
+            this.$router.go();
+          })
+          .catch(err => setError(err));
       }
     },
 
@@ -160,15 +163,15 @@ export default {
       const { TITLE_DELETE, API_URL, ALERT_DELETED } = this.val;
       const NAME = getItemName(id, this.users);
 
-      if (confirm(`${TITLE_DELETE} ${NAME} ?`) === true) {
+      if (confirm(`${TITLE_DELETE} ${NAME} ?`)) {
         const URL = `${API_URL}/users/${id}`;
 
         deleteData(URL, this.token)
           .then(() => {
             alert(NAME + ALERT_DELETED);
-            this.$router.go();
+            this.$router.push("/home");
           })
-          .catch(err => { setError(err) });
+          .catch(err => setError(err));
       }
     }
   }
