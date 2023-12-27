@@ -5,7 +5,7 @@
       <slot name="hide"></slot>
     </button>
 
-    <ul id="side" class="show">
+    <ul id="side" class="hide">
         <li v-if="hasSlot('first')">
           <slot name="first"></slot>
         </li>
