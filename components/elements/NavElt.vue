@@ -147,7 +147,7 @@ export default {
   --ve-nav-ul-a-flex-direction: column;
   --ve-nav-ul-a-hover-color: var(--ani-yellow-light);
   --ve-nav-ul-a-hover-transform: scale(0.9);
-  --ve-nav-last-ul-a-hover-color: var(--ani-red-light);
+  --ve-nav-aside-hover-color: var(--ani-orange-light);
   --ve-nav-button-background-color: transparent;
   --ve-nav-button-border: none;
   --ve-nav-button-cursor: pointer;
@@ -167,20 +167,18 @@ export default {
   --ve-side-a-display: flex;
   --ve-side-a-place-content: center;
   --ve-side-a-place-items: center;
-  --ve-side-a-margin: 5px;
+  --ve-side-a-margin: 2px;
   --ve-side-a-border: none;
   --ve-side-a-border-radius: 20px;
   --ve-side-a-outline: none;
-  --ve-side-a-padding: 5px;
+  --ve-side-a-padding: 10px;
   --ve-side-a-width: 100%;
   --ve-side-a-background-color: var(--ani-white-lighter);
-  --ve-side-a-color: var(--ani-sky-darker);
+  --ve-side-a-color: var(--ani-sky-dark);
   --ve-side-a-cursor: crosshair;
-  --ve-side-a-hover-border-radius: 10px;
-  --ve-side-a-hover-background-color: var(--ani-sky);
-  --ve-side-a-hover-color: var(--ani-white);
-  --ve-side-a-hover-transform: scale(1.1);
-  --ve-side-a-hover-transition: all 500ms;
+  --ve-side-a-hover-background-color: var(--ani-black);
+  --ve-side-a-hover-color: var(--ani-sky-light);
+  --ve-side-a-hover-transition: all 1s;
 }
 
 .hide {
@@ -227,7 +225,6 @@ export default {
   z-index: var(--ve-nav-z-index);
   height: var(--ve-nav-height);
   background-color: var(--ve-nav-background-color);
-  color: var(--ve-nav-color);
 }
 
 .navbar :deep(a),
@@ -268,11 +265,11 @@ export default {
   transform: var(--ve-nav-ul-a-hover-transform) !important;
 }
 
-.navbar :deep(ul):last-of-type a:hover,
-.navbar :deep(ul):last-of-type a:focus,
-.navbar :deep(ul):last-of-type button:hover,
-.navbar :deep(ul):last-of-type button:focus {
-  color: var(--ve-nav-last-ul-a-hover-color);
+.navbar :deep(aside) a:hover,
+.navbar :deep(aside) a:focus,
+.navbar :deep(aside) button:hover,
+.navbar :deep(aside) button:focus {
+  color: var(--ve-nav-aside-hover-color);
 }
 
 .navbar :deep(button) {
@@ -320,10 +317,8 @@ export default {
 .sidebar :deep(a:focus),
 .sidebar button:hover,
 .sidebar button:focus {
-  border-radius: var(--ve-side-a-hover-border-radius);
   color: var(--ve-side-a-hover-color);
   background-color: var(--ve-side-a-hover-background-color);
-  transform: var(--ve-side-a-hover-transform);
   transition: var(--ve-side-a-hover-transition);
 }
 
