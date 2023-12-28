@@ -66,7 +66,7 @@
           :id="table[0].cat">
 
           <template #title>
-            <i :class="`fa-brands fa-${table[0].cat.toLowerCase()} fa-5x sky`"></i>
+            <i :class="`fa-brands fa-${table[0].cat.toLowerCase()} fa-5x blue-dark`"></i>
           </template>
 
           <template #head>{{ val.HEAD_UP }}</template>
@@ -112,7 +112,7 @@
           <template #body="slotProps">
             <BtnElt type="button"
               @click="updateLink(table[slotProps.index].id)" 
-              class="btn-sky"
+              class="btn-blue"
               :title="val.TITLE_UPDATE + table[slotProps.index].name">
               <template #btn>
                 <i class="fa-solid fa-cloud-arrow-up fa-lg fa-fw"></i>
