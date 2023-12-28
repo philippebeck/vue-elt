@@ -2,7 +2,7 @@
   <CardElt id="image-set">
     <template #header>
       <h2>
-        <i class="fa-regular fa-images fa-lg"></i>
+        <i class="fa-solid fa-image fa-lg"></i>
         {{ val.IMAGE_MANAGER }}
       </h2>
     </template>

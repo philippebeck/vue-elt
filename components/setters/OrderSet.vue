@@ -58,7 +58,7 @@
           </template>
 
           <template #cell-createdAt="slotProps">
-            <p>{{ new Date(orders[slotProps.index].created).toLocaleString() }}</p>
+            <p>{{ new Date(orders[slotProps.index].createdAt).toLocaleString() }}</p>
             <BtnElt type="button"
               @click="deleteOrder(orders[slotProps.index].id)" 
               class="btn-red"
@@ -70,7 +70,7 @@
           </template>
 
           <template #cell-updatedAt="slotProps">
-            <p>{{ new Date(orders[slotProps.index].updated).toLocaleString() }}</p>
+            <p>{{ new Date(orders[slotProps.index].updatedAt).toLocaleString() }}</p>
             <BtnElt type="button"
               @click="updateStatus(orders[slotProps.index].id)" 
               class="btn-green"
@@ -95,9 +95,9 @@ import FieldElt from "../elements/FieldElt"
 import TableElt from "../elements/TableElt"
 
 export default {
-  name: "OrderManager",
+  name: "OrderSet",
   components: { BtnElt, CardElt, FieldElt, TableElt },
-  props: ["orders", "users", "token", "val"],
+  props: ["orders", "token", "val"],
 
   methods: {
     /**

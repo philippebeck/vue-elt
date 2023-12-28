@@ -2,7 +2,7 @@
   <CardElt id="product-set">
     <template #header>
       <h2>
-        <i class="fa-regular fa-rectangle-list fa-lg"></i>
+        <i class="fa-regular fa-lightbulb fa-lg"></i>
         {{ val.PRODUCT_MANAGER }}
       </h2>
     </template>

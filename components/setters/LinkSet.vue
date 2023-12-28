@@ -2,7 +2,7 @@
   <CardElt id="link-set">
     <template #header>
       <h2>
-        <i class="fa-solid fa-link fa-lg"></i>
+        <i class="fa-solid fa-list-check fa-lg"></i>
         {{ val.LINK_MANAGER }}
       </h2>
     </template>
