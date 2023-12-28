@@ -5,7 +5,7 @@
       <slot name="hide"></slot>
     </button>
 
-    <ul id="side" class="hide">
+    <ul id="side" :class="{ 'hide': isMobile, 'show': !isMobile }">
         <li v-if="hasSlot('first')">
           <slot name="first"></slot>
         </li>
@@ -61,6 +61,21 @@ export default {
     items: { type: Array }
   },
 
+  data() {
+    return {
+      isMobile: false
+    };
+  },
+
+  mounted() {
+    window.addEventListener('resize', this.handleResize);
+    this.handleResize();
+  },
+
+  unmounted() {
+    window.removeEventListener('resize', this.handleResize);
+  },
+
   methods: {
     /**
      * ? GET NAV CLASS
@@ -69,6 +84,14 @@ export default {
      */
     getNavClass() {
       return this.class === "sidebar" ? "sidebar" : "navbar";
+    },
+
+    /**
+     * ? HANDLE RESIZE
+     * * Handles the resize event & updates the `isMobile` flag accordingly.
+     */
+    handleResize() {
+      this.isMobile = window.innerWidth < 768;
     },
 
     /**
