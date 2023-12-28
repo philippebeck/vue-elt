@@ -2,7 +2,7 @@
   <CardElt id="article-set">
     <template #header>
       <h2>
-        <i class="fa-regular fa-newspaper fa-lg"></i>
+        <i class="fa-regular fa-pen-to-square fa-lg"></i>
         {{ val.ARTICLE_MANAGER }}
       </h2>
     </template>
