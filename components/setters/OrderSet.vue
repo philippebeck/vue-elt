@@ -12,7 +12,7 @@
         <TableElt :items="orders">
 
           <template #cell-id="slotProps">
-            <b>{{ orders[slotProps.index].id }}</b>
+            <b>#{{ orders[slotProps.index].id }}</b>
           </template>
 
           <template #cell-products="slotProps">
@@ -52,9 +52,8 @@
               :info="val.INFO_UP_STATUS"/>
           </template>
 
-          <template #cell-user="slotProps">
-            <b>{{ orders[slotProps.index].user.split('-')[0] }}</b>
-            ({{ orders[slotProps.index].user.split('-')[1] }})
+          <template #cell-userId="slotProps">
+            <b>#{{ orders[slotProps.index].userId }}</b>
           </template>
 
           <template #cell-createdAt="slotProps">
