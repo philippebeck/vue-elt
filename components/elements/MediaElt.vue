@@ -44,7 +44,8 @@
       <img :src="src"
         :alt="alt"
         :title="title"
-        :itemprop="itemprop">
+        :itemprop="itemprop"
+        :loading="loading">
     </picture>
 
     <img v-else
@@ -53,7 +54,8 @@
       :height="height"
       :width="width"
       :title="title"
-      :itemprop="itemprop">
+      :itemprop="itemprop"
+      :loading="loading">
 
     <figcaption v-if="hasSlot('figcaption')">
       <slot name="figcaption"></slot>
@@ -74,7 +76,8 @@ export default {
     alt: String,
     title: String,
     height: Number,
-    itemprop: String
+    itemprop: String,
+    loading: String
   },
   
   methods: {

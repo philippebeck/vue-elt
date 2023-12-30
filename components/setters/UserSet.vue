@@ -39,7 +39,8 @@
           <template #cell-image="slotProps">
             <MediaElt :src="'/img/thumbnails/users/' + users[slotProps.index].image"
               :alt="users[slotProps.index].name"
-              :title="users[slotProps.index].image"/>
+              :title="users[slotProps.index].image"
+              loading="lazy"/>
 
             <FieldElt :id="`image-${users[slotProps.index].id}`"
               type="file"
