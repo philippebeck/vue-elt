@@ -72,7 +72,7 @@ export default {
 
 <style>
 ul {
-  --ve-list-margin: 20px 0;
+  --ve-list-margin: 0;
   --ve-list-padding: 0;
   --ve-list-list-style: none;
   --ve-list-text-align: center;

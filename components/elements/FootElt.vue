@@ -55,6 +55,7 @@ export default {
 
 <style>
 footer {
+  --ve-foot-margin-top: 70px;
   --ve-foot-text-align: center;
   --ve-foot-child-margin: 0;
   --ve-foot-child-padding: 0;
@@ -63,10 +64,10 @@ footer {
   --ve-foot-a-cursor: pointer;
   --ve-foot-ul-display: flex;
   --ve-foot-ul-flex-flow: column;
-  --ve-foot-ul-gap: 20px;
+  --ve-foot-ul-gap: 10px;
   --ve-foot-ul-place-content: center;
   --ve-foot-ul-place-items: center;
-  --ve-foot-ul-padding: 20px;
+  --ve-foot-ul-padding: 10px;
   --ve-foot-ul-background-color: var(--ani-sky-dark);
   --ve-foot-title-margin-bottom: 5px;
   --ve-foot-title-font-size: 2rem;
@@ -105,14 +106,21 @@ aside {
 
 @media (min-width: 992px) {
   footer {
+    --ve-foot-ul-gap: 15vw;
     --ve-foot-ul-place-content: center;
-    --ve-foot-ul-gap: 10%;
+  }
+}
+
+  @media (min-width: 1200px) {
+  footer {
+    --ve-foot-ul-gap: 10vw;
   }
 }
 </style>
 
 <style scoped>
 footer {
+  margin-top: var(--ve-foot-margin-top);
   text-align: var(--ve-foot-text-align);
 }
 
