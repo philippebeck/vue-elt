@@ -12,6 +12,7 @@
       @input="onInput"
       :min="min"
       :max="max"
+      :aria-label="label"
       :itemprop="itemprop"
       :required="required">
 
@@ -21,6 +22,8 @@
       :name="name"
       :value="value"
       @input="onInput"
+      :aria-label="label"
+      :itemprop="itemprop"
       :required="required">
 
     <select v-else-if="getFieldType() === 'list' && content"
@@ -28,6 +31,7 @@
       :name="name"
       @input="onInput"
       :placeholder="info"
+      :aria-label="label"
       :itemprop="itemprop"
       :required="required">
 
@@ -43,6 +47,7 @@
       :name="name"
       @input="onInput"
       :placeholder="info"
+      :aria-label="label"
       :itemprop="itemprop"
       :required="required">
 
@@ -63,6 +68,7 @@
       :maxlength="max"
       :cols="cols"
       :rows="rows"
+      :aria-label="label"
       :itemprop="itemprop"
       :required="required"></textarea>
 
@@ -75,6 +81,7 @@
       :placeholder="info"
       :minlength="min"
       :maxlength="max"
+      :aria-label="label"
       :itemprop="itemprop"
       :required="required">
 
@@ -100,8 +107,9 @@ export default {
     max: { type: Number, default: 50 },
     cols: { type: Number, default: 20 },
     rows: { type: Number, default: 5 },
+    label: String,
     itemprop: String,
-    required: { type: String, default: "required" }
+    required: { type: String, default: "true" }
   },
 
   methods: {

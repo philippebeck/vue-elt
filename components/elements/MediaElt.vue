@@ -1,22 +1,35 @@
 <template>
-  <figure>
-    <audio v-if="type === 'audio'"
-      controls
+  <!-- ! AUDIO -->
+  <figure v-if="type === 'audio'"
+    itemscope 
+    itemtype="https://schema.org/AudioObject">
+
+    <audio controls
       :src="src"
       :loop="loop"
       :title="title"
-      :itemprop="itemprop">
+      itemprop="audio">
       <slot name="audio"></slot>
     </audio>
 
-    <video v-else-if="type === 'video'"
-      controls
+    <figcaption v-if="hasSlot('figcaption')"
+      itemprop="description">
+      <slot name="figcaption"></slot>
+    </figcaption>
+  </figure>
+
+  <!-- ! VIDEO -->
+  <figure v-else-if="type === 'video'"
+    itemscope 
+    itemtype="https://schema.org/VideoObject">
+
+    <video controls
       :src="src"
       :loop="loop"
       :height="height"
       :width="width"
       :title="title"
-      :itemprop="itemprop">
+      itemprop="video">
 
       <source v-for="(video, index) in medias"
         :key="index"
@@ -25,16 +38,36 @@
       <slot name="video"></slot>
     </video>
 
-    <blockquote v-else-if="type === 'quote'"
-      :cite="src"
+    <figcaption v-if="hasSlot('figcaption')"
+      itemprop="description">
+      <slot name="figcaption"></slot>
+    </figcaption>
+  </figure>
+
+  <!-- ! QUOTE -->
+  <figure v-else-if="type === 'quote'"
+    itemscope 
+    itemtype="https://schema.org/Quotation">
+
+    <blockquote :cite="src"
       :title="title"
-      :itemprop="itemprop">
+      itemprop="text">
       {{ content }}
       <slot name="quote"></slot>
     </blockquote>
 
-    <picture v-else-if="type === 'picture'">
+    <figcaption v-if="hasSlot('figcaption')"
+      itemprop="description">
+      <slot name="figcaption"></slot>
+    </figcaption>
+  </figure>
 
+  <!-- ! PICTURE -->
+  <figure v-else-if="type === 'picture'"
+    itemscope 
+    itemtype="https://schema.org/ImageObject">
+
+    <picture>
       <source v-for="(picture, index) in medias"
         :key="index"
         :type="picture.type"
@@ -44,20 +77,31 @@
       <img :src="src"
         :alt="alt"
         :title="title"
-        :itemprop="itemprop"
-        :loading="loading">
+        itemprop="image"
+        loading="lazy">
     </picture>
 
-    <img v-else
-      :src="src"
+    <figcaption v-if="hasSlot('figcaption')"
+      itemprop="description">
+      <slot name="figcaption"></slot>
+    </figcaption>
+  </figure>
+
+  <!-- ! IMG -->
+  <figure v-else
+    itemscope 
+    itemtype="https://schema.org/ImageObject">
+
+    <img :src="src"
       :alt="alt"
       :height="height"
       :width="width"
       :title="title"
-      :itemprop="itemprop"
-      :loading="loading">
+      itemprop="thumbnail"
+      loading="lazy">
 
-    <figcaption v-if="hasSlot('figcaption')">
+    <figcaption v-if="hasSlot('figcaption')"
+      itemprop="description">
       <slot name="figcaption"></slot>
     </figcaption>
   </figure>
@@ -75,9 +119,7 @@ export default {
     medias: Array,
     alt: String,
     title: String,
-    height: Number,
-    itemprop: String,
-    loading: String
+    height: Number
   },
   
   methods: {

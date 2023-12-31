@@ -73,7 +73,7 @@ footer {
   --ve-foot-title-font-family: var(--ani-monospace);
   --ve-foot-title-color: var(--ani-yellow-light);
   --ve-foot-section-a-color: var(--ani-white);
-  --ve-foot-section-a-hover-color: var(--ani-yellow-light);
+  --ve-foot-section-a-hover-color: var(--ani-orange-light);
 }
 
 aside {
