@@ -1,7 +1,7 @@
 <template>
   <nav v-if="getNavClass() === 'sidebar'" class="sidebar">
 
-    <button v-if="hasSlot('hide')" @click="toggleSide()">
+    <button v-if="hasSlot('hide')" @click="toggleSide()" aria-label="show/hide">
       <slot name="hide"></slot>
     </button>
 
@@ -11,7 +11,7 @@
         </li>
 
         <li v-for="(item, index) in items" :key="index">
-          <a :href="`#${item}`" :title="item">
+          <a :href="`#${item}`" :title="item" :aria-label="item">
             <slot name="items" :item="item" :index="index">
               {{ item }}
             </slot>
@@ -23,7 +23,7 @@
         </li>
 
         <li>
-          <a v-if="hasSlot('top')" href="#top">
+          <a v-if="hasSlot('top')" href="#top" aria-label="top">
           <slot name="top"></slot>
           </a>
       </li>
@@ -31,16 +31,15 @@
   </nav>
 
   <nav v-else class="navbar">
-    <a v-if="hasSlot('brand')" href="/" title="Home">
+    <a v-if="hasSlot('brand')" href="/" title="Home" aria-label="Home">
       <slot name="brand"></slot>
     </a>
 
     <ul>
       <li v-for="(item, index) in items" :key="index">
-        <a :href="item.href">
+        <a :href="item.href" :aria-label="item.name">
           <slot name="items" :item="item" :index="index">
-            <i :class="`fa-${item.type} fa-${item.icon} fa-fw`" 
-              :aria-label="item.name"></i>
+            <i :class="`fa-${item.type} fa-${item.icon} fa-fw`"></i>
           </slot>
           <b>{{ item.name }}</b>
         </a>
