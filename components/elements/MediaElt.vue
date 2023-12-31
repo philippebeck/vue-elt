@@ -1,6 +1,7 @@
 <template>
   <!-- ! AUDIO -->
   <figure v-if="type === 'audio'"
+    :itemprop="itemprop"
     itemscope 
     itemtype="https://schema.org/AudioObject">
 
@@ -8,7 +9,7 @@
       :src="src"
       :loop="loop"
       :title="title"
-      itemprop="audio">
+      itemprop="contentUrl">
       <slot name="audio"></slot>
     </audio>
 
@@ -20,6 +21,7 @@
 
   <!-- ! VIDEO -->
   <figure v-else-if="type === 'video'"
+    :itemprop="itemprop"
     itemscope 
     itemtype="https://schema.org/VideoObject">
 
@@ -29,7 +31,7 @@
       :height="height"
       :width="width"
       :title="title"
-      itemprop="video">
+      itemprop="contentUrl">
 
       <source v-for="(video, index) in medias"
         :key="index"
@@ -46,6 +48,7 @@
 
   <!-- ! QUOTE -->
   <figure v-else-if="type === 'quote'"
+    :itemprop="itemprop"
     itemscope 
     itemtype="https://schema.org/Quotation">
 
@@ -64,6 +67,7 @@
 
   <!-- ! PICTURE -->
   <figure v-else-if="type === 'picture'"
+    itemprop="image"
     itemscope 
     itemtype="https://schema.org/ImageObject">
 
@@ -77,7 +81,7 @@
       <img :src="src"
         :alt="alt"
         :title="title"
-        itemprop="image"
+        itemprop="contentUrl"
         loading="lazy">
     </picture>
 
@@ -89,6 +93,7 @@
 
   <!-- ! IMG -->
   <figure v-else
+    itemprop="image"
     itemscope 
     itemtype="https://schema.org/ImageObject">
 
@@ -97,7 +102,7 @@
       :height="height"
       :width="width"
       :title="title"
-      itemprop="thumbnail"
+      itemprop="contentUrl"
       loading="lazy">
 
     <figcaption v-if="hasSlot('figcaption')"
@@ -119,7 +124,8 @@ export default {
     medias: Array,
     alt: String,
     title: String,
-    height: Number
+    height: Number,
+    itemprop: String
   },
   
   methods: {
