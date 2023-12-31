@@ -106,7 +106,6 @@ export default {
     /**
      * ? TOGGLE SIDE
      * * Toggles the visibility of the side element by toggling its show/hide classes.
-     * @return {void} This function does not return anything.
      */
     toggleSide() {
       const side = document.getElementById("side");
