@@ -79,7 +79,8 @@
             <FieldElt :id="`name-${table[slotProps.index].id}`"
               v-model:value="table[slotProps.index].name"
               @keyup.enter="updateLink(table[slotProps.index].id)"
-              :info="val.INFO_UP_NAME">
+              :info="val.INFO_UP_NAME"
+              :label="val.INFO_UP_NAME">
               <template #legend>{{ val.LEGEND_NAME }}</template>
               <template #label>{{ val.LABEL_NAME }}</template>
             </FieldElt>
@@ -91,6 +92,7 @@
               v-model:value="table[slotProps.index].url"
               @keyup.enter="updateLink(table[slotProps.index].id)"
               :info="val.INFO_UP_URL"
+              :label="val.INFO_UP_URL"
               :max="parseInt('100')">
               <template #legend>{{ val.LEGEND_URL }}</template>
               <template #label>{{ val.LABEL_URL }}</template>
@@ -103,7 +105,8 @@
               :list="val.CATS_LINK"
               v-model:value="table[slotProps.index].cat"
               @keyup.enter="updateLink(table[slotProps.index].id)"
-              :info="val.INFO_UP_CAT">
+              :info="val.INFO_UP_CAT"
+              :label="val.INFO_UP_CAT">
               <template #legend>{{ val.LEGEND_CAT }}</template>
               <template #label>{{ val.LABEL_CAT }}</template>
             </FieldElt>
