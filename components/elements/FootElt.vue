@@ -1,6 +1,12 @@
 <template>
   <footer>
-    <ul v-if="hasSlot('foot1') || hasSlot('foot2') || hasSlot('foot3')">
+    <button v-if="hasSlot('hide')" @click="toggleSide()" aria-label="show/hide">
+      <slot name="hide"></slot>
+    </button>
+
+    <ul id="foot" 
+      v-if="hasSlot('foot1') || hasSlot('foot2') || hasSlot('foot3')"
+      :class="{ 'hide': isMobile, 'show': !isMobile }">
 
       <li v-if="hasSlot('foot1')">
         <section>
@@ -38,6 +44,20 @@ export default {
     title2: { type: String, default: "" },
     title3: { type: String, default: "" }
   },
+  data() {
+    return {
+      isMobile: false
+    };
+  },
+
+  mounted() {
+    window.addEventListener('resize', this.handleResize);
+    this.handleResize();
+  },
+
+  unmounted() {
+    window.removeEventListener('resize', this.handleResize);
+  },
 
   methods: {
     /**
@@ -49,14 +69,46 @@ export default {
     hasSlot(name) {
       return Object.prototype.hasOwnProperty.call(this.$slots, name);
     },
+
+    /**
+     * ? HANDLE RESIZE
+     * * Handles the resize event & updates the `isMobile` flag accordingly.
+     */
+    handleResize() {
+      this.isMobile = window.innerWidth < 768;
+    },
+
+    /**
+     * ? TOGGLE SIDE
+     * * Toggles the visibility of the side element by toggling its show/hide classes.
+     */
+    toggleSide() {
+      const foot = document.getElementById("foot");
+      foot.classList.replace("show", "hide") || foot.classList.replace("hide", "show");
+    }
   }
 }
 </script>
 
 <style>
+main {
+  --ve-main-margin-bottom: 200px;
+
+  margin-bottom: var(--ve-main-margin-bottom);
+}
+
 footer {
+  --ve-foot-position: fixed;
+  --ve-foot-bottom: 0;
   --ve-foot-margin-top: 70px;
+  --ve-foot-width: 100%;
   --ve-foot-text-align: center;
+  --ve-foot-button-border: none;
+  --ve-foot-button-background-color: transparent;
+  --ve-foot-button-position: absolute;
+  --ve-foot-button-bottom: 12px;
+  --ve-foot-button-left: 5px;
+  --ve-foot-button-color: var(--ani-sky-dark);
   --ve-foot-child-margin: 0;
   --ve-foot-child-padding: 0;
   --ve-foot-li-list-style: none;
@@ -75,6 +127,14 @@ footer {
   --ve-foot-title-color: var(--ani-yellow-light);
   --ve-foot-section-a-color: var(--ani-white);
   --ve-foot-section-a-hover-color: var(--ani-orange-light);
+}
+
+.hide {
+  --ve-foot-hide-display: none;
+}
+
+.show {
+  --ve-foot-show-display: flex;
 }
 
 aside {
@@ -114,14 +174,36 @@ aside {
   @media (min-width: 1200px) {
   footer {
     --ve-foot-ul-gap: 10vw;
+    --ve-foot-section-a-display: none;
+    --ve-foot-section-a-hover-display: block;
   }
 }
 </style>
 
 <style scoped>
 footer {
+  position: var(--ve-foot-position);
+  bottom: var(--ve-foot-bottom);
   margin-top: var(--ve-foot-margin-top);
+  width: var(--ve-foot-width);
   text-align: var(--ve-foot-text-align);
+}
+
+footer > button {
+  border: var(--ve-foot-button-border);
+  background-color: var(--ve-foot-button-background-color);
+  position: var(--ve-foot-button-position);
+  bottom: var(--ve-foot-button-bottom);
+  left: var(--ve-foot-button-left);
+  color: var(--ve-foot-button-color);
+}
+
+.hide {
+  display: var(--ve-foot-hide-display) !important;
+}
+
+.show {
+  display: var(--ve-foot-show-display);
 }
 
 h3,
