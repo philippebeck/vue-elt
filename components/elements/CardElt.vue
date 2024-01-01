@@ -65,6 +65,7 @@ section {
   --ve-card-width: 100%;
   --ve-card-background-color: transparent;
   --ve-card-color: var(--ani-slate);
+  --ve-card-header-margin-bottom: 30px;
 }
 </style>
 
@@ -79,5 +80,10 @@ section {
   width: var(--ve-card-width);
   background-color: var(--ve-card-background-color);
   color: var(--ve-card-color);
+}
+
+article header,
+section header {
+  margin-bottom: var(--ve-card-header-margin-bottom);
 }
 </style>
