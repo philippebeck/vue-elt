@@ -92,7 +92,7 @@ export default {
 
 <style>
 main {
-  --ve-main-margin-bottom: 200px;
+  --ve-main-margin-bottom: 50px;
 
   margin-bottom: var(--ve-main-margin-bottom);
 }
@@ -100,7 +100,7 @@ main {
 footer {
   --ve-foot-position: fixed;
   --ve-foot-bottom: 0;
-  --ve-foot-margin-top: 70px;
+  --ve-foot-margin-top: 50px;
   --ve-foot-width: 100%;
   --ve-foot-text-align: center;
   --ve-foot-button-border: none;
@@ -151,6 +151,10 @@ aside {
 }
 
 @media (min-width: 576px) {
+  main {
+    --ve-main-margin-bottom: 100px;
+  }
+
   footer {
     --ve-foot-ul-flex-flow: row;
     --ve-foot-ul-place-content: space-around;
@@ -159,6 +163,10 @@ aside {
 }
 
 @media (min-width: 768px) {
+  main {
+    --ve-main-margin-bottom: 200px;
+  }
+
   footer {
     --ve-foot-ul-place-content: space-evenly;
   }
