@@ -100,6 +100,7 @@ main {
 footer {
   --ve-foot-position: fixed;
   --ve-foot-bottom: 0;
+  --ve-foot-z-index: 1000;
   --ve-foot-margin-top: 50px;
   --ve-foot-width: 100%;
   --ve-foot-text-align: center;
@@ -192,6 +193,7 @@ aside {
 footer {
   position: var(--ve-foot-position);
   bottom: var(--ve-foot-bottom);
+  z-index: var(--ve-foot-z-index);
   margin-top: var(--ve-foot-margin-top);
   width: var(--ve-foot-width);
   text-align: var(--ve-foot-text-align);
