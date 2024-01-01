@@ -117,7 +117,7 @@ export default {
 
 <style>
 :root {
-  --ve-nav-margin: 20px;
+  --ve-nav-margin: 10px;
   --ve-nav-height: 50px;
 }
 
@@ -195,7 +195,7 @@ export default {
 
 @media (min-width: 768px) {
   :root {
-    --ve-nav-margin: 40px;
+    --ve-nav-margin: 20px;
     --ve-nav-height: 80px;
   }
 
