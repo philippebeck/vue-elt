@@ -49,16 +49,20 @@
           <template #head>{{ val.HEAD_UP }}</template>
 
           <template #cell-id="slotProps">
-            <b>{{ images[slotProps.index].id }}</b>
+            <BtnElt :content="slotProps.item.id"
+              :href="`${val.UI_URL}/img/galleries/${slotProps.item.name}`"
+              :title="slotProps.item.description"
+              target="_blank"
+              rel="noopener noreferrer"/>
           </template>
 
           <template #cell-name="slotProps">
-            <MediaElt :src="'/img/thumbnails/galleries/' + images[slotProps.index].name"
-              :alt="images[slotProps.index].description"
-              :title="images[slotProps.index].name"
+            <MediaElt :src="'/img/thumbnails/galleries/' + slotProps.item.name"
+              :alt="slotProps.item.description"
+              :title="slotProps.item.name"
               loading="lazy"/>
 
-            <FieldElt :id="`image-${images[slotProps.index].id}`"
+            <FieldElt :id="`image-${slotProps.item.id}`"
               type="file"
               :info="val.INFO_UP_IMAGE">
               <template #legend>{{ val.LEGEND_IMAGE }}</template>
@@ -67,10 +71,10 @@
           </template>
 
           <template #cell-description="slotProps">
-            <FieldElt :id="`description-${images[slotProps.index].id}`"
+            <FieldElt :id="`description-${slotProps.item.id}`"
               type="textarea"
-              v-model:value="getImages()[slotProps.index].description"
-              @keyup.enter="updateImage(images[slotProps.index].id)"
+              v-model:value="slotProps.item.description"
+              @keyup.enter="updateImage(slotProps.item.id)"
               :info="val.INFO_UP_DESCRIPTION">
               <template #legend>{{ val.LEGEND_DESCRIPTION }}</template>
               <template #label>{{ val.LABEL_DESCRIPTION }}</template>
@@ -78,12 +82,12 @@
           </template>
 
           <template #cell-Gallery="slotProps">
-            <FieldElt :id="`gallery-${images[slotProps.index].id}`"
+            <FieldElt :id="`gallery-${slotProps.item.id}`"
               type="select"
               :list="getGalleries"
-              v-model:value="getImages()[slotProps.index].Gallery.name"
-              :content="images[slotProps.index].Gallery.name"
-              @keyup.enter="updateImage(images[slotProps.index].id)"
+              v-model:value="slotProps.item.Gallery.name"
+              :content="slotProps.item.Gallery.name"
+              @keyup.enter="updateImage(slotProps.item.id)"
               :info="val.INFO_UP_GALLERY">
               <template #legend>{{ val.LEGEND_NAME }}</template>
               <template #label>{{ val.LABEL_NAME }}</template>
@@ -92,18 +96,18 @@
 
           <template #body="slotProps">
             <BtnElt type="button"
-              @click="updateImage(images[slotProps.index].id)" 
+              @click="updateImage(slotProps.item.id)" 
               class="btn-sky"
-              :title="val.TITLE_UPDATE + images[slotProps.index].description">
+              :title="val.TITLE_UPDATE + slotProps.item.description">
               <template #btn>
                 <i class="fa-solid fa-cloud-arrow-up fa-lg fa-fw"></i>
               </template>
             </BtnElt>
 
             <BtnElt type="button"
-              @click="deleteImage(images[slotProps.index].id)" 
+              @click="deleteImage(slotProps.item.id)" 
               class="btn-red"
-              :title="val.TITLE_DELETE + images[slotProps.index].description">
+              :title="val.TITLE_DELETE + slotProps.item.description">
               <template #btn>
                 <i class="fa-solid fa-trash-arrow-up fa-lg fa-fw"></i>
               </template>
@@ -157,15 +161,6 @@ export default {
   },
 
   methods: {
-    /**
-     * ? GET IMAGES
-     * * Retrieves the images.
-     * @return {Array} The array of images.
-     */
-    getImages() {
-      return this.images;
-    },
-
     /**
      * ? CREATE IMAGE
      * * Create an image by sending a POST request to the server.
