@@ -12,12 +12,12 @@
         <TableElt :items="orders">
 
           <template #cell-id="slotProps">
-            <b>#{{ orders[slotProps.index].id }}</b>
+            <b>{{ slotProps.item.id }}</b>
           </template>
 
           <template #cell-products="slotProps">
-            <ul :id="'products-' + orders[slotProps.index].id">
-              <li v-for="(item, index) in orders[slotProps.index].products"
+            <ul :id="'products-' + slotProps.item.id">
+              <li v-for="(item, index) in slotProps.item.products"
                 :key="index">
                 <a :href="`/product/${item.id}`">
                   <ul :title="val.TITLE_GO + item.name">
@@ -37,31 +37,31 @@
           </template>
 
           <template #cell-total="slotProps">
-            <b>{{ orders[slotProps.index].total }} €</b>
+            <b>{{ slotProps.item.total }} €</b>
           </template>
 
           <template #cell-payment="slotProps">
-            <b>{{ orders[slotProps.index].payment }}</b>
+            <b>{{ slotProps.item.payment }}</b>
           </template>
 
           <template #cell-status="slotProps">
             <FieldElt type="select"
               :list="val.CATS_ORDER"
-              v-model:value="getOrders()[slotProps.index].status"
-              @keyup.enter="updateStatus(orders[slotProps.index].id)"
+              v-model:value="slotProps.item.status"
+              @keyup.enter="updateStatus(slotProps.item.id)"
               :info="val.INFO_UP_STATUS"/>
           </template>
 
           <template #cell-userId="slotProps">
-            <b>#{{ orders[slotProps.index].userId }}</b>
+            <b>{{ slotProps.item.userId }}</b>
           </template>
 
           <template #cell-createdAt="slotProps">
-            <p>{{ new Date(orders[slotProps.index].createdAt).toLocaleString() }}</p>
+            <p>{{ new Date(slotProps.item.createdAt).toLocaleString() }}</p>
             <BtnElt type="button"
-              @click="deleteOrder(orders[slotProps.index].id)" 
+              @click="deleteOrder(slotProps.item.id)" 
               class="btn-red"
-              :title="val.TITLE_DELETE_ORDER + orders[slotProps.index].id">
+              :title="val.TITLE_DELETE_ORDER + slotProps.item.id">
               <template #btn>
                 <i class="fa-solid fa-trash-arrow-up fa-lg fa-fw"></i>
               </template>
@@ -69,11 +69,11 @@
           </template>
 
           <template #cell-updatedAt="slotProps">
-            <p>{{ new Date(orders[slotProps.index].updatedAt).toLocaleString() }}</p>
+            <p>{{ new Date(slotProps.item.updatedAt).toLocaleString() }}</p>
             <BtnElt type="button"
-              @click="updateStatus(orders[slotProps.index].id)" 
+              @click="updateStatus(slotProps.item.id)" 
               class="btn-green"
-              :title="val.TITLE_UPDATE_ORDER + orders[slotProps.index].id">
+              :title="val.TITLE_UPDATE_ORDER + slotProps.item.id">
               <template #btn>
                 <i class="fa-regular fa-calendar-check fa-lg fa-fw"></i>
               </template>
@@ -99,15 +99,6 @@ export default {
   props: ["orders", "token", "val"],
 
   methods: {
-    /**
-     * ? GET ORDERS
-     * * Get the list of orders.
-     * @return {Array} The list of orders.
-     */
-    getOrders() {
-      return this.orders;
-    },
-
     /**
      * ? UPDATE STATUS
      * * Updates the status of an order.

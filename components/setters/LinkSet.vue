@@ -72,13 +72,17 @@
           <template #head>{{ val.HEAD_UP }}</template>
 
           <template #cell-id="slotProps">
-            <b>{{ slotProps.item.id }}</b>
+            <BtnElt :content="slotProps.item.id"
+              :href="`https://${slotProps.item.url}`"
+              :title="slotProps.item.name"
+              target="_blank"
+              rel="noopener noreferrer"/>
           </template>
 
           <template #cell-name="slotProps">
-            <FieldElt :id="`name-${table[slotProps.index].id}`"
-              v-model:value="table[slotProps.index].name"
-              @keyup.enter="updateLink(table[slotProps.index].id)"
+            <FieldElt :id="`name-${slotProps.item.id}`"
+              v-model:value="slotProps.item.name"
+              @keyup.enter="updateLink(slotProps.item.id)"
               :info="val.INFO_UP_NAME"
               :label="val.INFO_UP_NAME">
               <template #legend>{{ val.LEGEND_NAME }}</template>
@@ -87,10 +91,10 @@
           </template>
 
           <template #cell-url="slotProps">
-            <FieldElt :id="`url-${table[slotProps.index].id}`"
+            <FieldElt :id="`url-${slotProps.item.id}`"
               type="url"
-              v-model:value="table[slotProps.index].url"
-              @keyup.enter="updateLink(table[slotProps.index].id)"
+              v-model:value="slotProps.item.url"
+              @keyup.enter="updateLink(slotProps.item.id)"
               :info="val.INFO_UP_URL"
               :label="val.INFO_UP_URL"
               :max="parseInt('100')">
@@ -100,11 +104,11 @@
           </template>
 
           <template #cell-cat="slotProps">
-            <FieldElt :id="`cat-${table[slotProps.index].id}`"
+            <FieldElt :id="`cat-${slotProps.item.id}`"
               type="select"
               :list="val.CATS_LINK"
-              v-model:value="table[slotProps.index].cat"
-              @keyup.enter="updateLink(table[slotProps.index].id)"
+              v-model:value="slotProps.item.cat"
+              @keyup.enter="updateLink(slotProps.item.id)"
               :info="val.INFO_UP_CAT"
               :label="val.INFO_UP_CAT">
               <template #legend>{{ val.LEGEND_CAT }}</template>
@@ -114,17 +118,17 @@
 
           <template #body="slotProps">
             <BtnElt type="button"
-              @click="updateLink(table[slotProps.index].id)" 
+              @click="updateLink(slotProps.item.id)" 
               class="btn-blue"
-              :title="val.TITLE_UPDATE + table[slotProps.index].name">
+              :title="val.TITLE_UPDATE + slotProps.item.name">
               <template #btn>
                 <i class="fa-solid fa-cloud-arrow-up fa-lg fa-fw"></i>
               </template>
             </BtnElt>
             <BtnElt type="button"
-              @click="deleteLink(table[slotProps.index].id)" 
+              @click="deleteLink(slotProps.item.id)" 
               class="btn-red"
-              :title="val.TITLE_DELETE + table[slotProps.index].name">
+              :title="val.TITLE_DELETE + slotProps.item.name">
               <template #btn>
                 <i class="fa-solid fa-trash-arrow-up fa-lg fa-fw"></i>
               </template>
@@ -158,15 +162,6 @@ export default {
   },
 
   methods: {
-    /**
-     * ? GET LINKS
-     * * Retrieves the links from the current instance.
-     * @return {Array} The array of links.
-     */
-    getLinks() {
-      return this.links;
-    },
-
     /**
      * ? GET ITEMS BY CATEGORY
      * * Retrieves items by category.
