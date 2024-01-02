@@ -51,15 +51,14 @@
           <template #head>{{ val.HEAD_UP }}</template>
 
           <template #cell-id="slotProps">
-            <a :href="`/gallery/${galleries[slotProps.index].id}`">
-              <b>{{ galleries[slotProps.index].id }}</b>
-            </a>
+            <BtnElt :content="slotProps.item.id"
+              :href="`/gallery/${slotProps.item.id}`"/>
           </template>
 
           <template #cell-name="slotProps">
-            <FieldElt :id="`name-${galleries[slotProps.index].id}`"
-              v-model:value="getGalleries()[slotProps.index].name"
-              @keyup.enter="updateGallery(galleries[slotProps.index].id)"
+            <FieldElt :id="`name-${slotProps.item.id}`"
+              v-model:value="slotProps.item.name"
+              @keyup.enter="updateGallery(slotProps.item.id)"
               :info="val.INFO_UP_NAME">
               <template #legend>{{ val.LEGEND_NAME }}</template>
               <template #label>{{ val.LABEL_NAME }}</template>
@@ -67,9 +66,9 @@
           </template>
 
           <template #cell-author="slotProps">
-            <FieldElt :id="`author-${galleries[slotProps.index].id}`"
-              v-model:value="getGalleries()[slotProps.index].author"
-              @keyup.enter="updateGallery(galleries[slotProps.index].id)"
+            <FieldElt :id="`author-${slotProps.item.id}`"
+              v-model:value="slotProps.item.author"
+              @keyup.enter="updateGallery(slotProps.item.id)"
               :info="val.INFO_UP_NAME">
               <template #legend>{{ val.LEGEND_AUTHOR }}</template>
               <template #label>{{ val.LABEL_AUTHOR }}</template>
@@ -78,17 +77,17 @@
 
           <template #body="slotProps">
             <BtnElt type="button"
-              @click="updateGallery(galleries[slotProps.index].id)" 
+              @click="updateGallery(slotProps.item.id)" 
               class="btn-sky"
-              :title="val.TITLE_UPDATE + galleries[slotProps.index].name">
+              :title="val.TITLE_UPDATE + slotProps.item.name">
               <template #btn>
                 <i class="fa-solid fa-cloud-arrow-up fa-lg fa-fw"></i>
               </template>
             </BtnElt>
             <BtnElt type="button"
-              @click="deleteGallery(galleries[slotProps.index].id)" 
+              @click="deleteGallery(slotProps.item.id)" 
               class="btn-red"
-              :title="val.TITLE_DELETE + galleries[slotProps.index].name">
+              :title="val.TITLE_DELETE + slotProps.item.name">
               <template #btn>
                 <i class="fa-solid fa-trash-arrow-up fa-lg fa-fw"></i>
               </template>
@@ -121,15 +120,6 @@ export default {
   },
 
   methods: {
-    /**
-     * ? GET GALLERIES
-     * * Retrieves the galleries.
-     * @return {Array} The list of galleries.
-     */
-    getGalleries() {
-      return this.galleries;
-    },
-
     /**
      * ? CREATE GALLERY
      * * Creates a galleryby sending a POST request to the server.
