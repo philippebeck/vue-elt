@@ -12,13 +12,14 @@
         <TableElt :items="users">
 
           <template #cell-id="slotProps">
-            <b>{{ users[slotProps.index].id }}</b>
+            <BtnElt :content="slotProps.item.id"
+              :href="`mailto:${slotProps.item.email}`"/>
           </template>
 
           <template #cell-name="slotProps">
-            <FieldElt :id="`name-${users[slotProps.index].id}`"
-              v-model:value="getUsers()[slotProps.index].name"
-              @keyup.enter="updateUser(users[slotProps.index].id)"
+            <FieldElt :id="`name-${slotProps.item.id}`"
+              v-model:value="slotProps.item.name"
+              @keyup.enter="updateUser(slotProps.item.id)"
               :info="val.INFO_UP_NAME">
               <template #legend>{{ val.LEGEND_NAME }}</template>
               <template #label>{{ val.LABEL_NAME }}</template>
@@ -26,10 +27,10 @@
           </template>
 
           <template #cell-email="slotProps">
-            <FieldElt :id="`email-${users[slotProps.index].id}`"
+            <FieldElt :id="`email-${slotProps.item.id}`"
               type="email"
-              v-model:value="getUsers()[slotProps.index].email"
-              @keyup.enter="updateUser(users[slotProps.index].id)"
+              v-model:value="slotProps.item.email"
+              @keyup.enter="updateUser(slotProps.item.id)"
               :info="val.INFO_UP_EMAIL">
               <template #legend>{{ val.LEGEND_EMAIL }}</template>
               <template #label>{{ val.LABEL_EMAIL }}</template>
@@ -37,12 +38,12 @@
           </template>
 
           <template #cell-image="slotProps">
-            <MediaElt :src="'/img/thumbnails/users/' + users[slotProps.index].image"
-              :alt="users[slotProps.index].name"
-              :title="users[slotProps.index].image"
+            <MediaElt :src="'/img/thumbnails/users/' + slotProps.item.image"
+              :alt="slotProps.item.name"
+              :title="slotProps.item.image"
               loading="lazy"/>
 
-            <FieldElt :id="`image-${users[slotProps.index].id}`"
+            <FieldElt :id="`image-${slotProps.item.id}`"
               type="file"
               :info="val.INFO_UP_IMAGE">
               <template #legend>{{ val.LEGEND_IMAGE }}</template>
@@ -51,11 +52,11 @@
           </template>
 
           <template #cell-role="slotProps">
-            <FieldElt :id="`role-${users[slotProps.index].id}`"
+            <FieldElt :id="`role-${slotProps.item.id}`"
               type="select"
               :list="val.ROLES_USER"
-              v-model:value="getUsers()[slotProps.index].role"
-              @keyup.enter="updateUser(users[slotProps.index].id)"
+              v-model:value="slotProps.item.role"
+              @keyup.enter="updateUser(slotProps.item.id)"
               :info="val.INFO_UP_ROLE">
               <template #legend>{{ val.LEGEND_ROLE }}</template>
               <template #label>{{ val.LABEL_ROLE }}</template>
@@ -63,12 +64,12 @@
           </template>
 
           <template #cell-createdAt="slotProps">
-            <p>{{ new Date(getUsers()[slotProps.index].createdAt).toLocaleString() }}</p>
+            <p>{{ new Date(slotProps.item.createdAt).toLocaleString() }}</p>
 
             <BtnElt type="button"
-              @click="deleteUser(users[slotProps.index].id)" 
+              @click="deleteUser(slotProps.item.id)" 
               class="btn-red"
-              :title="val.TITLE_DELETE + users[slotProps.index].name">
+              :title="val.TITLE_DELETE + slotProps.item.name">
               <template #btn>
                 <i class="fa-solid fa-trash-arrow-up fa-lg fa-fw"></i>
               </template>
@@ -76,12 +77,12 @@
           </template>
 
           <template #cell-updatedAt="slotProps">
-            <p>{{ new Date(getUsers()[slotProps.index].updatedAt).toLocaleString() }}</p>
+            <p>{{ new Date(slotProps.item.updatedAt).toLocaleString() }}</p>
 
             <BtnElt type="button"
-              @click="updateUser(users[slotProps.index].id)" 
+              @click="updateUser(slotProps.item.id)" 
               class="btn-sky"
-              :title="val.TITLE_UPDATE + users[slotProps.index].name">
+              :title="val.TITLE_UPDATE + slotProps.item.name">
               <template #btn>
                 <i class="fa-solid fa-cloud-arrow-up fa-lg fa-fw"></i>
               </template>
@@ -116,15 +117,6 @@ export default {
   },
 
   methods: {
-    /**
-     * ? GET USERS
-     * * Get the users.
-     * @return {Array} An array of user objects.
-     */
-    getUsers() {
-      return this.users;
-    },
-
     /**
      * ? UPDATE USER
      * * Update a user by their ID.
