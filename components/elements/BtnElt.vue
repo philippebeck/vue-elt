@@ -59,8 +59,8 @@ button {
   --ve-btn-color: var(--ani-black);
   --ve-btn-cursor: pointer;
   --ve-btn-hover-border-radius: 10px;
-  --ve-btn-hover-background-color: var(--ani-black);
-  --ve-btn-hover-color: var(--ani-white);
+  --ve-btn-hover-background-color: var(--ani-silver);
+  --ve-btn-hover-color: var(--ani-black);
   --ve-btn-hover-transition: all 200ms;
   --ve-btn-child-display: block;
   --ve-btn-child-margin: auto;
