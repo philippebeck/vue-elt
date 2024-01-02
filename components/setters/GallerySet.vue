@@ -75,6 +75,19 @@
             </FieldElt>
           </template>
 
+          <template #cell-cover="slotProps">
+            <FieldElt :id="`cover-${slotProps.item.id}`"
+              type="select"
+              :list="getImages"
+              v-model:value="slotProps.item.cover"
+              :content="slotProps.item.cover"
+              @keyup.enter="updateGallery(slotProps.item.id)"
+              :info="val.INFO_UP_COVER">
+              <template #legend>{{ val.LEGEND_COVER }}</template>
+              <template #label>{{ val.LABEL_COVER }}</template>
+            </FieldElt>
+          </template>
+
           <template #body="slotProps">
             <BtnElt type="button"
               @click="updateGallery(slotProps.item.id)" 
@@ -111,11 +124,31 @@ import TableElt from "../elements/TableElt"
 export default {
   name: "GallerySet",
   components: { BtnElt, CardElt, FieldElt, ListElt, TableElt },
-  props: ["galleries", "token", "val"],
+  props: ["galleries", "images", "token", "val"],
   data() {
     return {
       name: "",
       author: ""
+    }
+  },
+
+  computed: {
+    /**
+     * ? GET IMAGES
+     * * Retrieves the images & transforms them into an array of objects.
+     * @return {Array} An array of objects with the content & value properties.
+     */
+    getImages() {
+      const images = [];
+
+      for (let i = 0; i < this.images.length; i++) {
+        images.push({
+          content: this.images[i].name,
+          value: this.images[i].id
+        })
+      }
+
+      return images; 
     }
   },
 
@@ -151,7 +184,7 @@ export default {
     updateGallery(id) {
       const { CHECK_STRING, API_URL, ALERT_UPDATED } = this.val;
       const gallery = this.galleries.find(g => g.id === id);
-      let { name, author } = gallery;
+      let { name, author, cover } = gallery;
 
       if (gallery && checkRange(name, CHECK_STRING) && checkRange(author, CHECK_STRING)) {
         const URL   = `${API_URL}/galleries/${id}`;
@@ -159,6 +192,7 @@ export default {
 
         data.append("name", name);
         data.append("author", author);
+        data.append("cover", cover);
 
         putData(URL, data, this.token)
           .then(() => alert(name + ALERT_UPDATED))
