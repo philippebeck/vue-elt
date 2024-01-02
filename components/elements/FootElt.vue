@@ -75,7 +75,7 @@ export default {
      * * Handles the resize event & updates the `isMobile` flag accordingly.
      */
     handleResize() {
-      this.isMobile = window.innerWidth < 1200;
+      this.isMobile = window.innerWidth < 1600;
     },
 
     /**
@@ -152,10 +152,6 @@ aside {
 }
 
 @media (min-width: 576px) {
-  main {
-    --ve-main-margin-bottom: 100px;
-  }
-
   footer {
     --ve-foot-ul-flex-flow: row;
     --ve-foot-ul-place-content: space-around;
@@ -164,10 +160,6 @@ aside {
 }
 
 @media (min-width: 768px) {
-  main {
-    --ve-main-margin-bottom: 200px;
-  }
-
   footer {
     --ve-foot-ul-place-content: space-evenly;
   }
@@ -186,6 +178,12 @@ aside {
     --ve-foot-section-a-display: none;
     --ve-foot-section-a-hover-display: block;
   }
+}
+
+  @media (min-width: 1600px) {
+    main {
+      --ve-main-margin-bottom: 200px;
+    }
 }
 </style>
 
@@ -209,7 +207,7 @@ footer > button {
 }
 
 .hide {
-  display: var(--ve-foot-hide-display) !important;
+  display: var(--ve-foot-hide-display);
 }
 
 .show {
