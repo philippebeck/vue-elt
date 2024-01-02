@@ -90,7 +90,7 @@ export default {
      * * Handles the resize event & updates the `isMobile` flag accordingly.
      */
     handleResize() {
-      this.isMobile = window.innerWidth < 1200;
+      this.isMobile = window.innerWidth < 768;
     },
 
     /**
