@@ -27,11 +27,7 @@
               :api-key="val.TINY_KEY"
               v-model="text"
               @keyup.enter="createArticle()"
-              :init="{ toolbar:
-                'undo redo outdent indent align lineheight | \
-                bold italic underline strikethrough backcolor | \
-                blocks fontfamily fontsize'
-              }"/>
+              :init="val.TINY_INIT"/>
           </template>
 
           <template #item-3>

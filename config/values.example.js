@@ -76,6 +76,16 @@ export default {
   TEXT_MAX : 5000,
   TEXT_MIN : 8,
 
+  TINY_INIT : { 
+    plugins: 'code image link media emoticons visualblocks preview searchreplace',
+    menubar: 'format edit insert view',
+    toolbar:
+    'bold italic underline strikethrough code forecolor backcolor | \
+    undo redo cut copy paste | \
+    image link media emoticons | \
+    visualblocks preview searchreplace | \
+    blocks fontfamily fontsize styles'
+  },
   TINY_KEY : "{your-tinymce-key}",
 
   URL_MAX : 100,
