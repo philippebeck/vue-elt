@@ -10,6 +10,11 @@
       :loop="loop"
       :title="title"
       itemprop="contentUrl">
+
+      <source v-for="(audio, index) in medias"
+        :key="index"
+        :src="audio.src"
+        :type="audio.type">
       <slot name="audio"></slot>
     </audio>
 
