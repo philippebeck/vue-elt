@@ -81,7 +81,7 @@ ul {
   --ve-list-li-ul-gap: 20px;
   --ve-list-li-ul-place-content: center;
   --ve-list-li-ul-place-items: baseline;
-  --ve-list-li-li-max-width: 300px;
+  --ve-list-li-li-max-width: 500px;
 }
 </style>
 
