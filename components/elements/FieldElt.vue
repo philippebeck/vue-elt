@@ -104,7 +104,7 @@ export default {
     list: Array,
     info: String,
     min: { type: Number, default: 2 },
-    max: { type: Number, default: 50 },
+    max: { type: Number, default: 250 },
     cols: { type: Number, default: 20 },
     rows: { type: Number, default: 5 },
     label: String,
