@@ -182,7 +182,10 @@ export default {
       if (this.url.startsWith("http")) this.url = this.url.split('//')[1];
       if (this.cat === "") this.cat = CAT_LINK;
 
-      if (checkRange(this.name, CHECK_STRING) && checkRegex(`https://${this.url}`, CHECK_URL, REGEX_URL)) {
+      const IS_NAME_CHECKED = checkRange(this.name, CHECK_STRING);
+      const IS_URL_CHECKED  = checkRegex(this.url, CHECK_URL, REGEX_URL);
+
+      if (IS_NAME_CHECKED && IS_URL_CHECKED) {
         const URL   = `${API_URL}/links`;
         const data  = new FormData();
 
@@ -206,10 +209,14 @@ export default {
      */
     updateLink(id) {
       const { CHECK_STRING, REGEX_URL, CHECK_URL, API_URL, ALERT_UPDATED } = this.val;
+
       const link = this.links.find(l => l.id === id);
       let { name, url, cat } = link;
 
-      if (link && checkRange(name, CHECK_STRING) && checkRegex(url, CHECK_URL, REGEX_URL)) {
+      const IS_NAME_CHECKED = link && checkRange(name, CHECK_STRING);
+      const IS_URL_CHECKED  = link && checkRegex(url, CHECK_URL, REGEX_URL);
+
+      if (IS_NAME_CHECKED && IS_URL_CHECKED) {
         const URL   = `${API_URL}/links/${id}`;
         const data  = new FormData();
 

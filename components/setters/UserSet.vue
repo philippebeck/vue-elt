@@ -128,7 +128,10 @@ export default {
       const user = this.users.find(u => u.id === id);
       let { name, email, image, role } = user;
 
-      if (user && checkRange(name, CHECK_STRING) && checkRegex(email, CHECK_EMAIL, REGEX_EMAIL)) {
+      const IS_NAME_CHECKED   = user && checkRange(name, CHECK_STRING);
+      const IS_EMAIL_CHECKED  = user && checkRegex(email, CHECK_STRING, REGEX_EMAIL);
+
+      if (IS_NAME_CHECKED && IS_EMAIL_CHECKED) {
         const URL   = `${API_URL}/users/${id}`;
         const img   = document.getElementById(`image-${id}`)?.files[0] ?? image;
         const data  = new FormData();

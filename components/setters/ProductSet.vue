@@ -135,11 +135,14 @@ export default {
     createProduct() {
       const { ALERT_CREATED, ALERT_IMG, API_URL, CAT_PRODUCT, CHECK_STRING, TEXT_MAX, TEXT_MIN } = this.val;
 
-      if (checkRange(this.name, CHECK_STRING) && 
-          checkRange(this.description, CHECK_STRING, TEXT_MIN, TEXT_MAX) && 
-          checkRange(this.alt, CHECK_STRING)) {
+      if (this.price < 1) this.price = 1;
+      if (this.cat === "") this.cat = CAT_PRODUCT;
 
-        if (this.cat === "") this.cat = CAT_PRODUCT;
+      const IS_NAME_CHECKED = checkRange(this.name, CHECK_STRING);
+      const IS_DESC_CHECKED = checkRange(this.description, CHECK_STRING, TEXT_MIN, TEXT_MAX);
+      const IS_ALT_CHECKED  = checkRange(this.alt, CHECK_STRING);
+
+      if (IS_NAME_CHECKED && IS_DESC_CHECKED && IS_ALT_CHECKED) {
         const img = document.getElementById("image")?.files[0];
 
         if (img !== undefined) {

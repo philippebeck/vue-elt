@@ -203,7 +203,10 @@ export default {
       const image = this.images.find(i => i.id === id);
       let { name, description, galleryId } = image;
 
-      if (image && checkRange(name, CHECK_STRING) && checkRange(description, CHECK_STRING) ) {
+      const IS_NAME_CHECKED = image && checkRange(name, CHECK_STRING);
+      const IS_DESC_CHECKED = image && checkRange(description, CHECK_STRING);
+
+      if (IS_NAME_CHECKED && IS_DESC_CHECKED) {
         const URL   = `${API_URL}/images/${id}`
         const img   = document.getElementById(`image-${id}`)?.files[0] ?? name;
         const data  = new FormData();
