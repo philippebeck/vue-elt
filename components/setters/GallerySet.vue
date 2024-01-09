@@ -160,7 +160,10 @@ export default {
     createGallery() {
       const { ALERT_CREATED, API_URL, CHECK_STRING } = this.val;
 
-      if (checkRange(this.name, CHECK_STRING) && checkRange(this.author, CHECK_STRING)) {
+      const IS_NAME_CHECKED   = checkRange(this.name, CHECK_STRING);
+      const IS_AUTHOR_CHECKED = checkRange(this.author, CHECK_STRING);
+
+      if (IS_NAME_CHECKED && IS_AUTHOR_CHECKED) {
         const URL   = `${API_URL}/galleries`;
         const data  = new FormData();
 
@@ -183,10 +186,14 @@ export default {
      */
     updateGallery(id) {
       const { CHECK_STRING, API_URL, ALERT_UPDATED } = this.val;
+
       const gallery = this.galleries.find(g => g.id === id);
       let { name, author, cover } = gallery;
 
-      if (gallery && checkRange(name, CHECK_STRING) && checkRange(author, CHECK_STRING)) {
+      const IS_NAME_CHECKED   = gallery && checkRange(name, CHECK_STRING);
+      const IS_AUTHOR_CHECKED = gallery && checkRange(author, CHECK_STRING);
+
+      if (IS_NAME_CHECKED && IS_AUTHOR_CHECKED) {
         const URL   = `${API_URL}/galleries/${id}`;
         const data  = new FormData();
 
