@@ -52,6 +52,16 @@
           </template>
 
           <template #item-5>
+              <FieldElt id="url"
+                v-model:value="url"
+                @keyup.enter="updateArticle()"
+                :info="val.INFO_URL">
+                <template #legend>{{ val.LEGEND_URL }}</template>
+                <template #label>{{ val.LABEL_URL }}</template>
+              </FieldElt>
+            </template>
+
+          <template #item-6>
             <FieldElt id="cat"
               type="select"
               :list="val.CATS_ARTICLE"
@@ -80,7 +90,7 @@
 </template>
 
 <script>
-import { checkRange, postData, setError } from "servidio"
+import { checkRange, checkRegex, postData, setError } from "servidio"
 
 import BtnElt from "../elements/BtnElt"
 import CardElt from "../elements/CardElt"
@@ -98,6 +108,7 @@ export default {
       text:"",
       image: "",
       alt: "",
+      url: "",
       cat: ""
     }
   },
@@ -108,13 +119,18 @@ export default {
      * * Creates an article by sending a POST request to the server with the provided data.
      */
     createArticle() {
-      const { ALERT_CREATED, ALERT_IMG, API_URL, CAT_ARTICLE, CHECK_STRING, TEXT_MIN, TEXT_MAX } = this.val;
+      const { ALERT_CREATED, ALERT_IMG, API_URL, CAT_ARTICLE, CHECK_STRING, CHECK_URL, REGEX_URL, TEXT_MIN, TEXT_MAX } = this.val;
 
-      if (checkRange(this.name, CHECK_STRING) && 
-          checkRange(this.text, CHECK_STRING, TEXT_MIN, TEXT_MAX) && 
-          checkRange(this.alt, CHECK_STRING)) {
+      if (this.url.startsWith("http")) this.url = this.url.split('//')[1];
+      if (this.cat === "") this.cat = CAT_ARTICLE;
 
-        if (this.cat === "") this.cat = CAT_ARTICLE;
+      const IS_NAME_CHECKED = checkRange(this.name, CHECK_STRING);
+      const IS_TEXT_CHECKED = checkRange(this.text, CHECK_STRING, TEXT_MIN, TEXT_MAX);
+      const IS_ALT_CHECKED  = checkRange(this.alt, CHECK_STRING);
+
+      const IS_URL_CHECKED = this.url ? checkRegex(this.url, CHECK_URL, REGEX_URL) : true;
+
+      if (IS_NAME_CHECKED && IS_TEXT_CHECKED && IS_ALT_CHECKED && IS_URL_CHECKED) {
         const img = document.getElementById("image")?.files[0];
 
         if (img !== undefined) {
@@ -125,6 +141,7 @@ export default {
           data.append("text", this.text);
           data.append("image", img);
           data.append("alt", this.alt);
+          data.append("url", this.url);
           data.append("cat", this.cat);
 
           postData(URL, data, this.token)
