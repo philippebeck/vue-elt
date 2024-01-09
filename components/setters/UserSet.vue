@@ -129,7 +129,7 @@ export default {
       let { name, email, image, role } = user;
 
       const IS_NAME_CHECKED   = user && checkRange(name, CHECK_STRING);
-      const IS_EMAIL_CHECKED  = user && checkRegex(email, CHECK_STRING, REGEX_EMAIL);
+      const IS_EMAIL_CHECKED  = user && checkRegex(email, CHECK_EMAIL, REGEX_EMAIL);
 
       if (IS_NAME_CHECKED && IS_EMAIL_CHECKED) {
         const URL   = `${API_URL}/users/${id}`;
