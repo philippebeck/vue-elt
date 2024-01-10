@@ -176,7 +176,7 @@ legend {
 }
 
 label {
-  --ve-field-label-width: 90%;
+  --ve-field-label-width: 100%;
   --ve-field-label-visibility: hidden;
   --ve-field-label-font-size: 1.5rem;
   --ve-field-label-font-style: italic;
