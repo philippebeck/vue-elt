@@ -4,77 +4,80 @@
 
 export default {
 
-  // ! ********** ALERT **********
+  // * ********** ALERT **********
 
-  ALERT_CREATED : " created !",
-  ALERT_DELETED : " deleted !",
-  ALERT_IMAGE : "Image #",
-  ALERT_IMG : "An image must be uploaded !",
-  ALERT_ORDER : "Order #",
-  ALERT_UPDATED : " updated !",
-  
-  // ! ********** CATEGORY **********
+  ALERT_CREATED: " created!",
+  ALERT_DELETED: " deleted!",
+  ALERT_IMAGE: "Image #",
+  ALERT_IMG: "An image needs to be uploaded!",
+  ALERT_ORDER: "Order #",
+  ALERT_UPDATED: " updated!",
+
+  // * ********** CATEGORY **********
 
   CATS_ARTICLE : [
-    "Culture",
-    "Fashion",
-    "Health",
-    "Science",
-    "Sport",
-    "Technology", 
-    "Travel"
+    "HTML",
+    "CSS", 
+    "JavaScript",
+    "PHP",
+    "Python",
+    "Git",
+    "Dev"
   ],
 
   CATS_LINK : [
-    "Culture",
-    "Fashion",
-    "Health",
-    "Science",
-    "Sport",
-    "Technology", 
-    "Travel"
+    "HTML5",
+    "CSS3",
+    "JS",
+    "PHP",
+    "Python",
+    "Git",
+    "Dev"
   ],
 
   CATS_ORDER : [
-    "Pending",
-    "Paid",
-    "Done",
-    "Canceled"
+    "En attente",
+    "Payée",
+    "Faite",
+    "Annulée"
   ],
 
   CATS_PRODUCT : [
-    "Culture",
-    "Fashion",
-    "Health",
-    "Science",
-    "Sport",
-    "Technology",
-    "Travel"
+    "Conseil",
+    "Développement",
+    "Formation",
+    "Gestion de Projet"
   ],
 
-  // ! ********** CHECK **********
-  
+  CATS_PROJECT : [
+    "Packages",
+    "Websites"
+  ],
+
+  // * ********** CHECK **********
+
   CHECK_EMAIL : "Your Email is not a valid address.",
-  CHECK_PASS : "Your Password must have 8 to 50 characters, with uppercase, lowercase, 1 number minimum & no space.",
+  CHECK_PASS : "Your Password must have 8 to 100 characters, with uppercase, lowercase, 1 number minimum & no space.",
   CHECK_STRING : "The number of characters must be between ",
   CHECK_URL : "This URL is not a valid path.",
 
-  // ! ********** CONFIG **********
+  // * ********** CONFIG **********
 
   API_URL : "http://localhost:3000",
 
   CAT_ARTICLE : "Technology",
   CAT_LINK : "Technology",
   CAT_PRODUCT : "Technology",
+  CAT_PROJECT : "Websites",
 
-  PRICE_MAX : 5000,
+  PRICE_MAX : 10000,
   PRICE_MIN : 1,
 
   REGEX_EMAIL : /^[a-zA-Z0-9.-_]+[@]{1}[a-zA-Z0-9.-_]+[.]{1}[a-z]{2,10}$/,
   REGEX_URL : /((https?|ftp|ssh|mailto):\/\/)?[a-z0-9\/:%_+.,#?!@&=-]+$/,
 
-  TEXT_MAX : 5000,
-  TEXT_MIN : 8,
+  TEXT_MAX : 65000,
+  TEXT_MIN : 5,
 
   TINY_INIT : { 
     plugins: 'code image link media emoticons visualblocks preview searchreplace',
@@ -88,10 +91,10 @@ export default {
   },
   TINY_KEY : "{your-tinymce-key}",
 
-  URL_MAX : 100,
+  URL_MAX : 250,
   URL_MIN : 5,
 
-  // ! ********** FORM **********
+  // * ********** FORM **********
 
   ARTICLE_FORM : [
     "name", 
@@ -127,7 +130,16 @@ export default {
     "cat"
   ],
 
-  // ! ********** HEADER **********
+  PROJECT_FORM : [
+    "name", 
+    "description", 
+    "image", 
+    "alt",
+    "url",
+    "cat"
+  ],
+
+  // * ********** HEADER **********
 
   ARTICLE_MANAGER : "Article manager",
   GALLERY_MANAGER : "Gallery manager",
@@ -135,9 +147,10 @@ export default {
   LINK_MANAGER : "Link manager",
   ORDER_MANAGER : "Order manager",
   PRODUCT_MANAGER : "Product manager",
+  PROJECT_MANAGER : "Project Manager",
   USER_MANAGER : "User manager",
 
-  // ! ********** INFO **********
+  // * ********** INFO **********
 
   INFO_ALT : "Alternative text",
   INFO_AUTHOR : "Write the author's name",
@@ -148,6 +161,7 @@ export default {
   INFO_OPTIONS : "option-1,option-2,option-3,etc",
   INFO_PRICE : "100 €",
   INFO_URL : "https://",
+
   INFO_UP_CAT : "Update the category",
   INFO_UP_DESCRIPTION : "Update the description",
   INFO_UP_EMAIL : "Update the email",
@@ -158,21 +172,21 @@ export default {
   INFO_UP_STATUS : "Update the status",
   INFO_UP_URL : "Update the URL",
 
-  // ! ********** LABEL **********
+  // * ********** LABEL **********
   
-  LABEL_ALT : "Indicate the alternative text",
+  LABEL_ALT : "Write the alternative text",
   LABEL_AUTHOR : "Indicate the author name",
-  LABEL_CAT : "Indicate the category",
+  LABEL_CAT : "Choose the most appropriate category",
   LABEL_DESCRIPTION : "Indicate the description",
-  LABEL_EMAIL : "Indicate the email",
-  LABEL_IMAGE : "Indicate the image",
-  LABEL_NAME : "Indicate the name",
-  LABEL_OPTIONS : "Indicate the options",
-  LABEL_PRICE : "Indicate the price",
+  LABEL_EMAIL : "Write your email",
+  LABEL_IMAGE : "Provide an image",
+  LABEL_NAME : "Write a name",
+  LABEL_OPTIONS : "Write the options",
+  LABEL_PRICE : "Write the price",
   LABEL_ROLE : "Indicate the role",
   LABEL_URL : "Indicate the URL",
 
-  // ! ********** LEGEND **********
+  // * ********** LEGEND **********
 
   LEGEND_ALT : "Alt",
   LEGEND_AUTHOR : "Author",
@@ -187,7 +201,7 @@ export default {
   LEGEND_TEXT : "Text",
   LEGEND_URL : "Url",
 
-  // ! ********** LIST **********
+  // * ********** LIST **********
 
   ROLES_USER : [
     "admin",
@@ -195,12 +209,12 @@ export default {
     "user"
   ],
 
-  // ! ********** OTHER **********
+  // * ********** OTHER **********
 
   CONTENT_CREATE : "Create ",
   HEAD_UP : "up/del",
 
-  // ! ********** TITLE **********
+  // * ********** TITLE **********
 
   TITLE_ARTICLE : "Create article",
   TITLE_DELETE : "Delete ",
@@ -209,8 +223,8 @@ export default {
   TITLE_GALLERY : "Create gallery",
   TITLE_GO : "Go to ",
   TITLE_IMAGE : "Create image",
-  TITLE_LINK : "Create link",
+  TITLE_LINK : "Create a link",
   TITLE_PRODUCT : "Create product",
   TITLE_UPDATE : "Update ",
-  TITLE_UPDATE_ORDER : "Update status of order #"
+  TITLE_UPDATE_ORDER : "Update status of order #",
 }

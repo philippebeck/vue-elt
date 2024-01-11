@@ -1,6 +1,6 @@
 {
   "name": "vue-elt",
-  "version": "2.5.0-alpha",
+  "version": "2.5.1-alpha",
   "description": "Vue Single File Components Library",
   "keywords": [
     "javascript",
@@ -47,7 +47,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.2.1",
     "@tinymce/tinymce-vue": "^5.1.1",
-    "animadio": "^6.2.5",
+    "animadio": "^6.2.7",
     "servidio": "^3.1.1",
     "vue-recaptcha": "^3.0.0-alpha.6"
   },
