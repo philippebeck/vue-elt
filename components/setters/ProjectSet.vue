@@ -306,6 +306,7 @@ export default {
     /**
      * ? DELETE PROJECT
      * * Deletes an project with the given ID.
+     * @param {type} id - The ID of the project to delete.
      */
     deleteProject(id) {
       const { TITLE_DELETE, API_URL, ALERT_DELETED } = this.val;
