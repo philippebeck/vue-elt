@@ -43,7 +43,7 @@ Vue Single File Component Library
 ## Configuration
 
 To configure the constants, replace values :  
-`values.example.js` *(then rename it values.js)*  
+`values.js`  
 
 ---
 
@@ -67,6 +67,7 @@ Available Setters SFC :
 -   **LinkSet**  
 -   **OrderSet**  
 -   **ProductSet**  
+-   **ProjectSet**  
 -   **UserSet**  
 
 Available Constants Values :  
